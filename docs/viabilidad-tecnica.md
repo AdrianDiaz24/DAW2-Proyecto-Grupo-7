@@ -56,10 +56,10 @@ Para asegurar que nuestra aplicación de salud mental es realizable y eficaz, he
 | Acceso a artículos educativos | Promueve autocuidado y alfabetización emocional | Should |
 | Gráficas de evolución emocional | Visualización y seguimiento de tendencias | Should |
 | Recomendaciones de hábitos o contenidos según estado emocional | Refuerza la personalización y utilidad de la app | Should |
-| Personalización de interfaz (temas, colores) | Mejora experiencia de usuario | Could |
-| Funcionalidades avanzadas de análisis predictivo | Potencia futura basada en datos | Could |
-| Chatbot de apoyo emocional | No incluido en MVP | Won’t |
-| Integración con ONGs/talleres online | No incluido en MVP | Won’t |
+| Personalización de interfaz (temas, colores) | Mejora experiencia de usuario | Could – opción futura sin impacto en MVP |
+| Funcionalidades avanzadas de análisis predictivo | Potencia futura basada en datos | Could – opción futura sin impacto en MVP |
+| Chatbot de apoyo emocional | No incluido en MVP | Won’t – fuera de alcance de tiempo |
+| Integración con ONGs/talleres online | No incluido en MVP | Won’t – fuera de MVP |
 
 <br>
 
@@ -75,7 +75,7 @@ Para asegurar que nuestra aplicación de salud mental es realizable y eficaz, he
   
 - Acceso a artículos e información confiable sobre depresión. Mejora la alfabetización emocional y promueve el autocuidado. Además, refuerza el carácter preventivo y educativo del proyecto.
 
-Estas funcionalidades permiten a los usuarios gestionar su estado emocional de manera autónoma, recibir apoyo digital y acceder a recursos educativos esenciales.
+> Estas funcionalidades permiten a los usuarios gestionar su estado emocional de manera autónoma, recibir apoyo digital y acceder a recursos educativos esenciales.
 
 ---
 
@@ -85,8 +85,8 @@ Estas funcionalidades permiten a los usuarios gestionar su estado emocional de m
 
 ### Frontend (React)
 - **React-router-dom:** navegación entre vistas.
-- **Zustand / Redux Toolkit:** gestión de estado global (Zustand es ligero y simple, Redux robusto para apps escalables).
-- **Material UI / Chakra UI:** componentes modernos, accesibles y con modo oscuro/temas personalizados. 
+- **Zustand / Redux Toolkit:** gestión de estado global; elección basada en complejidad de la app (Zustand para ligereza, Redux para escalabilidad).
+- **Material UI / Chakra UI:** componentes modernos, accesibles, con modo oscuro y soporte de temas personalizados.
 - **React-hook-form + Yup:** validación de formularios de login y registro de emociones.  
 - **Recharts / Chart.js:** visualización de estadísticas y gráficas.  
 - **React-toastify / Sonner:** notificaciones y feedback al usuario.  
@@ -99,7 +99,7 @@ Estas funcionalidades permiten a los usuarios gestionar su estado emocional de m
 - **Nodemailer / Brevo:** envío de correos opcionales.
 - **Node-cron / Agenda.js:** programación de recordatorios y notificaciones automáticas.  
 
-En nuestro caso, la aplicación necesitará autenticación, aunque se mantendrá la opción de anonimato del usuario. Para los usuarios registrados se emplearán JWT (JSON Web Tokens) para manejar sesiones seguras sin almacenar datos sensibles en el servidor, junto con bcrypt para encriptar contraseñas. Los usuarios anónimos podrán generar un alias temporal (ID único local) para mantener su privacidad y anonimato.
+> La autenticación se implementa para usuarios registrados, manteniendo la opción de anonimato mediante un alias temporal. Esto protege la privacidad y cumple con criterios éticos y de seguridad.
 
 ### Base de datos (MongoDB Atlas)
 - Servicio cloud, plan gratuito, persistencia y seguridad, accesible desde backend.
@@ -107,6 +107,8 @@ En nuestro caso, la aplicación necesitará autenticación, aunque se mantendrá
 ### Infraestructura
 - **Frontend:** Vercel (despliegue rápido, CI/CD integrado).  
 - **Backend:** Render o Railway (hosting Node.js, conectividad con MongoDB Atlas).
+
+> La arquitectura cloud permite iteraciones rápidas, actualizaciones automáticas y mantenimiento sencillo, asegurando la viabilidad técnica en el plazo disponible.
 
 ---
 
@@ -223,7 +225,7 @@ Se incluyen componentes clave como las APIs externas, los sistemas de envío de 
 | Adrián | BackEnd (Java, Kotlin), diseño web | FrontEnd (HTML) | BackEnd + API |
 | José Antonio | BackEnd (Java, Kotlin), gestión BBDD | FrontEnd (CSS, JS) | Base de datos + BackEnd |
 
-El proyecto es realista en el tiempo disponible; el principal desafío será la **coordinación y aprendizaje paralelo** de tecnologías.
+> El proyecto es realista en el tiempo disponible; el principal desafío será la **coordinación y aprendizaje paralelo** de tecnologías. Un plan de aprendizaje sugerido podría ser: mini-sprints de 1 semana para cubrir lagunas (FrontEnd básico, Backend básico, integración), pair programming y documentación compartida.
 
 ---
 
