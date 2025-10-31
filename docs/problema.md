@@ -10,6 +10,22 @@ A través de esta recopilación de información, buscamos fundamentar la viabili
 
 <br>
 
+## Índice
+
+[A. Descripción detallada del problema identificado](#a-descripci%C3%B3n-detallada-del-problema-identificado)
+
+[B. Evidencias de investigación](#b-evidencias-de-investigaci%C3%B3n)
+
+[C. Usuarios objetivo (user personas)](#c-usuarios-objetivo-user-personas)
+
+[D. Análisis de competencia](#d-an%C3%A1lisis-de-competencia)
+
+[E. Propuesta de valor](#e-propuesta-de-valor)
+
+---
+
+<br>
+
 ## A. Descripción detallada del problema identificado
 
 <br>
@@ -126,7 +142,7 @@ Para comprender mejor a nuestros usuarios y sus necesidades específicas, hemos 
 
 Para identificar oportunidades de mejora y diferenciar nuestra aplicación, hemos analizado varias soluciones existentes en el mercado de salud mental. Este análisis nos permite comprender sus fortalezas y debilidades, y definir cómo nuestra propuesta puede aportar un valor añadido a los usuarios.
 
-1. Moodfit: app que permite registrar el estado de ánimo, sueño, ejercicio y otros hábitos, además de ofrecer recursos educativos sobre salud mental.
+1. ***Moodfit***: app que permite registrar el estado de ánimo, sueño, ejercicio y otros hábitos, además de ofrecer recursos educativos sobre salud mental.
 
 - Fortalezas: permite el registro completo y flexible de hábitos, presenta funciones de análisis gráficos e información educativa.
   
@@ -134,8 +150,9 @@ Para identificar oportunidades de mejora y diferenciar nuestra aplicación, hemo
 
 - Oportunidad para nuestra app: ofrecer un diario libre con opción de compartirlo de forma segura y mejorar la personalización de notificaciones y consejos basados en los hábitos del usuario.
 
+<br>
 
-2. Daylio: tracker de estado de ánimo que combina registro rápido con hábitos y actividades diarias.
+2. ***Daylio***: tracker de estado de ánimo que combina registro rápido con hábitos y actividades diarias.
 
 - Fortalezas: tiene un uso sencillo y rápido, ideal para registrar emociones en segundos y gráficos visuales que muestran tendencias de estado de ánimo.
   
@@ -143,8 +160,9 @@ Para identificar oportunidades de mejora y diferenciar nuestra aplicación, hemo
   
 - Oportunidades para nuestra app: integrar artículos y recursos educativos confiables y añadir estrategias de actuación ante situaciones peligrosas.
 
+<br>
 
-3. Woebot: chatbot de apoyo emocional que guía al usuario mediante técnicas de terapia cognitivo-conductual (TCC).
+3. ***Woebot***: chatbot de apoyo emocional que guía al usuario mediante técnicas de terapia cognitivo-conductual (TCC).
 
 - Fortalezas: tiene interacción individual y personalizada con el usuario, y un sistema que aprende de los patrones de uso para adaptar recomendaciones.
   
@@ -161,3 +179,22 @@ Para identificar oportunidades de mejora y diferenciar nuestra aplicación, hemo
 Nuestra aplicación ofrece un enfoque integral y autónomo para el seguimiento y manejo de la depresión, diseñado especialmente para personas que no tienen acceso regular a atención psicológica profesional. Combina un registro estructurado de hábitos y estado emocional con un diario libre seguro, que permite al usuario expresarse y, si lo desea, compartir su contenido mediante un enlace protegido. Gracias a un sistema de aprendizaje personalizado, la app identifica patrones en los hábitos y emociones del usuario, reconociendo posibles desencadenantes de episodios depresivos y preferencias que fomentan el bienestar, y envía notificaciones y recomendaciones adaptadas a sus necesidades individuales. Además, incorpora un repositorio de artículos e información confiable sobre depresión y autocuidado, brindando educación en salud mental para fomentar el autoconocimiento y la gestión efectiva de la enfermedad. Por último, cuenta con un botón de emergencia accesible en todo momento, ofreciendo al usuario seguridad y herramientas inmediatas para situaciones críticas. 
 
 En conjunto, esta combinación de funcionalidades proporciona una herramienta de apoyo individual, segura, educativa y personalizada, que cubre lagunas existentes en otras aplicaciones y permite al usuario gestionar su bienestar emocional de manera autónoma y responsable.
+
+---
+
+<br>
+
+## Bibliografía
+
+- Organización Mundial de la Salud (OMS). *Depression*. WHO, 2023. Disponible en: [https://www.who.int/news-room/fact-sheets/detail/depression](https://www.who.int/news-room/fact-sheets/detail/depression)
+
+- Instituto Nacional de Estadística (INE). *Indicadores de Salud Mental en España*. Disponible en: [https://www.ine.es](https://www.ine.es)
+
+- Kumar, S. et al. “Digital interventions for depression: Design and safety considerations.” *Journal of Medical Internet Research*, 2021;23(12):e25664.
+
+- Pennebaker, J. W. *Writing to Heal: A Guided Journal for Recovering from Trauma & Emotional Upheaval.* 1997.
+
+- Mohr, D. C. et al. “Supportive accountability: a model for providing human support to enhance adherence to eHealth interventions.” *Journal of Medical Internet Research*, 2017;19(1):e30.
+
+- Jorm, A. F. “Mental health literacy: empowering the community to take action for better mental health.” *American Psychologist*, 2012;67(3):231-243.
+
