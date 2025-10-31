@@ -8,6 +8,24 @@ Para asegurar que nuestra aplicación de salud mental es realizable y eficaz, he
 
 <br>
 
+## Índice
+
+[A. Requisitos funcionales priorizados.](#a-requisitos-funcionales-priorizados)
+
+[B. Requisitos técnicos del stack MERN](#b-requisitos-t%C3%A9cnicos-del-stack-mern)
+
+[C. Esquema de base de datos](#c-esquema-de-base-de-datos)
+
+[D. Arquitectura de la aplicación](#d-arquitectura-de-la-aplicaci%C3%B3n-diagrama)
+
+[E. Evaluación de capacidades del equipo](#e-evaluaci%C3%B3n-de-capacidades-del-equipo)
+
+[F. Análisis de riesgos y estrategias de mitigación](#f-an%C3%A1lisis-de-riesgos-y-estrategias-de-mitigaci%C3%B3n)
+
+---
+
+<br>
+
 ## A. Requisitos funcionales priorizados.
 
 ### Funcionalidades principales
