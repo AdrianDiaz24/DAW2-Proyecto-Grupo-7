@@ -22,6 +22,8 @@ A través de esta recopilación de información, buscamos fundamentar la viabili
 
 [E. Propuesta de valor](#e-propuesta-de-valor)
 
+[Bibliografía](#bibliograf%C3%ADa)
+
 ---
 
 <br>
@@ -186,15 +188,20 @@ En conjunto, esta combinación de funcionalidades proporciona una herramienta de
 
 ## Bibliografía
 
+
 - Organización Mundial de la Salud (OMS). *Depression*. WHO, 2023. Disponible en: [https://www.who.int/news-room/fact-sheets/detail/depression](https://www.who.int/news-room/fact-sheets/detail/depression)
+
 
 - Instituto Nacional de Estadística (INE). *Indicadores de Salud Mental en España*. Disponible en: [https://www.ine.es](https://www.ine.es)
 
+
 - Kumar, S. et al. “Digital interventions for depression: Design and safety considerations.” *Journal of Medical Internet Research*, 2021;23(12):e25664.
+
 
 - Pennebaker, J. W. *Writing to Heal: A Guided Journal for Recovering from Trauma & Emotional Upheaval.* 1997.
 
 - Mohr, D. C. et al. “Supportive accountability: a model for providing human support to enhance adherence to eHealth interventions.” *Journal of Medical Internet Research*, 2017;19(1):e30.
+
 
 - Jorm, A. F. “Mental health literacy: empowering the community to take action for better mental health.” *American Psychologist*, 2012;67(3):231-243.
 
