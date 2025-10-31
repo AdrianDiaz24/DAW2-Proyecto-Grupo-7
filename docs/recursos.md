@@ -10,13 +10,13 @@ Para asegurar el desarrollo eficiente del proyecto, se han definido los recursos
 
 ## Índice
 
-[]()
+[A. Distribución de roles y responsabilidades](#a-distribuci%C3%B3n-de-roles-y-responsabilidades)
 
-[]()
+[B. Stack tecnológico completo](#b-stack-tecnol%C3%B3gico-completo)
 
-[]()
+[C. Servicios externos y APIs a utilizar](#c-servicios-externos-y-apis-a-utilizar)
 
-[]()
+[D. Herramientas de desarrollo y gestión](#d-herramientas-de-desarrollo-y-gesti%C3%B3n)
 
 
 ---
