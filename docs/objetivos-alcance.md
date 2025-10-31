@@ -10,6 +10,13 @@ El propósito de esta fase es definir claramente los objetivos del proyecto, ase
 
 ## Índice
 
+[A. Objetivos SMART del proyecto](#a-objetivos-smart-del-proyecto)
+
+[B. Definición del MVP](#b-definici%C3%B3n-del-mvp)
+
+[C. Delimitación del alcance](#c-delimitaci%C3%B3n-del-alcance)
+
+[D. Criterios de éxito](#d-criterios-de-%C3%A9xito)
 
 ---
 
@@ -112,7 +119,7 @@ Estas ampliaciones permitirían incrementar la personalización y escalabilidad 
 
 <br>
 
-## Criterios de éxito
+## D. Criterios de éxito
 
 El éxito del proyecto se medirá a través de indicadores cuantitativos y cualitativos, garantizando que los objetivos SMART puedan evaluarse objetivamente:
 
