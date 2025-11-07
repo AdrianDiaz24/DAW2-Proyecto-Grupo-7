@@ -15,8 +15,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+//app.use('/', indexRouter);
+//app.use('/users', usersRouter);
+
+app.get('/', (req, res) => {
+    res.send('Funciona')
+})
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
