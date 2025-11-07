@@ -26,13 +26,13 @@ MindCare está orientada a jóvenes y adultos en situación de vulnerabilidad ec
 ## Información del equipo
 
 ### Adrián Díaz Angulo
-- **Rol:** Backend Lead  
+- **Rol:** Backend Lead.
 - **Responsabilidades:** Diseño e implementación del servidor, API REST, autenticación y seguridad, integración de funcionalidades del MVP.
 
 ### Rocío Luque Montes
-- **Rol:** Frontend Lead  
+- **Rol:** Frontend Lead.
 - **Responsabilidades:** Diseño e implementación de la interfaz y experiencia de usuario, desarrollo de vistas principales en React, integración con la API, accesibilidad y coherencia visual.
 
 ### José Antonio Díaz Busati
-- **Rol:** Database Manager  
+- **Rol:** Database Manager.
 - **Responsabilidades:** Diseño del modelo de datos en MongoDB, gestión de la persistencia de información, soporte en integración con el backend.
