@@ -1,0 +1,28 @@
+{
+  "name": "daw2-proyecto-grupo-7",
+  "version": "1.0.0",
+  "description": "**MindCare** – Aplicación web para el seguimiento y gestión de la salud mental.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdrianDiaz24/DAW2-Proyecto-Grupo-7.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/AdrianDiaz24/DAW2-Proyecto-Grupo-7/issues"
+  },
+  "homepage": "https://github.com/AdrianDiaz24/DAW2-Proyecto-Grupo-7#readme",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "mongodb": "^7.0.0"
+  }
+}
