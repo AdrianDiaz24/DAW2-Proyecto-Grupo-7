@@ -1,7 +1,18 @@
 
 require('dotenv').config();
 
+const express = require('express');
+const cors = require('cors');
+const path = require('path');
 const { MongoClient, ServerApiVersion } = require('mongodb');
+
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+app.use(express.static(path.join(__dirname, '../public')));
+
 const uri = process.env.URL_DB;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
@@ -11,6 +22,10 @@ const client = new MongoClient(uri, {
         strict: true,
         deprecationErrors: true,
     }
+});
+
+app.get("/api/test", (req, res) => {
+    res.json({ message: "Conexión backend funcionando" });
 });
 
 async function run() {
@@ -25,4 +40,9 @@ async function run() {
         await client.close();
     }
 }
-run().catch(console.dir);
+run();
+
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => {
+    console.log(`Servidor corriendo en http://localhost:${PORT}`);
+});
