@@ -19,6 +19,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+const authRouter = require('./routes/auth.routes');
+
+app.use('/api/auth', authRouter);
+
 //app.use('/', indexRouter);
 //app.use('/users', usersRouter);
 
