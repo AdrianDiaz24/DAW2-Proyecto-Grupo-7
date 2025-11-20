@@ -40,13 +40,13 @@ async function connectDBAndStartServer() {
         app.use('/api', healthRoutes);
 
         // Ruta de bienvenida
-        app.get('/api/', (req, res) => {
+        app.get('/api', (req, res) => {
             res.send('¡El servidor está funcionando y conectado a la base de datos!');
         });
 
         // Iniciar el servidor Express para que escuche peticiones
         app.listen(port, () => {
-            console.log(`Servidor corriendo en http://localhost:${port}`);
+            console.log(`Servidor corriendo en http://localhost:${port}/api`);
         });
 
     } catch (error) {
