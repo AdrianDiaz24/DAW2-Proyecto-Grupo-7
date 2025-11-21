@@ -1,90 +1,68 @@
-#!/usr/bin/env node
+const express = require('express');
+const { MongoClient, ServerApiVersion } = require('mongodb');
+require('dotenv').config();
 
-/**
- * Module dependencies.
- */
+// --- Configuración de Express ---
+const app = express();
+const port = process.env.PUERTO_BACKEND || 3000;
 
-var app = require('./app');
-var debug = require('debug')('backend:server');
-var http = require('http');
-
-/**
- * Get port from environment and store in Express.
- */
-
-var port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
-
-/**
- * Create HTTP server.
- */
-
-var server = http.createServer(app);
-
-/**
- * Listen on provided port, on all network interfaces.
- */
-
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
-
-/**
- * Normalize a port into a number, string, or false.
- */
-
-function normalizePort(val) {
-  var port = parseInt(val, 10);
-
-  if (isNaN(port)) {
-    // named pipe
-    return val;
-  }
-
-  if (port >= 0) {
-    // port number
-    return port;
-  }
-
-  return false;
+// --- Configuración de MongoDB ---
+const uri = process.env.URL_DB;
+if (!uri) {
+    console.error("La variable de entorno URL_DB no está definida. Revisa tu archivo .env");
+    process.exit(1);
 }
 
-/**
- * Event listener for HTTP server "error" event.
- */
+const client = new MongoClient(uri, {
+    serverApi: {
+        version: ServerApiVersion.v1,
+        strict: true,
+        deprecationErrors: true,
+    }
+});
 
-function onError(error) {
-  if (error.syscall !== 'listen') {
-    throw error;
-  }
+async function connectDBAndStartServer() {
+    try {
+        // Conectar el cliente al servidor de MongoDB
+        await client.connect();
+        // Enviar un ping para confirmar una conexión exitosa
+        await client.db("admin").command({ ping: 1 });
+        console.log("Pinged your deployment. You successfully connected to MongoDB!");
 
-  var bind = typeof port === 'string'
-    ? 'Pipe ' + port
-    : 'Port ' + port;
+        // --- Middlewares y Rutas de Express ---
+        // Solo después de una conexión exitosa a la BD, configuramos y arrancamos el servidor.
 
-  // handle specific listen errors with friendly messages
-  switch (error.code) {
-    case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
-      process.exit(1);
-      break;
-    case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
-      process.exit(1);
-      break;
-    default:
-      throw error;
-  }
+        // Middleware para parsear JSON
+        app.use(express.json());
+
+        // Importar y usar las rutas (ej. health check)
+        const healthRoutes = require('./routes/health.routes.js');
+        app.use('/api', healthRoutes);
+
+        // Ruta de bienvenida
+        app.get('/api', (req, res) => {
+            res.send('¡El servidor está funcionando y conectado a la base de datos!');
+        });
+
+        // Iniciar el servidor Express para que escuche peticiones
+        app.listen(port, () => {
+            console.log(`Servidor corriendo en http://localhost:${port}/api`);
+        });
+
+    } catch (error) {
+        // Manejo de errores de conexión a la base de datos
+        console.error("No se pudo conectar a la base de datos.", error);
+        await client.close(); // Asegurarse de cerrar el cliente si hay un error al inicio
+        process.exit(1);
+    }
 }
 
-/**
- * Event listener for HTTP server "listening" event.
- */
+// Llamar a la función para conectar a la BD e iniciar el servidor
+connectDBAndStartServer();
 
-function onListening() {
-  var addr = server.address();
-  var bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
-  debug('Listening on ' + bind);
-}
+// Manejar el cierre de la aplicación para cerrar la conexión a la BD
+process.on('SIGINT', async () => {
+    console.log('Cerrando la conexión a la base de datos...');
+    await client.close();
+    process.exit(0);
+});
