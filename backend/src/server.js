@@ -39,6 +39,9 @@ async function connectDBAndStartServer() {
         const healthRoutes = require('./routes/health.routes.js');
         app.use('/api', healthRoutes);
 
+        const authRoutes = require('./routes/auth.routes.js');
+        app.use('/api/auth', authRoutes);
+
         // Ruta de bienvenida
         app.get('/api', (req, res) => {
             res.send('¡El servidor está funcionando y conectado a la base de datos!');
