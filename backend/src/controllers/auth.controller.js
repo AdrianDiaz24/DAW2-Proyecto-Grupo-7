@@ -71,7 +71,19 @@ const loginUser = async (req, res) => {
             { expiresIn: '1h' },
             (err, token) => {
                 if (err) throw err;
-                res.json({ token });
+
+                // Devolver token Y datos del usuario (sin contraseña)
+                res.json({
+                    token,
+                    user: {
+                        id: user.id,
+                        email: user.email,
+                        nombre: user.nombre,
+                        alias: user.alias,
+                        createdAt: user.createdAt,
+                        updatedAt: user.updatedAt
+                    }
+                });
             }
         );
 
@@ -80,7 +92,27 @@ const loginUser = async (req, res) => {
     }
 };
 
+/**
+ * Controlador para obtener el perfil del usuario autenticado
+ * Esta es una ruta protegida que requiere el authMiddleware
+ */
+const getProfile = async (req, res) => {
+    try {
+        // req.user viene del middleware de autenticación
+        const user = await User.findById(req.user.id).select('-password');
+
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        res.json({ user });
+    } catch (error) {
+        res.status(500).json({ message: 'Error fetching profile', error });
+    }
+};
+
 module.exports = {
     registerUser,
     loginUser,
+    getProfile,
 };

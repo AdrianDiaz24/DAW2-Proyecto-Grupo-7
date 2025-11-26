@@ -33,7 +33,7 @@ const usuarioSchema = new Schema({
 
 
 usuarioSchema.pre('save', async function (next) {
-    if (!this.isModified('contraseña')) return next();
+    if (!this.isModified('password')) return next();
 
     try {
         const salt = await bcrypt.genSalt(SALT_WORK_FACTOR);
