@@ -29,6 +29,14 @@ const usuarioSchema = new Schema({
         trim: true,
         default: '',
     },
+    formularioCompletado: {
+        type: Boolean,
+        default: false,
+    },
+    contactoEmergenciaAnadido: {
+        type: Boolean,
+        default: false,
+    },
 }, { timestamps: true });
 
 

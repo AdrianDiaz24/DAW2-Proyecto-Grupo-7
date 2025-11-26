@@ -11,33 +11,110 @@ const registroSchema = new Schema({
         type: Date,
         default: Date.now,
     },
-    calidadSueno: {
-        type: Number,
-        min: 0,
-        max: 10,
-        required: true,
-    },
     estadoAnimo: {
-        type: String,
-        required: true,
+        emociones: [{
+            nombre: {
+                type: String,
+                enum: [
+                    'Cambios de ánimo',
+                    'Sin control',
+                    'Bien',
+                    'Feliz',
+                    'Triste',
+                    'Sensible',
+                    'Rabia',
+                    'Seguridad',
+                    'Entusiasmo',
+                    'Irritabilidad',
+                    'Ansiedad',
+                    'Inseguridad',
+                    'Gratitud',
+                    'Indiferencia'
+                ]
+            },
+            intensidad: Number,
+        }],
+        comentario: String,
     },
-    nivelAnsiedad: {
-        type: Number,
-        min: 0,
-        max: 10,
-        required: true,
+    sueno: {
+        horaInicioSueno: String,
+        horaDespertar: String,
+        dificultadDormir: Boolean,
+        despertaresNocturnos: Boolean,
+        cansancioDespertar: Boolean,
+        suenoNoReparador: Boolean,
+        suenosVividos: Boolean,
+        notasSueno: String,
     },
-    actividades: {
-        type: [String],
-        default: [],
+    actividadFisica: [{
+        nombre: String,
+        duracion: Number, // en minutos
+        intensidad: {
+            type: String,
+            enum: ['baja', 'moderada', 'alta'],
+        },
+    }],
+    alimentacion: {
+        regularidadComidas: String,
+        calidadDieta: {
+            frutasVerduras: Boolean,
+            ultraprocesados: Boolean,
+            azucar: Boolean,
+            cafeina: Boolean,
+            alcohol: Boolean,
+        },
+        apetito: {
+            type: String,
+            enum: ['disminuido', 'normal', 'aumentado'],
+        },
     },
-    notasDiario: {
-        type: String,
-        default: '',
+    interaccionesSociales: {
+        cantidad: {
+            type: String,
+            enum: ['sociable', 'introvertido'],
+        },
+        calidad: {
+            type: String,
+            enum: ['apoyo', 'conflicto'],
+        },
+        notasSociales: String,
     },
-    agradecimiento: {
-        type: String,
-        default: '',
+    cognicion: [{
+        nombre: {
+            type: String,
+            enum: [
+                'Poca memoria',
+                'Niebla mental',
+                'Tranquilidad',
+                'Estrés',
+                'Concentración',
+                'Distracción',
+                'Motivación',
+                'Sin motivación',
+                'Creatividad',
+                'Alto rendimiento',
+                'Bajo rendimiento'
+            ]
+        },
+        intensidad: Number,
+    }],
+    actividadesPlacenteras: [{
+        nombre: String,
+        disfrute: Number, // 1-10
+        logro: Number, // 1-10
+    }],
+    medicacion: [{
+        nombre: String,
+        dosis: String,
+        tomado: Boolean,
+        efectosSecundarios: String,
+    }],
+    energia: {
+        nivel: {
+            type: String,
+            enum: ['agotamiento', 'cansancio', 'ok', 'vitalizacion', 'alto rendimiento'],
+        },
+        intensidad: Number,
     },
 }, { timestamps: true });
 
