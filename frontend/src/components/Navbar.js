@@ -1,12 +1,9 @@
-// src/components/Navbar.js
 import React from "react";
 import { Link } from "react-router-dom";
+import { useAuthStore } from "../store/authStore";
 
 const Navbar = ({ isAuthenticated, setIsAuthenticated }) => {
-    const handleLogout = () => {
-        setIsAuthenticated(false);
-        localStorage.removeItem("isAuthenticated");
-    };
+    const { user, logout } = useAuthStore();
 
     return (
         <nav>
@@ -14,7 +11,7 @@ const Navbar = ({ isAuthenticated, setIsAuthenticated }) => {
             {isAuthenticated && <Link to="/home">Home</Link>}
             {!isAuthenticated && <Link to="/login">Login</Link>}
             {!isAuthenticated && <Link to="/register">Register</Link>}
-            {isAuthenticated && <button onClick={handleLogout}>Logout</button>}
+            {isAuthenticated && <button onClick={logout}>Logout</button>}
         </nav>
     );
 };
