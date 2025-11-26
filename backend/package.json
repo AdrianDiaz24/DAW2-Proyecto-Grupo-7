@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
-    "test:auth": "node scripts/test-auth.js"
+    "test:auth": "node scripts/test-auth.js",
+    "test:cors": "node scripts/test-cors.js"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",

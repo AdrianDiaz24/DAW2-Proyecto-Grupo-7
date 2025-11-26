@@ -1,16 +1,33 @@
-# AuthMiddleware - Middleware de Autenticación
+# Backend - API de Autenticación
 
 ## 📋 Descripción
 
-Middleware de protección JWT para autenticar y autorizar rutas en la aplicación backend.
+API RESTful con autenticación JWT y configuración CORS para integración con el frontend.
 
 ## 🎯 Características
 
-- ✅ Verificación de tokens JWT
+- ✅ Autenticación JWT (JSON Web Tokens)
+- ✅ Registro y login de usuarios
 - ✅ Protección de rutas sensibles
-- ✅ Soporte para autenticación opcional
+- ✅ **CORS configurado** para integración con frontend
+- ✅ Encriptación de contraseñas con bcrypt
 - ✅ Manejo de errores detallado
 - ✅ Compatible con formato Bearer Token
+
+## 🌐 Configuración CORS
+
+El backend está configurado con CORS para permitir peticiones desde el frontend.
+
+**Configuración actual:**
+- **Origin permitido:** Configurable via `FRONTEND_URL` en `.env` (por defecto: `http://localhost:3001`)
+- **Credentials:** Habilitado (soporta cookies y headers de autenticación)
+
+**Pasos importantes:**
+1. Verifica en qué puerto corre tu frontend
+2. Actualiza `FRONTEND_URL` en `backend/.env` con ese puerto
+3. Reinicia el backend después de cambiar `.env`
+
+Ver más detalles en: [CORS-CONFIG.md](./CORS-CONFIG.md)
 
 ## 📦 Archivos Creados
 
