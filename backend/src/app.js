@@ -56,3 +56,18 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+// Otros middlewares, parseo JSON, etc.
+app.use(express.json());
+
+// Importar rutas IA
+const aiRoutes = require('./routes/ai.routes');
+
+// Usar rutas IA con prefijo "/api"
+app.use('/api', aiRoutes);
+
+// Resto de configuración del servidor...
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Servidor escuchando en puerto ${PORT}`);
+});
