@@ -1,17 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthStore } from "../store/authStore";
+import { apiConfig } from "../config/api";
 
-const Login = ({ setIsAuthenticated }) => {
+const Login = () => {
     const navigate = useNavigate();
-    const { setAuth } = useAuthStore();
+    const { user, setAuth } = useAuthStore();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    // Redirigir si ya está autenticado
+    useEffect(() => {
+        if (user) {
+            navigate("/home");
+        }
+    }, [user, navigate]);
 
     async function handleLogin(e) {
         e.preventDefault();
         try {
-            const res = await fetch("http://localhost:4000/api/login", {
+            const res = await fetch(apiConfig.endpoints.login, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email, password }),
