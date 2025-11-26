@@ -40,7 +40,7 @@ diarioSchema.pre('save', async function (next) {
     }
 });
 
-// Método para comparar la contraseña
+// Métod0 para comparar la contraseña
 diarioSchema.methods.compararPassword = async function (candidatePassword) {
     if (!this.password) {
         return false; // No hay contraseña con la que comparar
