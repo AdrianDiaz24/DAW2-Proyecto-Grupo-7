@@ -17,7 +17,7 @@ app.use(helmet());
 
 // Configuración de CORS
 const corsOptions = {
-    origin: process.env.FRONTEND_URL || 'http://localhost:3001', // Puerto típico de React cuando backend usa 3000
+    origin: process.env.FRONTEND_URL || 'http://localhost:3000', // Puerto típico de React cuando backend usa 3000
     credentials: true, // Permitir envío de cookies y headers de autenticación
     optionsSuccessStatus: 200
 };
