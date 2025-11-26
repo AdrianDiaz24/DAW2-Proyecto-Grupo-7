@@ -9,11 +9,11 @@ async function analizarDatosUsuario(dataUsuario) {
             headers: {
                 'Authorization': API_KEY,
                 'Content-Type': 'application/json',
-            },
+            }
         });
         return response.data;
     } catch (error) {
-        console.error('Error llamando OpenRoute API Grok:', error.response?.data || error.message);
+        console.error('Error llamando OpenRoute Grok:', error.response?.data || error.message);
         throw error;
     }
 }
