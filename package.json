@@ -22,13 +22,18 @@
   },
   "homepage": "https://github.com/AdrianDiaz24/DAW2-Proyecto-Grupo-7#readme",
   "dependencies": {
+    "axios": "^1.13.2",
     "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
+    "express": "^5.1.0",
     "helmet": "^8.1.0",
+    "http-errors": "^2.0.1",
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^7.0.0",
     "mongoose": "^9.0.0",
+    "morgan": "^1.10.1",
     "recharts": "^3.5.0",
     "swiper": "^12.0.3",
     "zustand": "^5.0.8"

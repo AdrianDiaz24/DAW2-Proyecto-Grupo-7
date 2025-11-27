@@ -8,7 +8,7 @@ node_modules/
 
 # Archivos de entorno específicos (redundante pero explícito)
 backend/.env
-backend/src/.env
+backend/.env
 frontend/.env
 
 # Logs
