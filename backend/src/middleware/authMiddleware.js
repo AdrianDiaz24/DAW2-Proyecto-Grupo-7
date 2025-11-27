@@ -29,7 +29,7 @@ const authMiddleware = (req, res, next) => {
         const decoded = jwt.verify(tokenValue, process.env.JWT_SECRET);
 
         // Agregar los datos del usuario decodificados al request
-        req.user = decoded.user;
+        req.user = decoded;
 
         next();
     } catch (error) {
@@ -74,7 +74,7 @@ const optionalAuthMiddleware = (req, res, next) => {
         }
 
         const decoded = jwt.verify(tokenValue, process.env.JWT_SECRET);
-        req.user = decoded.user;
+        req.user = decoded; // <-- CORRECCIÓN AQUÍ
 
         next();
     } catch (error) {
@@ -88,4 +88,3 @@ module.exports = {
     authMiddleware,
     optionalAuthMiddleware,
 };
-

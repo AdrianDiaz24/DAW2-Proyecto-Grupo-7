@@ -13,6 +13,11 @@ export const apiConfig = {
         register: `${API_URL}/api/auth/register`,
         login: `${API_URL}/api/auth/login`,
         profile: `${API_URL}/api/auth/profile`,
+        diario: {
+            getAll: `${API_URL}/api/diario`,
+            create: `${API_URL}/api/diario`,
+            getById: (id) => `${API_URL}/api/diario/${id}`,
+        }
     }
 };
 

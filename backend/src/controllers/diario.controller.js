@@ -35,7 +35,7 @@ exports.obtenerEntradaDiarioPorId = async (req, res) => {
     try {
         const { id } = req.params;
         const { password } = req.body;
-        const usuarioId = req.user ? req.user.id : null;
+        const usuarioId = req.user ? req.user.id : null; // <-- CORRECCIÓN AQUÍ
 
         const entrada = await Diario.findById(id);
 
@@ -99,7 +99,7 @@ exports.actualizarEntradaDiario = async (req, res) => {
 
 
         await entrada.save();
-        res.status(200).json({ message: 'Entrada del diario actualizada con éxito', entrada });
+        res.status(200).json({ message: 'Entrada actualizada con éxito', entrada });
     } catch (error) {
         res.status(500).json({ message: 'Error al actualizar la entrada del diario', error: error.message });
     }
@@ -121,10 +121,9 @@ exports.eliminarEntradaDiario = async (req, res) => {
             return res.status(403).json({ message: 'No tienes permiso para eliminar esta entrada' });
         }
 
-        await Diario.findByIdAndDelete(id);
+        await entrada.remove();
         res.status(200).json({ message: 'Entrada del diario eliminada con éxito' });
     } catch (error) {
         res.status(500).json({ message: 'Error al eliminar la entrada del diario', error: error.message });
     }
 };
-

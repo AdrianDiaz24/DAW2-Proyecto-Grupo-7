@@ -11,7 +11,7 @@ export const useAuthStore = create(
             setAuth: (userData, token) =>
                 set(() => ({
                     user: userData,
-                    token: token
+                    token: token.token, // Extraer el token del objeto
                 })),
 
             // Limpiar datos al hacer logout
