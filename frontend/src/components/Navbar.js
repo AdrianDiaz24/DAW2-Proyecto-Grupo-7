@@ -1,20 +1,23 @@
-// src/components/Navbar.js
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuthStore } from "../store/authStore";
 
-const Navbar = ({ isAuthenticated, setIsAuthenticated }) => {
+const Navbar = () => {
+    const navigate = useNavigate();
+    const { user, logout } = useAuthStore();
+
     const handleLogout = () => {
-        setIsAuthenticated(false);
-        localStorage.removeItem("isAuthenticated");
+        logout();
+        navigate("/");
     };
 
     return (
         <nav>
             <Link to="/">Landing</Link>
-            {isAuthenticated && <Link to="/home">Home</Link>}
-            {!isAuthenticated && <Link to="/login">Login</Link>}
-            {!isAuthenticated && <Link to="/register">Register</Link>}
-            {isAuthenticated && <button onClick={handleLogout}>Logout</button>}
+            {user && <Link to="/home">Home</Link>}
+            {!user && <Link to="/login">Login</Link>}
+            {!user && <Link to="/register">Register</Link>}
+            {user && <button onClick={handleLogout}>Logout</button>}
         </nav>
     );
 };

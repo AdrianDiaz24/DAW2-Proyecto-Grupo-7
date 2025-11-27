@@ -14,14 +14,28 @@ app.set('view engine', 'pug');
 
 app.use(logger('dev'));
 app.use(helmet());
-app.use(cors());
+
+// Configuración de CORS
+const corsOptions = {
+    origin: process.env.FRONTEND_URL || 'http://localhost:3000', // Puerto típico de React cuando backend usa 3000
+    credentials: true, // Permitir envío de cookies y headers de autenticación
+    optionsSuccessStatus: 200
+};
+app.use(cors(corsOptions));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 const authRouter = require('./routes/auth.routes');
+const formularioRouter = require('./routes/formulario.routes');
+const registroRouter = require('./routes/registro.routes');
+
 
 app.use('/api/auth', authRouter);
+app.use('/api/formulario', formularioRouter);
+app.use('/api/registro', registroRouter);
+
 
 //app.use('/', indexRouter);
 //app.use('/users', usersRouter);

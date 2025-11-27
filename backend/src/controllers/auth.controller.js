@@ -1,41 +1,171 @@
-const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const User = require('../models/usuarios_mongoose');
 
 const registerUser = async (req, res) => {
     try {
         const { email, password, name } = req.body;
 
-        // Validacion
+        // Validación de campos requeridos
         if (!email || !password || !name) {
             return res.status(400).json({ message: 'Email, password and name are required' });
         }
 
+        // Validar longitud de nombre
+        if (name.trim().length < 2) {
+            return res.status(400).json({ message: 'Name must be at least 2 characters long' });
+        }
+
+        // Validar formato de email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            return res.status(400).json({ message: 'Invalid email format' });
+        }
+
+        // Validar longitud de contraseña
+        if (password.length < 8) {
+            return res.status(400).json({ message: 'Password must be at least 8 characters long' });
+        }
+
+        // Verificar si el usuario ya existe
         const existingUser = await User.findOne({ email });
         if (existingUser) {
             return res.status(400).json({ message: 'User with this email already exists' });
         }
 
-        const salt = await bcrypt.genSalt(10);
-        const hashedPassword = await bcrypt.hash(password, salt);
-
         // Guardar el usuario en la base de datos
         const newUser = await User.create({
             email,
-            password: hashedPassword,
+            password: password,  // El hook pre('save') del modelo lo hasheará automáticamente
             nombre: name,
         });
 
-        // Excluir la contraseña de la respuesta
-        const userResponse = newUser.toObject();
-        delete userResponse.password;
+        // Crear y firmar el token JWT
+        const payload = {
+            user: {
+                id: newUser.id,
+                email: newUser.email,
+                name: newUser.nombre,
+            },
+        };
 
+        const token = jwt.sign(
+            payload,
+            process.env.JWT_SECRET,
+            { expiresIn: '1h' }
+        );
 
-        res.status(201).json({ message: 'User registered successfully', user: userResponse });
+        // Devolver token Y datos del usuario (sin contraseña)
+        res.status(201).json({
+            message: 'User registered successfully',
+            token,
+            user: {
+                id: newUser.id,
+                email: newUser.email,
+                nombre: newUser.nombre,
+                alias: newUser.alias,
+                createdAt: newUser.createdAt,
+                updatedAt: newUser.updatedAt
+            }
+        });
     } catch (error) {
-        res.status(500).json({ message: 'Error registering user', error });
+        // Manejo específico de errores de validación de Mongoose
+        if (error.name === 'ValidationError') {
+            const messages = Object.values(error.errors).map(err => err.message);
+            return res.status(400).json({
+                message: 'Validation error',
+                errors: messages
+            });
+        }
+
+        // Error de email duplicado (índice único)
+        if (error.code === 11000) {
+            return res.status(400).json({
+                message: 'User with this email already exists'
+            });
+        }
+
+        // Otros errores del servidor
+        res.status(500).json({ message: 'Error registering user', error: error.message });
+    }
+};
+
+
+const loginUser = async (req, res) => {
+    try {
+        const { email, password } = req.body;
+
+        // Validacion
+        if (!email || !password) {
+            return res.status(400).json({ message: 'Email and password are required' });
+        }
+
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.status(400).json({ message: 'Invalid credentials' });
+        }
+
+        const isMatch = await user.compararPassword(password);
+        if (!isMatch) {
+            return res.status(400).json({ message: 'Invalid credentials' });
+        }
+
+        // Crear y firmar el token JWT
+        const payload = {
+            user: {
+                id: user.id,
+                email: user.email,
+                name: user.nombre,
+            },
+        };
+
+        jwt.sign(
+            payload,
+            process.env.JWT_SECRET,
+            { expiresIn: '1h' },
+            (err, token) => {
+                if (err) throw err;
+
+                // Devolver token Y datos del usuario (sin contraseña)
+                res.json({
+                    token,
+                    user: {
+                        id: user.id,
+                        email: user.email,
+                        nombre: user.nombre,
+                        alias: user.alias,
+                        createdAt: user.createdAt,
+                        updatedAt: user.updatedAt
+                    }
+                });
+            }
+        );
+
+    } catch (error) {
+        res.status(500).json({ message: 'Error logging in', error });
+    }
+};
+
+/**
+ * Controlador para obtener el perfil del usuario autenticado
+ * Esta es una ruta protegida que requiere el authMiddleware
+ */
+const getProfile = async (req, res) => {
+    try {
+        // req.user viene del middleware de autenticación
+        const user = await User.findById(req.user.id).select('-password');
+
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        res.json({ user });
+    } catch (error) {
+        res.status(500).json({ message: 'Error fetching profile', error });
     }
 };
 
 module.exports = {
     registerUser,
+    loginUser,
+    getProfile,
 };
