@@ -14,14 +14,21 @@ const Navbar = () => {
 
     return (
         <nav className="navbar">
-            <div className="logo">MindCare</div>
+            <div className="logo">
+                <Link to={user ? "/home" : "/"}>{user ? "MindCare" : "MindCare"}</Link>
+            </div>
             <ul className="nav-links">
-                {user && <li><Link to="/diario">Diario</Link></li>}
-                {user && <li><Link to="/tracker">Tracker</Link></li>}
-                {user && <li><Link to="/articulos">Artículos</Link></li>}
-                {user && <li><Link to="/perfil">Perfil</Link></li>}
+                {/* Links cuando el usuario NO está autenticado */}
+                {!user && <li><Link to="/">Inicio</Link></li>}
                 {!user && <li><Link to="/login">Login</Link></li>}
                 {!user && <li><Link to="/register">Register</Link></li>}
+
+                {/* Links cuando el usuario SÍ está autenticado */}
+                {user && <li><Link to="/home">Home</Link></li>}
+                {user && <li><Link to="/seguimiento">Seguimiento</Link></li>}
+                {user && <li><Link to="/diario">Diario</Link></li>}
+                {user && <li><Link to="/articulos">Artículos</Link></li>}
+                {user && <li><Link to="/perfil">Perfil</Link></li>}
                 {user && <li><button onClick={handleLogout}>Logout</button></li>}
             </ul>
         </nav>

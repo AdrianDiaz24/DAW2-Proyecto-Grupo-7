@@ -1,0 +1,51 @@
+.emotion-stats {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.emotion-stats__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 0.5rem 0;
+}
+
+.emotion-stats__subtitle {
+    font-size: 0.875rem;
+    color: #64748b;
+    margin: 0 0 2rem 0;
+}
+
+.emotion-stats__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+}
+
+.emotion-stats__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .emotion-stats {
+        padding: 1.5rem;
+    }
+
+    .emotion-stats__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .emotion-stats__grid {
+        grid-template-columns: 1fr;
+    }
+}
+

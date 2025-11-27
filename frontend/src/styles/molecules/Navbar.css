@@ -12,6 +12,16 @@
     font-size: 1.5rem;
 }
 
+.navbar .logo a {
+    text-decoration: none;
+    color: #4f46e5;
+    transition: color 0.3s ease;
+}
+
+.navbar .logo a:hover {
+    color: #6366f1;
+}
+
 .nav-links {
     list-style: none;
     display: flex;

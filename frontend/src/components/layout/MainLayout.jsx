@@ -1,19 +1,16 @@
 import React from "react";
-import Navbar from "../molecules/Navbar"; // Ajusta según tu estructura
-import "../../styles/layout.css"; // CSS por componente
+import Navbar from "../molecules/Navbar";
+import Footer from "../molecules/Footer";
+import "../../styles/Layout.css";
 
 const MainLayout = ({ children }) => {
     return (
         <div className="layout-container">
-            <header>
-                <Navbar />
-            </header>
-            <main>
-                {children} {/* Contenido variable por página */}
+            <Navbar />
+            <main className="main-content">
+                {children}
             </main>
-            <footer>
-                <p>MindCare © {new Date().getFullYear()}</p>
-            </footer>
+            <Footer />
         </div>
     );
 };

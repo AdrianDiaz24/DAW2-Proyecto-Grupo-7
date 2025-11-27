@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useAuthStore } from "../store/authStore";
 import { apiConfig } from "../config/api";
+import "../styles/Auth-forms.css";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -42,8 +43,9 @@ const Login = () => {
     }
 
     return (
-        <div className="container">
-            <h1>Login</h1>
+        <div className="auth-form-container">
+            <h1>Iniciar sesión</h1>
+            <p className="subtitle">Bienvenido de nuevo a MindCare</p>
             <form onSubmit={handleLogin}>
                 <div>
                     <label>Email:</label>
@@ -52,6 +54,7 @@ const Login = () => {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
+                        placeholder="tu@email.com"
                     />
                 </div>
                 <div>
@@ -61,10 +64,15 @@ const Login = () => {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
+                        placeholder="Tu contraseña"
                     />
                 </div>
                 <button type="submit">Iniciar sesión</button>
             </form>
+            <div className="auth-form-footer">
+                <p>¿No tienes una cuenta? <Link to="/register">Regístrate aquí</Link></p>
+                <p className="auth-back-link"><Link to="/">← Volver al inicio</Link></p>
+            </div>
         </div>
     );
 };

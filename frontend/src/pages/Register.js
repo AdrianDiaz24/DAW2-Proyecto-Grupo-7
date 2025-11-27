@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useAuthStore } from "../store/authStore";
 import { apiConfig } from "../config/api";
+import "../styles/Auth-forms.css";
 
 const Register = () => {
     const navigate = useNavigate();
@@ -63,8 +64,9 @@ const Register = () => {
     }
 
     return (
-        <div className="container">
-            <h1>Register</h1>
+        <div className="auth-form-container">
+            <h1>Crear cuenta</h1>
+            <p className="subtitle">Únete a MindCare y comienza tu viaje hacia el bienestar</p>
             <form onSubmit={handleRegister}>
                 <div>
                     <label>Nombre:</label>
@@ -111,6 +113,10 @@ const Register = () => {
                 </div>
                 <button type="submit">Registrarse</button>
             </form>
+            <div className="auth-form-footer">
+                <p>¿Ya tienes una cuenta? <Link to="/login">Inicia sesión aquí</Link></p>
+                <p className="auth-back-link"><Link to="/">← Volver al inicio</Link></p>
+            </div>
         </div>
     );
 };
