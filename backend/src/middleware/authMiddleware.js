@@ -6,9 +6,13 @@ const jwt = require('jsonwebtoken');
  * El token debe enviarse en el header Authorization como: Bearer <token>
  */
 const authMiddleware = (req, res, next) => {
+    // DEBUG: Log para verificar si la clave secreta está cargada
+    console.log('JWT_SECRET in middleware:', process.env.JWT_SECRET ? 'Loaded' : '!!! NOT LOADED !!!');
+
     try {
         // Obtener el token del header
         const token = req.header('Authorization');
+        console.log('Authorization Header received:', token); // DEBUG
 
         // Verificar si no hay token
         if (!token) {
@@ -24,15 +28,19 @@ const authMiddleware = (req, res, next) => {
         } else {
             tokenValue = token;
         }
+        console.log('Token value being verified:', tokenValue); // DEBUG
 
         // Verificar el token
         const decoded = jwt.verify(tokenValue, process.env.JWT_SECRET);
+        console.log('Token decoded successfully:', decoded); // DEBUG
 
         // Agregar los datos del usuario decodificados al request
-        req.user = decoded.user;
+        req.user = decoded;
 
         next();
     } catch (error) {
+        console.error('!!! Error verifying token:', error); // DEBUG: Log del error completo
+
         // Token inválido o expirado
         if (error.name === 'JsonWebTokenError') {
             return res.status(401).json({
@@ -74,7 +82,7 @@ const optionalAuthMiddleware = (req, res, next) => {
         }
 
         const decoded = jwt.verify(tokenValue, process.env.JWT_SECRET);
-        req.user = decoded.user;
+        req.user = decoded;
 
         next();
     } catch (error) {
@@ -88,4 +96,3 @@ module.exports = {
     authMiddleware,
     optionalAuthMiddleware,
 };
-
