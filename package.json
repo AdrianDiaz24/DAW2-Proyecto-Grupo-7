@@ -26,9 +26,9 @@
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "helmet": "^8.1.0",
-    "mongodb": "^7.0.0",
-    "zustand": "^5.0.8",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^9.0.0"
+    "mongodb": "^7.0.0",
+    "mongoose": "^9.0.0",
+    "zustand": "^5.0.8"
   }
 }

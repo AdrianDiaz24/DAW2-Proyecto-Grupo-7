@@ -28,8 +28,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 const authRouter = require('./routes/auth.routes');
+const formularioRouter = require('./routes/formulario.routes');
+const registroRouter = require('./routes/registro.routes');
+
 
 app.use('/api/auth', authRouter);
+app.use('/api/formulario', formularioRouter);
+app.use('/api/registro', registroRouter);
+
 
 //app.use('/', indexRouter);
 //app.use('/users', usersRouter);
