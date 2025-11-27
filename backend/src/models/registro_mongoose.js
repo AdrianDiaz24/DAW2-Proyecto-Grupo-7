@@ -99,9 +99,8 @@ const registroSchema = new Schema({
         intensidad: Number,
     }],
     actividadesPlacenteras: [{
-        nombre: String,
-        disfrute: Number, // 1-10
-        logro: Number, // 1-10
+        opcion: String,
+        preferencia: Number, // 1-5
     }],
     medicacion: [{
         nombre: String,
