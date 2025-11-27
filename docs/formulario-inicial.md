@@ -16,7 +16,7 @@ Cada formulario se basa en **buenas prácticas clínicas** y literatura científ
 
 **Categorías y opciones (multi-select):**
 
-| Categoría | Ejemplos de opciones |
+| Categoría | Opciones |
 |-----------|-------------------|
 | Relaciones | Conflicto con familiares, Conflicto con amigos, Conflicto con pareja, Aislamiento social, Críticas/juicios |
 | Trabajo / Estudio | Sobrecarga laboral, Exámenes, Falta de reconocimiento, Cambios en responsabilidades |
@@ -47,7 +47,7 @@ Cada formulario se basa en **buenas prácticas clínicas** y literatura científ
 
 **Categorías y opciones (multi-select):**
 
-| Categoría | Ejemplos de opciones |
+| Categoría | Opciones |
 |-----------|-------------------|
 | Actividad física | Caminar, Correr, Yoga, Natación, Pilates, Ciclismo, Entrenamiento de fuerza |
 | Social | Pasar tiempo con amigos, Llamadas familiares, Actividades en grupo, Voluntariado |

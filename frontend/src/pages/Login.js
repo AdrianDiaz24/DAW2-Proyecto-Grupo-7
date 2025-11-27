@@ -1,7 +1,10 @@
+// RUTA: frontend/src/pages/Login.js
+
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useAuthStore } from "../store/authStore";
 import { apiConfig } from "../config/api";
+import "../styles/Auth-forms.css";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -11,13 +14,16 @@ const Login = () => {
 
     // Redirigir si ya está autenticado
     useEffect(() => {
-        if (user) {
+        // Comprobamos 'user' y también el token en el store para más seguridad
+        const token = useAuthStore.getState().token;
+        if (user && token) {
             navigate("/home");
         }
     }, [user, navigate]);
 
     async function handleLogin(e) {
         e.preventDefault();
+        console.log("Attempting login with:", { email }); // DEBUG: Ver con qué email se intenta
         try {
             const res = await fetch(apiConfig.endpoints.login, {
                 method: "POST",
@@ -26,24 +32,37 @@ const Login = () => {
                 mode: "cors"
             });
 
-            const data = await res.json().catch(() => null);
+            const data = await res.json().catch(() => ({}));
 
-            if (!res.ok) {
-                const msg = data?.message || "Error en login";
+            console.log("Response status from server:", res.status); // DEBUG: Ver el código de estado
+            console.log("Data received from server:", data); // DEBUG: Ver la respuesta completa
+
+            if (res.status !== 200) {
+                const msg = data?.message || "Error en el inicio de sesión. Revisa tus credenciales.";
+                console.error("Login failed with message:", msg); // DEBUG: Ver el mensaje de error
                 return alert(msg);
             }
 
-            setAuth(data.user, data.token); // asumes que guarda user y token
-            navigate("/home");
+            // Asegurarnos de que los datos existen antes de guardarlos
+            if (data.user && data.token) {
+                console.log("Login successful. Setting auth data:", { user: data.user, token: data.token }); // DEBUG
+                setAuth(data.user, data.token);
+                navigate("/home");
+            } else {
+                console.error("Login response is missing user or token data."); // DEBUG
+                alert("Error inesperado en la respuesta del servidor.");
+            }
+
         } catch (err) {
-            alert("Error de red");
-            console.error(err);
+            alert("Error de red. No se pudo conectar con el servidor.");
+            console.error("Network or fetch error:", err); // DEBUG
         }
     }
 
     return (
-        <div className="container">
-            <h1>Login</h1>
+        <div className="auth-form-container">
+            <h1>Iniciar sesión</h1>
+            <p className="subtitle">Bienvenido de nuevo a MindCare</p>
             <form onSubmit={handleLogin}>
                 <div>
                     <label>Email:</label>
@@ -52,6 +71,7 @@ const Login = () => {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
+                        placeholder="tu@email.com"
                     />
                 </div>
                 <div>
@@ -61,10 +81,15 @@ const Login = () => {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
+                        placeholder="Tu contraseña"
                     />
                 </div>
                 <button type="submit">Iniciar sesión</button>
             </form>
+            <div className="auth-form-footer">
+                <p>¿No tienes una cuenta? <Link to="/register">Regístrate aquí</Link></p>
+                <p className="auth-back-link"><Link to="/">← Volver al inicio</Link></p>
+            </div>
         </div>
     );
 };

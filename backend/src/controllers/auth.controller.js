@@ -41,11 +41,9 @@ const registerUser = async (req, res) => {
 
         // Crear y firmar el token JWT
         const payload = {
-            user: {
-                id: newUser.id,
-                email: newUser.email,
-                name: newUser.nombre,
-            },
+            id: newUser.id,
+            email: newUser.email,
+            name: newUser.nombre,
         };
 
         const token = jwt.sign(
@@ -101,47 +99,43 @@ const loginUser = async (req, res) => {
 
         const user = await User.findOne({ email });
         if (!user) {
-            return res.status(400).json({ message: 'Invalid credentials' });
+            return res.status(401).json({ message: 'Invalid credentials' });
         }
 
         const isMatch = await user.compararPassword(password);
         if (!isMatch) {
-            return res.status(400).json({ message: 'Invalid credentials' });
+            return res.status(401).json({ message: 'Invalid credentials' });
         }
 
         // Crear y firmar el token JWT
         const payload = {
+            id: user.id,
+            email: user.email,
+            name: user.nombre,
+        };
+
+        const token = jwt.sign(
+            payload,
+            process.env.JWT_SECRET,
+            { expiresIn: '1h' }
+        );
+
+        // Devolver token Y datos del usuario (sin contraseña)
+        res.status(200).json({
+            message: 'User logged in successfully',
+            token,
             user: {
                 id: user.id,
                 email: user.email,
-                name: user.nombre,
-            },
-        };
-
-        jwt.sign(
-            payload,
-            process.env.JWT_SECRET,
-            { expiresIn: '1h' },
-            (err, token) => {
-                if (err) throw err;
-
-                // Devolver token Y datos del usuario (sin contraseña)
-                res.json({
-                    token,
-                    user: {
-                        id: user.id,
-                        email: user.email,
-                        nombre: user.nombre,
-                        alias: user.alias,
-                        createdAt: user.createdAt,
-                        updatedAt: user.updatedAt
-                    }
-                });
+                nombre: user.nombre,
+                alias: user.alias,
+                createdAt: user.createdAt,
+                updatedAt: user.updatedAt
             }
-        );
+        });
 
     } catch (error) {
-        res.status(500).json({ message: 'Error logging in', error });
+        res.status(500).json({ message: 'Error logging in', error: error.message });
     }
 };
 

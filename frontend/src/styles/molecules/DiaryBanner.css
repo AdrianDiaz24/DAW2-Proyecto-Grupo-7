@@ -1,0 +1,106 @@
+.diary-banner {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.diary-banner::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+.diary-banner::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -5%;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+}
+
+.diary-banner__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    z-index: 1;
+    width: 100%;
+}
+
+.diary-banner__icon {
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+}
+
+.diary-banner__text {
+    width: 100%;
+}
+
+.diary-banner__title {
+    color: white;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+}
+
+.diary-banner__description {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.diary-banner button {
+    z-index: 1;
+    background: white;
+    color: #667eea;
+    min-width: 200px;
+}
+
+.diary-banner button:hover {
+    background: rgba(255, 255, 255, 0.95);
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .diary-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+    }
+
+    .diary-banner__content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .diary-banner__title {
+        font-size: 1.5rem;
+    }
+
+    .diary-banner__description {
+        font-size: 0.875rem;
+    }
+
+    .diary-banner button {
+        width: 100%;
+    }
+}
+
