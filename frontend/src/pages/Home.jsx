@@ -1,9 +1,26 @@
-// src/pages/Home.js
 import React from "react";
 import { useAuthStore } from "../store/authStore";
+// import { Line } from "react-chartjs-2"; // TODO: Instalar react-chartjs-2 y chart.js
+// import MainLayout from "../components/layout/MainLayout"; // TODO: Implementar MainLayout si es necesario
+import "../styles/Home.css";
 
 const Home = () => {
     const { user } = useAuthStore();
+
+    // TODO: Descomentar cuando se instale react-chartjs-2
+    // Datos ficticios para la gráfica
+    /* const data = {
+        labels: ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"],
+        datasets: [
+            {
+                label: "Estado emocional",
+                data: [3, 4, 2, 5, 3],
+                fill: false,
+                borderColor: "#4f46e5",
+                tension: 0.4,
+            },
+        ],
+    }; */
 
     return (
         <div className="container">
