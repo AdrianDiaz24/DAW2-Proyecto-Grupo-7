@@ -26,9 +26,9 @@ const Login = () => {
                 mode: "cors"
             });
 
-            const data = await res.json().catch(() => null);
+            const data = await res.json().catch(() => ({}));
 
-            if (!res.ok) {
+            if (res.status !== 200) {
                 const msg = data?.message || "Error en login";
                 return alert(msg);
             }

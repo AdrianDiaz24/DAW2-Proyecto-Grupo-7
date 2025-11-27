@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const registroController = require('../controllers/registro.controller');
-const authMiddleware = require('../middleware/authMiddleware');
+const { authMiddleware } = require('../middleware/authMiddleware');
 
 // Rutas para el registro de datos diarios
 router.post('/', authMiddleware, registroController.createRegistro);
