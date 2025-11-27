@@ -30,11 +30,13 @@ app.use(cookieParser());
 const authRouter = require('./routes/auth.routes');
 const formularioRouter = require('./routes/formulario.routes');
 const registroRouter = require('./routes/registro.routes');
+const diarioRouter = require('./routes/diario.routes');
 
 
 app.use('/api/auth', authRouter);
 app.use('/api/formulario', formularioRouter);
 app.use('/api/registro', registroRouter);
+app.use('/api/diario', diarioRouter);
 
 
 //app.use('/', indexRouter);
@@ -67,13 +69,9 @@ module.exports = app;
 app.use(express.json());
 
 // Importar rutas IA
-const aiRoutes = require('./routes/ai.routes');
+const iaRoutes = require('./routes/ia.routes');
 
 // Usar rutas IA con prefijo "/api"
-app.use('/api', aiRoutes);
+app.use('/api', iaRoutes);
 
 // Resto de configuración del servidor...
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Servidor escuchando en puerto ${PORT}`);
-});

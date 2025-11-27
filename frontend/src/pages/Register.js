@@ -47,9 +47,9 @@ const Register = () => {
                 mode: "cors"
             });
 
-            const data = await res.json().catch(() => null);
+            const data = await res.json().catch(() => ({}));
 
-            if (!res.ok) {
+            if (res.status !== 201) {
                 const msg = data?.message || "Error en registro";
                 return alert(msg);
             }
