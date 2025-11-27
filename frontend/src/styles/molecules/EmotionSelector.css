@@ -1,0 +1,67 @@
+.emotion-selector {
+    width: 100%;
+}
+
+.emotion-selector h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 0.5rem 0;
+}
+
+.emotion-selector__description {
+    color: #64748b;
+    margin: 0 0 1.5rem 0;
+    font-size: 0.875rem;
+}
+
+.emotion-selector__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.emotion-selector__item {
+    background: #f8fafc;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.emotion-selector__comment {
+    margin-top: 2rem;
+}
+
+.emotion-selector__comment label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #334155;
+    margin-bottom: 0.5rem;
+}
+
+.emotion-selector__comment textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-family: inherit;
+    resize: vertical;
+    transition: border-color 0.2s ease;
+}
+
+.emotion-selector__comment textarea:focus {
+    outline: none;
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .emotion-selector__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
