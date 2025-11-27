@@ -13,6 +13,7 @@ export const apiConfig = {
         register: `${API_URL}/api/auth/register`,
         login: `${API_URL}/api/auth/login`,
         profile: `${API_URL}/api/auth/profile`,
+        registros: `${API_URL}/api/registros`,
     }
 };
 

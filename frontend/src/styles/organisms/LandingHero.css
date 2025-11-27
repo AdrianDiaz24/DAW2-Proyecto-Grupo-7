@@ -1,0 +1,18 @@
+.landing-hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px); /* Resta la altura del navbar */
+    padding: 2rem;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0e7ff 100%);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .landing-hero {
+        padding: 1.5rem;
+        min-height: calc(100vh - 60px);
+    }
+}
+

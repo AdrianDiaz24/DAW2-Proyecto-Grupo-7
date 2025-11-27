@@ -1,0 +1,9 @@
+.diario-page {
+    padding: 2rem;
+}
+
+.diario-page .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
