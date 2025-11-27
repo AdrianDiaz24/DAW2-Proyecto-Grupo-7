@@ -19,9 +19,33 @@ export const apiConfig = {
 
 // Función helper para hacer fetch con configuración por defecto
 export const apiFetch = async (endpoint, options = {}) => {
+    // Obtener el estado de autenticación desde el storage de Zustand
+    const authStorage = localStorage.getItem('auth-storage');
+    let token = null;
+
+    if (authStorage) {
+        try {
+            const { state } = JSON.parse(authStorage);
+            if (state && state.token) {
+                token = state.token;
+            }
+        } catch (e) {
+            console.error("Error parsing auth-storage from localStorage", e);
+        }
+    }
+
+    const defaultHeaders = {
+        'Content-Type': 'application/json',
+    };
+
+    // Si existe un token, añadirlo a los headers de autorización
+    if (token) {
+        defaultHeaders['Authorization'] = `Bearer ${token}`;
+    }
+
     const defaultOptions = {
         headers: {
-            'Content-Type': 'application/json',
+            ...defaultHeaders,
             ...options.headers,
         },
         mode: 'cors',

@@ -62,13 +62,9 @@ const Seguimiento = () => {
     const handleSubmit = async () => {
         setLoading(true);
         try {
-            const token = localStorage.getItem('token');
-            const response = await fetch(apiConfig.endpoints.registros, {
+            const { apiFetch } = await import('../config/api');
+            const response = await apiFetch(apiConfig.endpoints.registros, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                },
                 body: JSON.stringify(formData)
             });
 
@@ -77,10 +73,10 @@ const Seguimiento = () => {
                 navigate('/home');
             } else {
                 const data = await response.json();
-                alert(`Error: ${data.message}`);
+                alert(`Error: ${data.message || 'No se pudo guardar el registro'}`);
             }
         } catch (error) {
-            console.error('Error:', error);
+            console.error('Error al guardar el registro:', error);
             alert('Error al guardar el registro');
         } finally {
             setLoading(false);
