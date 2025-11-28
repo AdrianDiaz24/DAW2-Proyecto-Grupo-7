@@ -1,11 +1,13 @@
 // src/App.js
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { Toaster } from 'react-hot-toast';
 
 import './styles/App.css';
 import Navbar from "./components/molecules/Navbar";
 import MainLayout from "./components/layout/MainLayout";
 import AuthLayout from "./components/layout/AuthLayout";
+import ErrorBoundary from "./components/organisms/ErrorBoundary";
 import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -16,15 +18,50 @@ import Diario from "./pages/Diario";
 import { useAuthStore } from "./store/authStore";
 
 function App() {
-    const { user } = useAuthStore();
+    const { user, token } = useAuthStore();
 
     const ProtectedRoute = ({ children }) => {
-        return user ? children : <Navigate to="/login" />;
+        // Verificar tanto user como token
+        const isAuthenticated = user && token;
+
+        if (!isAuthenticated) {
+            console.log('ProtectedRoute: Usuario no autenticado, redirigiendo a login');
+            return <Navigate to="/login" replace />;
+        }
+
+        return children;
     };
 
     return (
-        <Router>
-            <Routes>
+        <ErrorBoundary>
+            <Router>
+                <Toaster
+                    position="top-right"
+                    toastOptions={{
+                        duration: 3000,
+                        style: {
+                            background: '#363636',
+                            color: '#fff',
+                            padding: '16px',
+                            borderRadius: '8px',
+                        },
+                        success: {
+                            duration: 3000,
+                            iconTheme: {
+                                primary: '#4f46e5',
+                                secondary: '#fff',
+                            },
+                        },
+                        error: {
+                            duration: 4000,
+                            iconTheme: {
+                                primary: '#ef4444',
+                                secondary: '#fff',
+                            },
+                        },
+                    }}
+                />
+                <Routes>
                 {/* Landing con Navbar global (mantiene diseño actual) */}
                 <Route path="/" element={
                     <>
@@ -72,6 +109,7 @@ function App() {
                 } />
             </Routes>
         </Router>
+        </ErrorBoundary>
     );
 }
 
