@@ -9,23 +9,30 @@ const Button = ({
     size = 'medium',
     fullWidth = false,
     disabled = false,
+    loading = false,
     type = 'button'
 }) => {
     const classNames = [
         'btn',
         `btn--${variant}`,
         `btn--${size}`,
-        fullWidth ? 'btn--full-width' : ''
+        fullWidth ? 'btn--full-width' : '',
+        loading ? 'btn--loading' : ''
     ].filter(Boolean).join(' ');
 
     return (
         <button
             className={classNames}
             onClick={onClick}
-            disabled={disabled}
+            disabled={disabled || loading}
             type={type}
         >
-            {children}
+            {loading ? (
+                <span className="btn__loader">
+                    <span className="btn__spinner"></span>
+                    Cargando...
+                </span>
+            ) : children}
         </button>
     );
 };
@@ -37,6 +44,7 @@ Button.propTypes = {
     size: PropTypes.oneOf(['small', 'medium', 'large']),
     fullWidth: PropTypes.bool,
     disabled: PropTypes.bool,
+    loading: PropTypes.bool,
     type: PropTypes.oneOf(['button', 'submit', 'reset'])
 };
 

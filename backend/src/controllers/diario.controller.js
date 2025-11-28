@@ -3,19 +3,45 @@ const Diario = require('../models/diario_mongoose');
 // Crear una nueva entrada en el diario
 exports.crearEntradaDiario = async (req, res) => {
     try {
-        const { titulo, cuerpo } = req.body;
-        const usuarioId = req.user.id; // Asumiendo que el middleware de autenticación añade el usuario al request
+        const { titulo, cuerpo, password } = req.body;
+        const usuarioId = req.user.id;
 
-        const nuevaEntrada = new Diario({
+        // Validar campos requeridos
+        if (!titulo || !cuerpo) {
+            return res.status(400).json({ 
+                message: 'Título y cuerpo son requeridos' 
+            });
+        }
+
+        // Crear objeto de entrada
+        const entradaData = {
             usuarioId,
             titulo,
-            cuerpo,
-        });
+            cuerpo
+        };
 
+        // Añadir password solo si se proporcionó
+        if (password && password.trim() !== '') {
+            entradaData.password = password;
+        }
+
+        const nuevaEntrada = new Diario(entradaData);
         await nuevaEntrada.save();
-        res.status(201).json({ message: 'Entrada del diario creada con éxito', entrada: nuevaEntrada });
+
+        // No devolver el password hasheado en la respuesta
+        const entradaResponse = nuevaEntrada.toObject();
+        delete entradaResponse.password;
+
+        res.status(201).json({ 
+            message: 'Entrada del diario creada con éxito', 
+            entrada: entradaResponse 
+        });
     } catch (error) {
-        res.status(500).json({ message: 'Error al crear la entrada del diario', error: error.message });
+        console.error('Error al crear entrada del diario:', error);
+        res.status(500).json({ 
+            message: 'Error al crear la entrada del diario', 
+            error: error.message 
+        });
     }
 };
 
@@ -23,10 +49,19 @@ exports.crearEntradaDiario = async (req, res) => {
 exports.obtenerEntradasDiario = async (req, res) => {
     try {
         const usuarioId = req.user.id;
-        const entradas = await Diario.find({ usuarioId }).select('-password'); // No devolver la contraseña
+
+        // Buscar entradas del usuario, ordenadas por fecha (más reciente primero)
+        const entradas = await Diario.find({ usuarioId })
+            .select('-password') // No devolver la contraseña hasheada
+            .sort({ createdAt: -1 }); // Ordenar por fecha descendente
+
         res.status(200).json(entradas);
     } catch (error) {
-        res.status(500).json({ message: 'Error al obtener las entradas del diario', error: error.message });
+        console.error('Error al obtener entradas del diario:', error);
+        res.status(500).json({
+            message: 'Error al obtener las entradas del diario',
+            error: error.message
+        });
     }
 };
 
