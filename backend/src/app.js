@@ -31,14 +31,14 @@ const authRouter = require('./routes/auth.routes');
 const formularioRouter = require('./routes/formulario.routes');
 const registroRouter = require('./routes/registro.routes');
 const diarioRouter = require('./routes/diario.routes');
-
+const iaRoutes = require('./routes/ia.routes');
 
 app.use('/api/auth', authRouter);
 app.use('/api/formulario', formularioRouter);
 app.use('/api/registro', registroRouter);
 app.use('/api/registros', registroRouter); // Añadido para aceptar la forma plural
 app.use('/api/diario', diarioRouter);
-
+app.use('/api', iaRoutes);
 
 //app.use('/', indexRouter);
 //app.use('/users', usersRouter);
@@ -46,7 +46,6 @@ app.use('/api/diario', diarioRouter);
 app.get('/', (req, res) => {
     res.send('Funciona')
 })
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -66,13 +65,3 @@ app.use(function(err, req, res, next) {
 
 module.exports = app;
 
-// Otros middlewares, parseo JSON, etc.
-app.use(express.json());
-
-// Importar rutas IA
-const iaRoutes = require('./routes/ia.routes');
-
-// Usar rutas IA con prefijo "/api"
-app.use('/api', iaRoutes);
-
-// Resto de configuración del servidor...
