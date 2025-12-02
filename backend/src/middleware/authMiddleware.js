@@ -1,9 +1,17 @@
+/**
+ * @file Middleware de autenticación.
+ * @description Contiene middlewares para verificar tokens JWT.
+ * @requires jsonwebtoken
+ */
 const jwt = require('jsonwebtoken');
 
 /**
- * Middleware de autenticación
- * Verifica que el token JWT sea válido
- * El token debe enviarse en el header Authorization como: Bearer <token>
+ * @function authMiddleware
+ * @description Middleware para verificar que una petición contiene un token JWT válido.
+ * @description El token debe ser enviado en el header `Authorization` como `Bearer <token>`.
+ * @param {object} req - Objeto de petición de Express.
+ * @param {object} res - Objeto de respuesta de Express.
+ * @param {function} next - Función para pasar al siguiente middleware.
  */
 const authMiddleware = (req, res, next) => {
     // DEBUG: Log para verificar si la clave secreta está cargada
@@ -61,9 +69,13 @@ const authMiddleware = (req, res, next) => {
 };
 
 /**
- * Middleware opcional de autenticación
- * Similar al authMiddleware pero no rechaza la petición si no hay token
- * Útil para rutas que pueden funcionar con o sin autenticación
+ * @function optionalAuthMiddleware
+ * @description Middleware de autenticación opcional.
+ * @description Si se proporciona un token válido, añade la información del usuario a `req.user`.
+ * @description Si no se proporciona un token o es inválido, simplemente continúa sin un usuario autenticado.
+ * @param {object} req - Objeto de petición de Express.
+ * @param {object} res - Objeto de respuesta de Express.
+ * @param {function} next - Función para pasar al siguiente middleware.
  */
 const optionalAuthMiddleware = (req, res, next) => {
     try {

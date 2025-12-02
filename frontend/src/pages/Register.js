@@ -1,9 +1,23 @@
+/**
+ * @file Página de Registro (Register).
+ * @description Formulario para que nuevos usuarios creen una cuenta.
+ * @requires react
+ * @requires react-router-dom
+ * @requires ../store/authStore
+ * @requires ../config/api
+ * @requires ../styles/Auth-forms.css
+ */
 import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuthStore } from "../store/authStore";
 import { apiConfig } from "../config/api";
 import "../styles/Auth-forms.css";
 
+/**
+ * @function Register
+ * @description Componente que renderiza el formulario de registro y maneja la lógica de creación de cuenta.
+ * @returns {JSX.Element} La página de registro.
+ */
 const Register = () => {
     const navigate = useNavigate();
     const { user, setAuth } = useAuthStore();
@@ -19,6 +33,12 @@ const Register = () => {
         }
     }, [user, navigate]);
 
+    /**
+     * @function handleRegister
+     * @description Valida los datos del formulario y los envía al backend para crear un nuevo usuario.
+     * @param {React.FormEvent<HTMLFormElement>} e - El evento de envío del formulario.
+     * @async
+     */
     async function handleRegister(e) {
         e.preventDefault();
 

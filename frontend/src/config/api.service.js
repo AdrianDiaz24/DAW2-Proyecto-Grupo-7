@@ -1,7 +1,16 @@
+/**
+ * @file Configuración del servicio de API con Axios.
+ * @description Crea una instancia de Axios con configuración base e interceptores para el manejo de tokens y errores.
+ * @requires axios
+ */
 import axios from 'axios';
 
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:4000';
 
+/**
+ * @constant {AxiosInstance} api
+ * @description Instancia de Axios configurada para las peticiones a la API.
+ */
 const api = axios.create({
     baseURL: API_URL,
     timeout: 10000,
@@ -10,6 +19,10 @@ const api = axios.create({
     }
 });
 
+/**
+ * @function request-interceptor
+ * @description Interceptor de peticiones de Axios que añade el token de autenticación a las cabeceras.
+ */
 // Interceptor para añadir token automáticamente
 api.interceptors.request.use(
     (config) => {
@@ -33,6 +46,10 @@ api.interceptors.request.use(
     }
 );
 
+/**
+ * @function response-interceptor
+ * @description Interceptor de respuestas de Axios que maneja errores, especialmente los de autenticación (401).
+ */
 // Interceptor para manejar errores
 api.interceptors.response.use(
     (response) => response,
@@ -55,4 +72,3 @@ api.interceptors.response.use(
 );
 
 export default api;
-

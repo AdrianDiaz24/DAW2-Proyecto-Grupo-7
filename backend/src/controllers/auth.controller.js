@@ -1,6 +1,19 @@
+/**
+ * @file Controlador de autenticación.
+ * @description Gestiona el registro, inicio de sesión y perfil de los usuarios.
+ * @requires jsonwebtoken
+ * @requires ../models/usuarios_mongoose
+ */
 const jwt = require('jsonwebtoken');
 const User = require('../models/usuarios_mongoose');
 
+/**
+ * @function registerUser
+ * @description Registra un nuevo usuario en la base de datos.
+ * @param {object} req - Objeto de petición de Express.
+ * @param {object} res - Objeto de respuesta de Express.
+ * @returns {Promise<void>}
+ */
 const registerUser = async (req, res) => {
     try {
         const { email, password, name } = req.body;
@@ -87,7 +100,13 @@ const registerUser = async (req, res) => {
     }
 };
 
-
+/**
+ * @function loginUser
+ * @description Autentica a un usuario y le proporciona un token JWT.
+ * @param {object} req - Objeto de petición de Express.
+ * @param {object} res - Objeto de respuesta de Express.
+ * @returns {Promise<void>}
+ */
 const loginUser = async (req, res) => {
     try {
         const { email, password } = req.body;
@@ -140,8 +159,11 @@ const loginUser = async (req, res) => {
 };
 
 /**
- * Controlador para obtener el perfil del usuario autenticado
- * Esta es una ruta protegida que requiere el authMiddleware
+ * @function getProfile
+ * @description Obtiene el perfil del usuario autenticado.
+ * @param {object} req - Objeto de petición de Express, con la información del usuario en `req.user`.
+ * @param {object} res - Objeto de respuesta de Express.
+ * @returns {Promise<void>}
  */
 const getProfile = async (req, res) => {
     try {

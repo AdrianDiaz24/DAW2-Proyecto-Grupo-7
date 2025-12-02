@@ -1,7 +1,13 @@
 /**
- * Formatea una fecha a formato legible
- * @param {string|Date} date - Fecha a formatear
- * @returns {string} - Fecha formateada
+ * @file Funciones de utilidad para formatear fechas.
+ * @description Contiene funciones para formatear fechas en diferentes formatos.
+ */
+
+/**
+ * @function formatDate
+ * @description Formatea una fecha a un formato largo y legible.
+ * @param {string|Date} date - La fecha a formatear.
+ * @returns {string} La fecha formateada (e.g., "2 de diciembre de 2025, 14:30").
  */
 export const formatDate = (date) => {
     if (!date) return '';
@@ -23,9 +29,10 @@ export const formatDate = (date) => {
 };
 
 /**
- * Formatea una fecha a formato corto
- * @param {string|Date} date - Fecha a formatear
- * @returns {string} - Fecha formateada (DD/MM/YYYY)
+ * @function formatDateShort
+ * @description Formatea una fecha a un formato corto (DD/MM/YYYY).
+ * @param {string|Date} date - La fecha a formatear.
+ * @returns {string} La fecha formateada en formato corto.
  */
 export const formatDateShort = (date) => {
     if (!date) return '';
@@ -42,9 +49,10 @@ export const formatDateShort = (date) => {
 };
 
 /**
- * Calcula el tiempo transcurrido desde una fecha
- * @param {string|Date} date - Fecha
- * @returns {string} - Tiempo transcurrido (ej: "Hace 2 horas")
+ * @function timeAgo
+ * @description Calcula y formatea el tiempo transcurrido desde una fecha dada hasta ahora.
+ * @param {string|Date} date - La fecha desde la que calcular el tiempo transcurrido.
+ * @returns {string} Una cadena que representa el tiempo transcurrido (e.g., "Hace 2 horas").
  */
 export const timeAgo = (date) => {
     if (!date) return '';
@@ -74,4 +82,3 @@ export const timeAgo = (date) => {
 
     return 'Justo ahora';
 };
-

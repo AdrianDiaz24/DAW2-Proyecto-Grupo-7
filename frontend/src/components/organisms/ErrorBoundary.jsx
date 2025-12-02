@@ -1,10 +1,23 @@
+/**
+ * @file Componente ErrorBoundary para capturar errores de JavaScript en sus componentes hijos.
+ * @description Muestra una UI de fallback cuando ocurre un error.
+ * @requires react
+ * @requires prop-types
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 
 /**
- * ErrorBoundary - Componente para capturar errores de React
+ * @class ErrorBoundary
+ * @extends React.Component
+ * @description Un componente de clase que captura errores en sus componentes hijos,
+ *              registra esos errores y muestra una UI de fallback.
  */
 class ErrorBoundary extends React.Component {
+    /**
+     * @constructor
+     * @param {object} props - Las propiedades pasadas al componente.
+     */
     constructor(props) {
         super(props);
         this.state = {
@@ -13,19 +26,41 @@ class ErrorBoundary extends React.Component {
         };
     }
 
+    /**
+     * @static
+     * @function getDerivedStateFromError
+     * @description Actualiza el estado para que el siguiente renderizado muestre la UI de fallback.
+     * @param {Error} error - El error que fue lanzado.
+     * @returns {object} Un objeto de estado que indica que ha ocurrido un error.
+     */
     static getDerivedStateFromError(error) {
         return { hasError: true };
     }
 
+    /**
+     * @function componentDidCatch
+     * @description Captura información sobre el error.
+     * @param {Error} error - El error que fue lanzado.
+     * @param {object} errorInfo - Un objeto con una clave `componentStack` que contiene información sobre qué componente lanzó el error.
+     */
     componentDidCatch(error, errorInfo) {
         console.error('Error capturado por ErrorBoundary:', error, errorInfo);
         this.setState({ error });
     }
 
+    /**
+     * @function handleReload
+     * @description Recarga la página para intentar resolver el error.
+     */
     handleReload = () => {
         window.location.href = '/';
     };
 
+    /**
+     * @function render
+     * @description Renderiza el componente. Muestra la UI de fallback si hay un error, o los componentes hijos si no lo hay.
+     * @returns {React.ReactNode}
+     */
     render() {
         if (this.state.hasError) {
             return (
@@ -83,8 +118,8 @@ class ErrorBoundary extends React.Component {
 }
 
 ErrorBoundary.propTypes = {
+    /** Los componentes hijos que este boundary va a envolver. */
     children: PropTypes.node.isRequired
 };
 
 export default ErrorBoundary;
-

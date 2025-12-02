@@ -1,3 +1,12 @@
+/**
+ * @file Página de Inicio de Sesión (Login).
+ * @description Formulario para que los usuarios existentes inicien sesión en la aplicación.
+ * @requires react
+ * @requires react-router-dom
+ * @requires ../store/authStore
+ * @requires ../config/api
+ * @requires ../styles/Auth-forms.css
+ */
 // RUTA: frontend/src/pages/Login.js
 
 import React, { useState, useEffect } from "react";
@@ -6,6 +15,11 @@ import { useAuthStore } from "../store/authStore";
 import { apiConfig } from "../config/api";
 import "../styles/Auth-forms.css";
 
+/**
+ * @function Login
+ * @description Componente que renderiza el formulario de inicio de sesión y maneja la lógica de autenticación.
+ * @returns {JSX.Element} La página de inicio de sesión.
+ */
 const Login = () => {
     const navigate = useNavigate();
     const { user, setAuth } = useAuthStore();
@@ -21,6 +35,12 @@ const Login = () => {
         }
     }, [user, navigate]);
 
+    /**
+     * @function handleLogin
+     * @description Envía las credenciales del usuario al backend para la autenticación.
+     * @param {React.FormEvent<HTMLFormElement>} e - El evento de envío del formulario.
+     * @async
+     */
     async function handleLogin(e) {
         e.preventDefault();
         console.log("Attempting login with:", { email }); // DEBUG: Ver con qué email se intenta
