@@ -1,6 +1,19 @@
+/**
+ * @file Controlador para los contactos de emergencia.
+ * @description Gestiona las operaciones CRUD para los contactos de emergencia de los usuarios.
+ * @requires ../models/contactoEmergencia_mongoose
+ * @requires ../models/usuarios_mongoose
+ */
 const ContactoEmergencia = require('../models/contactoEmergencia_mongoose');
 const User = require('../models/usuarios_mongoose');
 
+/**
+ * @function createContacto
+ * @description Crea un nuevo contacto de emergencia para el usuario autenticado.
+ * @param {object} req - Objeto de petición de Express.
+ * @param {object} res - Objeto de respuesta de Express.
+ * @returns {Promise<void>}
+ */
 exports.createContacto = async (req, res) => {
     try {
         const { nombre, telefono, email } = req.body;
@@ -23,6 +36,13 @@ exports.createContacto = async (req, res) => {
     }
 };
 
+/**
+ * @function getContactos
+ * @description Obtiene todos los contactos de emergencia del usuario autenticado.
+ * @param {object} req - Objeto de petición de Express.
+ * @param {object} res - Objeto de respuesta de Express.
+ * @returns {Promise<void>}
+ */
 exports.getContactos = async (req, res) => {
     try {
         const contactos = await ContactoEmergencia.find({ usuario: req.user.id });
@@ -32,6 +52,13 @@ exports.getContactos = async (req, res) => {
     }
 };
 
+/**
+ * @function getContactoById
+ * @description Obtiene un contacto de emergencia específico por su ID.
+ * @param {object} req - Objeto de petición de Express.
+ * @param {object} res - Objeto de respuesta de Express.
+ * @returns {Promise<void>}
+ */
 exports.getContactoById = async (req, res) => {
     try {
         const contacto = await ContactoEmergencia.findOne({ _id: req.params.id, usuario: req.user.id });
@@ -44,6 +71,13 @@ exports.getContactoById = async (req, res) => {
     }
 };
 
+/**
+ * @function updateContacto
+ * @description Actualiza un contacto de emergencia existente.
+ * @param {object} req - Objeto de petición de Express.
+ * @param {object} res - Objeto de respuesta de Express.
+ * @returns {Promise<void>}
+ */
 exports.updateContacto = async (req, res) => {
     try {
         const { nombre, telefono, email } = req.body;
@@ -63,6 +97,13 @@ exports.updateContacto = async (req, res) => {
     }
 };
 
+/**
+ * @function deleteContacto
+ * @description Elimina un contacto de emergencia.
+ * @param {object} req - Objeto de petición de Express.
+ * @param {object} res - Objeto de respuesta de Express.
+ * @returns {Promise<void>}
+ */
 exports.deleteContacto = async (req, res) => {
     try {
         const contacto = await ContactoEmergencia.findOneAndDelete({ _id: req.params.id, usuario: req.user.id });
@@ -81,4 +122,3 @@ exports.deleteContacto = async (req, res) => {
         res.status(500).json({ message: 'Error al eliminar el contacto de emergencia', error });
     }
 };
-

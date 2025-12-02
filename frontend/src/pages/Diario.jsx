@@ -1,3 +1,15 @@
+/**
+ * @file Página del Diario.
+ * @description Permite a los usuarios crear, ver, editar, eliminar y compartir entradas de su diario personal.
+ * @requires react
+ * @requires ../hooks
+ * @requires ../service/diario.service
+ * @requires ../components/molecules/DiaryEditor
+ * @requires ../components/molecules/DiaryEntry
+ * @requires ../components/atoms/Button
+ * @requires ../components/atoms/Input
+ * @requires ../styles/Diario.css
+ */
 import React, { useState, useEffect } from "react";
 import { useToast } from "../hooks";
 import { diarioService } from "../service/diario.service";
@@ -7,6 +19,11 @@ import Button from "../components/atoms/Button";
 import Input from "../components/atoms/Input";
 import "../styles/Diario.css";
 
+/**
+ * @function Diario
+ * @description Componente principal de la página del diario. Gestiona el estado y la lógica para las entradas del diario.
+ * @returns {JSX.Element} La página del diario.
+ */
 const Diario = () => {
     const { success: showSuccess, error: showError } = useToast();
     const [entries, setEntries] = useState([]);
@@ -21,6 +38,11 @@ const Diario = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
+    /**
+     * @function loadEntries
+     * @description Carga todas las entradas del diario del usuario desde el servicio.
+     * @async
+     */
     const loadEntries = async () => {
         setIsLoading(true);
         try {
@@ -33,6 +55,12 @@ const Diario = () => {
         }
     };
 
+    /**
+     * @function handleCreateEntry
+     * @description Maneja la creación de una nueva entrada del diario.
+     * @param {object} entryData - Los datos de la nueva entrada.
+     * @async
+     */
     const handleCreateEntry = async (entryData) => {
         setIsLoading(true);
         try {
@@ -47,6 +75,12 @@ const Diario = () => {
         }
     };
 
+    /**
+     * @function handleUpdateEntry
+     * @description Maneja la actualización de una entrada existente.
+     * @param {object} entryData - Los nuevos datos para la entrada.
+     * @async
+     */
     const handleUpdateEntry = async (entryData) => {
         setIsLoading(true);
         try {
@@ -62,6 +96,12 @@ const Diario = () => {
         }
     };
 
+    /**
+     * @function handleDeleteEntry
+     * @description Maneja la eliminación de una entrada.
+     * @param {string} entryId - El ID de la entrada a eliminar.
+     * @async
+     */
     const handleDeleteEntry = async (entryId) => {
         if (!window.confirm('¿Estás seguro de que quieres eliminar esta entrada? Esta acción no se puede deshacer.')) {
             return;
@@ -79,26 +119,48 @@ const Diario = () => {
         }
     };
 
+    /**
+     * @function handleEditEntry
+     * @description Prepara el editor para modificar una entrada existente.
+     * @param {object} entry - La entrada a editar.
+     */
     const handleEditEntry = (entry) => {
         setEditingEntry(entry);
         setShowEditor(true);
     };
 
+    /**
+     * @function handleCancelEditor
+     * @description Cancela la edición y cierra el editor.
+     */
     const handleCancelEditor = () => {
         setShowEditor(false);
         setEditingEntry(null);
     };
 
+    /**
+     * @function handleShareEntry
+     * @description Abre el modal para compartir una entrada.
+     * @param {object} entry - La entrada a compartir.
+     */
     const handleShareEntry = (entry) => {
         setShareModal(entry);
     };
 
+    /**
+     * @function copyShareLink
+     * @description Copia el enlace para compartir al portapapeles.
+     */
     const copyShareLink = () => {
         const url = `${window.location.origin}/diario/${shareModal._id}`;
         navigator.clipboard.writeText(url);
         showSuccess('¡Link copiado al portapapeles!');
     };
 
+    /**
+     * @function closeShareModal
+     * @description Cierra el modal de compartir.
+     */
     const closeShareModal = () => {
         setShareModal(null);
     };
@@ -202,4 +264,3 @@ const Diario = () => {
 };
 
 export default Diario;
-

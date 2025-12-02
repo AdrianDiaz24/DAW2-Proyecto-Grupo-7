@@ -1,7 +1,19 @@
+/**
+ * @file Componente del pie de página.
+ * @description Muestra el pie de página de la aplicación con enlaces de navegación, legales y redes sociales.
+ * @requires react
+ * @requires react-router-dom
+ * @requires ../../styles/molecules/Footer.css
+ */
 import React from "react";
 import { Link } from "react-router-dom";
 import "../../styles/molecules/Footer.css";
 
+/**
+ * @function Footer
+ * @description Renderiza el pie de página de la aplicación.
+ * @returns {JSX.Element} El componente del pie de página.
+ */
 const Footer = () => {
     return (
         <footer className="footer">
@@ -47,4 +59,3 @@ const Footer = () => {
 };
 
 export default Footer;
-

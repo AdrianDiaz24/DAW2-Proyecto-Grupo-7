@@ -1,3 +1,15 @@
+/**
+ * @file Fichero principal de la aplicación Express.
+ * @description Configura y arranca el servidor Express, define middlewares y rutas.
+ * @requires http-errors
+ * @requires express
+ * @requires path
+ * @requires cookie-parser
+ * @requires morgan
+ * @requires cors
+ * @requires helmet
+ */
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -15,6 +27,13 @@ app.set('view engine', 'pug');
 app.use(logger('dev'));
 app.use(helmet());
 
+/**
+ * @name CORS_Configuration
+ * @description Configuración de CORS para permitir peticiones desde el frontend.
+ * @property {string} origin - El origen permitido para las peticiones.
+ * @property {boolean} credentials - Indica si se permiten credenciales.
+ * @property {number} optionsSuccessStatus - Código de estado para peticiones OPTIONS.
+ */
 // Configuración de CORS
 const corsOptions = {
     origin: process.env.FRONTEND_URL || 'http://localhost:3000', // Puerto típico de React cuando backend usa 3000
@@ -43,15 +62,37 @@ app.use('/api', iaRoutes);
 //app.use('/', indexRouter);
 //app.use('/users', usersRouter);
 
+/**
+ * @name GET_/
+ * @description Ruta de prueba para comprobar que el servidor funciona.
+ * @param {object} req - Objeto de petición de Express.
+ * @param {object} res - Objeto de respuesta de Express.
+ */
 app.get('/', (req, res) => {
     res.send('Funciona')
 })
 
+
+/**
+ * @name 404_Error_Handler
+ * @description Middleware para capturar errores 404 (Not Found).
+ * @param {object} req - Objeto de petición de Express.
+ * @param {object} res - Objeto de respuesta de Express.
+ * @param {function} next - Función para pasar al siguiente middleware.
+ */
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
 
+/**
+ * @name Generic_Error_Handler
+ * @description Middleware para gestionar todos los demás errores.
+ * @param {object} err - Objeto de error.
+ * @param {object} req - Objeto de petición de Express.
+ * @param {object} res - Objeto de respuesta de Express.
+ * @param {function} next - Función para pasar al siguiente middleware.
+ */
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
@@ -64,4 +105,3 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
-

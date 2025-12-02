@@ -1,12 +1,29 @@
+/**
+ * @file Componente de la barra de navegación.
+ * @description Muestra la barra de navegación principal de la aplicación, con enlaces que cambian según el estado de autenticación del usuario.
+ * @requires react
+ * @requires react-router-dom
+ * @requires ../../store/authStore
+ * @requires ../../styles/molecules/Navbar.css
+ */
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuthStore } from "../../store/authStore";
 import "../../styles/molecules/Navbar.css";
 
+/**
+ * @function Navbar
+ * @description Renderiza la barra de navegación. Muestra diferentes enlaces si el usuario está autenticado o no.
+ * @returns {JSX.Element} El componente de la barra de navegación.
+ */
 const Navbar = () => {
     const navigate = useNavigate();
     const { user, logout } = useAuthStore();
 
+    /**
+     * @function handleLogout
+     * @description Cierra la sesión del usuario y lo redirige a la página de inicio.
+     */
     const handleLogout = () => {
         logout();
         navigate("/");

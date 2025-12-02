@@ -1,12 +1,27 @@
+/**
+ * @file Fichero de arranque del servidor.
+ * @description Conecta a la base de datos MongoDB y levanta el servidor Express.
+ * @requires mongoose
+ * @requires dotenv
+ * @requires ./app
+ */
 const mongoose = require('mongoose');
 require('dotenv').config();
 
 // Importar la aplicación Express configurada
 const app = require('./app');
 
+/**
+ * @constant {number} port
+ * @description El puerto en el que se ejecutará el servidor.
+ */
 // --- Configuración del Puerto ---
 const port = process.env.PORT || process.env.PUERTO_BACKEND || 3000;
 
+/**
+ * @constant {string} uri
+ * @description La URI de conexión a la base de datos MongoDB.
+ */
 // --- Configuración de MongoDB con Mongoose ---
 const uri = process.env.MONGODB_URI || process.env.URL_DB;
 if (!uri) {
@@ -14,6 +29,11 @@ if (!uri) {
     process.exit(1);
 }
 
+/**
+ * @function connectDBAndStartServer
+ * @description Conecta a la base de datos MongoDB y, si tiene éxito, inicia el servidor Express.
+ * @async
+ */
 async function connectDBAndStartServer() {
     try {
         // Conectar a MongoDB usando Mongoose
@@ -37,6 +57,10 @@ async function connectDBAndStartServer() {
 // Llamar a la función para conectar a la BD e iniciar el servidor
 connectDBAndStartServer();
 
+/**
+ * @event SIGINT
+ * @description Maneja el cierre de la aplicación (Ctrl+C) para cerrar la conexión a la base de datos de forma segura.
+ */
 // Manejar el cierre de la aplicación para cerrar la conexión a la BD
 process.on('SIGINT', async () => {
     console.log('\n⏹️  Cerrando la conexión a la base de datos...');
@@ -45,10 +69,13 @@ process.on('SIGINT', async () => {
     process.exit(0);
 });
 
+/**
+ * @event unhandledRejection
+ * @description Maneja promesas rechazadas no capturadas para evitar que el proceso se bloquee.
+ */
 // Manejar errores no capturados
 process.on('unhandledRejection', (err) => {
     console.error('❌ Unhandled Rejection:', err);
     mongoose.connection.close();
     process.exit(1);
 });
-

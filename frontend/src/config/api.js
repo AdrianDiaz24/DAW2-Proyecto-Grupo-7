@@ -1,11 +1,21 @@
 /**
+ * @file Configuración de la API y función de fetch.
+ * @description Centraliza la URL base, los endpoints y una función `apiFetch` para realizar peticiones al backend.
+ */
 
- Configuración de la API
- Centraliza las URLs y configuraciones del backend*/
-
+/**
+ * @constant {string} API_URL
+ * @description La URL base del backend, obtenida de las variables de entorno o un valor por defecto.
+ */
 // Obtener la URL del backend desde variables de entorno o usar valor por defecto
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:4000';
 
+/**
+ * @namespace apiConfig
+ * @description Un objeto que contiene la configuración de la API.
+ * @property {string} baseURL - La URL base del backend.
+ * @property {object} endpoints - Un objeto con los endpoints específicos de la API.
+ */
 // Exportar la configuración
 export const apiConfig = {
     baseURL: API_URL,
@@ -17,6 +27,14 @@ export const apiConfig = {
     }
 };
 
+/**
+ * @function apiFetch
+ * @description Una función de ayuda para realizar peticiones `fetch` a la API, añadiendo automáticamente el token de autenticación.
+ * @param {string} endpoint - El endpoint de la API al que se hará la petición.
+ * @param {object} [options={}] - Opciones adicionales para la petición `fetch`.
+ * @returns {Promise<Response>} La respuesta de la petición `fetch`.
+ * @async
+ */
 // Función helper para hacer fetch con configuración por defecto
 export const apiFetch = async (endpoint, options = {}) => {
     // Obtener el estado de autenticación desde el storage de Zustand

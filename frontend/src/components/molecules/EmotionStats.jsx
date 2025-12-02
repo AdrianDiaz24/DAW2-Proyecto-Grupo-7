@@ -1,8 +1,23 @@
+/**
+ * @file Componente de estadísticas de emociones.
+ * @description Muestra las estadísticas de emociones de los últimos 7 días usando gráficos de progreso circular.
+ * @requires react
+ * @requires prop-types
+ * @requires ../atoms/CircularProgress
+ * @requires ../../styles/molecules/EmotionStats.css
+ */
 import React from "react";
 import PropTypes from "prop-types";
 import CircularProgress from "../atoms/CircularProgress";
 import "../../styles/molecules/EmotionStats.css";
 
+/**
+ * @function EmotionStats
+ * @description Renderiza una cuadrícula de estadísticas de emociones.
+ * @param {object} props - Las propiedades del componente.
+ * @param {Array<object>} props.stats - Una lista de objetos de estadísticas, cada uno con `emotion` y `percentage`.
+ * @returns {JSX.Element} El componente de estadísticas de emociones.
+ */
 const EmotionStats = ({ stats }) => {
     const emotionColors = {
         "Feliz": "#10b981",
@@ -35,13 +50,15 @@ const EmotionStats = ({ stats }) => {
 };
 
 EmotionStats.propTypes = {
+    /** Una lista de objetos de estadísticas, cada uno con `emotion` y `percentage`. */
     stats: PropTypes.arrayOf(
         PropTypes.shape({
+            /** El nombre de la emoción. */
             emotion: PropTypes.string.isRequired,
+            /** El porcentaje de la emoción. */
             percentage: PropTypes.number.isRequired
         })
     ).isRequired
 };
 
 export default EmotionStats;
-

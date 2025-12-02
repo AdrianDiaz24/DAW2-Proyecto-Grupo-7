@@ -1,8 +1,21 @@
+/**
+ * @file Componente Hero para la página de aterrizaje.
+ * @description Combina la sección Hero con los botones de autenticación para la página principal.
+ * @requires react
+ * @requires ../molecules/HeroSection
+ * @requires ../molecules/AuthButtons
+ * @requires ../../styles/organisms/LandingHero.css
+ */
 import React from "react";
 import HeroSection from "../molecules/HeroSection";
 import AuthButtons from "../molecules/AuthButtons";
 import "../../styles/organisms/LandingHero.css";
 
+/**
+ * @function LandingHero
+ * @description Renderiza la sección principal de la página de aterrizaje.
+ * @returns {JSX.Element} El componente Hero de la página de aterrizaje.
+ */
 const LandingHero = () => {
     return (
         <div className="landing-hero">
@@ -16,4 +29,3 @@ const LandingHero = () => {
 };
 
 export default LandingHero;
-
