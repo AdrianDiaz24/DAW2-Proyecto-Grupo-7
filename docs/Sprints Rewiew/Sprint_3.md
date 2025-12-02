@@ -74,7 +74,6 @@ Estado final del Backlog del Sprint 3 basado en el tablero de proyecto.
 * `#72` **Lógica Tracker (Form):** Endpoint para el perfilado inicial. (Adrián)
 * `#75` **Lógica Tracker (Reg):** CRUD de registros diarios (ánimo, sueño). (Adrián)
 * `#76` **Lógica Diario:** CRUD de entradas de texto personal. (Adrián)
-* `#21` **Logica contactos de emergencia:** Gestión de datos de seguridad. (Adrián)
 
 **Frontend (Funcional)**
 * `#15` **Crear esquema de Home:** Enrutamiento y estructura base. (Rocío)
