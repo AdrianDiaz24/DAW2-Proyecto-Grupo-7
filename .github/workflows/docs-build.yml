@@ -11,7 +11,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  # 1) Documentación funcional (Markdown -> PDF/HTML)
   build-docs:
     runs-on: ubuntu-latest
 
@@ -19,6 +18,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
+      # docs/ raíz (si hay .md sueltos)
       - name: Build docs root
         uses: BaileyJM02/markdown-to-pdf@v1.2.0
         with:
@@ -35,11 +35,11 @@ jobs:
           build_pdf: true
           build_html: true
 
-      - name: Build docs Sprints Review
+      - name: Build docs sprintreview
         uses: BaileyJM02/markdown-to-pdf@v1.2.0
         with:
-          input_dir: "docs/sprintreview"
-          output_dir: "docs-export/sprintreview"
+          input_dir: docs/sprintreview
+          output_dir: docs-export/sprintreview
           build_pdf: true
           build_html: true
 
@@ -51,11 +51,6 @@ jobs:
           build_pdf: true
           build_html: true
 
-      - name: Upload docs artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: project-docs
-          path: docs-export
 
   # 2) Documentación de código (JSDoc sobre backend/src y frontend/src)
   build-code-docs:
