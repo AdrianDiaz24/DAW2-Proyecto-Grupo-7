@@ -35,14 +35,6 @@ jobs:
           build_pdf: true
           build_html: true
 
-      - name: Build docs postman
-        uses: BaileyJM02/markdown-to-pdf@v1.2.0
-        with:
-          input_dir: docs/postman
-          output_dir: docs-export/postman
-          build_pdf: true
-          build_html: true
-
       - name: Build docs Sprints Review
         uses: BaileyJM02/markdown-to-pdf@v1.2.0
         with:
