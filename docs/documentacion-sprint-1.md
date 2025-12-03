@@ -121,20 +121,20 @@ Estado final del Backlog del Sprint 1 basado en el tablero de GitHub Projects.
 ### 5. Tareas del sprint (Resumen)
 
 | Tarea                                               | Categoría   | Responsable          | Estimación (h) | Estado      |
-|-----------------------------------------------------|------------|----------------------|-----------|----------------|
-| Investigación stack MERN                            | Documentación | Todos                | 3         | Done        |
-| Configurar entorno local y dependencias             | Backend    | Rocío y Adrián       | 4         | Done        |
-| Crear guía de estilos                               | Diseño     | Rocío                | 4         | Done        |
-| Diseñar wireframes (Inicio, Registro, Diario, Recursos) | Diseño | José Antonio         | 5         | Done        |
-| Elaborar componentes base de UI                     | Frontend   | Adrián               | 5         | Done        |
-| Mockup principal de Inicio y Diario                 | Diseño     | Rocío                | 6         | In progress |
-| Crear estructura de carpetas frontend/backend       | DevOps     | Rocío                | 2         | Done        |
-| Añadir archivo `.env.example`                       | Backend    | Adrián               | 1         | Done        |
-| Crear componente de prueba "Sprint" en frontend     | Frontend   | Rocío                | 2         | Done        |
-| Configurar conexión a MongoDB Atlas                 | Backend    | Adrián               | 3         | Done        |
-| Crear base de datos y colecciones                   | Backend    | Adrián               | 3         | Done        |
-| Definir modelos iniciales                           | Backend    | José Antonio y Rocío | 4         | Done        |
-| Crear tablero de GitHub Projects                    | Gestión    | Rocío                | 2         | Done        |
+|-----------------------------------------------------|------------|----------------------|----------------|----------------|
+| Investigación stack MERN                            | Documentación | Todos                |                | Done        |
+| Configurar entorno local y dependencias             | Backend    | Rocío y Adrián       |                | Done        |
+| Crear guía de estilos                               | Diseño     | Rocío                |                | Done        |
+| Diseñar wireframes (Inicio, Registro, Diario, Recursos) | Diseño | José Antonio         |                | Done        |
+| Elaborar componentes base de UI                     | Frontend   | Adrián               |                | Done        |
+| Mockup principal de Inicio y Diario                 | Diseño     | Rocío                |                | In progress |
+| Crear estructura de carpetas frontend/backend       | DevOps     | Rocío                |                | Done        |
+| Añadir archivo `.env.example`                       | Backend    | Adrián               |                | Done        |
+| Crear componente de prueba "Sprint" en frontend     | Frontend   | Rocío                |                | Done        |
+| Configurar conexión a MongoDB Atlas                 | Backend    | Adrián               |                | Done        |
+| Crear base de datos y colecciones                   | Backend    | Adrián               |                | Done        |
+| Definir modelos iniciales                           | Backend    | José Antonio y Rocío |                | Done        |
+| Crear tablero de GitHub Projects                    | Gestión    | Rocío                |                | Done        |
 
 ---
 
