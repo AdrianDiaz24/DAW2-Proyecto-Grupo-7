@@ -1,13 +1,17 @@
-name: Build Docs (PDF & HTML)
+name: Build Docs (PDF & HTML + Code Docs)
 
 on:
   push:
     paths:
       - 'docs/**'
+      - 'backend/src/**'
+      - 'frontend/src/**'
+      - 'jsdoc.json'
       - '.github/workflows/docs-build.yml'
   workflow_dispatch:
 
 jobs:
+  # 1) Documentación funcional (Markdown -> PDF/HTML)
   build-docs:
     runs-on: ubuntu-latest
 
@@ -15,7 +19,6 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      # Markdown sueltos en docs/
       - name: Build docs root
         uses: BaileyJM02/markdown-to-pdf@v1.2.0
         with:
@@ -24,7 +27,6 @@ jobs:
           build_pdf: true
           build_html: true
 
-      # docs/arquitectura
       - name: Build docs arquitectura
         uses: BaileyJM02/markdown-to-pdf@v1.2.0
         with:
@@ -33,16 +35,6 @@ jobs:
           build_pdf: true
           build_html: true
 
-      # docs/diseño
-      - name: Build docs diseño
-        uses: BaileyJM02/markdown-to-pdf@v1.2.0
-        with:
-          input_dir: docs/diseño
-          output_dir: docs-export/diseño
-          build_pdf: true
-          build_html: true
-
-      # docs/postman
       - name: Build docs postman
         uses: BaileyJM02/markdown-to-pdf@v1.2.0
         with:
@@ -51,7 +43,6 @@ jobs:
           build_pdf: true
           build_html: true
 
-      # docs/Sprints Review  (ojo al espacio → poner entre comillas)
       - name: Build docs Sprints Review
         uses: BaileyJM02/markdown-to-pdf@v1.2.0
         with:
@@ -60,7 +51,6 @@ jobs:
           build_pdf: true
           build_html: true
 
-      # docs/wiki
       - name: Build docs wiki
         uses: BaileyJM02/markdown-to-pdf@v1.2.0
         with:
@@ -74,3 +64,28 @@ jobs:
         with:
           name: project-docs
           path: docs-export
+
+  # 2) Documentación de código (JSDoc sobre backend/src y frontend/src)
+  build-code-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24.11.0'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Generate code documentation (JSDoc)
+        run: npm run docs:code
+
+      - name: Upload code docs artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: code-docs
+          path: code-docs
