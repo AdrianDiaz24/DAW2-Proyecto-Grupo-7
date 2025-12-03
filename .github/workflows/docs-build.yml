@@ -15,13 +15,57 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Build PDF & HTML from Markdown (incluye subcarpetas)
+      # Markdown sueltos en docs/
+      - name: Build docs root
         uses: BaileyJM02/markdown-to-pdf@v1.2.0
         with:
-          input_dir: docs           # lee docs y TODAS sus subcarpetas
-          output_dir: docs-export   # se crean las mismas subcarpetas aquí
-          images_dir: docs          # raíz donde pueden estar las imágenes
-          image_import: .           # rutas relativas se mantienen
+          input_dir: docs
+          output_dir: docs-export
+          build_pdf: true
+          build_html: true
+
+      # docs/arquitectura
+      - name: Build docs arquitectura
+        uses: BaileyJM02/markdown-to-pdf@v1.2.0
+        with:
+          input_dir: docs/arquitectura
+          output_dir: docs-export/arquitectura
+          build_pdf: true
+          build_html: true
+
+      # docs/diseño
+      - name: Build docs diseño
+        uses: BaileyJM02/markdown-to-pdf@v1.2.0
+        with:
+          input_dir: docs/diseño
+          output_dir: docs-export/diseño
+          build_pdf: true
+          build_html: true
+
+      # docs/postman
+      - name: Build docs postman
+        uses: BaileyJM02/markdown-to-pdf@v1.2.0
+        with:
+          input_dir: docs/postman
+          output_dir: docs-export/postman
+          build_pdf: true
+          build_html: true
+
+      # docs/Sprints Review  (ojo al espacio → poner entre comillas)
+      - name: Build docs Sprints Review
+        uses: BaileyJM02/markdown-to-pdf@v1.2.0
+        with:
+          input_dir: "docs/Sprints Review"
+          output_dir: "docs-export/Sprints Review"
+          build_pdf: true
+          build_html: true
+
+      # docs/wiki
+      - name: Build docs wiki
+        uses: BaileyJM02/markdown-to-pdf@v1.2.0
+        with:
+          input_dir: docs/wiki
+          output_dir: docs-export/wiki
           build_pdf: true
           build_html: true
 
