@@ -1,0 +1,32 @@
+name: Build Docs (PDF & HTML)
+
+on:
+  push:
+    paths:
+      - 'docs/**'
+      - '.github/workflows/docs-build.yml'
+  workflow_dispatch:
+
+jobs:
+  build-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Build PDF & HTML from Markdown
+        uses: BaileyJM02/markdown-to-pdf@v1.4.0
+        with:
+          input_dir: docs           # aquí está tu documentación .md
+          output_dir: docs-export   # carpeta de salida dentro del repo
+          images_dir: docs/images   # cámbialo si usas otra carpeta de imágenes
+          image_import: ./images
+          build_pdf: true
+          build_html: true
+
+      - name: Upload docs artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: project-docs
+          path: docs-export
