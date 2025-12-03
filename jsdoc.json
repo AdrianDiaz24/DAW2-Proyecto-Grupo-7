@@ -1,0 +1,11 @@
+{
+  "source": {
+    "include": ["backend/src", "frontend/src"],
+    "includePattern": ".+\\.(js|jsx|ts|tsx)$"
+  },
+  "opts": {
+    "destination": "code-docs",
+    "recurse": true,
+    "template": "default"
+  }
+}
