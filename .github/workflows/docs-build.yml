@@ -16,11 +16,11 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build PDF & HTML from Markdown
-        uses: BaileyJM02/markdown-to-pdf@v1.4.0
+        uses: BaileyJM02/markdown-to-pdf@v1.2.0
         with:
-          input_dir: docs           # aquí está tu documentación .md
-          output_dir: docs-export   # carpeta de salida dentro del repo
-          images_dir: docs/images   # cámbialo si usas otra carpeta de imágenes
+          input_dir: docs           # carpeta donde tienes la documentación .md
+          output_dir: docs-export   # carpeta de salida
+          images_dir: docs/images   # ajusta si usas otra ruta para imágenes
           image_import: ./images
           build_pdf: true
           build_html: true
