@@ -1,60 +1,45 @@
-## Sprint 1 – del 7 al 14 de noviembre de 2025
+## Sprint 1 – 7–14 noviembre 2025
+
 ### Datos básicos
-* **Periodo del sprint:** del 7 al 14 de noviembre de 2025.
-
-* **Equipo:** Adrián Díaz Angulo, Rocío Luque Montes y José Antonio Díaz Busati (Grupo 7).
-
-* **Objetivo del sprint:**
-Dejar preparado el proyecto base con la comunicación frontend–backend, empezar el diseño visual y crear la base de datos inicial en MongoDB Atlas para poder continuar el desarrollo en los siguientes sprints.
+- **Periodo del sprint:** 7–14 de noviembre de 2025.
+- **Equipo:** Adrián Díaz Angulo, Rocío Luque Montes y José Antonio Díaz Busati (Grupo 7).
+- **Objetivo del sprint:** Dejar preparado el proyecto base con comunicación frontend–backend, diseño visual inicial y base de datos en MongoDB Atlas para poder continuar el desarrollo en los siguientes sprints.
 
 ### Historias de usuario del sprint
+| ID  | Descripción breve                                                                    | Estado | Issue |
+|-----|--------------------------------------------------------------------------------------|--------|-------|
+| HU1 | Investigar la pila MERN para entender conexión frontend–backend–base de datos.      | Done   | #1 Investigar stack MERN, #2 Configurar entorno local    |
+| HU2 | Tener un proyecto base Node/React conectado a MongoDB Atlas y funcionando.          | Done   | #7 Crear estructura de carpetas, #8 Añadir archivo .env.example, #9 Crear componente sprint, #13 Configurar conexión MongoDB     |
+| HU3 | Definir el diseño base (guía de estilos, wireframes, componentes principales).      | Done   | #3 Crear guía de estilos, #4 Diseñar wireframes, #5 Elaborar componentes, #6 Elaborar mockup principal     |
+| HU4 | Disponer de una base de datos inicial con colecciones y esquemas básicos.           | In progress  | #15 Crear base de datos en MongoDB Atlas, #12 Crear colecciones usuarios y registros, #16 Diseñar modelos de usuario, #17 Crear tablero GitHub Projects |
 
-* **HU1** – Conocer la tecnología del proyecto: Como miembro del equipo, quiero investigar la pila MERN para entender cómo se conectan frontend, backend y base de datos.
+### Tareas del sprint
 
-* **HU2** – Tener un proyecto base funcionando: Como desarrollador, quiero un entorno Node/React configurado y conectado a MongoDB Atlas para poder programar sin problemas.
-
-* **HU3** – Definir el diseño base de la aplicación: Como usuario, quiero una interfaz con estilos, wireframes y componentes coherentes para usar la aplicación cómodamente.
-
-* **HU4** – Disponer de una base de datos inicial: Como desarrollador, necesito colecciones y esquemas básicos en MongoDB para guardar usuarios y registros desde el principio.
-
-### Tareas realizadas
-
-* **Aprendizaje e investigación**
-Investigar stack MERN: Revisión de cómo funcionan juntos MongoDB, Express, React y Node.js, y cómo fluye la información entre frontend y backend.
-
-* **Configurar entorno local:** Comprobación de que Node.js y npm funcionan correctamente, instalación de dependencias y pruebas de conexión con MongoDB Atlas.
-
-* **Diseño de la interfaz**
-Crear guía de estilos: Definición de tipografías, colores y estilos globales accesibles; subida de la guía de estilos al repositorio para que todo el equipo la use como referencia.
-
-* **Diseñar wireframes:** Creación de wireframes de las pantallas principales (Inicio, Registro, Diario y Recursos) y almacenamiento en PDF/Figma, enlazados desde el **README**.
-
-* **Elaborar componentes base:** Definición y diseño de los componentes de UI que se usarán en el mockup final, siguiendo la guía de estilos.
-
-* **Elaborar mockup principal (In Progress):** Desarrollo del mockup visual de la pantalla de inicio y diario en Figma a partir de los wireframes; el enlace al diseño se dejará en el **README** cuando esté finalizado.
+| Tarea                                               | Categoría   | Responsable          | Estimación (h) | Estado      |
+|-----------------------------------------------------|------------|----------------------|-----------|-------------|
+| Investigación stack MERN                            | Documentación | Todos                |           | Done        |
+| Configurar entorno local y dependencias             | Backend    | Rocío y Adrián       |           | Done        |
+| Crear guía de estilos                               | Diseño     | Rocío                |           | Done        |
+| Diseñar wireframes (Inicio, Registro, Diario, Recursos) | Diseño | José Antonio         |           | Done        |
+| Elaborar componentes base de UI                     | Frontend   | Adrián               |           | Done        |
+| Mockup principal de Inicio y Diario                 | Diseño     | Rocío                |          | In progress |
+| Crear estructura de carpetas frontend/backend       | DevOps     | Rocío                |          | Done        |
+| Añadir archivo `.env.example`                       | Backend    | Adrián               |          | Done        |
+| Crear componente de prueba “Sprint” en frontend     | Frontend   | Rocío                |          | Done        |
+| Configurar conexión a MongoDB Atlas                 | Backend    | Adrián               |          | Done        |
+| Crear base de datos y colecciones (usuarios, registros) | Backend | Adrián               |          | Done        |
+| Definir modelos iniciales (usuarios, registros, …)  | Backend    | José Antonio y Rocío |          | Done        |
+| Crear tablero de GitHub Projects y alta de issues   | Gestión    | Rocío                |          | Done        |
 
 ### Configuración del proyecto
-* **Crear estructura de carpetas:** Organización del proyecto separando backend y frontend, configuración de ramas (main, dev, etc.) y verificación de que se puede levantar el entorno.
+- Proyecto organizado en carpetas separadas para **backend** y **frontend**, con ramas `main` y `dev` operativas.
+- Archivo `.env.example` creado con las variables mínimas necesarias (puerto, URL de MongoDB Atlas, etc.).
+- Tablero de **GitHub Projects** creado con campos de Sprint, Prioridad, Estimación, Categoría y Assignee, y todas las tareas del sprint dadas de alta.
 
-* **Añadir archivo .env.example:** Creación de un archivo de ejemplo con las variables de entorno necesarias (puertos, URL de MongoDB, etc.) para que cualquier miembro pueda configurar el proyecto en su máquina.
+### Resultado del sprint (Sprint Review)
+- Esqueleto técnico listo: entorno local funcionando, backend conectado a MongoDB Atlas y estructura de carpetas definida.
+- Diseño visual avanzado: guía de estilos, wireframes y componentes base creados; mockup principal iniciado y continuará en el Sprint 2.
 
-### Desarrollo frontend
-* **Crear componente sprint:** Implementación de un componente simple en el frontend para mostrar contenido de prueba del sprint y comprobar que el entorno de frontend funciona correctamente.
-
-### Desarrollo backend
-* **Configurar conexión MongoDB:** Implementación y prueba de la conexión al backend con MongoDB Atlas, asegurando que el servidor se conecta sin errores.
-
-### Base de datos y modelos
-* **Crear base de datos en MongoDB Atlas:** Creación del clúster y de la base de datos para el proyecto.
-
-* **Diseñar modelos de base de datos:** Definición del esquema inicial según la documentación (usuarios, registros, etc.), aunque se terminará de refinar en sprints posteriores.
-
-### Gestión y documentación
-* **Crear tablero GitHub Projects:** Creación del tablero de GitHub Projects para el proyecto, alta de las issues del sprint y reparto de tareas entre los miembros del equipo.
-
-* **Crear colecciones usuarios y registros:** Creación de la colección de usuarios y de la colección inicial de registros en la base de datos para empezar a probar operaciones CRUD en el siguiente sprint.
-
-### Resultado del sprint
-* El sprint deja listo un esqueleto técnico sólido: entorno configurado, conexión a MongoDB Atlas funcionando y estructura de carpetas backend/frontend definida.
-
-* En la parte visual se han definido guía de estilos, wireframes y varios componentes, y el mockup principal está avanzado pero aún en progreso para terminarlo en el siguiente sprint.
+### Retrospectiva
+- **Ha funcionado bien:** 
+- **A mejorar:** 
