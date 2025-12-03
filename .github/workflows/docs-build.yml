@@ -38,8 +38,8 @@ jobs:
       - name: Build docs Sprints Review
         uses: BaileyJM02/markdown-to-pdf@v1.2.0
         with:
-          input_dir: "docs/Sprints Review"
-          output_dir: "docs-export/Sprints Review"
+          input_dir: "docs/sprintreview"
+          output_dir: "docs-export/sprintreview"
           build_pdf: true
           build_html: true
 

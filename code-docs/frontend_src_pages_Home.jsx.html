@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: frontend/src/pages/Home.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: frontend/src/pages/Home.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @file Página de Inicio (Home).
+ * @description Muestra un panel de control personalizado para el usuario con estadísticas, accesos directos y artículos recomendados.
+ * @requires react
+ * @requires ../store/authStore
+ * @requires ../components/molecules/EmotionStats
+ * @requires ../components/molecules/ActionCard
+ * @requires ../components/molecules/DiaryBanner
+ * @requires ../components/molecules/Carousel
+ * @requires ../styles/Home.css
+ */
+import React from "react";
+import { useAuthStore } from "../store/authStore";
+import EmotionStats from "../components/molecules/EmotionStats";
+import ActionCard from "../components/molecules/ActionCard";
+import DiaryBanner from "../components/molecules/DiaryBanner";
+import Carousel from "../components/molecules/Carousel";
+import "../styles/Home.css";
+
+/**
+ * @function Home
+ * @description Componente principal de la página de inicio. Muestra un saludo personalizado y varios widgets de información.
+ * @returns {JSX.Element} La página de inicio.
+ */
+const Home = () => {
+    const { user } = useAuthStore();
+
+    // Datos ficticios para las estadísticas emocionales (basados en el modelo registro)
+    const emotionStats = [
+        { emotion: "Feliz", percentage: 75 },
+        { emotion: "Bien", percentage: 85 },
+        { emotion: "Ansiedad", percentage: 30 },
+        { emotion: "Promedio", percentage: 65 }
+    ];
+
+    // Datos ficticios para el carousel de artículos
+    const articles = [
+        {
+            title: "5 Técnicas de Respiración para Reducir la Ansiedad",
+            description: "Descubre cómo la respiración consciente puede ayudarte a manejar el estrés diario y mejorar tu bienestar emocional."
+        },
+        {
+            title: "La Importancia del Sueño en la Salud Mental",
+            description: "Conoce cómo un buen descanso nocturno influye directamente en tu estado de ánimo y capacidad cognitiva."
+        },
+        {
+            title: "Mindfulness: Vivir el Presente",
+            description: "Aprende técnicas de atención plena para conectar con el momento actual y reducir la rumiación mental."
+        },
+        {
+            title: "Ejercicio Físico y Bienestar Emocional",
+            description: "Explora la relación entre la actividad física regular y la mejora del estado de ánimo."
+        },
+        {
+            title: "Alimentación Consciente para Tu Mente",
+            description: "Descubre cómo lo que comes afecta tu salud mental y aprende a nutrir tu cerebro de forma óptima."
+        }
+    ];
+
+    return (
+        &lt;div className="home-page">
+            &lt;div className="home-container">
+                &lt;header className="home-header">
+                    &lt;h1>¡Bienvenido, {user?.nombre || user?.email}!&lt;/h1>
+                    &lt;p className="home-subtitle">Tu espacio personal para cuidar tu bienestar mental&lt;/p>
+                &lt;/header>
+
+                {/* Estadísticas emocionales */}
+                &lt;section className="home-section">
+                    &lt;EmotionStats stats={emotionStats} />
+                &lt;/section>
+
+                {/* Action Card para Seguimiento */}
+                &lt;section className="home-section">
+                    &lt;ActionCard
+                        title="Registra tu día"
+                        description="¿Cómo te sientes hoy? Lleva un seguimiento diario de tus emociones, sueño, actividad física y más."
+                        buttonText="Ir a Seguimiento"
+                        navigateTo="/seguimiento"
+                        variant="primary"
+                        icon="📊"
+                    />
+                &lt;/section>
+
+                {/* Banner del Diario */}
+                &lt;section className="home-section">
+                    &lt;DiaryBanner
+                        title="Tu Diario Personal"
+                        description="Escribe tus pensamientos, reflexiones y experiencias. Un espacio seguro para expresarte libremente."
+                        buttonText="Escribir en mi Diario"
+                        navigateTo="/diario"
+                    />
+                &lt;/section>
+
+                {/* Carousel de Artículos */}
+                &lt;section className="home-section">
+                    &lt;div className="home-section-header">
+                        &lt;h2>Artículos Recomendados&lt;/h2>
+                        &lt;p>Contenido seleccionado para tu bienestar&lt;/p>
+                    &lt;/div>
+                    &lt;Carousel items={articles} />
+                &lt;/section>
+            &lt;/div>
+        &lt;/div>
+    );
+};
+
+export default Home;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="apiConfig.html">apiConfig</a></li><li><a href="diarioService.html">diarioService</a></li></ul><h3>Classes</h3><ul><li><a href="ErrorBoundary.html">ErrorBoundary</a></li></ul><h3>Events</h3><ul><li><a href="global.html#event:SIGINT">SIGINT</a></li><li><a href="global.html#event:unhandledRejection">unhandledRejection</a></li></ul><h3>Global</h3><ul><li><a href="global.html#404_Error_Handler">404_Error_Handler</a></li><li><a href="global.html#ACTIVIDADES">ACTIVIDADES</a></li><li><a href="global.html#API_URL">API_URL</a></li><li><a href="global.html#ASPECTOS_COGNITIVOS">ASPECTOS_COGNITIVOS</a></li><li><a href="global.html#ActionCard">ActionCard</a></li><li><a href="global.html#ActivitySelector">ActivitySelector</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#AuthButtons">AuthButtons</a></li><li><a href="global.html#AuthLayout">AuthLayout</a></li><li><a href="global.html#Button">Button</a></li><li><a href="global.html#CORS_Configuration">CORS_Configuration</a></li><li><a href="global.html#Card">Card</a></li><li><a href="global.html#Carousel">Carousel</a></li><li><a href="global.html#Checkbox">Checkbox</a></li><li><a href="global.html#CircularProgress">CircularProgress</a></li><li><a href="global.html#CognitionSelector">CognitionSelector</a></li><li><a href="global.html#DiaryBanner">DiaryBanner</a></li><li><a href="global.html#DiaryEditor">DiaryEditor</a></li><li><a href="global.html#DiaryEntry">DiaryEntry</a></li><li><a href="global.html#EMOCIONES">EMOCIONES</a></li><li><a href="global.html#EmotionSelector">EmotionSelector</a></li><li><a href="global.html#EmotionStats">EmotionStats</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#GET_/">GET_/</a></li><li><a href="global.html#Generic_Error_Handler">Generic_Error_Handler</a></li><li><a href="global.html#Heading">Heading</a></li><li><a href="global.html#HeroSection">HeroSection</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#Input">Input</a></li><li><a href="global.html#Landing">Landing</a></li><li><a href="global.html#LandingHero">LandingHero</a></li><li><a href="global.html#Login">Login</a></li><li><a href="global.html#Logo">Logo</a></li><li><a href="global.html#MainLayout">MainLayout</a></li><li><a href="global.html#Navbar">Navbar</a></li><li><a href="global.html#ProtectedRoute">ProtectedRoute</a></li><li><a href="global.html#Register">Register</a></li><li><a href="global.html#Seguimiento">Seguimiento</a></li><li><a href="global.html#Slider">Slider</a></li><li><a href="global.html#Text">Text</a></li><li><a href="global.html#Textarea">Textarea</a></li><li><a href="global.html#accessWithPassword">accessWithPassword</a></li><li><a href="global.html#actualizarEntradaDiario">actualizarEntradaDiario</a></li><li><a href="global.html#api">api</a></li><li><a href="global.html#apiFetch">apiFetch</a></li><li><a href="global.html#authMiddleware">authMiddleware</a></li><li><a href="global.html#closeShareModal">closeShareModal</a></li><li><a href="global.html#compararPassword">compararPassword</a></li><li><a href="global.html#componentDidCatch">componentDidCatch</a></li><li><a href="global.html#connectDBAndStartServer">connectDBAndStartServer</a></li><li><a href="global.html#copyShareLink">copyShareLink</a></li><li><a href="global.html#crearEntradaDiario">crearEntradaDiario</a></li><li><a href="global.html#create">create</a></li><li><a href="global.html#createContacto">createContacto</a></li><li><a href="global.html#delete">delete</a></li><li><a href="global.html#deleteContacto">deleteContacto</a></li><li><a href="global.html#description">description</a></li><li><a href="global.html#dismiss">dismiss</a></li><li><a href="global.html#duracion">duracion</a></li><li><a href="global.html#eliminarEntradaDiario">eliminarEntradaDiario</a></li><li><a href="global.html#emotion">emotion</a></li><li><a href="global.html#error">error</a></li><li><a href="global.html#formatDate">formatDate</a></li><li><a href="global.html#formatDateShort">formatDateShort</a></li><li><a href="global.html#getAll">getAll</a></li><li><a href="global.html#getById">getById</a></li><li><a href="global.html#getContactoById">getContactoById</a></li><li><a href="global.html#getContactos">getContactos</a></li><li><a href="global.html">getDerivedStateFromError</a></li><li><a href="global.html#getIntensidad">getIntensidad</a></li><li><a href="global.html#getPreviewText">getPreviewText</a></li><li><a href="global.html#getProfile">getProfile</a></li><li><a href="global.html#getStepLabel">getStepLabel</a></li><li><a href="global.html#goToNext">goToNext</a></li><li><a href="global.html#goToPrevious">goToPrevious</a></li><li><a href="global.html#handleAddActividad">handleAddActividad</a></li><li><a href="global.html#handleCancelEditor">handleCancelEditor</a></li><li><a href="global.html#handleChange">handleChange</a></li><li><a href="global.html#handleCreateEntry">handleCreateEntry</a></li><li><a href="global.html#handleDeleteEntry">handleDeleteEntry</a></li><li><a href="global.html#handleEditEntry">handleEditEntry</a></li><li><a href="global.html#handleEmocionToggle">handleEmocionToggle</a></li><li><a href="global.html#handleIntensidadChange">handleIntensidadChange</a></li><li><a href="global.html#handleLogin">handleLogin</a></li><li><a href="global.html#handleLogout">handleLogout</a></li><li><a href="global.html#handleRegister">handleRegister</a></li><li><a href="global.html#handleReload">handleReload</a></li><li><a href="global.html#handleRemoveActividad">handleRemoveActividad</a></li><li><a href="global.html#handleShareEntry">handleShareEntry</a></li><li><a href="global.html#handleSubmit">handleSubmit</a></li><li><a href="global.html#handleToggle">handleToggle</a></li><li><a href="global.html#handleToggleExpand">handleToggleExpand</a></li><li><a href="global.html#handleUpdateEntry">handleUpdateEntry</a></li><li><a href="global.html#info">info</a></li><li><a href="global.html#intensidad">intensidad</a></li><li><a href="global.html#isSelected">isSelected</a></li><li><a href="global.html#loadEntries">loadEntries</a></li><li><a href="global.html#loading">loading</a></li><li><a href="global.html#loginUser">loginUser</a></li><li><a href="global.html#nextStep">nextStep</a></li><li><a href="global.html#nombre">nombre</a></li><li><a href="global.html#obtenerEntradaDiarioPorId">obtenerEntradaDiarioPorId</a></li><li><a href="global.html#obtenerEntradasDiario">obtenerEntradasDiario</a></li><li><a href="global.html#optionalAuthMiddleware">optionalAuthMiddleware</a></li><li><a href="global.html#percentage">percentage</a></li><li><a href="global.html#port">port</a></li><li><a href="global.html#pre-save">pre-save</a></li><li><a href="global.html#prevStep">prevStep</a></li><li><a href="global.html#promise">promise</a></li><li><a href="global.html#registerUser">registerUser</a></li><li><a href="global.html#render">render</a></li><li><a href="global.html#request-interceptor">request-interceptor</a></li><li><a href="global.html#response-interceptor">response-interceptor</a></li><li><a href="global.html#success">success</a></li><li><a href="global.html#timeAgo">timeAgo</a></li><li><a href="global.html#title">title</a></li><li><a href="global.html#togglePasswordField">togglePasswordField</a></li><li><a href="global.html#update">update</a></li><li><a href="global.html#updateContacto">updateContacto</a></li><li><a href="global.html#uri">uri</a></li><li><a href="global.html#useAuthStore">useAuthStore</a></li><li><a href="global.html#useToast">useToast</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Wed Dec 03 2025 13:31:52 GMT+0100 (hora estándar de Europa central)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
