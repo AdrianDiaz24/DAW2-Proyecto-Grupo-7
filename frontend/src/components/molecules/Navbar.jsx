@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useAuthStore } from "../../store/authStore";
 import NavLink from "./NavLink";
 import StaggeredMenu from "./StaggeredMenu";
@@ -21,46 +21,74 @@ const Navbar = () => {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    const handleLogout = () => {
-        logout();
-        navigate("/");
-    };
-
-    // Items del menú para la versión móvil
-    const menuItems = !user && isLanding ? [
+    // Items del menú para la versión móvil - Landing (sin autenticar)
+    const menuItemsLanding = !user && isLanding ? [
         {
             label: "Iniciar Sesión",
             link: "/login",
-            onClick: () => navigate("/login"),
         },
         {
             label: "Regístrate",
             link: "/register",
-            onClick: () => navigate("/register"),
         },
     ] : [];
 
+    // Items del menú para la versión móvil - Otras páginas (sin autenticar)
+    const menuItemsNoAuth = !user && !isLanding ? [
+        {
+            label: "Inicio",
+            link: "/",
+        },
+        {
+            label: "Login",
+            link: "/login",
+        },
+        {
+            label: "Register",
+            link: "/register",
+        },
+    ] : [];
+
+    // Items del menú para la versión móvil - Autenticado
+    const menuItemsAuth = user ? [
+        {
+            label: "Seguimiento",
+            link: "/seguimiento",
+        },
+        {
+            label: "Diario",
+            link: "/diario",
+        },
+        {
+            label: "Artículos",
+            link: "/articulos",
+        },
+        {
+            label: "Perfil",
+            link: "/perfil",
+        },
+    ] : [];
+
+    // Determinar qué items mostrar en móvil
+    const menuItems = user ? menuItemsAuth : (isLanding ? menuItemsLanding : menuItemsNoAuth);
+
     return (
         <>
-            {/* StaggeredMenu para móviles en landing */}
-            {isMobile && isLanding && (
+            {/* StaggeredMenu para móviles en todas las páginas */}
+            {isMobile && (
                 <StaggeredMenu
                     items={menuItems}
                     position="right"
                     menuButtonColor="#4A2CA5"
                     openMenuButtonColor="#4A2CA5"
-                    accentColor="#D4DBFF"
-                    displayItemNumbering={false}
-                    onMenuOpen={() => console.log("Menu abierto")}
-                    onMenuClose={() => console.log("Menu cerrado")}
                 />
             )}
 
             <nav className={`navbar ${isLanding ? "navbar--landing" : ""}`}>
                 <div className="navbar__logo">
-                    <Link to={user ? "/home" : "/"} style={{ textDecoration: "none" }}>
-                        {user ? "MindCare" : "MindCare"}
-                    </Link>
+                    <NavLink to="/home" isLanding={false} isMobile={isMobile}>
+                        MindCare
+                    </NavLink>
                 </div>
 
                 <ul className="navbar__links">
@@ -81,61 +109,48 @@ const Navbar = () => {
                     )}
 
                     {/* Links cuando el usuario NO está autenticado (Otras páginas) */}
-                    {!user && !isLanding && (
+                    {!user && !isLanding && !isMobile && (
                         <>
                             <li>
-                                <Link to="/" style={{ textDecoration: "none" }}>
+                                <NavLink to="/" isLanding={false} isMobile={isMobile}>
                                     Inicio
-                                </Link>
+                                </NavLink>
                             </li>
                             <li>
-                                <Link to="/login" style={{ textDecoration: "none" }}>
+                                <NavLink to="/login" isLanding={false} isMobile={isMobile}>
                                     Login
-                                </Link>
+                                </NavLink>
                             </li>
                             <li>
-                                <Link to="/register" style={{ textDecoration: "none" }}>
+                                <NavLink to="/register" isLanding={false} isMobile={isMobile}>
                                     Register
-                                </Link>
+                                </NavLink>
                             </li>
                         </>
                     )}
 
-                    {/* Links cuando el usuario SÍ está autenticado */}
-                    {user && (
+                    {/* Links cuando el usuario SÍ está autenticado (sin Home ni Logout) */}
+                    {user && !isMobile && (
                         <>
                             <li>
-                                <Link to="/home" style={{ textDecoration: "none" }}>
-                                    Home
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/seguimiento" style={{ textDecoration: "none" }}>
+                                <NavLink to="/seguimiento" isLanding={false} isMobile={isMobile}>
                                     Seguimiento
-                                </Link>
+                                </NavLink>
                             </li>
                             <li>
-                                <Link to="/diario" style={{ textDecoration: "none" }}>
+                                <NavLink to="/diario" isLanding={false} isMobile={isMobile}>
                                     Diario
-                                </Link>
+                                </NavLink>
                             </li>
                             <li>
-                                <Link to="/articulos" style={{ textDecoration: "none" }}>
+                                <NavLink to="/articulos" isLanding={false} isMobile={isMobile}>
                                     Artículos
-                                </Link>
+                                </NavLink>
                             </li>
                             <li>
-                                <Link to="/perfil" style={{ textDecoration: "none" }}>
+                                <NavLink to="/perfil" isLanding={false} isMobile={isMobile}>
                                     Perfil
-                                </Link>
-                            </li>
-                            <li>
-                                <button
-                                    onClick={handleLogout}
-                                    style={{ textDecoration: "none" }}
-                                >
-                                    Logout
-                                </button>
+                                </NavLink>
                             </li>
                         </>
                     )}

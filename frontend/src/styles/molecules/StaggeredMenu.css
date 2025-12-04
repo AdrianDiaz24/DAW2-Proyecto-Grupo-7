@@ -89,6 +89,24 @@
     left: 20px;
 }
 
+/* Botón X para cerrar */
+.staggered-menu__close-button {
+    align-self: center;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--navbar-text-color);
+    cursor: pointer;
+    padding: 10px;
+    transition: transform 0.3s ease;
+    font-family: 'Mouse Memoirs', cursive !important;
+    margin-top: 20px;
+}
+
+.staggered-menu__close-button:hover {
+    transform: rotate(90deg);
+}
+
 /* Lista de items */
 .staggered-menu__list {
     list-style: none;
@@ -101,27 +119,69 @@
 
 .staggered-menu__item {
     margin: 0;
+    list-style: none;
+    cursor: pointer;
 }
 
-/* Enlace del item */
-.staggered-menu__link {
+/* NavLink dentro del item del menú */
+.staggered-menu__item .nav-link-animated,
+.staggered-menu__item > div,
+.staggered-menu__item a {
     display: flex;
     align-items: center;
+    justify-content: flex-start;
     gap: 15px;
     text-decoration: none;
-    color: var(--navbar-text-color);
+    color: var(--navbar-text-color) !important;
     font-family: 'Mouse Memoirs', cursive !important;
-    font-size: 1.5rem;
+    font-size: 1.5rem !important;
     font-weight: bold;
     padding: 12px 20px;
     border-radius: 8px;
-    background-color: var(--navbar-bg-color);
+    background-color: var(--navbar-bg-color) !important;
+    background: var(--navbar-bg-color) !important;
     transition: all 0.3s ease;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    border: none;
+    text-align: left;
+}
+
+.staggered-menu__item .nav-link-animated:hover,
+.staggered-menu__item > div:hover,
+.staggered-menu__item a:hover {
+    background-color: #c5ceeb !important;
+    background: #c5ceeb !important;
+    transform: translateX(10px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Mantener estilos del botón para compatibilidad */
+.staggered-menu__link {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+    text-decoration: none;
+    color: var(--navbar-text-color) !important;
+    font-family: 'Mouse Memoirs', cursive !important;
+    font-size: 1.5rem !important;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 8px;
+    background-color: var(--navbar-bg-color) !important;
+    background: var(--navbar-bg-color) !important;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    text-align: left;
 }
 
 .staggered-menu__link:hover {
-    background-color: #c5ceeb;
+    background-color: #c5ceeb !important;
+    background: #c5ceeb !important;
     transform: translateX(10px);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }

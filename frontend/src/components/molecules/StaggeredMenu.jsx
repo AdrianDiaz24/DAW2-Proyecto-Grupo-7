@@ -1,32 +1,20 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import PropTypes from "prop-types";
+import NavLink from "./NavLink";
 import "../../styles/molecules/StaggeredMenu.css";
+
 
 const StaggeredMenu = ({
     items = [],
     position = "right",
     menuButtonColor = "#4A2CA5",
     openMenuButtonColor = "#4A2CA5",
-    accentColor = "#D4DBFF",
-    displayItemNumbering = false,
-    onMenuOpen = () => {},
-    onMenuClose = () => {},
 }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
-        if (!isOpen) {
-            onMenuOpen();
-        } else {
-            onMenuClose();
-        }
-    };
-
-    const handleItemClick = (callback) => {
-        setIsOpen(false);
-        if (callback) callback();
     };
 
     // Variantes para la animación del botón
@@ -108,6 +96,7 @@ const StaggeredMenu = ({
                 transition={{ duration: 0.3 }}
             >
                 <div className="staggered-menu__content">
+
                     {/* Items del menú */}
                     <ul className="staggered-menu__list">
                         <AnimatePresence>
@@ -121,34 +110,27 @@ const StaggeredMenu = ({
                                         animate="open"
                                         exit="exit"
                                         className="staggered-menu__item"
+                                        onClick={() => setIsOpen(false)}
                                     >
-                                        <a
-                                            href={item.link}
-                                            className="staggered-menu__link"
-                                            onClick={(e) => {
-                                                e.preventDefault();
-                                                handleItemClick(() => {
-                                                    if (item.onClick) {
-                                                        item.onClick();
-                                                    } else if (item.link.startsWith("http")) {
-                                                        window.open(item.link, "_blank");
-                                                    }
-                                                });
-                                            }}
+                                        <NavLink
+                                            to={item.link}
+                                            isLanding={false}
+                                            isMobile={false}
                                         >
-                                            {displayItemNumbering && (
-                                                <span className="staggered-menu__number">
-                                                    {String(index + 1).padStart(2, "0")}
-                                                </span>
-                                            )}
-                                            <span className="staggered-menu__label">
-                                                {item.label}
-                                            </span>
-                                        </a>
+                                            {item.label}
+                                        </NavLink>
                                     </motion.li>
                                 ))}
                         </AnimatePresence>
                     </ul>
+
+                    {/* Botón X para cerrar */}
+                    <button
+                        className="staggered-menu__close-button"
+                        onClick={() => setIsOpen(false)}
+                    >
+                        ✕
+                    </button>
                 </div>
             </motion.div>
         </div>
@@ -160,17 +142,11 @@ StaggeredMenu.propTypes = {
         PropTypes.shape({
             label: PropTypes.string.isRequired,
             link: PropTypes.string.isRequired,
-            onClick: PropTypes.func,
         })
     ),
     position: PropTypes.oneOf(["left", "right"]),
     menuButtonColor: PropTypes.string,
     openMenuButtonColor: PropTypes.string,
-    accentColor: PropTypes.string,
-    displayItemNumbering: PropTypes.bool,
-    onMenuOpen: PropTypes.func,
-    onMenuClose: PropTypes.func,
 };
 
 export default StaggeredMenu;
-

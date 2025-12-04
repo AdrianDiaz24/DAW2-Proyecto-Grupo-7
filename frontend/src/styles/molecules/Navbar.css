@@ -1,52 +1,45 @@
 @import "../variables.css";
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem 2.5rem;
-    background-color: #f8f9fa;
-    border-bottom: 1px solid #ddd;
-}
-
-.navbar.navbar--landing {
     position: fixed;
     top: 30px;
     left: 50%;
     transform: translateX(-50%);
     width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 3.5rem;
     background-color: var(--navbar-bg-color);
     border: none;
     border-radius: 50px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    padding: 1.5rem 2.5rem;
     font-family: 'Mouse Memoirs', cursive !important;
     z-index: 1000;
 }
 
+.navbar.navbar--landing {
+    /* Todos los estilos ya están en .navbar */
+}
+
 .navbar__logo {
     font-weight: bold;
-    font-size: 2.2rem;
+    font-size: 2.8rem;
+}
+
+.navbar__logo a,
+.navbar__logo .nav-link-animated {
+    font-size: 2.8rem !important;
 }
 
 .navbar__logo a {
     text-decoration: none;
-    color: #4f46e5;
-    transition: color 0.3s ease;
-    font-family: inherit;
-}
-
-.navbar--landing .navbar__logo a {
     color: var(--navbar-text-color);
     font-family: 'Mouse Memoirs', cursive !important;
-    font-size: 2.5rem;
+    transition: color 0.3s ease;
 }
 
 .navbar__logo a:hover {
-    color: #6366f1;
-}
-
-.navbar--landing .navbar__logo a:hover {
     color: var(--navbar-text-color);
     opacity: 0.8;
 }
@@ -67,30 +60,18 @@
 .navbar__links a,
 .navbar__links button {
     text-decoration: none;
-    color: #333;
+    color: var(--navbar-text-color) !important;
+    padding: 10px 20px;
     border: none;
     background: none;
     cursor: pointer;
-    font-family: inherit;
-}
-
-.navbar--landing .navbar__links a,
-.navbar--landing .navbar__links button {
-    color: var(--navbar-text-color) !important;
     font-family: 'Mouse Memoirs', cursive !important;
     font-size: 1.8rem;
-    padding: 10px 20px;
     text-decoration: none !important;
 }
 
 .navbar__links a:hover,
 .navbar__links button:hover {
-    color: #007bff;
-    transition: color 0.2s;
-}
-
-.navbar--landing .navbar__links a:hover,
-.navbar--landing .navbar__links button:hover {
     color: var(--navbar-text-color);
     opacity: 0.7;
     transition: opacity 0.2s;
@@ -98,6 +79,74 @@
 
 .navbar__hamburger {
     display: none;
+}
+
+/* ====== MEDIA QUERIES ====== */
+
+/* Breakpoint 1024px - Tablets y pantallas medianas */
+@media (max-width: 1024px) {
+    .navbar {
+        width: 80%;
+        padding: 1.2rem 2rem;
+    }
+
+    .navbar__logo {
+        font-size: 2.2rem;
+    }
+
+    .navbar__logo a,
+    .navbar__logo .nav-link-animated {
+        font-size: 2.2rem !important;
+    }
+
+    .navbar__links a,
+    .navbar__links button {
+        font-size: 1.5rem;
+        padding: 8px 16px;
+    }
+}
+
+/* Breakpoint 768px - Tablets pequeños */
+@media (max-width: 768px) {
+    .navbar {
+        width: 85%;
+        padding: 1rem 1.5rem;
+    }
+
+    .navbar__logo {
+        font-size: 2rem;
+    }
+
+    .navbar__logo a,
+    .navbar__logo .nav-link-animated {
+        font-size: 2rem !important;
+    }
+
+    .navbar__links a,
+    .navbar__links button {
+        font-size: 1.2rem;
+        padding: 6px 12px;
+    }
+}
+
+/* Breakpoint 700px - Móviles grandes */
+@media (max-width: 700px) {
+    /* Ocultar navbar horizontal en móviles */
+    .navbar {
+        display: none;
+    }
+
+    .navbar.navbar--landing {
+        display: none;
+    }
+
+    .navbar__logo {
+        display: none;
+    }
+
+    .navbar__links {
+        display: none;
+    }
 }
 
 /* ====== MEDIA QUERIES ====== */
@@ -148,17 +197,12 @@
 
 /* Breakpoint 700px - Móviles grandes */
 @media (max-width: 700px) {
+    /* Ocultar navbar horizontal en móviles */
+    .navbar {
+        display: none;
+    }
+
     .navbar.navbar--landing {
-        position: fixed;
-        width: auto;
-        height: auto;
-        top: 30px;
-        left: 50%;
-        right: auto;
-        bottom: auto;
-        transform: translateX(-50%);
-        border-radius: 50px;
-        padding: 1.5rem 2.5rem;
         display: none;
     }
 

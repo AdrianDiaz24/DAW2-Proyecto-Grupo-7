@@ -14,6 +14,7 @@ import Register from "./pages/Register";
 import Home from "./pages/Home";
 import Seguimiento from "./pages/Seguimiento";
 import Diario from "./pages/Diario";
+import Perfil from "./pages/Perfil";
 
 import { useAuthStore } from "./store/authStore";
 
@@ -104,6 +105,14 @@ function App() {
                     <MainLayout>
                         <ProtectedRoute>
                             <Diario />
+                        </ProtectedRoute>
+                    </MainLayout>
+                } />
+
+                <Route path="/perfil" element={
+                    <MainLayout>
+                        <ProtectedRoute>
+                            <Perfil />
                         </ProtectedRoute>
                     </MainLayout>
                 } />

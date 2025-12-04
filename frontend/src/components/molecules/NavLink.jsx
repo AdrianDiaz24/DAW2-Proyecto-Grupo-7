@@ -42,7 +42,8 @@ const NavLink = ({ to, children, isLanding = false, isMobile = false }) => {
         mouseX.set(Infinity); // Resetear a Infinity cuando se va el cursor
     };
 
-    if (!isLanding || isMobile) {
+    // Usar animación magnética en todas partes (landing y no landing), pero no en móvil
+    if (isMobile) {
         return (
             <Link to={to} style={{ textDecoration: "none" }}>
                 {children}
