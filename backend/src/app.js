@@ -51,6 +51,7 @@ const formularioRouter = require('./routes/formulario.routes');
 const registroRouter = require('./routes/registro.routes');
 const diarioRouter = require('./routes/diario.routes');
 const iaRoutes = require('./routes/ia.routes');
+const contactoEmergenciaRouter = require('./routes/contactoEmergencia.routes');
 
 app.use('/api/auth', authRouter);
 app.use('/api/formulario', formularioRouter);
@@ -58,6 +59,7 @@ app.use('/api/registro', registroRouter);
 app.use('/api/registros', registroRouter); // Añadido para aceptar la forma plural
 app.use('/api/diario', diarioRouter);
 app.use('/api', iaRoutes);
+app.use('/api/contactos-emergencia', contactoEmergenciaRouter);
 
 //app.use('/', indexRouter);
 //app.use('/users', usersRouter);

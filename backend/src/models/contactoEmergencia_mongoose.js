@@ -21,6 +21,10 @@ const contactoEmergenciaSchema = new Schema({
         trim: true,
         lowercase: true,
         match: [/\S+@\S+\.\S+/, 'Email no válido']
+    },
+    relacion: {
+        type: String,
+        trim: true
     }
 }, { timestamps: true });
 

@@ -1,14 +1,16 @@
 /**
  * @file Layout principal de la aplicación.
  * @description Proporciona la estructura principal de la página con barra de navegación, contenido principal y pie de página.
- * @requires react
+ * @requires React
  * @requires ../molecules/Navbar
  * @requires ../molecules/Footer
  * @requires ../../styles/Layout.css
  */
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../molecules/Navbar";
 import Footer from "../molecules/Footer";
+import EmergencyButton from "../atoms/EmergencyButton";
+import EmergencyModal from "../organisms/EmergencyModal";
 import "../../styles/Layout.css";
 
 /**
@@ -19,6 +21,8 @@ import "../../styles/Layout.css";
  * @returns {JSX.Element} El componente del layout principal.
  */
 const MainLayout = ({ children }) => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     return (
         <div className="layout-container">
             <Navbar />
@@ -26,6 +30,8 @@ const MainLayout = ({ children }) => {
                 {children}
             </main>
             <Footer />
+            <EmergencyButton onClick={() => setIsModalOpen(true)} />
+            {isModalOpen && <EmergencyModal onClose={() => setIsModalOpen(false)} />}
         </div>
     );
 };

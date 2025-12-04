@@ -11,6 +11,7 @@ require('dotenv').config();
 // Importar la aplicación Express configurada
 const app = require('./app');
 
+
 /**
  * @constant {number} port
  * @description El puerto en el que se ejecutará el servidor.
