@@ -1,3 +1,5 @@
+@import "../variables.css";
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -7,41 +9,87 @@
     border-bottom: 1px solid #ddd;
 }
 
-.navbar .logo {
-    font-weight: bold;
-    font-size: 1.5rem;
+.navbar.navbar--landing {
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    background-color: var(--navbar-bg-color);
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 1.5rem 2.5rem;
+    font-family: 'Mouse Memoirs', cursive !important;
+    z-index: 1000;
 }
 
-.navbar .logo a {
+.navbar__logo {
+    font-weight: bold;
+    font-size: 2.5rem;
+}
+
+.navbar__logo a {
     text-decoration: none;
     color: #4f46e5;
     transition: color 0.3s ease;
+    font-family: inherit;
 }
 
-.navbar .logo a:hover {
+.navbar--landing .navbar__logo a {
+    color: var(--navbar-text-color);
+    font-family: 'Mouse Memoirs', cursive !important;
+    font-size: 2.5rem;
+}
+
+.navbar__logo a:hover {
     color: #6366f1;
 }
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 15px;
+.navbar--landing .navbar__logo a:hover {
+    color: var(--navbar-text-color);
+    opacity: 0.8;
 }
 
-.nav-links li {
+.navbar__links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar__links li {
     margin: 0;
 }
 
-.nav-links a, .nav-links button {
+.navbar__links a, .navbar__links button {
     text-decoration: none;
     color: #333;
     padding: 5px 10px;
     border: none;
     background: none;
     cursor: pointer;
+    font-family: inherit;
 }
 
-.nav-links a:hover, .nav-links button:hover {
+.navbar--landing .navbar__links a,
+.navbar--landing .navbar__links button {
+    color: var(--navbar-text-color);
+    font-family: 'Mouse Memoirs', cursive !important;
+    font-size: 2rem;
+    padding: 5px 15px;
+}
+
+.navbar__links a:hover, .navbar__links button:hover {
     color: #007bff;
     transition: color 0.2s;
 }
+
+.navbar--landing .navbar__links a:hover,
+.navbar--landing .navbar__links button:hover {
+    color: var(--navbar-text-color);
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+

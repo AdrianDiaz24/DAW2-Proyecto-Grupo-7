@@ -1,0 +1,14 @@
+/* Variables CSS Globales */
+:root {
+    /* Colores de la Navbar */
+    --navbar-bg-color: #D4DBFF;
+    --navbar-text-color: #4A2CA5;
+
+    /* Otras variables globales */
+    --primary-color: #4f46e5;
+    --secondary-color: #007bff;
+    --text-dark: #333;
+    --text-light: #fff;
+    --border-color: #ddd;
+}
+
