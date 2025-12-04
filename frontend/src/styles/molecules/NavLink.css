@@ -3,6 +3,7 @@
     transition: all 0.2s ease;
     color: var(--navbar-text-color);
     font-family: 'Mouse Memoirs', cursive !important;
+    font-size: 1.8rem;
 }
 
 .nav-link-animated a {
@@ -12,5 +13,6 @@
     height: 100%;
     color: var(--navbar-text-color) !important;
     font-family: 'Mouse Memoirs', cursive !important;
+    font-size: 1.8rem;
 }
 

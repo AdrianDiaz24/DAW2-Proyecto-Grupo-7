@@ -1,14 +1,14 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 import PropTypes from "prop-types";
 import "../../styles/molecules/NavLink.css";
 
-const NavLink = ({ to, children, isLanding = false }) => {
+const NavLink = ({ to, children, isLanding = false, isMobile = false }) => {
     const ref = useRef(null);
-    const mouseX = useMotionValue(0);
+    const mouseX = useMotionValue(Infinity); // Iniciar en Infinity para que esté lejos
+    const [isHovering, setIsHovering] = useState(false);
 
-    const baseItemSize = 0; // Sin ancho fijo
     const magnification = 1.25; // Escala de ampliación (25% - más pronunciada)
     const distance = 150;
     const spring = { mass: 0.05, stiffness: 400, damping: 15 };
@@ -30,6 +30,7 @@ const NavLink = ({ to, children, isLanding = false }) => {
     const scaleSpring = useSpring(scale, spring);
 
     const handleMouseMove = (e) => {
+        setIsHovering(true);
         const rect = ref.current?.getBoundingClientRect();
         if (rect) {
             mouseX.set(e.clientX);
@@ -37,10 +38,11 @@ const NavLink = ({ to, children, isLanding = false }) => {
     };
 
     const handleMouseLeave = () => {
-        mouseX.set(0);
+        setIsHovering(false);
+        mouseX.set(Infinity); // Resetear a Infinity cuando se va el cursor
     };
 
-    if (!isLanding) {
+    if (!isLanding || isMobile) {
         return (
             <Link to={to} style={{ textDecoration: "none" }}>
                 {children}
@@ -84,6 +86,7 @@ NavLink.propTypes = {
     to: PropTypes.string.isRequired,
     children: PropTypes.node.isRequired,
     isLanding: PropTypes.bool,
+    isMobile: PropTypes.bool,
 };
 
 export default NavLink;
