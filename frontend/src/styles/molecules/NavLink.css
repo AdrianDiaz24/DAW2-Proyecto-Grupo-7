@@ -1,0 +1,16 @@
+/* Estilos para NavLink con animación magnética */
+.nav-link-animated {
+    transition: all 0.2s ease;
+    color: var(--navbar-text-color);
+    font-family: 'Mouse Memoirs', cursive !important;
+}
+
+.nav-link-animated a {
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: var(--navbar-text-color) !important;
+    font-family: 'Mouse Memoirs', cursive !important;
+}
+

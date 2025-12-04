@@ -4,7 +4,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 1.5rem 2.5rem;
     background-color: #f8f9fa;
     border-bottom: 1px solid #ddd;
 }
@@ -26,7 +26,7 @@
 
 .navbar__logo {
     font-weight: bold;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
 }
 
 .navbar__logo a {
@@ -57,16 +57,17 @@
     gap: 20px;
     margin: 0;
     padding: 0;
+    align-items: center;
 }
 
 .navbar__links li {
     margin: 0;
 }
 
-.navbar__links a, .navbar__links button {
+.navbar__links a,
+.navbar__links button {
     text-decoration: none;
     color: #333;
-    padding: 5px 10px;
     border: none;
     background: none;
     cursor: pointer;
@@ -75,13 +76,15 @@
 
 .navbar--landing .navbar__links a,
 .navbar--landing .navbar__links button {
-    color: var(--navbar-text-color);
+    color: var(--navbar-text-color) !important;
     font-family: 'Mouse Memoirs', cursive !important;
     font-size: 2rem;
-    padding: 5px 15px;
+    padding: 10px 20px;
+    text-decoration: none !important;
 }
 
-.navbar__links a:hover, .navbar__links button:hover {
+.navbar__links a:hover,
+.navbar__links button:hover {
     color: #007bff;
     transition: color 0.2s;
 }
@@ -92,4 +95,3 @@
     opacity: 0.7;
     transition: opacity 0.2s;
 }
-
