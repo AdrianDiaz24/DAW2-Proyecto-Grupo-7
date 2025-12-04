@@ -78,7 +78,7 @@ jobs:
           path: code-docs
 
   #3)
-    build:
+    build-docker:
       runs-on: ubuntu-latest
 
       steps:
@@ -94,6 +94,5 @@ jobs:
         - name: Build and push to dockerhub
           uses: docker/build-push-action@v5
           with:
-            context:
             push: true
             tags: joseantoniodiazbusati/mindcare:latest
