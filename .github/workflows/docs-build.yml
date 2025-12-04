@@ -77,11 +77,9 @@ jobs:
           name: code-docs
           path: code-docs
 
-  #3)
-    build-docker:
-      runs-on: ubuntu-latest
-
-      steps:
+  build-docker:
+    runs-on: ubuntu-latest
+    steps:
         - name: Checkout repo
           uses: actions/checkout@v4
 
