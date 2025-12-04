@@ -8,7 +8,7 @@
 const express = require('express');
 const router = express.Router();
 const contactoController = require('../controllers/contactoEmergencia.controller');
-const authMiddleware = require('../middleware/authMiddleware');
+const { authMiddleware } = require('../middleware/authMiddleware');
 
 // Rutas para los contactos de emergencia
 /**
@@ -65,5 +65,13 @@ router.put('/:id', authMiddleware, contactoController.updateContacto);
  * @param {function} middleware - Controlador para manejar la petición.
  */
 router.delete('/:id', authMiddleware, contactoController.deleteContacto);
+
+/**
+ * @name POST /api/contactos-emergencia/:contactoId/send-email
+ * @description Envía un email de emergencia a un contacto.
+ * @function
+ * @memberof module:routes/contactoEmergencia
+ */
+router.post('/:contactoId/send-email', authMiddleware, contactoController.sendEmergencyEmail);
 
 module.exports = router;
