@@ -1,3 +1,18 @@
+/**
+ * @file Página de Seguimiento Diario.
+ * @description Un formulario de varios pasos para que los usuarios registren su estado de ánimo, sueño, actividad y otros datos diarios.
+ * @requires react
+ * @requires react-router-dom
+ * @requires ../store/authStore
+ * @requires ../config/api
+ * @requires ../components/molecules/EmotionSelector
+ * @requires ../components/molecules/ActivitySelector
+ * @requires ../components/molecules/CognitionSelector
+ * @requires ../components/atoms/Slider
+ * @requires ../components/atoms/Checkbox
+ * @requires ../components/atoms/Button
+ * @requires ../styles/Seguimiento.css
+ */
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthStore } from "../store/authStore";
@@ -10,6 +25,11 @@ import Checkbox from "../components/atoms/Checkbox";
 import Button from "../components/atoms/Button";
 import "../styles/Seguimiento.css";
 
+/**
+ * @function Seguimiento
+ * @description Componente principal de la página de seguimiento. Gestiona el estado del formulario de varios pasos y el envío de datos.
+ * @returns {JSX.Element} La página de seguimiento.
+ */
 const Seguimiento = () => {
     const navigate = useNavigate();
     const { user } = useAuthStore();
@@ -59,6 +79,11 @@ const Seguimiento = () => {
         medicacion: []
     });
 
+    /**
+     * @function handleSubmit
+     * @description Envía los datos del formulario de seguimiento al backend.
+     * @async
+     */
     const handleSubmit = async () => {
         setLoading(true);
         try {
@@ -83,9 +108,24 @@ const Seguimiento = () => {
         }
     };
 
+    /**
+     * @function nextStep
+     * @description Avanza al siguiente paso del formulario.
+     */
     const nextStep = () => setCurrentStep(prev => Math.min(prev + 1, totalSteps));
+
+    /**
+     * @function prevStep
+     * @description Retrocede al paso anterior del formulario.
+     */
     const prevStep = () => setCurrentStep(prev => Math.max(prev - 1, 1));
 
+    /**
+     * @function getStepLabel
+     * @description Obtiene la etiqueta para un paso específico del formulario.
+     * @param {number} step - El número del paso.
+     * @returns {string} La etiqueta del paso.
+     */
     const getStepLabel = (step) => {
         const labels = ['Ánimo', 'Sueño', 'Actividad', 'Energía', 'Alimentación', 'Social', 'Cognición', 'Extras'];
         return `${step}. ${labels[step - 1]}`;
@@ -530,4 +570,3 @@ const Seguimiento = () => {
 };
 
 export default Seguimiento;
-

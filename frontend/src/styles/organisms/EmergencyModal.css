@@ -1,0 +1,393 @@
+﻿.emergency-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(31, 41, 55, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    padding: 1rem;
+}
+
+.emergency-modal {
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    padding: 2rem;
+    width: 100%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.emergency-modal__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #fee2e2;
+    gap: 1rem;
+}
+
+.emergency-modal__title {
+    color: #dc2626;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+    flex: 1;
+    white-space: nowrap;
+}
+
+.emergency-modal__close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #6b7280;
+    cursor: pointer;
+    padding: 0.25rem;
+    line-height: 1;
+    transition: color 0.2s;
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.emergency-modal__close:hover {
+    color: #dc2626;
+    background-color: #fee2e2;
+}
+
+.emergency-modal__tabs {
+    display: flex;
+    border-bottom: 2px solid #e5e7eb;
+    margin-bottom: 1.5rem;
+    gap: 0.5rem;
+}
+
+.emergency-modal__tab {
+    padding: 0.75rem 1rem;
+    background: none;
+    border: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #6b7280;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    transition: all 0.2s;
+}
+
+.emergency-modal__tab:hover {
+    color: #dc2626;
+}
+
+.emergency-modal__tab--active {
+    color: #dc2626;
+    border-bottom-color: #dc2626;
+}
+
+.emergency-modal__content {
+    min-height: 200px;
+}
+
+/* PestaÃ±a de informaciÃ³n */
+.emergency-info__title {
+    color: #1f2937;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 1rem 0 0.5rem 0;
+}
+
+.emergency-info__title:first-child {
+    margin-top: 0;
+}
+
+.emergency-info__text {
+    color: #4b5563;
+    line-height: 1.6;
+    margin: 0.5rem 0;
+}
+
+.emergency-info__list {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin: 0.75rem 0;
+    color: #4b5563;
+}
+
+.emergency-info__list li {
+    margin: 0.5rem 0;
+    line-height: 1.5;
+}
+
+.emergency-info__number {
+    font-weight: bold;
+    color: #dc2626;
+}
+
+/* PestaÃ±a de contactos */
+.emergency-contacts__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.emergency-contacts__item {
+    padding: 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    background-color: #f9fafb;
+}
+
+.emergency-contacts__name {
+    font-weight: 600;
+    color: #1f2937;
+    font-size: 1.05rem;
+    margin-bottom: 0.25rem;
+}
+
+.emergency-contacts__detail {
+    color: #6b7280;
+    font-size: 0.9rem;
+    margin: 0.15rem 0;
+}
+
+.emergency-contacts__actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.emergency-contacts__action-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.emergency-contacts__action-btn--call {
+    background-color: #22c55e;
+    color: white;
+}
+
+.emergency-contacts__action-btn--call:hover {
+    background-color: #16a34a;
+}
+
+.emergency-contacts__action-btn--email {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.emergency-contacts__action-btn--email:hover {
+    background-color: #2563eb;
+}
+
+.emergency-contacts__action-btn--sms {
+    background-color: #8b5cf6;
+    color: white;
+}
+
+.emergency-contacts__action-btn--sms:hover {
+    background-color: #7c3aed;
+}
+
+.emergency-contacts__empty {
+    text-align: center;
+    color: #6b7280;
+    padding: 2rem;
+}
+
+/* BotÃ³n de aÃ±adir contacto */
+.emergency-contacts__add-btn {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    background-color: #4f46e5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.emergency-contacts__add-btn:hover {
+    background-color: #4338ca;
+}
+
+/* Formulario de aÃ±adir contacto */
+.emergency-contacts__form {
+    background-color: #f3f4f6;
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.emergency-contacts__form-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0 0 1rem 0;
+}
+
+.emergency-contacts__form-group {
+    margin-bottom: 0.75rem;
+}
+
+.emergency-contacts__form-label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #4b5563;
+    margin-bottom: 0.25rem;
+}
+
+.emergency-contacts__form-input {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+}
+
+.emergency-contacts__form-input:focus {
+    outline: none;
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1);
+}
+
+.emergency-contacts__form-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.emergency-contacts__form-submit {
+    flex: 1;
+    padding: 0.5rem 1rem;
+    background-color: #22c55e;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.emergency-contacts__form-submit:hover {
+    background-color: #16a34a;
+}
+
+.emergency-contacts__form-submit:disabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+}
+
+.emergency-contacts__form-cancel {
+    padding: 0.5rem 1rem;
+    background-color: #e5e7eb;
+    color: #4b5563;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.emergency-contacts__form-cancel:hover {
+    background-color: #d1d5db;
+}
+
+/* PestaÃ±a de llamar */
+.emergency-call__text {
+    color: #4b5563;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.emergency-call__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.emergency-call__btn {
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.emergency-call__btn--112 {
+    background-color: #dc2626;
+    color: white;
+}
+
+.emergency-call__btn--112:hover {
+    background-color: #b91c1c;
+    transform: translateY(-2px);
+}
+
+.emergency-call__btn--024 {
+    background-color: #f59e0b;
+    color: white;
+}
+
+.emergency-call__btn--024:hover {
+    background-color: #d97706;
+    transform: translateY(-2px);
+}
+
+.emergency-call__note {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: #fef3c7;
+    border-radius: 8px;
+    color: #92400e;
+    font-size: 0.9rem;
+    font-style: italic;
+}

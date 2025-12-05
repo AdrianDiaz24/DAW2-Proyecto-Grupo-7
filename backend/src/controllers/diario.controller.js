@@ -1,6 +1,17 @@
+/**
+ * @file Controlador para las entradas del diario.
+ * @description Gestiona las operaciones CRUD para las entradas del diario de los usuarios.
+ * @requires ../models/diario_mongoose
+ */
 const Diario = require('../models/diario_mongoose');
 
-// Crear una nueva entrada en el diario
+/**
+ * @function crearEntradaDiario
+ * @description Crea una nueva entrada en el diario para el usuario autenticado.
+ * @param {object} req - Objeto de petición de Express.
+ * @param {object} res - Objeto de respuesta de Express.
+ * @returns {Promise<void>}
+ */
 exports.crearEntradaDiario = async (req, res) => {
     try {
         const { titulo, cuerpo, password } = req.body;
@@ -45,7 +56,13 @@ exports.crearEntradaDiario = async (req, res) => {
     }
 };
 
-// Obtener todas las entradas del diario de un usuario
+/**
+ * @function obtenerEntradasDiario
+ * @description Obtiene todas las entradas del diario del usuario autenticado.
+ * @param {object} req - Objeto de petición de Express.
+ * @param {object} res - Objeto de respuesta de Express.
+ * @returns {Promise<void>}
+ */
 exports.obtenerEntradasDiario = async (req, res) => {
     try {
         const usuarioId = req.user.id;
@@ -65,7 +82,15 @@ exports.obtenerEntradasDiario = async (req, res) => {
     }
 };
 
-// Obtener una entrada específica del diario
+/**
+ * @function obtenerEntradaDiarioPorId
+ * @description Obtiene una entrada específica del diario por su ID.
+ * @description Si el solicitante es el propietario, se le da acceso.
+ * @description Si la entrada es pública (con contraseña), se verifica la contraseña.
+ * @param {object} req - Objeto de petición de Express.
+ * @param {object} res - Objeto de respuesta de Express.
+ * @returns {Promise<void>}
+ */
 exports.obtenerEntradaDiarioPorId = async (req, res) => {
     try {
         const { id } = req.params;
@@ -107,7 +132,13 @@ exports.obtenerEntradaDiarioPorId = async (req, res) => {
     }
 };
 
-// Actualizar una entrada del diario (incluyendo añadir/cambiar contraseña)
+/**
+ * @function actualizarEntradaDiario
+ * @description Actualiza una entrada del diario existente.
+ * @param {object} req - Objeto de petición de Express.
+ * @param {object} res - Objeto de respuesta de Express.
+ * @returns {Promise<void>}
+ */
 exports.actualizarEntradaDiario = async (req, res) => {
     try {
         const { id } = req.params;
@@ -140,7 +171,13 @@ exports.actualizarEntradaDiario = async (req, res) => {
     }
 };
 
-// Eliminar una entrada del diario
+/**
+ * @function eliminarEntradaDiario
+ * @description Elimina una entrada del diario.
+ * @param {object} req - Objeto de petición de Express.
+ * @param {object} res - Objeto de respuesta de Express.
+ * @returns {Promise<void>}
+ */
 exports.eliminarEntradaDiario = async (req, res) => {
     try {
         const { id } = req.params;
@@ -162,4 +199,3 @@ exports.eliminarEntradaDiario = async (req, res) => {
         res.status(500).json({ message: 'Error al eliminar la entrada del diario', error: error.message });
     }
 };
-

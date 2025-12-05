@@ -1,3 +1,12 @@
+/**
+ * @file Punto de entrada de la aplicación React.
+ * @description Renderiza el componente raíz de la aplicación en el DOM.
+ * @requires react
+ * @requires react-dom/client
+ * @requires ./styles/index.css
+ * @requires ./App
+ * @requires ./reportWebVitals
+ */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './styles/index.css';

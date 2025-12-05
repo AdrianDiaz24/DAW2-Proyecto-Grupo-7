@@ -1,3 +1,8 @@
+/**
+ * @file Configuración de pruebas de Jest.
+ * @description Importa `jest-dom` para añadir matchers personalizados de Jest para el DOM.
+ * @requires @testing-library/jest-dom
+ */
 // jest-dom adds custom jest matchers for asserting on DOM nodes.
 // allows you to do things like:
 // expect(element).toHaveTextContent(/react/i)

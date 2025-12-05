@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: frontend/src/pages/Seguimiento.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: frontend/src/pages/Seguimiento.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @file Página de Seguimiento Diario.
+ * @description Un formulario de varios pasos para que los usuarios registren su estado de ánimo, sueño, actividad y otros datos diarios.
+ * @requires react
+ * @requires react-router-dom
+ * @requires ../store/authStore
+ * @requires ../config/api
+ * @requires ../components/molecules/EmotionSelector
+ * @requires ../components/molecules/ActivitySelector
+ * @requires ../components/molecules/CognitionSelector
+ * @requires ../components/atoms/Slider
+ * @requires ../components/atoms/Checkbox
+ * @requires ../components/atoms/Button
+ * @requires ../styles/Seguimiento.css
+ */
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuthStore } from "../store/authStore";
+import { apiConfig } from "../config/api";
+import EmotionSelector from "../components/molecules/EmotionSelector";
+import ActivitySelector from "../components/molecules/ActivitySelector";
+import CognitionSelector from "../components/molecules/CognitionSelector";
+import Slider from "../components/atoms/Slider";
+import Checkbox from "../components/atoms/Checkbox";
+import Button from "../components/atoms/Button";
+import "../styles/Seguimiento.css";
+
+/**
+ * @function Seguimiento
+ * @description Componente principal de la página de seguimiento. Gestiona el estado del formulario de varios pasos y el envío de datos.
+ * @returns {JSX.Element} La página de seguimiento.
+ */
+const Seguimiento = () => {
+    const navigate = useNavigate();
+    const { user } = useAuthStore();
+    const [currentStep, setCurrentStep] = useState(1);
+    const [loading, setLoading] = useState(false);
+    const totalSteps = 8;
+
+    // Estado del formulario completo
+    const [formData, setFormData] = useState({
+        estadoAnimo: {
+            emociones: [],
+            comentario: ''
+        },
+        sueno: {
+            horaInicioSueno: '',
+            horaDespertar: '',
+            dificultadDormir: false,
+            despertaresNocturnos: false,
+            cansancioDespertar: false,
+            suenoNoReparador: false,
+            suenosVividos: false,
+            notasSueno: ''
+        },
+        actividadFisica: [],
+        energia: {
+            nivel: 'ok',
+            intensidad: 5
+        },
+        alimentacion: {
+            regularidadComidas: '',
+            calidadDieta: {
+                frutasVerduras: false,
+                ultraprocesados: false,
+                azucar: false,
+                cafeina: false,
+                alcohol: false
+            },
+            apetito: 'normal'
+        },
+        interaccionesSociales: {
+            cantidad: 'sociable',
+            calidad: 'apoyo',
+            notasSociales: ''
+        },
+        cognicion: [],
+        actividadesPlacenteras: [],
+        medicacion: []
+    });
+
+    /**
+     * @function handleSubmit
+     * @description Envía los datos del formulario de seguimiento al backend.
+     * @async
+     */
+    const handleSubmit = async () => {
+        setLoading(true);
+        try {
+            const { apiFetch } = await import('../config/api');
+            const response = await apiFetch(apiConfig.endpoints.registros, {
+                method: 'POST',
+                body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+                alert('¡Registro guardado exitosamente!');
+                navigate('/home');
+            } else {
+                const data = await response.json();
+                alert(`Error: ${data.message || 'No se pudo guardar el registro'}`);
+            }
+        } catch (error) {
+            console.error('Error al guardar el registro:', error);
+            alert('Error al guardar el registro');
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    /**
+     * @function nextStep
+     * @description Avanza al siguiente paso del formulario.
+     */
+    const nextStep = () => setCurrentStep(prev => Math.min(prev + 1, totalSteps));
+
+    /**
+     * @function prevStep
+     * @description Retrocede al paso anterior del formulario.
+     */
+    const prevStep = () => setCurrentStep(prev => Math.max(prev - 1, 1));
+
+    /**
+     * @function getStepLabel
+     * @description Obtiene la etiqueta para un paso específico del formulario.
+     * @param {number} step - El número del paso.
+     * @returns {string} La etiqueta del paso.
+     */
+    const getStepLabel = (step) => {
+        const labels = ['Ánimo', 'Sueño', 'Actividad', 'Energía', 'Alimentación', 'Social', 'Cognición', 'Extras'];
+        return `${step}. ${labels[step - 1]}`;
+    };
+
+    return (
+        &lt;div className="seguimiento-page">
+            &lt;div className="seguimiento-container">
+                &lt;header className="seguimiento-header">
+                    &lt;h1>Seguimiento Diario&lt;/h1>
+                    &lt;p>Completa tu registro del día - Paso {currentStep} de {totalSteps}&lt;/p>
+                &lt;/header>
+
+                {/* Progress indicator */}
+                &lt;div className="seguimiento-progress">
+                    &lt;div className="seguimiento-progress__bar">
+                        &lt;div
+                            className="seguimiento-progress__fill"
+                            style={{ width: `${(currentStep / totalSteps) * 100}%` }}
+                        />
+                    &lt;/div>
+                    &lt;div className="seguimiento-progress__steps">
+                        {[1, 2, 3, 4, 5, 6, 7, 8].map(step => (
+                            &lt;span key={step} className={currentStep >= step ? 'active' : ''}>
+                                {getStepLabel(step)}
+                            &lt;/span>
+                        ))}
+                    &lt;/div>
+                &lt;/div>
+
+                {/* Step 1: Estado de Ánimo */}
+                {currentStep === 1 &amp;&amp; (
+                    &lt;div className="seguimiento-step">
+                        &lt;EmotionSelector
+                            emociones={formData.estadoAnimo.emociones}
+                            onChange={(emociones) => setFormData({
+                                ...formData,
+                                estadoAnimo: { ...formData.estadoAnimo, emociones }
+                            })}
+                            comentario={formData.estadoAnimo.comentario}
+                            onComentarioChange={(comentario) => setFormData({
+                                ...formData,
+                                estadoAnimo: { ...formData.estadoAnimo, comentario }
+                            })}
+                        />
+                    &lt;/div>
+                )}
+
+                {/* Step 2: Sueño */}
+                {currentStep === 2 &amp;&amp; (
+                    &lt;div className="seguimiento-step">
+                        &lt;h3>Sueño&lt;/h3>
+                        &lt;p className="step-description">¿Cómo has dormido?&lt;/p>
+
+                        &lt;div className="form-group">
+                            &lt;label>Hora de inicio de sueño&lt;/label>
+                            &lt;input
+                                type="time"
+                                value={formData.sueno.horaInicioSueno}
+                                onChange={(e) => setFormData({
+                                    ...formData,
+                                    sueno: { ...formData.sueno, horaInicioSueno: e.target.value }
+                                })}
+                            />
+                        &lt;/div>
+
+                        &lt;div className="form-group">
+                            &lt;label>Hora de despertar&lt;/label>
+                            &lt;input
+                                type="time"
+                                value={formData.sueno.horaDespertar}
+                                onChange={(e) => setFormData({
+                                    ...formData,
+                                    sueno: { ...formData.sueno, horaDespertar: e.target.value }
+                                })}
+                            />
+                        &lt;/div>
+
+                        &lt;div className="form-group">
+                            &lt;h4>Características del sueño&lt;/h4>
+                            &lt;div className="checkbox-group">
+                                &lt;Checkbox
+                                    label="Dificultad para dormir"
+                                    checked={formData.sueno.dificultadDormir}
+                                    onChange={(checked) => setFormData({
+                                        ...formData,
+                                        sueno: { ...formData.sueno, dificultadDormir: checked }
+                                    })}
+                                />
+                                &lt;Checkbox
+                                    label="Despertares nocturnos"
+                                    checked={formData.sueno.despertaresNocturnos}
+                                    onChange={(checked) => setFormData({
+                                        ...formData,
+                                        sueno: { ...formData.sueno, despertaresNocturnos: checked }
+                                    })}
+                                />
+                                &lt;Checkbox
+                                    label="Cansancio al despertar"
+                                    checked={formData.sueno.cansancioDespertar}
+                                    onChange={(checked) => setFormData({
+                                        ...formData,
+                                        sueno: { ...formData.sueno, cansancioDespertar: checked }
+                                    })}
+                                />
+                                &lt;Checkbox
+                                    label="Sueño no reparador"
+                                    checked={formData.sueno.suenoNoReparador}
+                                    onChange={(checked) => setFormData({
+                                        ...formData,
+                                        sueno: { ...formData.sueno, suenoNoReparador: checked }
+                                    })}
+                                />
+                                &lt;Checkbox
+                                    label="Sueños vívidos"
+                                    checked={formData.sueno.suenosVividos}
+                                    onChange={(checked) => setFormData({
+                                        ...formData,
+                                        sueno: { ...formData.sueno, suenosVividos: checked }
+                                    })}
+                                />
+                            &lt;/div>
+                        &lt;/div>
+
+                        &lt;div className="form-group">
+                            &lt;label>Notas adicionales&lt;/label>
+                            &lt;textarea
+                                value={formData.sueno.notasSueno}
+                                onChange={(e) => setFormData({
+                                    ...formData,
+                                    sueno: { ...formData.sueno, notasSueno: e.target.value }
+                                })}
+                                placeholder="Algo más sobre tu sueño..."
+                                rows={3}
+                            />
+                        &lt;/div>
+                    &lt;/div>
+                )}
+
+                {/* Step 3: Actividad Física */}
+                {currentStep === 3 &amp;&amp; (
+                    &lt;div className="seguimiento-step">
+                        &lt;h3>Actividad Física&lt;/h3>
+                        &lt;p className="step-description">¿Qué actividades físicas has realizado hoy?&lt;/p>
+
+                        &lt;ActivitySelector
+                            actividades={formData.actividadFisica}
+                            onChange={(actividades) => setFormData({
+                                ...formData,
+                                actividadFisica: actividades
+                            })}
+                        />
+                    &lt;/div>
+                )}
+
+                {/* Step 4: Energía */}
+                {currentStep === 4 &amp;&amp; (
+                    &lt;div className="seguimiento-step">
+                        &lt;h3>Energía y Vitalidad&lt;/h3>
+                        &lt;p className="step-description">¿Cómo ha sido tu nivel de energía hoy?&lt;/p>
+
+                        &lt;div className="form-group">
+                            &lt;label>Nivel de energía&lt;/label>
+                            &lt;div className="energy-selector">
+                                {['agotamiento', 'cansancio', 'ok', 'vitalizacion', 'alto rendimiento'].map(nivel => (
+                                    &lt;label key={nivel} className="radio-option">
+                                        &lt;input
+                                            type="radio"
+                                            name="energia"
+                                            value={nivel}
+                                            checked={formData.energia.nivel === nivel}
+                                            onChange={(e) => setFormData({
+                                                ...formData,
+                                                energia: { ...formData.energia, nivel: e.target.value }
+                                            })}
+                                        />
+                                        &lt;span>{nivel.charAt(0).toUpperCase() + nivel.slice(1).replace('_', ' ')}&lt;/span>
+                                    &lt;/label>
+                                ))}
+                            &lt;/div>
+                        &lt;/div>
+
+                        &lt;Slider
+                            label="Intensidad de la energía"
+                            value={formData.energia.intensidad}
+                            onChange={(value) => setFormData({
+                                ...formData,
+                                energia: { ...formData.energia, intensidad: value }
+                            })}
+                            min={1}
+                            max={10}
+                        />
+                    &lt;/div>
+                )}
+
+                {/* Step 5: Alimentación */}
+                {currentStep === 5 &amp;&amp; (
+                    &lt;div className="seguimiento-step">
+                        &lt;h3>Alimentación&lt;/h3>
+                        &lt;p className="step-description">¿Cómo ha sido tu alimentación hoy?&lt;/p>
+
+                        &lt;div className="form-group">
+                            &lt;label>Regularidad de comidas&lt;/label>
+                            &lt;textarea
+                                value={formData.alimentacion.regularidadComidas}
+                                onChange={(e) => setFormData({
+                                    ...formData,
+                                    alimentacion: { ...formData.alimentacion, regularidadComidas: e.target.value }
+                                })}
+                                placeholder="Describe cuántas comidas has hecho hoy..."
+                                rows={2}
+                            />
+                        &lt;/div>
+
+                        &lt;div className="form-group">
+                            &lt;h4>Calidad de la dieta&lt;/h4>
+                            &lt;div className="checkbox-group">
+                                &lt;Checkbox
+                                    label="Frutas/Verduras"
+                                    checked={formData.alimentacion.calidadDieta.frutasVerduras}
+                                    onChange={(checked) => setFormData({
+                                        ...formData,
+                                        alimentacion: {
+                                            ...formData.alimentacion,
+                                            calidadDieta: { ...formData.alimentacion.calidadDieta, frutasVerduras: checked }
+                                        }
+                                    })}
+                                />
+                                &lt;Checkbox
+                                    label="Ultraprocesados"
+                                    checked={formData.alimentacion.calidadDieta.ultraprocesados}
+                                    onChange={(checked) => setFormData({
+                                        ...formData,
+                                        alimentacion: {
+                                            ...formData.alimentacion,
+                                            calidadDieta: { ...formData.alimentacion.calidadDieta, ultraprocesados: checked }
+                                        }
+                                    })}
+                                />
+                                &lt;Checkbox
+                                    label="Azúcar"
+                                    checked={formData.alimentacion.calidadDieta.azucar}
+                                    onChange={(checked) => setFormData({
+                                        ...formData,
+                                        alimentacion: {
+                                            ...formData.alimentacion,
+                                            calidadDieta: { ...formData.alimentacion.calidadDieta, azucar: checked }
+                                        }
+                                    })}
+                                />
+                                &lt;Checkbox
+                                    label="Cafeína"
+                                    checked={formData.alimentacion.calidadDieta.cafeina}
+                                    onChange={(checked) => setFormData({
+                                        ...formData,
+                                        alimentacion: {
+                                            ...formData.alimentacion,
+                                            calidadDieta: { ...formData.alimentacion.calidadDieta, cafeina: checked }
+                                        }
+                                    })}
+                                />
+                                &lt;Checkbox
+                                    label="Alcohol"
+                                    checked={formData.alimentacion.calidadDieta.alcohol}
+                                    onChange={(checked) => setFormData({
+                                        ...formData,
+                                        alimentacion: {
+                                            ...formData.alimentacion,
+                                            calidadDieta: { ...formData.alimentacion.calidadDieta, alcohol: checked }
+                                        }
+                                    })}
+                                />
+                            &lt;/div>
+                        &lt;/div>
+
+                        &lt;div className="form-group">
+                            &lt;label>Apetito&lt;/label>
+                            &lt;div className="energy-selector">
+                                {['disminuido', 'normal', 'aumentado'].map(nivel => (
+                                    &lt;label key={nivel} className="radio-option">
+                                        &lt;input
+                                            type="radio"
+                                            name="apetito"
+                                            value={nivel}
+                                            checked={formData.alimentacion.apetito === nivel}
+                                            onChange={(e) => setFormData({
+                                                ...formData,
+                                                alimentacion: { ...formData.alimentacion, apetito: e.target.value }
+                                            })}
+                                        />
+                                        &lt;span>{nivel.charAt(0).toUpperCase() + nivel.slice(1)}&lt;/span>
+                                    &lt;/label>
+                                ))}
+                            &lt;/div>
+                        &lt;/div>
+                    &lt;/div>
+                )}
+
+                {/* Step 6: Interacciones Sociales */}
+                {currentStep === 6 &amp;&amp; (
+                    &lt;div className="seguimiento-step">
+                        &lt;h3>Interacciones Sociales&lt;/h3>
+                        &lt;p className="step-description">¿Cómo han sido tus interacciones sociales hoy?&lt;/p>
+
+                        &lt;div className="form-group">
+                            &lt;label>Cantidad de interacciones&lt;/label>
+                            &lt;div className="energy-selector">
+                                {['sociable', 'introvertido'].map(tipo => (
+                                    &lt;label key={tipo} className="radio-option">
+                                        &lt;input
+                                            type="radio"
+                                            name="cantidad"
+                                            value={tipo}
+                                            checked={formData.interaccionesSociales.cantidad === tipo}
+                                            onChange={(e) => setFormData({
+                                                ...formData,
+                                                interaccionesSociales: {
+                                                    ...formData.interaccionesSociales,
+                                                    cantidad: e.target.value
+                                                }
+                                            })}
+                                        />
+                                        &lt;span>{tipo.charAt(0).toUpperCase() + tipo.slice(1)}&lt;/span>
+                                    &lt;/label>
+                                ))}
+                            &lt;/div>
+                        &lt;/div>
+
+                        &lt;div className="form-group">
+                            &lt;label>Calidad de interacciones&lt;/label>
+                            &lt;div className="energy-selector">
+                                {['apoyo', 'conflicto'].map(tipo => (
+                                    &lt;label key={tipo} className="radio-option">
+                                        &lt;input
+                                            type="radio"
+                                            name="calidad"
+                                            value={tipo}
+                                            checked={formData.interaccionesSociales.calidad === tipo}
+                                            onChange={(e) => setFormData({
+                                                ...formData,
+                                                interaccionesSociales: {
+                                                    ...formData.interaccionesSociales,
+                                                    calidad: e.target.value
+                                                }
+                                            })}
+                                        />
+                                        &lt;span>{tipo.charAt(0).toUpperCase() + tipo.slice(1)}&lt;/span>
+                                    &lt;/label>
+                                ))}
+                            &lt;/div>
+                        &lt;/div>
+
+                        &lt;div className="form-group">
+                            &lt;label>Notas sobre interacciones sociales&lt;/label>
+                            &lt;textarea
+                                value={formData.interaccionesSociales.notasSociales}
+                                onChange={(e) => setFormData({
+                                    ...formData,
+                                    interaccionesSociales: {
+                                        ...formData.interaccionesSociales,
+                                        notasSociales: e.target.value
+                                    }
+                                })}
+                                placeholder="Describe tus interacciones sociales del día..."
+                                rows={3}
+                            />
+                        &lt;/div>
+                    &lt;/div>
+                )}
+
+                {/* Step 7: Cognición */}
+                {currentStep === 7 &amp;&amp; (
+                    &lt;div className="seguimiento-step">
+                        &lt;CognitionSelector
+                            cognicion={formData.cognicion}
+                            onChange={(cognicion) => setFormData({
+                                ...formData,
+                                cognicion
+                            })}
+                        />
+                    &lt;/div>
+                )}
+
+                {/* Step 8: Actividades Placenteras y Medicación */}
+                {currentStep === 8 &amp;&amp; (
+                    &lt;div className="seguimiento-step">
+                        &lt;h3>Actividades Placenteras y Medicación&lt;/h3>
+                        &lt;p className="step-description">Información adicional sobre tu día&lt;/p>
+
+                        &lt;div className="info-box info-box--warning">
+                            &lt;p>💡 &lt;strong>Actividades Placenteras:&lt;/strong> Esta sección se completará automáticamente cuando configures tus actividades preferidas en el formulario inicial.&lt;/p>
+                        &lt;/div>
+
+                        &lt;div className="info-box info-box--info" style={{ marginTop: '1rem' }}>
+                            &lt;p>💊 &lt;strong>Medicación:&lt;/strong> Podrás añadir tu medicación en futuras versiones. Por ahora, puedes dejar esta sección vacía.&lt;/p>
+                        &lt;/div>
+
+                        &lt;div className="form-group" style={{ marginTop: '2rem' }}>
+                            &lt;h4>Resumen de tu registro&lt;/h4>
+                            &lt;div className="summary-box">
+                                &lt;div className="summary-item">
+                                    &lt;span className="summary-label">Emociones registradas:&lt;/span>
+                                    &lt;span className="summary-value">{formData.estadoAnimo.emociones.length}&lt;/span>
+                                &lt;/div>
+                                &lt;div className="summary-item">
+                                    &lt;span className="summary-label">Actividades físicas:&lt;/span>
+                                    &lt;span className="summary-value">{formData.actividadFisica.length}&lt;/span>
+                                &lt;/div>
+                                &lt;div className="summary-item">
+                                    &lt;span className="summary-label">Aspectos cognitivos:&lt;/span>
+                                    &lt;span className="summary-value">{formData.cognicion.length}&lt;/span>
+                                &lt;/div>
+                            &lt;/div>
+                        &lt;/div>
+                    &lt;/div>
+                )}
+
+                {/* Navigation buttons */}
+                &lt;div className="seguimiento-actions">
+                    {currentStep > 1 &amp;&amp; (
+                        &lt;Button variant="outline" onClick={prevStep}>
+                            ← Anterior
+                        &lt;/Button>
+                    )}
+                    {currentStep &lt; totalSteps ? (
+                        &lt;Button variant="primary" onClick={nextStep}>
+                            Siguiente →
+                        &lt;/Button>
+                    ) : (
+                        &lt;Button
+                            variant="primary"
+                            onClick={handleSubmit}
+                            disabled={loading}
+                        >
+                            {loading ? 'Guardando...' : '✓ Guardar Registro'}
+                        &lt;/Button>
+                    )}
+                &lt;/div>
+            &lt;/div>
+        &lt;/div>
+    );
+};
+
+export default Seguimiento;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="apiConfig.html">apiConfig</a></li><li><a href="diarioService.html">diarioService</a></li></ul><h3>Classes</h3><ul><li><a href="ErrorBoundary.html">ErrorBoundary</a></li></ul><h3>Events</h3><ul><li><a href="global.html#event:SIGINT">SIGINT</a></li><li><a href="global.html#event:unhandledRejection">unhandledRejection</a></li></ul><h3>Global</h3><ul><li><a href="global.html#404_Error_Handler">404_Error_Handler</a></li><li><a href="global.html#ACTIVIDADES">ACTIVIDADES</a></li><li><a href="global.html#API_URL">API_URL</a></li><li><a href="global.html#ASPECTOS_COGNITIVOS">ASPECTOS_COGNITIVOS</a></li><li><a href="global.html#ActionCard">ActionCard</a></li><li><a href="global.html#ActivitySelector">ActivitySelector</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#AuthButtons">AuthButtons</a></li><li><a href="global.html#AuthLayout">AuthLayout</a></li><li><a href="global.html#Button">Button</a></li><li><a href="global.html#CORS_Configuration">CORS_Configuration</a></li><li><a href="global.html#Card">Card</a></li><li><a href="global.html#Carousel">Carousel</a></li><li><a href="global.html#Checkbox">Checkbox</a></li><li><a href="global.html#CircularProgress">CircularProgress</a></li><li><a href="global.html#CognitionSelector">CognitionSelector</a></li><li><a href="global.html#DiaryBanner">DiaryBanner</a></li><li><a href="global.html#DiaryEditor">DiaryEditor</a></li><li><a href="global.html#DiaryEntry">DiaryEntry</a></li><li><a href="global.html#EMOCIONES">EMOCIONES</a></li><li><a href="global.html#EmotionSelector">EmotionSelector</a></li><li><a href="global.html#EmotionStats">EmotionStats</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#GET_/">GET_/</a></li><li><a href="global.html#Generic_Error_Handler">Generic_Error_Handler</a></li><li><a href="global.html#Heading">Heading</a></li><li><a href="global.html#HeroSection">HeroSection</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#Input">Input</a></li><li><a href="global.html#Landing">Landing</a></li><li><a href="global.html#LandingHero">LandingHero</a></li><li><a href="global.html#Login">Login</a></li><li><a href="global.html#Logo">Logo</a></li><li><a href="global.html#MainLayout">MainLayout</a></li><li><a href="global.html#Navbar">Navbar</a></li><li><a href="global.html#ProtectedRoute">ProtectedRoute</a></li><li><a href="global.html#Register">Register</a></li><li><a href="global.html#Seguimiento">Seguimiento</a></li><li><a href="global.html#Slider">Slider</a></li><li><a href="global.html#Text">Text</a></li><li><a href="global.html#Textarea">Textarea</a></li><li><a href="global.html#accessWithPassword">accessWithPassword</a></li><li><a href="global.html#actualizarEntradaDiario">actualizarEntradaDiario</a></li><li><a href="global.html#api">api</a></li><li><a href="global.html#apiFetch">apiFetch</a></li><li><a href="global.html#authMiddleware">authMiddleware</a></li><li><a href="global.html#closeShareModal">closeShareModal</a></li><li><a href="global.html#compararPassword">compararPassword</a></li><li><a href="global.html#componentDidCatch">componentDidCatch</a></li><li><a href="global.html#connectDBAndStartServer">connectDBAndStartServer</a></li><li><a href="global.html#copyShareLink">copyShareLink</a></li><li><a href="global.html#crearEntradaDiario">crearEntradaDiario</a></li><li><a href="global.html#create">create</a></li><li><a href="global.html#createContacto">createContacto</a></li><li><a href="global.html#delete">delete</a></li><li><a href="global.html#deleteContacto">deleteContacto</a></li><li><a href="global.html#description">description</a></li><li><a href="global.html#dismiss">dismiss</a></li><li><a href="global.html#duracion">duracion</a></li><li><a href="global.html#eliminarEntradaDiario">eliminarEntradaDiario</a></li><li><a href="global.html#emotion">emotion</a></li><li><a href="global.html#error">error</a></li><li><a href="global.html#formatDate">formatDate</a></li><li><a href="global.html#formatDateShort">formatDateShort</a></li><li><a href="global.html#getAll">getAll</a></li><li><a href="global.html#getById">getById</a></li><li><a href="global.html#getContactoById">getContactoById</a></li><li><a href="global.html#getContactos">getContactos</a></li><li><a href="global.html">getDerivedStateFromError</a></li><li><a href="global.html#getIntensidad">getIntensidad</a></li><li><a href="global.html#getPreviewText">getPreviewText</a></li><li><a href="global.html#getProfile">getProfile</a></li><li><a href="global.html#getStepLabel">getStepLabel</a></li><li><a href="global.html#goToNext">goToNext</a></li><li><a href="global.html#goToPrevious">goToPrevious</a></li><li><a href="global.html#handleAddActividad">handleAddActividad</a></li><li><a href="global.html#handleCancelEditor">handleCancelEditor</a></li><li><a href="global.html#handleChange">handleChange</a></li><li><a href="global.html#handleCreateEntry">handleCreateEntry</a></li><li><a href="global.html#handleDeleteEntry">handleDeleteEntry</a></li><li><a href="global.html#handleEditEntry">handleEditEntry</a></li><li><a href="global.html#handleEmocionToggle">handleEmocionToggle</a></li><li><a href="global.html#handleIntensidadChange">handleIntensidadChange</a></li><li><a href="global.html#handleLogin">handleLogin</a></li><li><a href="global.html#handleLogout">handleLogout</a></li><li><a href="global.html#handleRegister">handleRegister</a></li><li><a href="global.html#handleReload">handleReload</a></li><li><a href="global.html#handleRemoveActividad">handleRemoveActividad</a></li><li><a href="global.html#handleShareEntry">handleShareEntry</a></li><li><a href="global.html#handleSubmit">handleSubmit</a></li><li><a href="global.html#handleToggle">handleToggle</a></li><li><a href="global.html#handleToggleExpand">handleToggleExpand</a></li><li><a href="global.html#handleUpdateEntry">handleUpdateEntry</a></li><li><a href="global.html#info">info</a></li><li><a href="global.html#intensidad">intensidad</a></li><li><a href="global.html#isSelected">isSelected</a></li><li><a href="global.html#loadEntries">loadEntries</a></li><li><a href="global.html#loading">loading</a></li><li><a href="global.html#loginUser">loginUser</a></li><li><a href="global.html#nextStep">nextStep</a></li><li><a href="global.html#nombre">nombre</a></li><li><a href="global.html#obtenerEntradaDiarioPorId">obtenerEntradaDiarioPorId</a></li><li><a href="global.html#obtenerEntradasDiario">obtenerEntradasDiario</a></li><li><a href="global.html#optionalAuthMiddleware">optionalAuthMiddleware</a></li><li><a href="global.html#percentage">percentage</a></li><li><a href="global.html#port">port</a></li><li><a href="global.html#pre-save">pre-save</a></li><li><a href="global.html#prevStep">prevStep</a></li><li><a href="global.html#promise">promise</a></li><li><a href="global.html#registerUser">registerUser</a></li><li><a href="global.html#render">render</a></li><li><a href="global.html#request-interceptor">request-interceptor</a></li><li><a href="global.html#response-interceptor">response-interceptor</a></li><li><a href="global.html#success">success</a></li><li><a href="global.html#timeAgo">timeAgo</a></li><li><a href="global.html#title">title</a></li><li><a href="global.html#togglePasswordField">togglePasswordField</a></li><li><a href="global.html#update">update</a></li><li><a href="global.html#updateContacto">updateContacto</a></li><li><a href="global.html#uri">uri</a></li><li><a href="global.html#useAuthStore">useAuthStore</a></li><li><a href="global.html#useToast">useToast</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Wed Dec 03 2025 14:17:50 GMT+0100 (hora estándar de Europa central)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

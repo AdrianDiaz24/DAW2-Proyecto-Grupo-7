@@ -1,3 +1,14 @@
+/**
+ * @file Página de Inicio (Home).
+ * @description Muestra un panel de control personalizado para el usuario con estadísticas, accesos directos y artículos recomendados.
+ * @requires react
+ * @requires ../store/authStore
+ * @requires ../components/molecules/EmotionStats
+ * @requires ../components/molecules/ActionCard
+ * @requires ../components/molecules/DiaryBanner
+ * @requires ../components/molecules/Carousel
+ * @requires ../styles/Home.css
+ */
 import React from "react";
 import { useAuthStore } from "../store/authStore";
 import EmotionStats from "../components/molecules/EmotionStats";
@@ -6,6 +17,11 @@ import DiaryBanner from "../components/molecules/DiaryBanner";
 import Carousel from "../components/molecules/Carousel";
 import "../styles/Home.css";
 
+/**
+ * @function Home
+ * @description Componente principal de la página de inicio. Muestra un saludo personalizado y varios widgets de información.
+ * @returns {JSX.Element} La página de inicio.
+ */
 const Home = () => {
     const { user } = useAuthStore();
 

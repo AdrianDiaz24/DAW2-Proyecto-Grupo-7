@@ -12,6 +12,9 @@ La app permite registrar emociones y hábitos diarios, mantener un diario libre 
 
 MindCare está orientada a jóvenes y adultos en situación de vulnerabilidad económica, geográfica o con acceso limitado a terapia profesional, ofreciendo una solución accesible, educativa y confiable para mejorar su bienestar emocional.
 
+## Wiki del proyecto (DeepWiki)
+Accede a la wiki explicativa del proyecto aquí:
+[https://deepwiki.com/AdrianDiaz24/DAW2-Proyecto-Grupo-7](https://deepwiki.com/AdrianDiaz24/DAW2-Proyecto-Grupo-7)
 
 ## Enlace a los documentos de la propuesta
 - Documento [Fase 1](docs/problema.md)

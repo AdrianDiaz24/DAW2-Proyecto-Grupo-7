@@ -1,3 +1,14 @@
+/**
+ * @file Editor para crear o modificar entradas del diario.
+ * @description Un formulario completo para escribir, guardar y opcionalmente proteger con contraseña las entradas del diario.
+ * @requires react
+ * @requires prop-types
+ * @requires ../atoms/Input
+ * @requires ../atoms/Textarea
+ * @requires ../atoms/Button
+ * @requires ../../hooks
+ * @requires ../../styles/molecules/DiaryEditor.css
+ */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Input from '../atoms/Input';
@@ -6,6 +17,16 @@ import Button from '../atoms/Button';
 import { useToast } from '../../hooks';
 import '../../styles/molecules/DiaryEditor.css';
 
+/**
+ * @function DiaryEditor
+ * @description Renderiza un formulario para crear o editar una entrada del diario.
+ * @param {object} props - Las propiedades del componente.
+ * @param {function} props.onSave - Función que se llama al guardar la entrada.
+ * @param {function} props.onCancel - Función que se llama al cancelar la edición.
+ * @param {object} [props.initialData=null] - Los datos iniciales para editar una entrada existente.
+ * @param {boolean} [props.isLoading=false] - Si es `true`, muestra un estado de carga.
+ * @returns {JSX.Element} El componente del editor del diario.
+ */
 const DiaryEditor = ({ onSave, onCancel, initialData = null, isLoading = false }) => {
     const { error: showError } = useToast();
     const [formData, setFormData] = useState({
@@ -15,11 +36,21 @@ const DiaryEditor = ({ onSave, onCancel, initialData = null, isLoading = false }
         showPassword: false
     });
 
+    /**
+     * @function handleChange
+     * @description Actualiza el estado del formulario cuando cambian los campos de entrada.
+     * @param {React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement>} e - El evento de cambio.
+     */
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
     };
 
+    /**
+     * @function handleSubmit
+     * @description Valida y envía los datos del formulario al guardar.
+     * @param {React.FormEvent<HTMLFormElement>} e - El evento de envío del formulario.
+     */
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -48,6 +79,10 @@ const DiaryEditor = ({ onSave, onCancel, initialData = null, isLoading = false }
         onSave(dataToSend);
     };
 
+    /**
+     * @function togglePasswordField
+     * @description Muestra u oculta el campo de la contraseña.
+     */
     const togglePasswordField = () => {
         setFormData(prev => ({ ...prev, showPassword: !prev.showPassword }));
     };
@@ -139,15 +174,18 @@ const DiaryEditor = ({ onSave, onCancel, initialData = null, isLoading = false }
 };
 
 DiaryEditor.propTypes = {
+    /** Función que se llama al guardar la entrada. */
     onSave: PropTypes.func.isRequired,
+    /** Función que se llama al cancelar la edición. */
     onCancel: PropTypes.func.isRequired,
+    /** Los datos iniciales para editar una entrada existente. */
     initialData: PropTypes.shape({
         titulo: PropTypes.string,
         cuerpo: PropTypes.string,
         password: PropTypes.string
     }),
+    /** Si es `true`, muestra un estado de carga. */
     isLoading: PropTypes.bool
 };
 
 export default DiaryEditor;
-
