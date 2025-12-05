@@ -110,7 +110,7 @@
     min-height: 200px;
 }
 
-/* PestaÃ±a de informaciÃ³n */
+/* Pestaña de información */
 .emergency-info__title {
     color: #1f2937;
     font-size: 1.1rem;
@@ -145,7 +145,7 @@
     color: #dc2626;
 }
 
-/* PestaÃ±a de contactos */
+/* Pestaña de contactos */
 .emergency-contacts__list {
     list-style: none;
     padding: 0;
@@ -225,7 +225,7 @@
     padding: 2rem;
 }
 
-/* BotÃ³n de aÃ±adir contacto */
+/* Botón de añadir contacto */
 .emergency-contacts__add-btn {
     width: 100%;
     padding: 0.75rem 1rem;
@@ -248,7 +248,7 @@
     background-color: #4338ca;
 }
 
-/* Formulario de aÃ±adir contacto */
+/* Formulario de añadir contacto */
 .emergency-contacts__form {
     background-color: #f3f4f6;
     border-radius: 12px;
@@ -335,7 +335,7 @@
     background-color: #d1d5db;
 }
 
-/* PestaÃ±a de llamar */
+/* Pestaña de llamar */
 .emergency-call__text {
     color: #4b5563;
     line-height: 1.6;
