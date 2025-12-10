@@ -59,16 +59,20 @@ const registerUser = async (req, res) => {
             name: newUser.nombre,
         };
 
+        console.log('🔑 Creando token JWT con payload:', payload);
+
         const token = jwt.sign(
             payload,
             process.env.JWT_SECRET,
             { expiresIn: '1h' }
         );
 
+        console.log('✅ Token creado exitosamente en registerUser:', token.substring(0, 30) + '...');
+
         // Devolver token Y datos del usuario (sin contraseña)
-        res.status(201).json({
+        const response = {
             message: 'User registered successfully',
-            token,
+            token: token,
             user: {
                 id: newUser.id,
                 email: newUser.email,
@@ -77,8 +81,13 @@ const registerUser = async (req, res) => {
                 createdAt: newUser.createdAt,
                 updatedAt: newUser.updatedAt
             }
-        });
+        };
+
+        console.log('📤 Enviando respuesta de registro con token válido');
+
+        res.status(201).json(response);
     } catch (error) {
+        console.error('❌ Error en registerUser:', error);
         // Manejo específico de errores de validación de Mongoose
         if (error.name === 'ValidationError') {
             const messages = Object.values(error.errors).map(err => err.message);
@@ -116,15 +125,21 @@ const loginUser = async (req, res) => {
             return res.status(400).json({ message: 'Email and password are required' });
         }
 
+        console.log('🔐 Intentando login para:', email);
+
         const user = await User.findOne({ email });
         if (!user) {
+            console.log('❌ Usuario no encontrado:', email);
             return res.status(401).json({ message: 'Invalid credentials' });
         }
 
         const isMatch = await user.compararPassword(password);
         if (!isMatch) {
+            console.log('❌ Contraseña incorrecta para:', email);
             return res.status(401).json({ message: 'Invalid credentials' });
         }
+
+        console.log('✅ Credenciales válidas para:', email);
 
         // Crear y firmar el token JWT
         const payload = {
@@ -139,10 +154,12 @@ const loginUser = async (req, res) => {
             { expiresIn: '1h' }
         );
 
+        console.log('🔑 Token generado para login:', token.substring(0, 30) + '...');
+
         // Devolver token Y datos del usuario (sin contraseña)
-        res.status(200).json({
+        const response = {
             message: 'User logged in successfully',
-            token,
+            token: token,
             user: {
                 id: user.id,
                 email: user.email,
@@ -151,9 +168,13 @@ const loginUser = async (req, res) => {
                 createdAt: user.createdAt,
                 updatedAt: user.updatedAt
             }
-        });
+        };
 
+        console.log('📤 Enviando respuesta de login');
+
+        res.status(200).json(response);
     } catch (error) {
+        console.error('❌ Error en loginUser:', error);
         res.status(500).json({ message: 'Error logging in', error: error.message });
     }
 };
@@ -167,16 +188,31 @@ const loginUser = async (req, res) => {
  */
 const getProfile = async (req, res) => {
     try {
+        console.log('👤 getProfile llamado para usuario:', req.user?.id);
+
         // req.user viene del middleware de autenticación
         const user = await User.findById(req.user.id).select('-password');
 
         if (!user) {
+            console.log('❌ Usuario no encontrado con ID:', req.user.id);
             return res.status(404).json({ message: 'User not found' });
         }
 
-        res.json({ user });
+        console.log('✅ Perfil obtenido para:', user.email);
+
+        res.status(200).json({
+            user: {
+                id: user.id,
+                email: user.email,
+                nombre: user.nombre,
+                alias: user.alias,
+                createdAt: user.createdAt,
+                updatedAt: user.updatedAt
+            }
+        });
     } catch (error) {
-        res.status(500).json({ message: 'Error fetching profile', error });
+        console.error('❌ Error en getProfile:', error);
+        res.status(500).json({ message: 'Error fetching profile', error: error.message });
     }
 };
 
@@ -185,3 +221,4 @@ module.exports = {
     loginUser,
     getProfile,
 };
+

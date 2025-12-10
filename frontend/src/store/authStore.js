@@ -26,15 +26,23 @@ export const useAuthStore = create(
             // Computed property para verificar autenticación
             isAuthenticated: () => {
                 const state = get();
-                return !!(state.user && state.token);
+                return !!(state.user && state.token && state.token.trim() !== '');
             },
 
             // Guardar usuario y token tras login/registro
-            setAuth: (userData, token) =>
+            setAuth: (userData, token) => {
+                console.log('setAuth called with:', {
+                    userData: userData?.email || 'no user data',
+                    tokenExists: !!token,
+                    tokenLength: token ? token.length : 0
+                }); // DEBUG
+                const finalToken = token && typeof token === 'string' ? token.trim() : '';
+                console.log('Saving token to store. Token length:', finalToken.length); // DEBUG
                 set(() => ({
                     user: userData,
-                    token: token || '', // Asegurarse de que el token nunca sea nulo
-                })),
+                    token: finalToken,
+                }));
+            },
 
             // Limpiar datos al hacer logout
             logout: () =>
