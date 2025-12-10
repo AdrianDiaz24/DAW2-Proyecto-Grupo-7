@@ -185,9 +185,27 @@ Documentación relacionada con la planificación, análisis, viabilidad y recurs
 
 ## Wiki del proyecto
 
-Para obtener información más detallada sobre el proceso de desarrollo, decisiones técnicas, metodologías aplicadas y documentación extendida del proyecto, puede consultar la wiki oficial del proyecto en DeepWiki.
+El proyecto MindCare cuenta con documentación completa en dos wikis complementarias:
 
-**Acceso a la wiki:** [https://deepwiki.com/AdrianDiaz24/DAW2-Proyecto-Grupo-7](https://deepwiki.com/AdrianDiaz24/DAW2-Proyecto-Grupo-7)
+### Wiki de GitHub (Principal)
+
+Documentación oficial del proyecto con metodología SCRUM, planificación de sprints, actas de reuniones y guías técnicas completas.
+
+**Acceso a la wiki:** [https://github.com/AdrianDiaz24/DAW2-Proyecto-Grupo-7/wiki](https://github.com/AdrianDiaz24/DAW2-Proyecto-Grupo-7/wiki)
+
+**Contenido incluido:**
+- **Metodología SCRUM:** Implementación de SCRUM en el proyecto con roles rotativos por sprint
+- **Planificación de Sprints:** Tabla completa de los 6 sprints con fechas, objetivos y entregables
+- **Actas de Reuniones:** Daily Scrums, Sprint Reviews y Sprint Retrospectives documentadas
+- **Gestión de Recursos:** Asignación de tareas y gestión de tiempos del equipo
+- **Guías Técnicas:** Arquitectura, API Reference, instalación, testing y contribución
+- **Documentación de Usuario:** Manual de usuario y guía de instalación
+
+### DeepWiki (Versión Multiidioma)
+
+Wiki complementaria con versión en inglés del proyecto para facilitar la colaboración internacional y mostrar el uso de herramientas de documentación avanzadas.
+
+**Acceso a DeepWiki:** [https://deepwiki.com/AdrianDiaz24/DAW2-Proyecto-Grupo-7](https://deepwiki.com/AdrianDiaz24/DAW2-Proyecto-Grupo-7)
 
 ## Equipo de desarrollo
 
