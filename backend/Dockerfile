@@ -16,7 +16,7 @@ COPY . .
 # Variables de entorno (en producción es mejor pasarlas por -e o secrets)
 ENV PORT=4000
 ENV NODE_ENV=development
-ENV FRONTEND_URL=http://localhost:3000
+ENV FRONTEND_URL=http://localhost:80
 
 # IMPORTANTE: NUNCA metas aquí credenciales reales en producción
 # ENV JWT_SECRET=...
