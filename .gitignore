@@ -32,3 +32,7 @@ Thumbs.db
 dist/
 build/
 /frontend/.env
+
+# Documentación autogenerada
+code-docs/
+

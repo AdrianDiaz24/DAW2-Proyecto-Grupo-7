@@ -5,6 +5,13 @@
   },
   "opts": {
     "destination": "code-docs",
-    "recurse": true
+    "recurse": true,
+    "readme": "code-docs/README.md",
+    "template": "node_modules/jsdoc/templates/default"
+  },
+  "plugins": [],
+  "templates": {
+    "cleverLinks": true,
+    "monospaceLinks": false
   }
 }

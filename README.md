@@ -166,7 +166,7 @@ El proyecto MindCare cuenta con documentación completa y detallada que abarca d
 
 Esta sección incluye la documentación relacionada con la implementación técnica, APIs, configuraciones y recursos para desarrolladores.
 
-- **[Documentación del código (JSDoc)](./code-docs/index.html)** - Documentación generada automáticamente con JSDoc que detalla todas las funciones, clases y módulos del código fuente.
+- **[Documentación del código fuente (JSDoc)](./code-docs/index.html)** - Documentación técnica autogenerada con JSDoc de todas las funciones, clases, componentes y módulos del proyecto. Incluye más de 60 archivos documentados del backend (controladores, modelos, rutas, middleware) y frontend (componentes React con Atomic Design, páginas, servicios, hooks, store). Para regenerar: `npm run docs:code`. Ver [guía completa](./code-docs/README.md) y [cómo documentar código](./docs/jsdoc-guide.md).
 - **[Documentación de la API](docs/api-documentation.md)** - Especificación completa de los endpoints de la API REST, incluyendo métodos HTTP, parámetros, respuestas y ejemplos de uso.
 - **[Configuración CORS](docs/cors-configuration.md)** - Guía detallada sobre la configuración de Cross-Origin Resource Sharing implementada en el backend, incluyendo setup, testing y troubleshooting.
 - **[Testing con Postman](docs/postman-guide.md)** - Guía completa para importar y utilizar la colección de Postman (ubicada en `backend/postman/`), incluyendo setup de entorno, estructura de endpoints, flujos de testing y validación de respuestas.
