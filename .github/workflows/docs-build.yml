@@ -76,7 +76,7 @@ jobs:
         with:
           name: code-docs
           path: code-docs
-#3) Build and push Docker images (backend y frontend)
+#3) Build and push Docker images (src/backend y src/frontend)
   build-docker:
       runs-on: ubuntu-latest
       steps:
