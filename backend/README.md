@@ -27,7 +27,20 @@ El backend está configurado con CORS para permitir peticiones desde el frontend
 2. Actualiza `FRONTEND_URL` en `backend/.env` con ese puerto
 3. Reinicia el backend después de cambiar `.env`
 
-Ver más detalles en: [CORS-CONFIG.md](./CORS-CONFIG.md)
+**Documentación completa de CORS:** Ver [../docs/cors-configuration.md](../docs/cors-configuration.md)
+
+## 🏗️ Arquitectura
+
+Para comprender en profundidad cómo funciona el sistema de autenticación y la estructura del backend, consulta la documentación de arquitectura:
+
+- **[Arquitectura del Sistema de Autenticación](docs/arquitectura-auth.md)** - Diagramas de flujo detallados del sistema de autenticación, incluyendo registro, login, generación de JWT y protección de rutas
+- **[Guía del Middleware de Autenticación](docs/auth-middleware-guide.md)** - Documentación técnica sobre cómo utilizar el middleware de autenticación (`authMiddleware` y `optionalAuthMiddleware`) en las rutas del proyecto
+
+Esta documentación es especialmente útil para:
+- Desarrolladores que se incorporen al proyecto
+- Entender el flujo completo de autenticación
+- Implementar nuevas rutas protegidas
+- Debugging de problemas de autenticación
 
 ## 📦 Archivos Creados
 
@@ -141,7 +154,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 
 ## 📚 Documentación Completa
 
-Ver [docs/auth-middleware-guide.md](../../docs/auth-middleware-guide.md) para documentación detallada.
+Para más información sobre el uso del middleware de autenticación, consulta la [sección de Arquitectura](#-arquitectura) en este documento.
 
 ## 🛡️ Seguridad
 
