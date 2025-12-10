@@ -17,7 +17,7 @@ RUN npm run build
 FROM nginx:alpine
 
 # Copiar el build al directorio que sirve Nginx
-COPY --from=build /app/dist /usr/share/nginx/html
+COPY --from=build /app/build /usr/share/nginx/html
 
 # Exponer puerto donde sirve Nginx
 EXPOSE 3000
