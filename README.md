@@ -34,9 +34,48 @@ MindCare está orientada a jóvenes y adultos en situación de vulnerabilidad ec
 
 ## Aplicación desplegada
 
-La versión en producción de MindCare está disponible en línea y lista para su uso. Los usuarios pueden acceder a todas las funcionalidades de la aplicación sin necesidad de instalación local.
+MindCare está completamente dockerizada y lista para despliegue en producción con CI/CD automatizado.
+
+### Despliegue Local con Docker
+
+```bash
+# Clonar repositorio
+git clone https://github.com/AdrianDiaz24/DAW2-Proyecto-Grupo-7.git
+cd DAW2-Proyecto-Grupo-7
+
+# Configurar variables de entorno
+cp .env.docker.example .env
+
+# Levantar todos los servicios (Frontend, Backend, MongoDB)
+docker-compose up -d
+
+# Acceder a la aplicación
+# Frontend: http://localhost:3000
+# Backend API: http://localhost:5000/api
+```
+
+### Imágenes Docker Disponibles
+
+Las imágenes de Docker están publicadas en Docker Hub y actualizadas automáticamente con CI/CD:
+
+- **Backend:** `dockerhub-username/mindcare-backend:latest`
+- **Frontend:** `dockerhub-username/mindcare-frontend:latest`
+
+### URL de Producción
 
 **URL de producción:** [https://mindcare-app.example.com](https://mindcare-app.example.com)
+
+> **Nota:** Para desplegar tu propia instancia, consulta la [Guía de Despliegue con Docker](docs/docker-deployment-guide.md)
+
+### CI/CD Automatizado
+
+El proyecto incluye GitHub Actions workflows que automatizan:
+
+✅ **Build y Push a Docker Hub** - Cada push a `main` construye y publica nuevas imágenes  
+✅ **Generación de Documentación** - PDFs de docs y code-docs automáticos  
+✅ **Deploy Automático** - (Opcional) Despliegue a servidor de producción  
+
+Ver workflows en: [`.github/workflows/`](.github/workflows/)
 
 ## Stack tecnológico
 
@@ -62,6 +101,10 @@ MindCare ha sido desarrollada utilizando tecnologías modernas y robustas que ga
 
 ### DevOps y Herramientas
 - **Git** y **GitHub** - Control de versiones
+- **Docker** y **Docker Compose** - Containerización y orquestación
+- **GitHub Actions** - CI/CD automatizado
+- **Docker Hub** - Registro de imágenes Docker
+- **Nginx** - Servidor web para frontend en producción
 - **Nodemon** 3.0.2 - Desarrollo con hot-reload
 - **JSDoc** - Documentación del código
 - **Postman** - Testing de API
