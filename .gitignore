@@ -32,3 +32,16 @@ Thumbs.db
 dist/
 build/
 /frontend/.env
+# Documentación autogenerada (JSDoc)
+code-docs/
+!code-docs/README.md
+# Uploads de usuarios
+uploads/
+backend/uploads/
+frontend/uploads/
+# Logs (carpetas)
+logs/
+# Archivos temporales
+tmp/
+temp/
+*.tmp
