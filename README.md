@@ -1,8 +1,7 @@
-# DAW2-Proyecto-Grupo-7
+# MindCare
 
 ## Índice
 
-- [Nombre del proyecto](#nombre-del-proyecto)
 - [Breve descripción](#breve-descripción)
 - [Aplicación desplegada](#aplicación-desplegada)
 - [Stack tecnológico](#stack-tecnológico)
@@ -23,9 +22,6 @@
 - [Equipo de desarrollo](#equipo-de-desarrollo)
 
 ---
-
-## Nombre del proyecto
-**MindCare** – Aplicación web para el seguimiento y gestión de la salud mental.
 
 
 ## Breve descripción
@@ -75,16 +71,16 @@ MindCare ha sido desarrollada utilizando tecnologías modernas y robustas que ga
 A continuación se presentan algunas capturas representativas de las principales funcionalidades de MindCare, mostrando la interfaz de usuario y las diferentes secciones de la aplicación.
 
 ### Página de inicio
-![Página de inicio](https://via.placeholder.com/800x400?text=P%C3%A1gina+de+Inicio)
+[]
 
 ### Panel de registro emocional
-![Registro emocional](https://via.placeholder.com/800x400?text=Registro+Emocional)
+[]
 
 ### Diario personal
-![Diario personal](https://via.placeholder.com/800x400?text=Diario+Personal)
+[]
 
 ### Dashboard de estadísticas
-![Dashboard](https://via.placeholder.com/800x400?text=Dashboard+de+Estad%C3%ADsticas)
+[]
 
 ## Instalación para desarrollo local
 
@@ -203,11 +199,11 @@ MindCare ha sido desarrollado por un equipo multidisciplinar de profesionales es
 - **Responsabilidades:** Diseño e implementación del servidor, API REST, autenticación y seguridad, integración de funcionalidades del MVP
 
 ### Rocío Luque Montes
-- **GitHub:** [@rocio-luque](https://github.com/rocio-luque)
+- **GitHub:** [@Lmrocio](https://github.com/Lmrocio)
 - **Rol:** Frontend Lead
 - **Responsabilidades:** Diseño e implementación de la interfaz y experiencia de usuario, desarrollo de vistas principales en React, integración con la API, accesibilidad y coherencia visual
 
 ### José Antonio Díaz Busati
-- **GitHub:** [@jose-diaz-busati](https://github.com/jose-diaz-busati)
+- **GitHub:** [@JoseAntonioDiazBusati](https://github.com/JoseAntonioDiazBusati)
 - **Rol:** Database Manager
 - **Responsabilidades:** Diseño del modelo de datos en MongoDB, gestión de la persistencia de información, soporte en integración con el backend
