@@ -43,13 +43,20 @@ export const apiFetch = async (endpoint, options = {}) => {
 
     if (authStorage) {
         try {
-            const { state } = JSON.parse(authStorage);
-            if (state && state.token) {
+            const parsed = JSON.parse(authStorage);
+            // Zustand persist guarda el estado dentro de una propiedad 'state'
+            const state = parsed.state || parsed;
+            if (state && state.token && state.token.trim() !== '') {
                 token = state.token;
+                console.log('✅ Token obtenido del localStorage:', token.substring(0, 20) + '...');
+            } else {
+                console.warn('⚠️ Token vacío o no válido en localStorage');
             }
         } catch (e) {
-            console.error("Error parsing auth-storage from localStorage", e);
+            console.error("❌ Error parsing auth-storage from localStorage", e);
         }
+    } else {
+        console.warn('⚠️ No se encontró auth-storage en localStorage');
     }
 
     const defaultHeaders = {
@@ -57,18 +64,24 @@ export const apiFetch = async (endpoint, options = {}) => {
     };
 
     // Si existe un token, añadirlo a los headers de autorización
-    if (token) {
+    if (token && token.trim() !== '') {
         defaultHeaders['Authorization'] = `Bearer ${token}`;
+        console.log('✅ Authorization header añadido');
+    } else {
+        console.warn('⚠️ No Authorization header será añadido (token vacío o no válido)');
     }
 
     const defaultOptions = {
         headers: {
             ...defaultHeaders,
-            ...options.headers,
+            ...(options.headers || {}),
         },
         mode: 'cors',
         ...options,
     };
+
+    console.log('📤 Realizando fetch a:', endpoint);
+    console.log('📋 Headers:', defaultOptions.headers);
 
     const response = await fetch(endpoint, defaultOptions);
     return response;
