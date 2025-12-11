@@ -98,7 +98,7 @@ CMD ["npm", "start"]
 2. **Healthcheck**: Instala `wget` para verificar el estado del servicio mediante el endpoint `/api/health`.
 3. **Instalación de dependencias**: Solo instala dependencias de producción con `npm install --production`.
 4. **Seguridad**: Crea y utiliza un usuario no root (`nodejs`) para ejecutar la aplicación.
-5. **Variables de entorno**: Define `NODE_ENV=production` y `PORT=5000` como valores por defecto.
+5. **Variables de entorno**: Define `NODE_ENV=production` y `PORT=4000` como valores por defecto.
 
 ### Frontend Dockerfile
 
@@ -184,7 +184,7 @@ frontend:
     context: ./frontend
     dockerfile: Dockerfile
     args:
-      REACT_APP_API_URL: ${REACT_APP_API_URL:-http://localhost:5000}
+      REACT_APP_API_URL: ${REACT_APP_API_URL:-http://localhost:4000}
   image: mindcare-frontend:latest
   restart: unless-stopped
   ports:
@@ -424,7 +424,7 @@ El workflow se encuentra en `.github/workflows/docker-build.yml`.
 
 ```
 NODE_ENV=production
-PORT=5000
+PORT=4000
 MONGODB_URI=mongodb+srv://usuario:contraseña@cluster.mongodb.net/mindcare
 JWT_SECRET=tu-secret-seguro
 JWT_EXPIRES_IN=7d
