@@ -69,9 +69,9 @@ Términos de Servicio que incluyen:
 
 ```jsx
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Privacy from './pages/Legal/Privacy';
-import Cookies from './pages/Legal/Cookies';
-import Terms from './pages/Legal/Terms';
+import Privacy from './pages/legal/Privacy';
+import Cookies from './pages/legal/Cookies';
+import Terms from './pages/legal/Terms';
 
 function App() {
   return (

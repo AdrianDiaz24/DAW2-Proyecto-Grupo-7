@@ -27,12 +27,16 @@ import Navbar from "./components/molecules/Navbar";
 import MainLayout from "./components/layout/MainLayout";
 import AuthLayout from "./components/layout/AuthLayout";
 import ErrorBoundary from "./components/organisms/ErrorBoundary";
+import { CookieConsent } from "./components/molecules/CookieConsent";
 import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
 import Seguimiento from "./pages/Seguimiento";
 import Diario from "./pages/Diario";
+import { Privacy } from "./pages/legal/Privacy";
+import { Cookies } from "./pages/legal/Cookies";
+import { Terms } from "./pages/legal/Terms";
 
 import { useAuthStore } from "./store/authStore";
 
@@ -67,6 +71,7 @@ function App() {
     return (
         <ErrorBoundary>
             <Router>
+                <CookieConsent />
                 <Toaster
                     position="top-right"
                     toastOptions={{
@@ -139,6 +144,11 @@ function App() {
                         </ProtectedRoute>
                     </MainLayout>
                 } />
+
+                {/* Páginas Legales */}
+                <Route path="/legal/privacidad" element={<Privacy />} />
+                <Route path="/legal/cookies" element={<Cookies />} />
+                <Route path="/legal/terminos" element={<Terms />} />
             </Routes>
         </Router>
         </ErrorBoundary>
