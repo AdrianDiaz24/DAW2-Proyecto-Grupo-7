@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: frontend/src/pages/Diario.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: frontend/src/pages/Diario.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @file Página del Diario.
+ * @description Permite a los usuarios crear, ver, editar, eliminar y compartir entradas de su diario personal.
+ * @requires react
+ * @requires ../hooks
+ * @requires ../service/diario.service
+ * @requires ../components/molecules/DiaryEditor
+ * @requires ../components/molecules/DiaryEntry
+ * @requires ../components/atoms/Button
+ * @requires ../components/atoms/Input
+ * @requires ../styles/Diario.css
+ */
+import React, { useState, useEffect } from "react";
+import { useToast } from "../hooks";
+import { diarioService } from "../service/diario.service";
+import DiaryEditor from "../components/molecules/DiaryEditor";
+import DiaryEntry from "../components/molecules/DiaryEntry";
+import Button from "../components/atoms/Button";
+import Input from "../components/atoms/Input";
+import "../styles/Diario.css";
+
+/**
+ * @function Diario
+ * @description Componente principal de la página del diario. Gestiona el estado y la lógica para las entradas del diario.
+ * @returns {JSX.Element} La página del diario.
+ */
+const Diario = () => {
+    const { success: showSuccess, error: showError } = useToast();
+    const [entries, setEntries] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+    const [showEditor, setShowEditor] = useState(false);
+    const [editingEntry, setEditingEntry] = useState(null);
+    const [shareModal, setShareModal] = useState(null);
+
+    // Cargar entradas al montar
+    useEffect(() => {
+        loadEntries();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    /**
+     * @function loadEntries
+     * @description Carga todas las entradas del diario del usuario desde el servicio.
+     * @async
+     */
+    const loadEntries = async () => {
+        setIsLoading(true);
+        try {
+            const data = await diarioService.getAll();
+            setEntries(data);
+        } catch (error) {
+            showError(error.message || 'Error al cargar las entradas');
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    /**
+     * @function handleCreateEntry
+     * @description Maneja la creación de una nueva entrada del diario.
+     * @param {object} entryData - Los datos de la nueva entrada.
+     * @async
+     */
+    const handleCreateEntry = async (entryData) => {
+        setIsLoading(true);
+        try {
+            const newEntry = await diarioService.create(entryData);
+            showSuccess('¡Entrada creada exitosamente!');
+            setEntries([newEntry.entrada, ...entries]);
+            setShowEditor(false);
+        } catch (error) {
+            showError(error.message || 'Error al crear la entrada');
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    /**
+     * @function handleUpdateEntry
+     * @description Maneja la actualización de una entrada existente.
+     * @param {object} entryData - Los nuevos datos para la entrada.
+     * @async
+     */
+    const handleUpdateEntry = async (entryData) => {
+        setIsLoading(true);
+        try {
+            const updated = await diarioService.update(editingEntry._id, entryData);
+            showSuccess('¡Entrada actualizada exitosamente!');
+            setEntries(entries.map(e => e._id === editingEntry._id ? updated.entrada : e));
+            setShowEditor(false);
+            setEditingEntry(null);
+        } catch (error) {
+            showError(error.message || 'Error al actualizar la entrada');
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    /**
+     * @function handleDeleteEntry
+     * @description Maneja la eliminación de una entrada.
+     * @param {string} entryId - El ID de la entrada a eliminar.
+     * @async
+     */
+    const handleDeleteEntry = async (entryId) => {
+        if (!window.confirm('¿Estás seguro de que quieres eliminar esta entrada? Esta acción no se puede deshacer.')) {
+            return;
+        }
+
+        setIsLoading(true);
+        try {
+            await diarioService.delete(entryId);
+            showSuccess('Entrada eliminada exitosamente');
+            setEntries(entries.filter(e => e._id !== entryId));
+        } catch (error) {
+            showError(error.message || 'Error al eliminar la entrada');
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    /**
+     * @function handleEditEntry
+     * @description Prepara el editor para modificar una entrada existente.
+     * @param {object} entry - La entrada a editar.
+     */
+    const handleEditEntry = (entry) => {
+        setEditingEntry(entry);
+        setShowEditor(true);
+    };
+
+    /**
+     * @function handleCancelEditor
+     * @description Cancela la edición y cierra el editor.
+     */
+    const handleCancelEditor = () => {
+        setShowEditor(false);
+        setEditingEntry(null);
+    };
+
+    /**
+     * @function handleShareEntry
+     * @description Abre el modal para compartir una entrada.
+     * @param {object} entry - La entrada a compartir.
+     */
+    const handleShareEntry = (entry) => {
+        setShareModal(entry);
+    };
+
+    /**
+     * @function copyShareLink
+     * @description Copia el enlace para compartir al portapapeles.
+     */
+    const copyShareLink = () => {
+        const url = `${window.location.origin}/diario/${shareModal._id}`;
+        navigator.clipboard.writeText(url);
+        showSuccess('¡Link copiado al portapapeles!');
+    };
+
+    /**
+     * @function closeShareModal
+     * @description Cierra el modal de compartir.
+     */
+    const closeShareModal = () => {
+        setShareModal(null);
+    };
+
+    return (
+        &lt;div className="diario-page">
+            &lt;div className="diario-container">
+                {!showEditor ? (
+                    &lt;>
+                        {/* Header */}
+                        &lt;div className="diario-header">
+                            &lt;div className="diario-header__text">
+                                &lt;h1>Mi Diario Personal&lt;/h1>
+                                &lt;p>Un espacio privado para tus pensamientos, reflexiones y experiencias&lt;/p>
+                            &lt;/div>
+                            &lt;Button
+                                variant="primary"
+                                onClick={() => setShowEditor(true)}
+                                disabled={isLoading}
+                            >
+                                Nueva entrada
+                            &lt;/Button>
+                        &lt;/div>
+
+                        {/* Lista de entradas */}
+                        &lt;div className="diario-content">
+                            {isLoading &amp;&amp; entries.length === 0 ? (
+                                &lt;div className="diario-loading">
+                                    &lt;div className="spinner">&lt;/div>
+                                    &lt;p>Cargando tus entradas...&lt;/p>
+                                &lt;/div>
+                            ) : entries.length === 0 ? (
+                                &lt;div className="diario-empty">
+                                    &lt;div className="diario-empty__icon">📝&lt;/div>
+                                    &lt;h2>Tu diario está vacío&lt;/h2>
+                                    &lt;p>Comienza a escribir tu primera entrada y lleva un registro de tus experiencias diarias&lt;/p>
+                                    &lt;Button
+                                        variant="primary"
+                                        onClick={() => setShowEditor(true)}
+                                    >
+                                        Crear primera entrada
+                                    &lt;/Button>
+                                &lt;/div>
+                            ) : (
+                                &lt;div className="diario-entries">
+                                    {entries.map(entry => (
+                                        &lt;DiaryEntry
+                                            key={entry._id}
+                                            entry={entry}
+                                            onEdit={handleEditEntry}
+                                            onDelete={handleDeleteEntry}
+                                            onShare={handleShareEntry}
+                                        />
+                                    ))}
+                                &lt;/div>
+                            )}
+                        &lt;/div>
+                    &lt;/>
+                ) : (
+                    &lt;DiaryEditor
+                        onSave={editingEntry ? handleUpdateEntry : handleCreateEntry}
+                        onCancel={handleCancelEditor}
+                        initialData={editingEntry}
+                        isLoading={isLoading}
+                    />
+                )}
+
+                {/* Modal de compartir */}
+                {shareModal &amp;&amp; (
+                    &lt;div className="modal-overlay" onClick={closeShareModal}>
+                        &lt;div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                            &lt;div className="modal-header">
+                                &lt;h2>🔗 Compartir entrada&lt;/h2>
+                                &lt;button className="modal-close" onClick={closeShareModal}>×&lt;/button>
+                            &lt;/div>
+                            &lt;div className="modal-body">
+                                &lt;p className="modal-description">
+                                    Comparte este link con quien quieras darle acceso a esta entrada.
+                                    Necesitarán la contraseña que configuraste.
+                                &lt;/p>
+                                &lt;div className="share-link-container">
+                                    &lt;Input
+                                        value={`${window.location.origin}/diario/${shareModal._id}`}
+                                        onChange={() => {}} // Read-only input
+                                        icon="🔗"
+                                    />
+                                    &lt;Button variant="primary" onClick={copyShareLink}>
+                                        Copiar
+                                    &lt;/Button>
+                                &lt;/div>
+                                &lt;div className="share-info">
+                                    &lt;p>💡 &lt;strong>Recuerda:&lt;/strong> La persona necesitará la contraseña que configuraste para acceder.&lt;/p>
+                                &lt;/div>
+                            &lt;/div>
+                        &lt;/div>
+                    &lt;/div>
+                )}
+            &lt;/div>
+        &lt;/div>
+    );
+};
+
+export default Diario;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="apiConfig.html">apiConfig</a></li><li><a href="contactoEmergenciaService.html">contactoEmergenciaService</a></li><li><a href="diarioService.html">diarioService</a></li></ul><h3>Classes</h3><ul><li><a href="ErrorBoundary.html">ErrorBoundary</a></li></ul><h3>Events</h3><ul><li><a href="global.html#event:SIGINT">SIGINT</a></li><li><a href="global.html#event:unhandledRejection">unhandledRejection</a></li></ul><h3>Global</h3><ul><li><a href="global.html#404_Error_Handler">404_Error_Handler</a></li><li><a href="global.html#ACTIVIDADES">ACTIVIDADES</a></li><li><a href="global.html#API_URL">API_URL</a></li><li><a href="global.html#ASPECTOS_COGNITIVOS">ASPECTOS_COGNITIVOS</a></li><li><a href="global.html#ActionCard">ActionCard</a></li><li><a href="global.html#ActivitySelector">ActivitySelector</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#AuthButtons">AuthButtons</a></li><li><a href="global.html#AuthLayout">AuthLayout</a></li><li><a href="global.html#Button">Button</a></li><li><a href="global.html#CORS_Configuration">CORS_Configuration</a></li><li><a href="global.html#Card">Card</a></li><li><a href="global.html#Carousel">Carousel</a></li><li><a href="global.html#Checkbox">Checkbox</a></li><li><a href="global.html#CircularProgress">CircularProgress</a></li><li><a href="global.html#CognitionSelector">CognitionSelector</a></li><li><a href="global.html#DiaryBanner">DiaryBanner</a></li><li><a href="global.html#DiaryEditor">DiaryEditor</a></li><li><a href="global.html#DiaryEntry">DiaryEntry</a></li><li><a href="global.html#EMOCIONES">EMOCIONES</a></li><li><a href="global.html#EmergencyButton">EmergencyButton</a></li><li><a href="global.html#EmergencyModal">EmergencyModal</a></li><li><a href="global.html#EmotionSelector">EmotionSelector</a></li><li><a href="global.html#EmotionStats">EmotionStats</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#GET_/">GET_/</a></li><li><a href="global.html#Generic_Error_Handler">Generic_Error_Handler</a></li><li><a href="global.html#Heading">Heading</a></li><li><a href="global.html#HeroSection">HeroSection</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#Input">Input</a></li><li><a href="global.html#Landing">Landing</a></li><li><a href="global.html#LandingHero">LandingHero</a></li><li><a href="global.html#Login">Login</a></li><li><a href="global.html#Logo">Logo</a></li><li><a href="global.html#MainLayout">MainLayout</a></li><li><a href="global.html#Navbar">Navbar</a></li><li><a href="global.html#ProtectedRoute">ProtectedRoute</a></li><li><a href="global.html#Register">Register</a></li><li><a href="global.html#Seguimiento">Seguimiento</a></li><li><a href="global.html#Slider">Slider</a></li><li><a href="global.html#Text">Text</a></li><li><a href="global.html#Textarea">Textarea</a></li><li><a href="global.html#accessWithPassword">accessWithPassword</a></li><li><a href="global.html#actualizarEntradaDiario">actualizarEntradaDiario</a></li><li><a href="global.html#api">api</a></li><li><a href="global.html#apiFetch">apiFetch</a></li><li><a href="global.html#authMiddleware">authMiddleware</a></li><li><a href="global.html#closeShareModal">closeShareModal</a></li><li><a href="global.html#compararPassword">compararPassword</a></li><li><a href="global.html#componentDidCatch">componentDidCatch</a></li><li><a href="global.html#connectDBAndStartServer">connectDBAndStartServer</a></li><li><a href="global.html#copyShareLink">copyShareLink</a></li><li><a href="global.html#crearEntradaDiario">crearEntradaDiario</a></li><li><a href="global.html#create">create</a></li><li><a href="global.html#createContacto">createContacto</a></li><li><a href="global.html#createRegistro">createRegistro</a></li><li><a href="global.html#delete">delete</a></li><li><a href="global.html#deleteContacto">deleteContacto</a></li><li><a href="global.html#description">description</a></li><li><a href="global.html#dismiss">dismiss</a></li><li><a href="global.html#duracion">duracion</a></li><li><a href="global.html#eliminarEntradaDiario">eliminarEntradaDiario</a></li><li><a href="global.html#emotion">emotion</a></li><li><a href="global.html#error">error</a></li><li><a href="global.html#formatDate">formatDate</a></li><li><a href="global.html#formatDateShort">formatDateShort</a></li><li><a href="global.html#getAll">getAll</a></li><li><a href="global.html#getById">getById</a></li><li><a href="global.html#getContactoById">getContactoById</a></li><li><a href="global.html#getContactos">getContactos</a></li><li><a href="global.html">getDerivedStateFromError</a></li><li><a href="global.html#getIntensidad">getIntensidad</a></li><li><a href="global.html#getPreviewText">getPreviewText</a></li><li><a href="global.html#getProfile">getProfile</a></li><li><a href="global.html#getRegistroByFecha">getRegistroByFecha</a></li><li><a href="global.html#getRegistroById">getRegistroById</a></li><li><a href="global.html#getRegistros">getRegistros</a></li><li><a href="global.html#getRegistrosByRango">getRegistrosByRango</a></li><li><a href="global.html#getStepLabel">getStepLabel</a></li><li><a href="global.html#goToNext">goToNext</a></li><li><a href="global.html#goToPrevious">goToPrevious</a></li><li><a href="global.html#handleAddActividad">handleAddActividad</a></li><li><a href="global.html#handleAddContact">handleAddContact</a></li><li><a href="global.html#handleCall">handleCall</a></li><li><a href="global.html#handleCancelAdd">handleCancelAdd</a></li><li><a href="global.html#handleCancelEditor">handleCancelEditor</a></li><li><a href="global.html#handleChange">handleChange</a></li><li><a href="global.html#handleCreateEntry">handleCreateEntry</a></li><li><a href="global.html#handleDeleteEntry">handleDeleteEntry</a></li><li><a href="global.html#handleEditEntry">handleEditEntry</a></li><li><a href="global.html#handleEmocionToggle">handleEmocionToggle</a></li><li><a href="global.html#handleInputChange">handleInputChange</a></li><li><a href="global.html#handleIntensidadChange">handleIntensidadChange</a></li><li><a href="global.html#handleLogin">handleLogin</a></li><li><a href="global.html#handleLogout">handleLogout</a></li><li><a href="global.html#handleOverlayClick">handleOverlayClick</a></li><li><a href="global.html#handleRegister">handleRegister</a></li><li><a href="global.html#handleReload">handleReload</a></li><li><a href="global.html#handleRemoveActividad">handleRemoveActividad</a></li><li><a href="global.html#handleSendEmail">handleSendEmail</a></li><li><a href="global.html#handleSendSms">handleSendSms</a></li><li><a href="global.html#handleShareEntry">handleShareEntry</a></li><li><a href="global.html#handleSubmit">handleSubmit</a></li><li><a href="global.html#handleToggle">handleToggle</a></li><li><a href="global.html#handleToggleExpand">handleToggleExpand</a></li><li><a href="global.html#handleUpdateEntry">handleUpdateEntry</a></li><li><a href="global.html#info">info</a></li><li><a href="global.html#intensidad">intensidad</a></li><li><a href="global.html#isMobileDevice">isMobileDevice</a></li><li><a href="global.html#isSelected">isSelected</a></li><li><a href="global.html#loadContacts">loadContacts</a></li><li><a href="global.html#loadEntries">loadEntries</a></li><li><a href="global.html#loading">loading</a></li><li><a href="global.html#loginUser">loginUser</a></li><li><a href="global.html#nextStep">nextStep</a></li><li><a href="global.html#nombre">nombre</a></li><li><a href="global.html#obtenerEntradaDiarioPorId">obtenerEntradaDiarioPorId</a></li><li><a href="global.html#obtenerEntradasDiario">obtenerEntradasDiario</a></li><li><a href="global.html#optionalAuthMiddleware">optionalAuthMiddleware</a></li><li><a href="global.html#percentage">percentage</a></li><li><a href="global.html#port">port</a></li><li><a href="global.html#pre-save">pre-save</a></li><li><a href="global.html#prevStep">prevStep</a></li><li><a href="global.html#promise">promise</a></li><li><a href="global.html#registerUser">registerUser</a></li><li><a href="global.html#render">render</a></li><li><a href="global.html#request-interceptor">request-interceptor</a></li><li><a href="global.html#response-interceptor">response-interceptor</a></li><li><a href="global.html#sendEmergencyEmail">sendEmergencyEmail</a></li><li><a href="global.html#success">success</a></li><li><a href="global.html#timeAgo">timeAgo</a></li><li><a href="global.html#title">title</a></li><li><a href="global.html#togglePasswordField">togglePasswordField</a></li><li><a href="global.html#update">update</a></li><li><a href="global.html#updateContacto">updateContacto</a></li><li><a href="global.html#uri">uri</a></li><li><a href="global.html#useAuthStore">useAuthStore</a></li><li><a href="global.html#useToast">useToast</a></li><li><a href="global.html#validateRequiredEnvVars">validateRequiredEnvVars</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Thu Dec 11 2025 08:01:05 GMT+0000 (Coordinated Universal Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
