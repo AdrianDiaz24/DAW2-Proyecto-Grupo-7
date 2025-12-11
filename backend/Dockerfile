@@ -11,7 +11,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Instalar dependencias de producción
-RUN npm ci --omit=dev
+RUN npm install --production
 
 # Copiar código fuente
 COPY . .
@@ -28,8 +28,8 @@ USER nodejs
 EXPOSE 5000
 
 # Variables de entorno por defecto (se sobreescriben en docker-compose)
-ENV NODE_ENV=production
-ENV PORT=5000
+ENV NODE_ENV=production \
+    PORT=5000
 
 # Healthcheck
 HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
