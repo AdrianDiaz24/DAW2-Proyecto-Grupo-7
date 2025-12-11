@@ -17,11 +17,11 @@ RUN npm install
 # Copiar código fuente
 COPY . .
 
-# Argumentos de build (opcional, .env.production tiene prioridad)
+# Argumentos de build - DEBE pasarse desde docker-compose o GitHub Actions
 ARG REACT_APP_API_URL
 ENV REACT_APP_API_URL=${REACT_APP_API_URL}
 
-# Build de producción (React usará .env.production si existe)
+# Build de producción
 RUN npm run build
 
 # Etapa 2: Servidor Nginx para servir la aplicación
