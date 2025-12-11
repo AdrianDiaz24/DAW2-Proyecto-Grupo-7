@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindCare - Documentación API</title>
+    <link rel="stylesheet" href="custom.css">
+    <link href="https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="hero-section">
+        <h1>🧠 MindCare API Documentation</h1>
+        <p class="subtitle">Documentación completa de la aplicación web para el seguimiento y gestión de la salud mental</p>
+    </div>
+
+    <div class="info-section">
+        <div class="info-card">
+            <h3>📚 Backend</h3>
+            <p>API REST desarrollada con Node.js y Express</p>
+            <ul>
+                <li>Autenticación JWT</li>
+                <li>MongoDB para persistencia</li>
+                <li>Controladores y rutas modulares</li>
+            </ul>
+        </div>
+
+        <div class="info-card">
+            <h3>🎨 Frontend</h3>
+            <p>Interfaz desarrollada con React</p>
+            <ul>
+                <li>Arquitectura atómica de componentes</li>
+                <li>Gestión de estado con Zustand</li>
+                <li>Animaciones con Framer Motion</li>
+            </ul>
+        </div>
+    </div>
+
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #D4DBFF, #4A2CA5);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-radius: 12px;
+            margin: 2rem 0;
+            box-shadow: 0 8px 20px rgba(74, 44, 165, 0.3);
+        }
+
+        .hero-section h1 {
+            font-family: 'Mouse Memoirs', cursive;
+            font-size: 3rem;
+            margin: 0;
+            color: white;
+            border: none;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            opacity: 0.95;
+        }
+
+        .info-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .info-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 2px solid #D4DBFF;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(74, 44, 165, 0.15);
+        }
+
+        .info-card h3 {
+            color: #4A2CA5;
+            font-size: 1.5rem;
+            margin-top: 0;
+            border: none;
+        }
+
+        .info-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .info-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4A2CA5;
+            font-weight: bold;
+        }
+    </style>
+</body>
+</html>
+
