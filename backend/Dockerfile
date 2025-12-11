@@ -1,6 +1,11 @@
 # Imagen base de Node.js
 FROM node:18-alpine
 
+# Información del mantenedor
+LABEL maintainer="MindCare Team"
+LABEL description="Backend API REST de MindCare con Node.js y Express"
+LABEL version="1.0"
+
 # Instalar wget para healthcheck
 RUN apk add --no-cache wget
 
@@ -27,13 +32,10 @@ USER nodejs
 # Exponer puerto del backend
 EXPOSE 5000
 
-# Variables de entorno por defecto (se sobreescriben en docker-compose)
+# Variables de entorno por defecto
 ENV NODE_ENV=production \
     PORT=5000
 
-# Healthcheck
-HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
-  CMD wget --quiet --tries=1 --spider http://localhost:5000/api/health || exit 1
 
 # Comando para iniciar la aplicación
 CMD ["npm", "start"]
