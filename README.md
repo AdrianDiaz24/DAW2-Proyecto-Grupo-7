@@ -2,6 +2,7 @@
 
 ## Índice
 
+
 - [Breve descripción](#breve-descripción)
 - [Aplicación desplegada](#aplicación-desplegada)
 - [Stack tecnológico](#stack-tecnológico)
