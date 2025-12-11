@@ -1,95 +1,79 @@
-name: Build Docs (PDF & HTML + Code Docs)
+name: Generador de Documentación JSDoc
+
+permissions:
+  contents: write
 
 on:
   push:
     branches:
       - main
-    paths:
-      - 'docs/**'
-      - 'backend/src/**'
-      - 'frontend/src/**'
-      - 'jsdoc.json'
-      - '.github/workflows/docs-build.yml'
   workflow_dispatch:
 
-permissions:
-  contents: write
-  pages: write
-  id-token: write
-
 jobs:
-  build-docs:
+  generate-jsdoc:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      # Clonar repo
+      - name: Clonar repo
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
-      # Convertir documentación Markdown a PDF/HTML
-      - name: Build docs root (Markdown files)
-        uses: BaileyJM02/markdown-to-pdf@v1.2.0
-        with:
-          input_dir: docs
-          output_dir: docs-export
-          build_pdf: true
-          build_html: true
-        continue-on-error: true
-
-      - name: Build docs sprintreview
-        uses: BaileyJM02/markdown-to-pdf@v1.2.0
-        with:
-          input_dir: docs/sprintreview
-          output_dir: docs-export/sprintreview
-          build_pdf: true
-          build_html: true
-        continue-on-error: true
-
-      # Subir documentación generada como artifact
-      - name: Upload docs artifacts (PDF & HTML)
-        uses: actions/upload-artifact@v4
-        with:
-          name: docs-export
-          path: docs-export
-        if: always()
-
-
-  # Documentación de código (JSDoc sobre backend/src y frontend/src)
-  build-code-docs:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Setup Node.js
+      # Configuración Node.js
+      - name: Configuración Node.js 18
         uses: actions/setup-node@v4
         with:
-          node-version: '18.x'
+          node-version: '18'
           cache: 'npm'
 
-      - name: Install dependencies
-        run: npm install --production=false
+      # Instalar dependencias
+      - name: Instalar dependencias
+        run: npm install
 
-      - name: Generate code documentation (JSDoc)
+      # Generar JSDoc HTML
+      - name: Generar JSDoc HTML
         run: npm run docs:code
 
-      - name: Upload code docs artifact
+      # Instalar wkhtmltopdf para generar PDFs
+      - name: Instalación wkhtmltopdf
+        run: sudo apt-get update && sudo apt-get install -y wkhtmltopdf
+
+      # Generar PDFs desde HTML
+      - name: Convertir HTMLs a PDFs
+        run: |
+          mkdir -p code-docs/pdf
+          for html in $(find code-docs -maxdepth 1 -type f -name "*.html"); do
+            filename=$(basename "$html" .html)
+            echo "Generando $filename.pdf..."
+            wkhtmltopdf --enable-local-file-access "$html" "code-docs/pdf/$filename.pdf"
+          done
+          
+          echo "Archivos PDF generados:"
+          find code-docs/pdf -type f -name "*.pdf"
+
+      # Subir PDFs como artefactos
+      - name: Subir PDFs como artefactos
         uses: actions/upload-artifact@v4
         with:
-          name: code-docs
-          path: code-docs
+          name: jsdoc-pdfs
+          path: code-docs/pdf/**/*.pdf
           retention-days: 90
 
-      - name: Deploy code docs to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      # Subir toda la documentación HTML como artefacto
+      - name: Subir documentación HTML
+        uses: actions/upload-artifact@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./code-docs
-          destination_dir: api-docs
-          enable_jekyll: false
-          force_orphan: true
+          name: jsdoc-html
+          path: code-docs/**/*
+          retention-days: 90
+
+      # Desplegar a GitHub Pages
+      - name: Desplegar JSDoc a GitHub Pages
+        uses: Cecilapp/GitHub-Pages-deploy@v3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          email: github-actions[bot]@users.noreply.github.com
+          build_dir: code-docs
+          branch: gh-pages
+          commit_message: "Actualizar documentación JSDoc [skip ci]"
 
