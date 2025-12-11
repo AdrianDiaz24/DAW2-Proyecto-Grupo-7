@@ -1,23 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
-
-    <script src="scripts/prettify/prettify.js"> </script>
-    <script src="scripts/prettify/lang-css.js"> </script>
+    <title>Home - MindCare API Documentation</title>
+    
+    <meta name="description" content="Documentación completa de la aplicación web para el seguimiento y gestión de la salud mental" />
+    
+        <meta name="keywords" content="mindcare, salud mental, documentación, api, react, node" />
+        <meta name="keyword" content="mindcare, salud mental, documentación, api, react, node" />
+    
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
-</head>
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<link href="https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="custom.css">
+</head>
 <body>
 
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/AdrianDiaz24/DAW2-Proyecto-Grupo-7" target="_blank" class="menu-item" id="repository" >GitHub</a></h2><h3>Classes</h3><ul><li><a href="ErrorBoundary.html">ErrorBoundary</a></li><li></li></ul><h3>Events</h3><ul><li><a href="global.html#event:SIGINT">SIGINT</a></li><li><a href="global.html#event:unhandledRejection">unhandledRejection</a></li></ul><h3>Namespaces</h3><ul><li><a href="apiConfig.html">apiConfig</a></li><li><a href="contactoEmergenciaService.html">contactoEmergenciaService</a></li><li><a href="diarioService.html">diarioService</a></li></ul><h3>Global</h3><ul><li><a href="global.html#404_Error_Handler">404_Error_Handler</a></li><li><a href="global.html#ACTIVIDADES">ACTIVIDADES</a></li><li><a href="global.html#API_URL">API_URL</a></li><li><a href="global.html#ASPECTOS_COGNITIVOS">ASPECTOS_COGNITIVOS</a></li><li><a href="global.html#ActionCard">ActionCard</a></li><li><a href="global.html#ActivitySelector">ActivitySelector</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#AuthButtons">AuthButtons</a></li><li><a href="global.html#AuthLayout">AuthLayout</a></li><li><a href="global.html#Button">Button</a></li><li><a href="global.html#CORS_Configuration">CORS_Configuration</a></li><li><a href="global.html#Card">Card</a></li><li><a href="global.html#Carousel">Carousel</a></li><li><a href="global.html#Checkbox">Checkbox</a></li><li><a href="global.html#CircularProgress">CircularProgress</a></li><li><a href="global.html#CognitionSelector">CognitionSelector</a></li><li><a href="global.html#Diario">Diario</a></li><li><a href="global.html#DiaryBanner">DiaryBanner</a></li><li><a href="global.html#DiaryEditor">DiaryEditor</a></li><li><a href="global.html#DiaryEntry">DiaryEntry</a></li><li><a href="global.html#EMOCIONES">EMOCIONES</a></li><li><a href="global.html#EmergencyButton">EmergencyButton</a></li><li><a href="global.html#EmergencyModal">EmergencyModal</a></li><li><a href="global.html#EmotionSelector">EmotionSelector</a></li><li><a href="global.html#EmotionStats">EmotionStats</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#GET_/">GET_/</a></li><li><a href="global.html#Generic_Error_Handler">Generic_Error_Handler</a></li><li><a href="global.html#Heading">Heading</a></li><li><a href="global.html#HeroSection">HeroSection</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#Input">Input</a></li><li><a href="global.html#Landing">Landing</a></li><li><a href="global.html#LandingHero">LandingHero</a></li><li><a href="global.html#Login">Login</a></li><li><a href="global.html#Logo">Logo</a></li><li><a href="global.html#MainLayout">MainLayout</a></li><li><a href="global.html#Navbar">Navbar</a></li><li><a href="global.html#ProtectedRoute">ProtectedRoute</a></li><li><a href="global.html#Register">Register</a></li><li><a href="global.html#Seguimiento">Seguimiento</a></li><li><a href="global.html#Slider">Slider</a></li><li><a href="global.html#Text">Text</a></li><li><a href="global.html#Textarea">Textarea</a></li><li><a href="global.html#accessWithPassword">accessWithPassword</a></li><li><a href="global.html#actualizarEntradaDiario">actualizarEntradaDiario</a></li><li><a href="global.html#api">api</a></li><li><a href="global.html#apiFetch">apiFetch</a></li><li><a href="global.html#authMiddleware">authMiddleware</a></li><li><a href="global.html#closeShareModal">closeShareModal</a></li><li><a href="global.html#compararPassword">compararPassword</a></li><li><a href="global.html#componentDidCatch">componentDidCatch</a></li><li><a href="global.html#connectDBAndStartServer">connectDBAndStartServer</a></li><li><a href="global.html#copyShareLink">copyShareLink</a></li><li><a href="global.html#crearEntradaDiario">crearEntradaDiario</a></li><li><a href="global.html#create">create</a></li><li><a href="global.html#createContacto">createContacto</a></li><li><a href="global.html#createRegistro">createRegistro</a></li><li><a href="global.html#delete">delete</a></li><li><a href="global.html#deleteContacto">deleteContacto</a></li><li><a href="global.html#description">description</a></li><li><a href="global.html#dismiss">dismiss</a></li><li><a href="global.html#duracion">duracion</a></li><li><a href="global.html#eliminarEntradaDiario">eliminarEntradaDiario</a></li><li><a href="global.html#emotion">emotion</a></li><li><a href="global.html#error">error</a></li><li><a href="global.html#formatDate">formatDate</a></li><li><a href="global.html#formatDateShort">formatDateShort</a></li><li><a href="global.html#getAll">getAll</a></li><li><a href="global.html#getById">getById</a></li><li><a href="global.html#getContactoById">getContactoById</a></li><li><a href="global.html#getContactos">getContactos</a></li><li><a href="global.html">getDerivedStateFromError</a></li><li><a href="global.html#getIntensidad">getIntensidad</a></li><li><a href="global.html#getPreviewText">getPreviewText</a></li><li><a href="global.html#getProfile">getProfile</a></li><li><a href="global.html#getRegistroByFecha">getRegistroByFecha</a></li><li><a href="global.html#getRegistroById">getRegistroById</a></li><li><a href="global.html#getRegistros">getRegistros</a></li><li><a href="global.html#getRegistrosByRango">getRegistrosByRango</a></li><li><a href="global.html#getStepLabel">getStepLabel</a></li><li><a href="global.html#goToNext">goToNext</a></li><li><a href="global.html#goToPrevious">goToPrevious</a></li><li><a href="global.html#handleAddActividad">handleAddActividad</a></li><li><a href="global.html#handleAddContact">handleAddContact</a></li><li><a href="global.html#handleCall">handleCall</a></li><li><a href="global.html#handleCancelAdd">handleCancelAdd</a></li><li><a href="global.html#handleCancelEditor">handleCancelEditor</a></li><li><a href="global.html#handleChange">handleChange</a></li><li><a href="global.html#handleCreateEntry">handleCreateEntry</a></li><li><a href="global.html#handleDeleteEntry">handleDeleteEntry</a></li><li><a href="global.html#handleEditEntry">handleEditEntry</a></li><li><a href="global.html#handleEmocionToggle">handleEmocionToggle</a></li><li><a href="global.html#handleInputChange">handleInputChange</a></li><li><a href="global.html#handleIntensidadChange">handleIntensidadChange</a></li><li><a href="global.html#handleLogin">handleLogin</a></li><li><a href="global.html#handleLogout">handleLogout</a></li><li><a href="global.html#handleOverlayClick">handleOverlayClick</a></li><li><a href="global.html#handleRegister">handleRegister</a></li><li><a href="global.html#handleReload">handleReload</a></li><li><a href="global.html#handleRemoveActividad">handleRemoveActividad</a></li><li><a href="global.html#handleSendEmail">handleSendEmail</a></li><li><a href="global.html#handleSendSms">handleSendSms</a></li><li><a href="global.html#handleShareEntry">handleShareEntry</a></li><li><a href="global.html#handleSubmit">handleSubmit</a></li><li><a href="global.html#handleToggle">handleToggle</a></li><li><a href="global.html#handleToggleExpand">handleToggleExpand</a></li><li><a href="global.html#handleUpdateEntry">handleUpdateEntry</a></li><li><a href="global.html#info">info</a></li><li><a href="global.html#intensidad">intensidad</a></li><li><a href="global.html#isMobileDevice">isMobileDevice</a></li><li><a href="global.html#isSelected">isSelected</a></li><li><a href="global.html#loadContacts">loadContacts</a></li><li><a href="global.html#loadEntries">loadEntries</a></li><li><a href="global.html#loading">loading</a></li><li><a href="global.html#loginUser">loginUser</a></li><li><a href="global.html#nextStep">nextStep</a></li><li><a href="global.html#nombre">nombre</a></li><li><a href="global.html#obtenerEntradaDiarioPorId">obtenerEntradaDiarioPorId</a></li><li><a href="global.html#obtenerEntradasDiario">obtenerEntradasDiario</a></li><li><a href="global.html#optionalAuthMiddleware">optionalAuthMiddleware</a></li><li><a href="global.html#percentage">percentage</a></li><li><a href="global.html#port">port</a></li><li><a href="global.html#pre-save">pre-save</a></li><li><a href="global.html#prevStep">prevStep</a></li><li><a href="global.html#promise">promise</a></li><li><a href="global.html#registerUser">registerUser</a></li><li><a href="global.html#render">render</a></li><li><a href="global.html#request-interceptor">request-interceptor</a></li><li><a href="global.html#response-interceptor">response-interceptor</a></li><li><a href="global.html#sendEmergencyEmail">sendEmergencyEmail</a></li><li><a href="global.html#success">success</a></li><li><a href="global.html#timeAgo">timeAgo</a></li><li><a href="global.html#title">title</a></li><li><a href="global.html#togglePasswordField">togglePasswordField</a></li><li><a href="global.html#update">update</a></li><li><a href="global.html#updateContacto">updateContacto</a></li><li><a href="global.html#uri">uri</a></li><li><a href="global.html#useAuthStore">useAuthStore</a></li><li><a href="global.html#useToast">useToast</a></li><li><a href="global.html#validateRequiredEnvVars">validateRequiredEnvVars</a></li></ul>
+    
+</nav>
+
 <div id="main">
-
-    <h1 class="page-title">Home</h1>
+    
 
     
 
@@ -26,8 +54,9 @@
     
 
 
-    <h3> </h3>
-
+    <section class="package">
+        <h3> </h3>		
+    </section>
 
 
 
@@ -41,6 +70,249 @@
 
 
 
+    <section class="readme usertext">
+        <article><h1 style="font-family: 'Mouse Memoirs', cursive; color: #4A2CA5; font-size: 2.5rem;">🧠 MindCare API Documentation</h1>
+<h2 id="%C3%ADndice">Índice</h2>
+<ul>
+<li><a href="#breve-descripci%C3%B3n">Breve descripción</a></li>
+<li><a href="#aplicaci%C3%B3n-desplegada">Aplicación desplegada</a></li>
+<li><a href="#stack-tecnol%C3%B3gico">Stack tecnológico</a>
+<ul>
+<li><a href="#frontend">Frontend</a></li>
+<li><a href="#backend">Backend</a></li>
+<li><a href="#devops-y-herramientas">DevOps y Herramientas</a></li>
+</ul>
+</li>
+<li><a href="#capturas-de-pantalla">Capturas de pantalla</a></li>
+<li><a href="#instalaci%C3%B3n-para-desarrollo-local">Instalación para desarrollo local</a>
+<ul>
+<li><a href="#prerrequisitos">Prerrequisitos</a></li>
+<li><a href="#1-clonar-el-repositorio">1. Clonar el repositorio</a></li>
+<li><a href="#2-configurar-el-backend">2. Configurar el Backend</a></li>
+<li><a href="#3-configurar-el-frontend">3. Configurar el Frontend</a></li>
+<li><a href="#4-acceder-a-la-aplicaci%C3%B3n">4. Acceder a la aplicación</a></li>
+</ul>
+</li>
+<li><a href="#documentaci%C3%B3n">Documentación</a>
+<ul>
+<li><a href="#documentaci%C3%B3n-t%C3%A9cnica">Documentación técnica</a></li>
+<li><a href="#documentaci%C3%B3n-de-gesti%C3%B3n-del-proyecto">Documentación de gestión del proyecto</a></li>
+</ul>
+</li>
+<li><a href="#wiki-del-proyecto">Wiki del proyecto</a></li>
+<li><a href="#equipo-de-desarrollo">Equipo de desarrollo</a></li>
+</ul>
+<hr>
+<h2 id="breve-descripci%C3%B3n">Breve descripción</h2>
+<p>MindCare es una aplicación web diseñada para apoyar a personas que padecen depresión o síntomas relacionados con su estado de ánimo. Su objetivo es proporcionar herramientas digitales que faciliten la autogestión emocional, fomenten el autocuidado y ofrezcan acompañamiento seguro y personalizado.</p>
+<p>La app permite registrar emociones y hábitos diarios, mantener un diario libre seguro y compartible, recibir notificaciones y consejos adaptados a los patrones emocionales del usuario, y acceder a artículos y recursos educativos confiables sobre salud mental. También incluye un botón de emergencia con acceso a líneas de ayuda oficiales.</p>
+<p>MindCare está orientada a jóvenes y adultos en situación de vulnerabilidad económica, geográfica o con acceso limitado a terapia profesional, ofreciendo una solución accesible, educativa y confiable para mejorar su bienestar emocional.</p>
+<h2 id="aplicaci%C3%B3n-desplegada">Aplicación desplegada</h2>
+<p>MindCare está completamente dockerizada y lista para despliegue en producción con CI/CD automatizado.</p>
+<h3 id="despliegue-local-con-docker">Despliegue Local con Docker</h3>
+<pre class="prettyprint source lang-bash"><code># Clonar repositorio
+git clone https://github.com/AdrianDiaz24/DAW2-Proyecto-Grupo-7.git
+cd DAW2-Proyecto-Grupo-7
+
+# Configurar variables de entorno
+cp .env.docker.example .env
+
+# Levantar todos los servicios (Frontend, Backend, MongoDB)
+docker-compose up -d
+
+# Acceder a la aplicación
+# Frontend: http://localhost:3000
+# Backend API: http://localhost:5000/api
+</code></pre>
+<h3 id="im%C3%A1genes-docker-disponibles">Imágenes Docker Disponibles</h3>
+<p>Las imágenes de Docker están publicadas en Docker Hub y actualizadas automáticamente con CI/CD:</p>
+<ul>
+<li><strong>Backend:</strong> <code>dockerhub-username/mindcare-backend:latest</code></li>
+<li><strong>Frontend:</strong> <code>dockerhub-username/mindcare-frontend:latest</code></li>
+</ul>
+<h3 id="url-de-producci%C3%B3n">URL de Producción</h3>
+<p><strong>URL de producción:</strong> <a href="https://mindcare-frontend.onrender.com">https://mindcare-frontend.onrender.com</a></p>
+<blockquote>
+<p><strong>Nota:</strong> La aplicación está desplegada en Render.com usando las imágenes Docker generadas automáticamente por GitHub Actions.</p>
+</blockquote>
+<h4 id="desplegar-tu-propia-instancia">Desplegar tu Propia Instancia</h4>
+<p>El proyecto incluye tres guías completas de despliegue:</p>
+<ol>
+<li><strong><a href="docs/docker-deployment-guide.md">Guía de Despliegue con Docker</a></strong> - Setup local y básico</li>
+<li><strong><a href="docs/render-deployment-guide.md">Guía de Despliegue en Render</a></strong> ⭐ - Despliegue en producción (recomendado)</li>
+<li><strong><a href="docs/cicd-flow-diagram.md">Flujo CI/CD Completo</a></strong> - Diagrama del proceso automatizado</li>
+</ol>
+<p><strong>Despliegue en Render (45-60 minutos):</strong></p>
+<ul>
+<li>✅ Tier gratuito con 750h/mes</li>
+<li>✅ HTTPS automático</li>
+<li>✅ Deploy automático desde Docker Hub</li>
+<li>✅ MongoDB Atlas incluido</li>
+<li>✅ URL pública accesible</li>
+</ul>
+<p>Ver guía paso a paso: <a href="docs/render-deployment-guide.md">docs/render-deployment-guide.md</a></p>
+<h3 id="ci%2Fcd-automatizado">CI/CD Automatizado</h3>
+<p>El proyecto incluye GitHub Actions workflows que automatizan:</p>
+<p>✅ <strong>Build y Push a Docker Hub</strong> - Cada push a <code>main</code> construye y publica nuevas imágenes<br>
+✅ <strong>Generación de Documentación</strong> - PDFs de docs y code-docs automáticos<br>
+✅ <strong>Deploy Automático</strong> - (Opcional) Despliegue a servidor de producción</p>
+<p>Ver workflows en: <a href=".github/workflows/"><code>.github/workflows/</code></a></p>
+<h2 id="stack-tecnol%C3%B3gico">Stack tecnológico</h2>
+<p>MindCare ha sido desarrollada utilizando tecnologías modernas y robustas que garantizan escalabilidad, seguridad y una experiencia de usuario óptima. El proyecto está construido sobre una arquitectura de aplicación web full-stack que separa claramente las responsabilidades entre el frontend, backend y la capa de datos.</p>
+<h3 id="frontend">Frontend</h3>
+<ul>
+<li><strong>React</strong> 18.2.0 - Librería para construir interfaces de usuario</li>
+<li><strong>React Router DOM</strong> 6.20.0 - Navegación y enrutamiento</li>
+<li><strong>Zustand</strong> 5.0.8 - Gestión de estado global</li>
+<li><strong>Axios</strong> 1.6.2 - Cliente HTTP para llamadas a la API</li>
+<li><strong>React Hot Toast</strong> 2.6.0 - Sistema de notificaciones</li>
+<li><strong>CSS3</strong> - Estilos personalizados</li>
+</ul>
+<h3 id="backend">Backend</h3>
+<ul>
+<li><strong>Node.js</strong> con <strong>Express</strong> 4.16.1 - Framework web</li>
+<li><strong>MongoDB</strong> con <strong>Mongoose</strong> 8.0.3 - Base de datos NoSQL</li>
+<li><strong>JWT</strong> (jsonwebtoken) 9.0.2 - Autenticación y autorización</li>
+<li><strong>bcryptjs</strong> 2.4.3 - Encriptación de contraseñas</li>
+<li><strong>CORS</strong> 2.8.5 - Manejo de peticiones cross-origin</li>
+<li><strong>Helmet</strong> 7.1.0 - Seguridad HTTP</li>
+<li><strong>Nodemailer</strong> 7.0.11 - Envío de correos electrónicos</li>
+<li><strong>dotenv</strong> 17.2.3 - Gestión de variables de entorno</li>
+</ul>
+<h3 id="devops-y-herramientas">DevOps y Herramientas</h3>
+<ul>
+<li><strong>Git</strong> y <strong>GitHub</strong> - Control de versiones</li>
+<li><strong>Docker</strong> y <strong>Docker Compose</strong> - Containerización y orquestación</li>
+<li><strong>GitHub Actions</strong> - CI/CD automatizado</li>
+<li><strong>Docker Hub</strong> - Registro de imágenes Docker</li>
+<li><strong>Nginx</strong> - Servidor web para frontend en producción</li>
+<li><strong>Nodemon</strong> 3.0.2 - Desarrollo con hot-reload</li>
+<li><strong>JSDoc</strong> - Documentación del código</li>
+<li><strong>Postman</strong> - Testing de API</li>
+</ul>
+<h2 id="capturas-de-pantalla">Capturas de pantalla</h2>
+<p>A continuación se presentan algunas capturas representativas de las principales funcionalidades de MindCare, mostrando la interfaz de usuario y las diferentes secciones de la aplicación.</p>
+<h3 id="p%C3%A1gina-de-inicio">Página de inicio</h3>
+<p>[]</p>
+<h3 id="panel-de-registro-emocional">Panel de registro emocional</h3>
+<p>[]</p>
+<h3 id="diario-personal">Diario personal</h3>
+<p>[]</p>
+<h3 id="dashboard-de-estad%C3%ADsticas">Dashboard de estadísticas</h3>
+<p>[]</p>
+<h2 id="instalaci%C3%B3n-para-desarrollo-local">Instalación para desarrollo local</h2>
+<p>Esta guía detalla los pasos necesarios para configurar y ejecutar MindCare en un entorno de desarrollo local. El proceso incluye la configuración tanto del servidor backend como de la aplicación frontend, así como las variables de entorno requeridas.</p>
+<h3 id="prerrequisitos">Prerrequisitos</h3>
+<ul>
+<li>Node.js (v16 o superior)</li>
+<li>MongoDB (v5 o superior) o una cuenta en MongoDB Atlas</li>
+<li>npm o yarn</li>
+</ul>
+<h3 id="1.-clonar-el-repositorio">1. Clonar el repositorio</h3>
+<pre class="prettyprint source lang-bash"><code>git clone https://github.com/USUARIO/DAW2-Proyecto-Grupo-7.git
+cd DAW2-Proyecto-Grupo-7
+</code></pre>
+<h3 id="2.-configurar-el-backend">2. Configurar el Backend</h3>
+<pre class="prettyprint source lang-bash"><code>cd backend
+npm install
+</code></pre>
+<p>Crear un archivo <code>.env</code> en la carpeta <code>backend</code> con las siguientes variables:</p>
+<pre class="prettyprint source lang-env"><code>PORT=5000
+MONGODB_URI=mongodb://localhost:27017/mindcare
+JWT_SECRET=tu_clave_secreta_muy_segura
+JWT_EXPIRES_IN=7d
+NODE_ENV=development
+FRONTEND_URL=http://localhost:3000
+EMAIL_HOST=smtp.example.com
+EMAIL_PORT=587
+EMAIL_USER=tu_email@example.com
+EMAIL_PASS=tu_password
+</code></pre>
+<p>Iniciar el servidor backend:</p>
+<pre class="prettyprint source lang-bash"><code>npm run dev
+</code></pre>
+<p>El backend estará disponible en <code>http://localhost:5000</code></p>
+<h3 id="3.-configurar-el-frontend">3. Configurar el Frontend</h3>
+<p>Abrir una nueva terminal:</p>
+<pre class="prettyprint source lang-bash"><code>cd frontend
+npm install
+</code></pre>
+<p>Crear un archivo <code>.env</code> en la carpeta <code>frontend</code> con:</p>
+<pre class="prettyprint source lang-env"><code>REACT_APP_API_URL=http://localhost:5000/api
+</code></pre>
+<p>Iniciar el servidor de desarrollo:</p>
+<pre class="prettyprint source lang-bash"><code>npm start
+</code></pre>
+<p>El frontend estará disponible en <code>http://localhost:3000</code></p>
+<h3 id="4.-acceder-a-la-aplicaci%C3%B3n">4. Acceder a la aplicación</h3>
+<p>Una vez ambos servidores estén corriendo, abre tu navegador en:</p>
+<ul>
+<li><strong>Frontend:</strong> http://localhost:3000</li>
+<li><strong>Backend API:</strong> http://localhost:5000/api</li>
+</ul>
+<h2 id="documentaci%C3%B3n">Documentación</h2>
+<p>El proyecto MindCare cuenta con documentación completa y detallada que abarca desde aspectos técnicos de implementación hasta la planificación y gestión del proyecto. Esta documentación está organizada en dos categorías principales para facilitar su consulta.</p>
+<h3 id="documentaci%C3%B3n-t%C3%A9cnica">Documentación técnica</h3>
+<p>Esta sección incluye la documentación relacionada con la implementación técnica, APIs, configuraciones y recursos para desarrolladores.</p>
+<ul>
+<li><strong><a href="./code-docs/index.html">Documentación del código (JSDoc)</a></strong> - Documentación generada automáticamente con JSDoc que detalla todas las funciones, clases y módulos del código fuente.</li>
+<li><strong><a href="docs/api-documentation.md">Documentación de la API</a></strong> - Especificación completa de los endpoints de la API REST, incluyendo métodos HTTP, parámetros, respuestas y ejemplos de uso.</li>
+<li><strong><a href="docs/cors-configuration.md">Configuración CORS</a></strong> - Guía detallada sobre la configuración de Cross-Origin Resource Sharing implementada en el backend, incluyendo setup, testing y troubleshooting.</li>
+<li><strong><a href="docs/postman-guide.md">Testing con Postman</a></strong> - Guía completa para importar y utilizar la colección de Postman (ubicada en <code>backend/postman/</code>), incluyendo setup de entorno, estructura de endpoints, flujos de testing y validación de respuestas.</li>
+<li><strong><a href="backend/README.md#-arquitectura">Arquitectura del Backend</a></strong> - Documentación técnica sobre la arquitectura del sistema de autenticación y guías de uso del middleware.</li>
+</ul>
+<h3 id="documentaci%C3%B3n-de-gesti%C3%B3n-del-proyecto">Documentación de gestión del proyecto</h3>
+<p>Documentación relacionada con la planificación, análisis, viabilidad y recursos del proyecto MindCare, organizada por fases de desarrollo.</p>
+<ul>
+<li><strong><a href="docs/problema.md">Definición del problema</a></strong> - Fase 1 del proyecto que incluye la descripción detallada del problema identificado, evidencias de investigación, definición de user personas, análisis de competencia y propuesta de valor fundamentada en necesidades reales de salud mental.</li>
+<li><strong><a href="docs/investigaci%C3%B3n-tracker.md">Investigación y tracker</a></strong> - Especificación técnica del sistema de seguimiento diario que monitoriza estado de ánimo, sueño, actividades, cogniciones y otros aspectos clave basados en guías clínicas (DSM-5, NICE, APA) para el acompañamiento en procesos de recuperación de la depresión.</li>
+<li><strong><a href="docs/formulario-inicial.md">Formulario inicial</a></strong> - Diseño de los formularios de registro inicial que identifican factores detonantes de episodios depresivos y actividades placenteras del usuario, permitiendo personalizar el seguimiento y las recomendaciones basadas en Behavioral Activation.</li>
+<li><strong><a href="docs/viabilidad-tecnica.md">Viabilidad técnica</a></strong> - Fase 2 del proyecto con requisitos funcionales priorizados, justificación del stack MERN, esquema de base de datos, arquitectura de la aplicación, evaluación de capacidades del equipo y análisis de riesgos técnicos con estrategias de mitigación.</li>
+<li><strong><a href="docs/objetivos-alcance.md">Objetivos y alcance</a></strong> - Fase 3 que define objetivos SMART del proyecto, delimita el MVP (Minimum Viable Product), establece qué se incluye y excluye del alcance, y detalla los criterios de éxito medibles y alcanzables.</li>
+<li><strong><a href="docs/recursos.md">Recursos necesarios</a></strong> - Fase 4 de planificación que detalla la distribución de roles y responsabilidades del equipo, el stack tecnológico completo, servicios externos y APIs a utilizar, y herramientas de desarrollo y gestión del proyecto.</li>
+<li><strong><a href="docs/analisis-competencias.md">Análisis de competencias</a></strong> - Estudio comparativo detallado de 5 competidores principales (Moodfit, Daylio, Woebot, Headspace, Yana) identificando sus fortalezas, debilidades y oportunidades de diferenciación, destacando el diario compartido seguro y sistema de emergencia como USP.</li>
+<li><strong><a href="docs/estructura-organizativa.md">Estructura organizativa</a></strong> - Definición de la estructura empresarial de MindTracker Solutions S.L. como startup HealthTech, incluyendo departamentos (C-Level, Tecnología, Marketing, Legal), funciones clave, comité ético-científico y escalabilidad mediante estructura funcional horizontal.</li>
+<li><strong><a href="docs/financiacion.md">Financiación</a></strong> - Plan completo de financiación con análisis de costes iniciales de desarrollo (14,118€), infraestructura, marketing, capital de trabajo, fuentes de financiación analizadas, proyección de ingresos y plan de contingencia para la sostenibilidad del proyecto.</li>
+<li><strong><a href="docs/presupuesto.md">Presupuesto</a></strong> - Presupuesto económico detallado del proyecto desarrollado en 6 sprints (7 nov - 10 dic 2025), utilizando metodología Planning Poker, comparación entre estimación y realidad con 432 horas de desarrollo registradas en Toggl Track, y análisis de desviaciones.</li>
+</ul>
+<h2 id="wiki-del-proyecto">Wiki del proyecto</h2>
+<p>El proyecto MindCare cuenta con documentación completa en dos wikis complementarias:</p>
+<h3 id="wiki-de-github-(principal)">Wiki de GitHub (Principal)</h3>
+<p>Documentación oficial del proyecto con metodología SCRUM, planificación de sprints, actas de reuniones y guías técnicas completas.</p>
+<p><strong>Acceso a la wiki:</strong> <a href="https://github.com/AdrianDiaz24/DAW2-Proyecto-Grupo-7/wiki">https://github.com/AdrianDiaz24/DAW2-Proyecto-Grupo-7/wiki</a></p>
+<p><strong>Contenido incluido:</strong></p>
+<ul>
+<li><strong>Metodología SCRUM:</strong> Implementación de SCRUM en el proyecto con roles rotativos por sprint</li>
+<li><strong>Planificación de Sprints:</strong> Tabla completa de los 6 sprints con fechas, objetivos y entregables</li>
+<li><strong>Actas de Reuniones:</strong> Daily Scrums, Sprint Reviews y Sprint Retrospectives documentadas</li>
+<li><strong>Gestión de Recursos:</strong> Asignación de tareas y gestión de tiempos del equipo</li>
+<li><strong>Guías Técnicas:</strong> Arquitectura, API Reference, instalación, testing y contribución</li>
+<li><strong>Documentación de Usuario:</strong> Manual de usuario y guía de instalación</li>
+</ul>
+<h3 id="deepwiki-(versi%C3%B3n-multiidioma)">DeepWiki (Versión Multiidioma)</h3>
+<p>Wiki complementaria con versión en inglés del proyecto para facilitar la colaboración internacional y mostrar el uso de herramientas de documentación avanzadas.</p>
+<p><strong>Acceso a DeepWiki:</strong> <a href="https://deepwiki.com/AdrianDiaz24/DAW2-Proyecto-Grupo-7">https://deepwiki.com/AdrianDiaz24/DAW2-Proyecto-Grupo-7</a></p>
+<h2 id="equipo-de-desarrollo">Equipo de desarrollo</h2>
+<p>MindCare ha sido desarrollado por un equipo multidisciplinar de profesionales especializados en diferentes áreas del desarrollo web. Cada miembro del equipo aporta su experiencia y conocimientos en su área de especialización para garantizar un producto de calidad.</p>
+<h3 id="adri%C3%A1n-d%C3%ADaz-angulo">Adrián Díaz Angulo</h3>
+<ul>
+<li><strong>GitHub:</strong> <a href="https://github.com/AdrianDiaz24">@AdrianDiaz24</a></li>
+<li><strong>Rol:</strong> Backend Lead</li>
+<li><strong>Responsabilidades:</strong> Diseño e implementación del servidor, API REST, autenticación y seguridad, integración de funcionalidades del MVP</li>
+</ul>
+<h3 id="roc%C3%ADo-luque-montes">Rocío Luque Montes</h3>
+<ul>
+<li><strong>GitHub:</strong> <a href="https://github.com/Lmrocio">@Lmrocio</a></li>
+<li><strong>Rol:</strong> Frontend Lead</li>
+<li><strong>Responsabilidades:</strong> Diseño e implementación de la interfaz y experiencia de usuario, desarrollo de vistas principales en React, integración con la API, accesibilidad y coherencia visual</li>
+</ul>
+<h3 id="jos%C3%A9-antonio-d%C3%ADaz-busati">José Antonio Díaz Busati</h3>
+<ul>
+<li><strong>GitHub:</strong> <a href="https://github.com/JoseAntonioDiazBusati">@JoseAntonioDiazBusati</a></li>
+<li><strong>Rol:</strong> Database Manager</li>
+<li><strong>Responsabilidades:</strong> Diseño del modelo de datos en MongoDB, gestión de la persistencia de información, soporte en integración con el backend</li>
+</ul></article>
+    </section>
 
 
 
@@ -54,45 +326,25 @@
 
 <header>
     
-        <h2>backend/src/app.js</h2>
+        <h2>
+        
+            backend/src/app.js
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Configura y arranca el servidor Express, define middlewares y rutas.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Configura y arranca el servidor Express, define middlewares y rutas.</p></li></ul></dd>
     
 
     
@@ -107,12 +359,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Configura y arranca el servidor Express, define middlewares y rutas.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -137,10 +420,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -165,45 +448,25 @@
 
 <header>
     
-        <h2>backend/src/controllers/auth.controller.js</h2>
+        <h2>
+        
+            backend/src/controllers/auth.controller.js
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Gestiona el registro, inicio de sesión y perfil de los usuarios.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Gestiona el registro, inicio de sesión y perfil de los usuarios.</p></li></ul></dd>
     
 
     
@@ -218,12 +481,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Gestiona el registro, inicio de sesión y perfil de los usuarios.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -238,10 +532,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -266,45 +560,25 @@
 
 <header>
     
-        <h2>backend/src/controllers/contactoEmergencia.controller.js</h2>
+        <h2>
+        
+            backend/src/controllers/contactoEmergencia.controller.js
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Gestiona las operaciones CRUD para los contactos de emergencia de los usuarios.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Gestiona las operaciones CRUD para los contactos de emergencia de los usuarios.</p></li></ul></dd>
     
 
     
@@ -319,12 +593,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Gestiona las operaciones CRUD para los contactos de emergencia de los usuarios.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -341,10 +646,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -369,45 +674,25 @@
 
 <header>
     
-        <h2>backend/src/controllers/diario.controller.js</h2>
+        <h2>
+        
+            backend/src/controllers/diario.controller.js
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Gestiona las operaciones CRUD para las entradas del diario de los usuarios.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Gestiona las operaciones CRUD para las entradas del diario de los usuarios.</p></li></ul></dd>
     
 
     
@@ -422,12 +707,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Gestiona las operaciones CRUD para las entradas del diario de los usuarios.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -440,10 +756,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -468,45 +784,25 @@
 
 <header>
     
-        <h2>backend/src/middleware/authMiddleware.js</h2>
+        <h2>
+        
+            backend/src/middleware/authMiddleware.js
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Contiene middlewares para verificar tokens JWT.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Contiene middlewares para verificar tokens JWT.</p></li></ul></dd>
     
 
     
@@ -521,12 +817,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Contiene middlewares para verificar tokens JWT.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -539,10 +866,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -567,45 +894,25 @@
 
 <header>
     
-        <h2>backend/src/models/diario_mongoose.js</h2>
+        <h2>
+        
+            backend/src/models/diario_mongoose.js
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Define el esquema y los métodos para las entradas del diario.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Define el esquema y los métodos para las entradas del diario.</p></li></ul></dd>
     
 
     
@@ -620,12 +927,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Define el esquema y los métodos para las entradas del diario.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -640,10 +978,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -668,45 +1006,25 @@
 
 <header>
     
-        <h2>backend/src/routes/auth.routes.js</h2>
+        <h2>
+        
+            backend/src/routes/auth.routes.js
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Define los endpoints para el registro, login y perfil de usuario.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Define los endpoints para el registro, login y perfil de usuario.</p></li></ul></dd>
     
 
     
@@ -721,12 +1039,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Define los endpoints para el registro, login y perfil de usuario.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -743,10 +1092,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -771,45 +1120,25 @@
 
 <header>
     
-        <h2>backend/src/routes/contactoEmergencia.routes.js</h2>
+        <h2>
+        
+            backend/src/routes/contactoEmergencia.routes.js
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Define los endpoints para las operaciones CRUD de los contactos de emergencia.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Define los endpoints para las operaciones CRUD de los contactos de emergencia.</p></li></ul></dd>
     
 
     
@@ -824,12 +1153,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Define los endpoints para las operaciones CRUD de los contactos de emergencia.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -846,10 +1206,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -874,45 +1234,25 @@
 
 <header>
     
-        <h2>backend/src/routes/diario.routes.js</h2>
+        <h2>
+        
+            backend/src/routes/diario.routes.js
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Define los endpoints para las operaciones CRUD de las entradas del diario.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Define los endpoints para las operaciones CRUD de las entradas del diario.</p></li></ul></dd>
     
 
     
@@ -927,12 +1267,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Define los endpoints para las operaciones CRUD de las entradas del diario.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -949,10 +1320,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -977,45 +1348,25 @@
 
 <header>
     
-        <h2>backend/src/server.js</h2>
+        <h2>
+        
+            backend/src/server.js
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Conecta a la base de datos MongoDB y levanta el servidor Express.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Conecta a la base de datos MongoDB y levanta el servidor Express.</p></li></ul></dd>
     
 
     
@@ -1030,12 +1381,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Conecta a la base de datos MongoDB y levanta el servidor Express.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -1052,10 +1434,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -1080,45 +1462,25 @@
 
 <header>
     
-        <h2>frontend/src/App.js</h2>
+        <h2>
+        
+            frontend/src/App.js
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Configura el enrutador, las rutas, los layouts y el sistema de notificaciones.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Configura el enrutador, las rutas, los layouts y el sistema de notificaciones.</p></li></ul></dd>
     
 
     
@@ -1133,12 +1495,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Configura el enrutador, las rutas, los layouts y el sistema de notificaciones.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -1179,10 +1572,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -1207,45 +1600,25 @@
 
 <header>
     
-        <h2>frontend/src/components/atoms/Button.jsx</h2>
+        <h2>
+        
+            frontend/src/components/atoms/Button.jsx
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Un componente de botón versátil con diferentes variantes, tamaños y estados.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Un componente de botón versátil con diferentes variantes, tamaños y estados.</p></li></ul></dd>
     
 
     
@@ -1260,12 +1633,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Un componente de botón versátil con diferentes variantes, tamaños y estados.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -1282,10 +1686,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -1310,45 +1714,25 @@
 
 <header>
     
-        <h2>frontend/src/components/atoms/Card.jsx</h2>
+        <h2>
+        
+            frontend/src/components/atoms/Card.jsx
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Muestra un título y una descripción en un contenedor con estilo de tarjeta.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Muestra un título y una descripción en un contenedor con estilo de tarjeta.</p></li></ul></dd>
     
 
     
@@ -1363,12 +1747,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Muestra un título y una descripción en un contenedor con estilo de tarjeta.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -1385,10 +1800,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -1413,45 +1828,25 @@
 
 <header>
     
-        <h2>frontend/src/components/atoms/Checkbox.jsx</h2>
+        <h2>
+        
+            frontend/src/components/atoms/Checkbox.jsx
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Un componente de checkbox con etiqueta y estado personalizable.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Un componente de checkbox con etiqueta y estado personalizable.</p></li></ul></dd>
     
 
     
@@ -1466,12 +1861,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Un componente de checkbox con etiqueta y estado personalizable.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -1488,10 +1914,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -1516,45 +1942,25 @@
 
 <header>
     
-        <h2>frontend/src/components/atoms/CircularProgress.jsx</h2>
+        <h2>
+        
+            frontend/src/components/atoms/CircularProgress.jsx
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Muestra un indicador de progreso en forma de círculo con un porcentaje.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Muestra un indicador de progreso en forma de círculo con un porcentaje.</p></li></ul></dd>
     
 
     
@@ -1569,12 +1975,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Muestra un indicador de progreso en forma de círculo con un porcentaje.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -1591,10 +2028,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -1619,45 +2056,25 @@
 
 <header>
     
-        <h2>frontend/src/components/atoms/EmergencyButton.jsx</h2>
+        <h2>
+        
+            frontend/src/components/atoms/EmergencyButton.jsx
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Este componente renderiza un botón de emergencia fijo en la esquina superior derecha de la pantalla.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Este componente renderiza un botón de emergencia fijo en la esquina superior derecha de la pantalla.</p></li></ul></dd>
     
 
     
@@ -1672,12 +2089,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Este componente renderiza un botón de emergencia fijo en la esquina superior derecha de la pantalla.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -1690,10 +2138,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -1718,45 +2166,25 @@
 
 <header>
     
-        <h2>frontend/src/components/atoms/Heading.jsx</h2>
+        <h2>
+        
+            frontend/src/components/atoms/Heading.jsx
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Renderiza un elemento de encabezado (h1, h2, etc.) con estilos consistentes.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Renderiza un elemento de encabezado (h1, h2, etc.) con estilos consistentes.</p></li></ul></dd>
     
 
     
@@ -1771,12 +2199,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Renderiza un elemento de encabezado (h1, h2, etc.) con estilos consistentes.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -1793,10 +2252,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -1821,45 +2280,25 @@
 
 <header>
     
-        <h2>frontend/src/components/atoms/Input.jsx</h2>
+        <h2>
+        
+            frontend/src/components/atoms/Input.jsx
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Un componente de input versátil con etiqueta, icono, manejo de errores y visibilidad de contraseña.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Un componente de input versátil con etiqueta, icono, manejo de errores y visibilidad de contraseña.</p></li></ul></dd>
     
 
     
@@ -1874,12 +2313,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Un componente de input versátil con etiqueta, icono, manejo de errores y visibilidad de contraseña.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -1896,10 +2366,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -1924,45 +2394,25 @@
 
 <header>
     
-        <h2>frontend/src/components/atoms/Logo.jsx</h2>
+        <h2>
+        
+            frontend/src/components/atoms/Logo.jsx
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Muestra el logo de la aplicación y enlaza a la página de inicio.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Muestra el logo de la aplicación y enlaza a la página de inicio.</p></li></ul></dd>
     
 
     
@@ -1977,12 +2427,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Muestra el logo de la aplicación y enlaza a la página de inicio.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -1999,10 +2480,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -2027,45 +2508,25 @@
 
 <header>
     
-        <h2>frontend/src/components/atoms/Slider.jsx</h2>
+        <h2>
+        
+            frontend/src/components/atoms/Slider.jsx
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Un componente de input de tipo "range" con etiqueta, valor y marcas.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Un componente de input de tipo &quot;range&quot; con etiqueta, valor y marcas.</p></li></ul></dd>
     
 
     
@@ -2080,12 +2541,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Un componente de input de tipo &quot;range&quot; con etiqueta, valor y marcas.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -2102,10 +2594,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -2130,45 +2622,25 @@
 
 <header>
     
-        <h2>frontend/src/components/atoms/Text.jsx</h2>
+        <h2>
+        
+            frontend/src/components/atoms/Text.jsx
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Renderiza un elemento de párrafo con diferentes variantes de estilo.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Renderiza un elemento de párrafo con diferentes variantes de estilo.</p></li></ul></dd>
     
 
     
@@ -2183,12 +2655,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Renderiza un elemento de párrafo con diferentes variantes de estilo.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -2205,10 +2708,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -2233,45 +2736,25 @@
 
 <header>
     
-        <h2>frontend/src/components/atoms/Textarea.jsx</h2>
+        <h2>
+        
+            frontend/src/components/atoms/Textarea.jsx
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Un componente de textarea con contador de caracteres y manejo de errores.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Un componente de textarea con contador de caracteres y manejo de errores.</p></li></ul></dd>
     
 
     
@@ -2286,12 +2769,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Un componente de textarea con contador de caracteres y manejo de errores.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -2308,10 +2822,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -2336,45 +2850,25 @@
 
 <header>
     
-        <h2>frontend/src/components/layout/AuthLayout.jsx</h2>
+        <h2>
+        
+            frontend/src/components/layout/AuthLayout.jsx
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Proporciona una estructura consistente para las páginas de login y registro.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Proporciona una estructura consistente para las páginas de login y registro.</p></li></ul></dd>
     
 
     
@@ -2389,12 +2883,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Proporciona una estructura consistente para las páginas de login y registro.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -2411,10 +2936,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -2439,45 +2964,25 @@
 
 <header>
     
-        <h2>frontend/src/components/layout/MainLayout.jsx</h2>
+        <h2>
+        
+            frontend/src/components/layout/MainLayout.jsx
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Proporciona la estructura principal de la página con barra de navegación, contenido principal y pie de página.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Proporciona la estructura principal de la página con barra de navegación, contenido principal y pie de página.</p></li></ul></dd>
     
 
     
@@ -2492,12 +2997,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Proporciona la estructura principal de la página con barra de navegación, contenido principal y pie de página.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -2516,10 +3052,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -2544,45 +3080,25 @@
 
 <header>
     
-        <h2>frontend/src/components/molecules/ActionCard.jsx</h2>
+        <h2>
+        
+            frontend/src/components/molecules/ActionCard.jsx
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Muestra una tarjeta con título, descripción y un botón que navega a una ruta específica.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Muestra una tarjeta con título, descripción y un botón que navega a una ruta específica.</p></li></ul></dd>
     
 
     
@@ -2597,12 +3113,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Muestra una tarjeta con título, descripción y un botón que navega a una ruta específica.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -2623,10 +3170,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -2651,45 +3198,25 @@
 
 <header>
     
-        <h2>frontend/src/components/molecules/ActivitySelector.jsx</h2>
+        <h2>
+        
+            frontend/src/components/molecules/ActivitySelector.jsx
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Permite a los usuarios añadir actividades de una lista, especificar duración e intensidad, y ver las actividades registradas.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Permite a los usuarios añadir actividades de una lista, especificar duración e intensidad, y ver las actividades registradas.</p></li></ul></dd>
     
 
     
@@ -2704,12 +3231,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Permite a los usuarios añadir actividades de una lista, especificar duración e intensidad, y ver las actividades registradas.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -2728,10 +3286,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -2756,45 +3314,25 @@
 
 <header>
     
-        <h2>frontend/src/components/molecules/AuthButtons.jsx</h2>
+        <h2>
+        
+            frontend/src/components/molecules/AuthButtons.jsx
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Muestra los botones de "Registrarse" e "Iniciar sesión".</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Muestra los botones de &quot;Registrarse&quot; e &quot;Iniciar sesión&quot;.</p></li></ul></dd>
     
 
     
@@ -2809,12 +3347,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Muestra los botones de &quot;Registrarse&quot; e &quot;Iniciar sesión&quot;.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -2833,10 +3402,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -2861,45 +3430,25 @@
 
 <header>
     
-        <h2>frontend/src/components/molecules/Carousel.jsx</h2>
+        <h2>
+        
+            frontend/src/components/molecules/Carousel.jsx
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Muestra una colección de tarjetas en un carrusel navegable.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Muestra una colección de tarjetas en un carrusel navegable.</p></li></ul></dd>
     
 
     
@@ -2914,12 +3463,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Muestra una colección de tarjetas en un carrusel navegable.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -2938,10 +3518,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -2966,45 +3546,25 @@
 
 <header>
     
-        <h2>frontend/src/components/molecules/CognitionSelector.jsx</h2>
+        <h2>
+        
+            frontend/src/components/molecules/CognitionSelector.jsx
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Permite a los usuarios seleccionar diferentes aspectos cognitivos y asignarles una intensidad.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Permite a los usuarios seleccionar diferentes aspectos cognitivos y asignarles una intensidad.</p></li></ul></dd>
     
 
     
@@ -3019,12 +3579,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Permite a los usuarios seleccionar diferentes aspectos cognitivos y asignarles una intensidad.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -3045,10 +3636,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -3073,45 +3664,25 @@
 
 <header>
     
-        <h2>frontend/src/components/molecules/DiaryBanner.jsx</h2>
+        <h2>
+        
+            frontend/src/components/molecules/DiaryBanner.jsx
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Muestra un banner con un título, descripción y un botón de llamada a la acción.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Muestra un banner con un título, descripción y un botón de llamada a la acción.</p></li></ul></dd>
     
 
     
@@ -3126,12 +3697,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Muestra un banner con un título, descripción y un botón de llamada a la acción.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -3152,10 +3754,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -3180,45 +3782,25 @@
 
 <header>
     
-        <h2>frontend/src/components/molecules/DiaryEditor.jsx</h2>
+        <h2>
+        
+            frontend/src/components/molecules/DiaryEditor.jsx
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Un formulario completo para escribir, guardar y opcionalmente proteger con contraseña las entradas del diario.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Un formulario completo para escribir, guardar y opcionalmente proteger con contraseña las entradas del diario.</p></li></ul></dd>
     
 
     
@@ -3233,12 +3815,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Un formulario completo para escribir, guardar y opcionalmente proteger con contraseña las entradas del diario.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -3263,10 +3876,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -3291,45 +3904,25 @@
 
 <header>
     
-        <h2>frontend/src/components/molecules/DiaryEntry.jsx</h2>
+        <h2>
+        
+            frontend/src/components/molecules/DiaryEntry.jsx
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Muestra el contenido de una entrada del diario con opciones para editar, eliminar y compartir.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Muestra el contenido de una entrada del diario con opciones para editar, eliminar y compartir.</p></li></ul></dd>
     
 
     
@@ -3344,12 +3937,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Muestra el contenido de una entrada del diario con opciones para editar, eliminar y compartir.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -3368,10 +3992,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -3396,45 +4020,25 @@
 
 <header>
     
-        <h2>frontend/src/components/molecules/EmotionSelector.jsx</h2>
+        <h2>
+        
+            frontend/src/components/molecules/EmotionSelector.jsx
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Permite a los usuarios seleccionar emociones y asignarles una intensidad, además de añadir un comentario.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Permite a los usuarios seleccionar emociones y asignarles una intensidad, además de añadir un comentario.</p></li></ul></dd>
     
 
     
@@ -3449,12 +4053,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Permite a los usuarios seleccionar emociones y asignarles una intensidad, además de añadir un comentario.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -3475,10 +4110,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -3503,45 +4138,25 @@
 
 <header>
     
-        <h2>frontend/src/components/molecules/EmotionStats.jsx</h2>
+        <h2>
+        
+            frontend/src/components/molecules/EmotionStats.jsx
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Muestra las estadísticas de emociones de los últimos 7 días usando gráficos de progreso circular.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Muestra las estadísticas de emociones de los últimos 7 días usando gráficos de progreso circular.</p></li></ul></dd>
     
 
     
@@ -3556,12 +4171,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Muestra las estadísticas de emociones de los últimos 7 días usando gráficos de progreso circular.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -3580,10 +4226,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -3608,45 +4254,25 @@
 
 <header>
     
-        <h2>frontend/src/components/molecules/Footer.jsx</h2>
+        <h2>
+        
+            frontend/src/components/molecules/Footer.jsx
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Muestra el pie de página de la aplicación con enlaces de navegación, legales y redes sociales.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Muestra el pie de página de la aplicación con enlaces de navegación, legales y redes sociales.</p></li></ul></dd>
     
 
     
@@ -3661,12 +4287,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Muestra el pie de página de la aplicación con enlaces de navegación, legales y redes sociales.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -3683,10 +4340,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -3711,45 +4368,25 @@
 
 <header>
     
-        <h2>frontend/src/components/molecules/HeroSection.jsx</h2>
+        <h2>
+        
+            frontend/src/components/molecules/HeroSection.jsx
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Muestra un título y una descripción prominentes, típicamente en la parte superior de una página.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Muestra un título y una descripción prominentes, típicamente en la parte superior de una página.</p></li></ul></dd>
     
 
     
@@ -3764,12 +4401,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Muestra un título y una descripción prominentes, típicamente en la parte superior de una página.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -3790,10 +4458,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -3818,45 +4486,25 @@
 
 <header>
     
-        <h2>frontend/src/components/molecules/Navbar.jsx</h2>
+        <h2>
+        
+            frontend/src/components/molecules/Navbar.jsx
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Muestra la barra de navegación principal de la aplicación, con enlaces que cambian según el estado de autenticación del usuario.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Muestra la barra de navegación principal de la aplicación, con enlaces que cambian según el estado de autenticación del usuario.</p></li></ul></dd>
     
 
     
@@ -3871,12 +4519,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Muestra la barra de navegación principal de la aplicación, con enlaces que cambian según el estado de autenticación del usuario.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -3895,10 +4574,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -3923,45 +4602,25 @@
 
 <header>
     
-        <h2>frontend/src/components/organisms/EmergencyModal.jsx</h2>
+        <h2>
+        
+            frontend/src/components/organisms/EmergencyModal.jsx
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Este componente muestra un modal con opciones de emergencia, incluyendo información, contactos y llamadas.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Este componente muestra un modal con opciones de emergencia, incluyendo información, contactos y llamadas.</p></li></ul></dd>
     
 
     
@@ -3976,12 +4635,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Este componente muestra un modal con opciones de emergencia, incluyendo información, contactos y llamadas.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -3996,10 +4686,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -4024,45 +4714,25 @@
 
 <header>
     
-        <h2>frontend/src/components/organisms/ErrorBoundary.jsx</h2>
+        <h2>
+        
+            frontend/src/components/organisms/ErrorBoundary.jsx
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Muestra una UI de fallback cuando ocurre un error.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Muestra una UI de fallback cuando ocurre un error.</p></li></ul></dd>
     
 
     
@@ -4077,12 +4747,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Muestra una UI de fallback cuando ocurre un error.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -4097,10 +4798,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -4125,45 +4826,25 @@
 
 <header>
     
-        <h2>frontend/src/components/organisms/LandingHero.jsx</h2>
+        <h2>
+        
+            frontend/src/components/organisms/LandingHero.jsx
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Combina la sección Hero con los botones de autenticación para la página principal.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Combina la sección Hero con los botones de autenticación para la página principal.</p></li></ul></dd>
     
 
     
@@ -4178,12 +4859,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Combina la sección Hero con los botones de autenticación para la página principal.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -4202,10 +4914,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -4230,45 +4942,25 @@
 
 <header>
     
-        <h2>frontend/src/config/api.js</h2>
+        <h2>
+        
+            frontend/src/config/api.js
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Centraliza la URL base, los endpoints y una función `apiFetch` para realizar peticiones al backend.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Centraliza la URL base, los endpoints y una función <code>apiFetch</code> para realizar peticiones al backend.</p></li></ul></dd>
     
 
     
@@ -4283,13 +4975,42 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Centraliza la URL base, los endpoints y una función <code>apiFetch</code> para realizar peticiones al backend.</p></div>
+            
+
+            
         
-    
-    </div>
-
+        </div>
     
 
     
@@ -4297,8 +5018,10 @@
     
 
     
-
     
+    
+
+     
 
     
 
@@ -4323,45 +5046,25 @@
 
 <header>
     
-        <h2>frontend/src/config/api.service.js</h2>
+        <h2>
+        
+            frontend/src/config/api.service.js
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Crea una instancia de Axios con configuración base e interceptores para el manejo de tokens y errores.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Crea una instancia de Axios con configuración base e interceptores para el manejo de tokens y errores.</p></li></ul></dd>
     
 
     
@@ -4376,12 +5079,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Crea una instancia de Axios con configuración base e interceptores para el manejo de tokens y errores.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -4394,10 +5128,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -4422,45 +5156,25 @@
 
 <header>
     
-        <h2>frontend/src/hooks/index.js</h2>
+        <h2>
+        
+            frontend/src/hooks/index.js
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Exporta todos los hooks personalizados desde un único punto para facilitar las importaciones.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Exporta todos los hooks personalizados desde un único punto para facilitar las importaciones.</p></li></ul></dd>
     
 
     
@@ -4475,13 +5189,42 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Exporta todos los hooks personalizados desde un único punto para facilitar las importaciones.</p></div>
+            
+
+            
         
-    
-    </div>
-
+        </div>
     
 
     
@@ -4489,8 +5232,10 @@
     
 
     
-
     
+    
+
+     
 
     
 
@@ -4515,45 +5260,25 @@
 
 <header>
     
-        <h2>frontend/src/hooks/useToast.js</h2>
+        <h2>
+        
+            frontend/src/hooks/useToast.js
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Proporciona funciones para mostrar fácilmente notificaciones de éxito, error, información y carga.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Proporciona funciones para mostrar fácilmente notificaciones de éxito, error, información y carga.</p></li></ul></dd>
     
 
     
@@ -4568,12 +5293,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Proporciona funciones para mostrar fácilmente notificaciones de éxito, error, información y carga.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -4586,10 +5342,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -4614,45 +5370,25 @@
 
 <header>
     
-        <h2>frontend/src/index.js</h2>
+        <h2>
+        
+            frontend/src/index.js
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Renderiza el componente raíz de la aplicación en el DOM.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Renderiza el componente raíz de la aplicación en el DOM.</p></li></ul></dd>
     
 
     
@@ -4667,12 +5403,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Renderiza el componente raíz de la aplicación en el DOM.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -4693,10 +5460,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -4721,45 +5488,25 @@
 
 <header>
     
-        <h2>frontend/src/pages/Debug.jsx</h2>
+        <h2>
+        
+            frontend/src/pages/Debug.jsx
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Esta página permite verificar qué está guardado en localStorage y el estado del store</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Esta página permite verificar qué está guardado en localStorage y el estado del store</p></li></ul></dd>
     
 
     
@@ -4774,13 +5521,42 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Esta página permite verificar qué está guardado en localStorage y el estado del store</p></div>
+            
+
+            
         
-    
-    </div>
-
+        </div>
     
 
     
@@ -4788,8 +5564,10 @@
     
 
     
-
     
+    
+
+     
 
     
 
@@ -4814,45 +5592,25 @@
 
 <header>
     
-        <h2>frontend/src/pages/Diario.jsx</h2>
+        <h2>
+        
+            frontend/src/pages/Diario.jsx
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Permite a los usuarios crear, ver, editar, eliminar y compartir entradas de su diario personal.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Permite a los usuarios crear, ver, editar, eliminar y compartir entradas de su diario personal.</p></li></ul></dd>
     
 
     
@@ -4867,12 +5625,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Permite a los usuarios crear, ver, editar, eliminar y compartir entradas de su diario personal.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -4899,10 +5688,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -4927,45 +5716,25 @@
 
 <header>
     
-        <h2>frontend/src/pages/Home.jsx</h2>
+        <h2>
+        
+            frontend/src/pages/Home.jsx
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Muestra un panel de control personalizado para el usuario con estadísticas, accesos directos y artículos recomendados.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Muestra un panel de control personalizado para el usuario con estadísticas, accesos directos y artículos recomendados.</p></li></ul></dd>
     
 
     
@@ -4980,12 +5749,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Muestra un panel de control personalizado para el usuario con estadísticas, accesos directos y artículos recomendados.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -5010,10 +5810,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -5038,45 +5838,25 @@
 
 <header>
     
-        <h2>frontend/src/pages/Landing.jsx</h2>
+        <h2>
+        
+            frontend/src/pages/Landing.jsx
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">La página principal que ven los usuarios no autenticados.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>La página principal que ven los usuarios no autenticados.</p></li></ul></dd>
     
 
     
@@ -5091,12 +5871,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>La página principal que ven los usuarios no autenticados.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -5113,10 +5924,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -5141,45 +5952,25 @@
 
 <header>
     
-        <h2>frontend/src/pages/Login.js</h2>
+        <h2>
+        
+            frontend/src/pages/Login.js
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Formulario para que los usuarios existentes inicien sesión en la aplicación.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Formulario para que los usuarios existentes inicien sesión en la aplicación.</p></li></ul></dd>
     
 
     
@@ -5194,12 +5985,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Formulario para que los usuarios existentes inicien sesión en la aplicación.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -5220,10 +6042,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -5248,45 +6070,25 @@
 
 <header>
     
-        <h2>frontend/src/pages/Register.js</h2>
+        <h2>
+        
+            frontend/src/pages/Register.js
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Formulario para que nuevos usuarios creen una cuenta.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Formulario para que nuevos usuarios creen una cuenta.</p></li></ul></dd>
     
 
     
@@ -5301,12 +6103,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Formulario para que nuevos usuarios creen una cuenta.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -5327,10 +6160,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -5355,45 +6188,25 @@
 
 <header>
     
-        <h2>frontend/src/pages/Seguimiento.jsx</h2>
+        <h2>
+        
+            frontend/src/pages/Seguimiento.jsx
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Un formulario de varios pasos para que los usuarios registren su estado de ánimo, sueño, actividad y otros datos diarios.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Un formulario de varios pasos para que los usuarios registren su estado de ánimo, sueño, actividad y otros datos diarios.</p></li></ul></dd>
     
 
     
@@ -5408,12 +6221,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Un formulario de varios pasos para que los usuarios registren su estado de ánimo, sueño, actividad y otros datos diarios.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -5446,10 +6290,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -5474,45 +6318,25 @@
 
 <header>
     
-        <h2>frontend/src/reportWebVitals.js</h2>
+        <h2>
+        
+            frontend/src/reportWebVitals.js
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Mide las métricas de rendimiento de la aplicación y las envía a una función de callback.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Mide las métricas de rendimiento de la aplicación y las envía a una función de callback.</p></li></ul></dd>
     
 
     
@@ -5527,13 +6351,42 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Mide las métricas de rendimiento de la aplicación y las envía a una función de callback.</p></div>
+            
+
+            
         
-    
-    </div>
-
+        </div>
     
 
     
@@ -5541,8 +6394,10 @@
     
 
     
-
     
+    
+
+     
 
     
 
@@ -5567,45 +6422,25 @@
 
 <header>
     
-        <h2>frontend/src/service/contactoEmergencia.service.js</h2>
+        <h2>
+        
+            frontend/src/service/contactoEmergencia.service.js
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Proporciona métodos para interactuar con la API de contactos de emergencia.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Proporciona métodos para interactuar con la API de contactos de emergencia.</p></li></ul></dd>
     
 
     
@@ -5620,12 +6455,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Proporciona métodos para interactuar con la API de contactos de emergencia.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -5638,10 +6504,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -5666,45 +6532,25 @@
 
 <header>
     
-        <h2>frontend/src/service/diario.service.js</h2>
+        <h2>
+        
+            frontend/src/service/diario.service.js
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Proporciona métodos para interactuar con la API del diario (crear, leer, actualizar, eliminar entradas).</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Proporciona métodos para interactuar con la API del diario (crear, leer, actualizar, eliminar entradas).</p></li></ul></dd>
     
 
     
@@ -5719,12 +6565,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Proporciona métodos para interactuar con la API del diario (crear, leer, actualizar, eliminar entradas).</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -5737,10 +6614,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -5765,45 +6642,25 @@
 
 <header>
     
-        <h2>frontend/src/setupTests.js</h2>
+        <h2>
+        
+            frontend/src/setupTests.js
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Importa `jest-dom` para añadir matchers personalizados de Jest para el DOM.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Importa <code>jest-dom</code> para añadir matchers personalizados de Jest para el DOM.</p></li></ul></dd>
     
 
     
@@ -5818,12 +6675,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Importa <code>jest-dom</code> para añadir matchers personalizados de Jest para el DOM.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -5836,10 +6724,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -5864,45 +6752,25 @@
 
 <header>
     
-        <h2>frontend/src/store/authStore.js</h2>
+        <h2>
+        
+            frontend/src/store/authStore.js
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Gestiona el estado de autenticación del usuario (usuario, token) y lo persiste en el almacenamiento local.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Gestiona el estado de autenticación del usuario (usuario, token) y lo persiste en el almacenamiento local.</p></li></ul></dd>
     
 
     
@@ -5917,12 +6785,43 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Gestiona el estado de autenticación del usuario (usuario, token) y lo persiste en el almacenamiento local.</p></div>
+            
+
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -5937,10 +6836,10 @@
     
 
     
-
+    
     
 
-    
+     
 
     
 
@@ -5965,45 +6864,25 @@
 
 <header>
     
-        <h2>frontend/src/utils/formatters.js</h2>
+        <h2>
+        
+            frontend/src/utils/formatters.js
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Contiene funciones para formatear fechas en diferentes formatos.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Contiene funciones para formatear fechas en diferentes formatos.</p></li></ul></dd>
     
 
     
@@ -6018,13 +6897,42 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Contiene funciones para formatear fechas en diferentes formatos.</p></div>
+            
+
+            
         
-    
-    </div>
-
+        </div>
     
 
     
@@ -6032,8 +6940,10 @@
     
 
     
-
     
+    
+
+     
 
     
 
@@ -6058,45 +6968,25 @@
 
 <header>
     
-        <h2>frontend/src/utils/index.js</h2>
+        <h2>
+        
+            frontend/src/utils/index.js
+        
+        </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description">Exporta todas las funciones de utilidad desde un único punto para facilitar las importaciones.</div>
-        
-
-        
-
+            
 
 <dl class="details">
-
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Exporta todas las funciones de utilidad desde un único punto para facilitar las importaciones.</p></li></ul></dd>
     
 
     
@@ -6111,13 +7001,42 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dl>
 
 
+
+
+            
+                <div class="description usertext"><p>Exporta todas las funciones de utilidad desde un único punto para facilitar las importaciones.</p></div>
+            
+
+            
         
-    
-    </div>
-
+        </div>
     
 
     
@@ -6125,8 +7044,10 @@
     
 
     
-
     
+    
+
+     
 
     
 
@@ -6144,19 +7065,25 @@
 
 
 
+    
+    
 </div>
-
-<nav>
-    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="apiConfig.html">apiConfig</a></li><li><a href="contactoEmergenciaService.html">contactoEmergenciaService</a></li><li><a href="diarioService.html">diarioService</a></li></ul><h3>Classes</h3><ul><li><a href="ErrorBoundary.html">ErrorBoundary</a></li></ul><h3>Events</h3><ul><li><a href="global.html#event:SIGINT">SIGINT</a></li><li><a href="global.html#event:unhandledRejection">unhandledRejection</a></li></ul><h3>Global</h3><ul><li><a href="global.html#404_Error_Handler">404_Error_Handler</a></li><li><a href="global.html#ACTIVIDADES">ACTIVIDADES</a></li><li><a href="global.html#API_URL">API_URL</a></li><li><a href="global.html#ASPECTOS_COGNITIVOS">ASPECTOS_COGNITIVOS</a></li><li><a href="global.html#ActionCard">ActionCard</a></li><li><a href="global.html#ActivitySelector">ActivitySelector</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#AuthButtons">AuthButtons</a></li><li><a href="global.html#AuthLayout">AuthLayout</a></li><li><a href="global.html#Button">Button</a></li><li><a href="global.html#CORS_Configuration">CORS_Configuration</a></li><li><a href="global.html#Card">Card</a></li><li><a href="global.html#Carousel">Carousel</a></li><li><a href="global.html#Checkbox">Checkbox</a></li><li><a href="global.html#CircularProgress">CircularProgress</a></li><li><a href="global.html#CognitionSelector">CognitionSelector</a></li><li><a href="global.html#DiaryBanner">DiaryBanner</a></li><li><a href="global.html#DiaryEditor">DiaryEditor</a></li><li><a href="global.html#DiaryEntry">DiaryEntry</a></li><li><a href="global.html#EMOCIONES">EMOCIONES</a></li><li><a href="global.html#EmergencyButton">EmergencyButton</a></li><li><a href="global.html#EmergencyModal">EmergencyModal</a></li><li><a href="global.html#EmotionSelector">EmotionSelector</a></li><li><a href="global.html#EmotionStats">EmotionStats</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#GET_/">GET_/</a></li><li><a href="global.html#Generic_Error_Handler">Generic_Error_Handler</a></li><li><a href="global.html#Heading">Heading</a></li><li><a href="global.html#HeroSection">HeroSection</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#Input">Input</a></li><li><a href="global.html#Landing">Landing</a></li><li><a href="global.html#LandingHero">LandingHero</a></li><li><a href="global.html#Login">Login</a></li><li><a href="global.html#Logo">Logo</a></li><li><a href="global.html#MainLayout">MainLayout</a></li><li><a href="global.html#Navbar">Navbar</a></li><li><a href="global.html#ProtectedRoute">ProtectedRoute</a></li><li><a href="global.html#Register">Register</a></li><li><a href="global.html#Seguimiento">Seguimiento</a></li><li><a href="global.html#Slider">Slider</a></li><li><a href="global.html#Text">Text</a></li><li><a href="global.html#Textarea">Textarea</a></li><li><a href="global.html#accessWithPassword">accessWithPassword</a></li><li><a href="global.html#actualizarEntradaDiario">actualizarEntradaDiario</a></li><li><a href="global.html#api">api</a></li><li><a href="global.html#apiFetch">apiFetch</a></li><li><a href="global.html#authMiddleware">authMiddleware</a></li><li><a href="global.html#closeShareModal">closeShareModal</a></li><li><a href="global.html#compararPassword">compararPassword</a></li><li><a href="global.html#componentDidCatch">componentDidCatch</a></li><li><a href="global.html#connectDBAndStartServer">connectDBAndStartServer</a></li><li><a href="global.html#copyShareLink">copyShareLink</a></li><li><a href="global.html#crearEntradaDiario">crearEntradaDiario</a></li><li><a href="global.html#create">create</a></li><li><a href="global.html#createContacto">createContacto</a></li><li><a href="global.html#createRegistro">createRegistro</a></li><li><a href="global.html#delete">delete</a></li><li><a href="global.html#deleteContacto">deleteContacto</a></li><li><a href="global.html#description">description</a></li><li><a href="global.html#dismiss">dismiss</a></li><li><a href="global.html#duracion">duracion</a></li><li><a href="global.html#eliminarEntradaDiario">eliminarEntradaDiario</a></li><li><a href="global.html#emotion">emotion</a></li><li><a href="global.html#error">error</a></li><li><a href="global.html#formatDate">formatDate</a></li><li><a href="global.html#formatDateShort">formatDateShort</a></li><li><a href="global.html#getAll">getAll</a></li><li><a href="global.html#getById">getById</a></li><li><a href="global.html#getContactoById">getContactoById</a></li><li><a href="global.html#getContactos">getContactos</a></li><li><a href="global.html">getDerivedStateFromError</a></li><li><a href="global.html#getIntensidad">getIntensidad</a></li><li><a href="global.html#getPreviewText">getPreviewText</a></li><li><a href="global.html#getProfile">getProfile</a></li><li><a href="global.html#getRegistroByFecha">getRegistroByFecha</a></li><li><a href="global.html#getRegistroById">getRegistroById</a></li><li><a href="global.html#getRegistros">getRegistros</a></li><li><a href="global.html#getRegistrosByRango">getRegistrosByRango</a></li><li><a href="global.html#getStepLabel">getStepLabel</a></li><li><a href="global.html#goToNext">goToNext</a></li><li><a href="global.html#goToPrevious">goToPrevious</a></li><li><a href="global.html#handleAddActividad">handleAddActividad</a></li><li><a href="global.html#handleAddContact">handleAddContact</a></li><li><a href="global.html#handleCall">handleCall</a></li><li><a href="global.html#handleCancelAdd">handleCancelAdd</a></li><li><a href="global.html#handleCancelEditor">handleCancelEditor</a></li><li><a href="global.html#handleChange">handleChange</a></li><li><a href="global.html#handleCreateEntry">handleCreateEntry</a></li><li><a href="global.html#handleDeleteEntry">handleDeleteEntry</a></li><li><a href="global.html#handleEditEntry">handleEditEntry</a></li><li><a href="global.html#handleEmocionToggle">handleEmocionToggle</a></li><li><a href="global.html#handleInputChange">handleInputChange</a></li><li><a href="global.html#handleIntensidadChange">handleIntensidadChange</a></li><li><a href="global.html#handleLogin">handleLogin</a></li><li><a href="global.html#handleLogout">handleLogout</a></li><li><a href="global.html#handleOverlayClick">handleOverlayClick</a></li><li><a href="global.html#handleRegister">handleRegister</a></li><li><a href="global.html#handleReload">handleReload</a></li><li><a href="global.html#handleRemoveActividad">handleRemoveActividad</a></li><li><a href="global.html#handleSendEmail">handleSendEmail</a></li><li><a href="global.html#handleSendSms">handleSendSms</a></li><li><a href="global.html#handleShareEntry">handleShareEntry</a></li><li><a href="global.html#handleSubmit">handleSubmit</a></li><li><a href="global.html#handleToggle">handleToggle</a></li><li><a href="global.html#handleToggleExpand">handleToggleExpand</a></li><li><a href="global.html#handleUpdateEntry">handleUpdateEntry</a></li><li><a href="global.html#info">info</a></li><li><a href="global.html#intensidad">intensidad</a></li><li><a href="global.html#isMobileDevice">isMobileDevice</a></li><li><a href="global.html#isSelected">isSelected</a></li><li><a href="global.html#loadContacts">loadContacts</a></li><li><a href="global.html#loadEntries">loadEntries</a></li><li><a href="global.html#loading">loading</a></li><li><a href="global.html#loginUser">loginUser</a></li><li><a href="global.html#nextStep">nextStep</a></li><li><a href="global.html#nombre">nombre</a></li><li><a href="global.html#obtenerEntradaDiarioPorId">obtenerEntradaDiarioPorId</a></li><li><a href="global.html#obtenerEntradasDiario">obtenerEntradasDiario</a></li><li><a href="global.html#optionalAuthMiddleware">optionalAuthMiddleware</a></li><li><a href="global.html#percentage">percentage</a></li><li><a href="global.html#port">port</a></li><li><a href="global.html#pre-save">pre-save</a></li><li><a href="global.html#prevStep">prevStep</a></li><li><a href="global.html#promise">promise</a></li><li><a href="global.html#registerUser">registerUser</a></li><li><a href="global.html#render">render</a></li><li><a href="global.html#request-interceptor">request-interceptor</a></li><li><a href="global.html#response-interceptor">response-interceptor</a></li><li><a href="global.html#sendEmergencyEmail">sendEmergencyEmail</a></li><li><a href="global.html#success">success</a></li><li><a href="global.html#timeAgo">timeAgo</a></li><li><a href="global.html#title">title</a></li><li><a href="global.html#togglePasswordField">togglePasswordField</a></li><li><a href="global.html#update">update</a></li><li><a href="global.html#updateContacto">updateContacto</a></li><li><a href="global.html#uri">uri</a></li><li><a href="global.html#useAuthStore">useAuthStore</a></li><li><a href="global.html#useToast">useToast</a></li><li><a href="global.html#validateRequiredEnvVars">validateRequiredEnvVars</a></li></ul>
-</nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Thu Dec 11 2025 08:01:05 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a> on Thu Dec 11 2025 08:15:36 GMT+0000 (Coordinated Universal Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
-<script> prettyPrint(); </script>
-<script src="scripts/linenumber.js"> </script>
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+<script src="scripts/collapse.js" defer></script>
+
+
 </body>
 </html>

@@ -1,0 +1,291 @@
+/* Personalización de la documentación JSDoc para MindCare */
+
+:root {
+  --primary-color: #4A2CA5;
+  --secondary-color: #D4DBFF;
+  --accent-color: #6C5CE7;
+  --text-color: #2d3748;
+  --bg-color: #ffffff;
+  --sidebar-bg: #f7fafc;
+  --border-color: #e2e8f0;
+  --code-bg: #f8f9fa;
+  --link-color: #4A2CA5;
+  --link-hover: #6C5CE7;
+}
+
+/* Encabezado principal */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  color: var(--text-color);
+  line-height: 1.6;
+  background-color: var(--bg-color);
+}
+
+/* Navegación lateral */
+nav {
+  background-color: var(--sidebar-bg) !important;
+  border-right: 2px solid var(--border-color);
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+}
+
+nav h2 {
+  color: var(--primary-color);
+  font-family: 'Mouse Memoirs', cursive;
+  font-size: 2rem;
+  padding: 1rem;
+  margin: 0;
+  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+nav h3 {
+  color: var(--primary-color);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  padding: 0.5rem 1rem;
+  margin-top: 1.5rem;
+}
+
+nav a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  padding: 0.4rem 1rem;
+  display: block;
+  border-left: 3px solid transparent;
+}
+
+nav a:hover {
+  color: var(--link-hover);
+  background-color: var(--secondary-color);
+  border-left-color: var(--primary-color);
+  transform: translateX(3px);
+}
+
+/* Encabezado del contenido */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  border-bottom: 3px solid var(--secondary-color);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.3rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+  color: var(--accent-color);
+}
+
+/* Enlaces */
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  color: var(--link-hover);
+  border-bottom-color: var(--link-hover);
+}
+
+/* Bloques de código */
+pre, code {
+  background-color: var(--code-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+pre {
+  padding: 1rem;
+  overflow-x: auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+code {
+  padding: 0.2rem 0.4rem;
+  font-size: 0.9em;
+}
+
+pre code {
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+/* Tablas */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.5rem 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead {
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  color: white;
+}
+
+th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+tbody tr:hover {
+  background-color: var(--secondary-color);
+  transition: background-color 0.2s ease;
+}
+
+/* Badges y etiquetas */
+.signature-attributes {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-left: 0.5rem;
+}
+
+/* Descripción de parámetros */
+.params {
+  margin: 1.5rem 0;
+}
+
+.params .name {
+  color: var(--primary-color);
+  font-weight: 600;
+  font-family: 'Consolas', monospace;
+}
+
+.params .type {
+  color: var(--accent-color);
+  font-style: italic;
+}
+
+/* Sección de ejemplos */
+.example-caption {
+  color: var(--primary-color);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Breadcrumbs */
+.breadcrumb {
+  background-color: var(--secondary-color);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb a {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+/* Página de inicio personalizada */
+#main article:first-child {
+  background: linear-gradient(135deg, rgba(212, 219, 255, 0.2), rgba(74, 44, 165, 0.05));
+  padding: 2rem;
+  border-radius: 12px;
+  border-left: 4px solid var(--primary-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Añadir logo personalizado si existe */
+.navbar-brand::before {
+  content: 'MindCare';
+  font-family: 'Mouse Memoirs', cursive;
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin-right: 0.5rem;
+}
+
+/* Animaciones suaves */
+* {
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav h2 {
+    font-size: 1.5rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  table {
+    font-size: 0.9rem;
+  }
+}
+
+/* Scroll suave */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Destacar elementos importantes */
+.important {
+  background-color: rgba(255, 193, 7, 0.1);
+  border-left: 4px solid #ffc107;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 4px;
+}
+
+.note {
+  background-color: rgba(108, 92, 231, 0.1);
+  border-left: 4px solid var(--accent-color);
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 4px;
+}
+
+.warning {
+  background-color: rgba(239, 68, 68, 0.1);
+  border-left: 4px solid #ef4444;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 4px;
+}
+
