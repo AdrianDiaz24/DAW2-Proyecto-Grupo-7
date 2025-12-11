@@ -81,4 +81,3 @@ jobs:
           echo "🔹 Frontend: ${{ secrets.DOCKER_USERNAME }}/mindcare-frontend:${GITHUB_REF_NAME}"
           echo "🔹 Backend: ${{ secrets.DOCKER_USERNAME }}/mindcare-backend:latest"
           echo "🔹 Frontend: ${{ secrets.DOCKER_USERNAME }}/mindcare-frontend:latest"
-
