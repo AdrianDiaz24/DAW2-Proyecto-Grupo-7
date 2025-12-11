@@ -5,6 +5,47 @@
   },
   "opts": {
     "destination": "code-docs",
-    "recurse": true
+    "recurse": true,
+    "readme": "README.md",
+    "template": "node_modules/docdash"
+  },
+  "plugins": [
+    "plugins/markdown"
+  ],
+  "docdash": {
+    "static": true,
+    "sort": true,
+    "search": true,
+    "collapse": true,
+    "typedefs": true,
+    "removeQuotes": "none",
+    "scripts": [],
+    "menu": {
+      "GitHub": {
+        "href": "https://github.com/AdrianDiaz24/DAW2-Proyecto-Grupo-7",
+        "target": "_blank",
+        "class": "menu-item",
+        "id": "repository"
+      }
+    },
+    "meta": {
+      "title": "MindCare API Documentation",
+      "description": "Documentación completa de la aplicación web para el seguimiento y gestión de la salud mental",
+      "keyword": "mindcare, salud mental, documentación, api, react, node"
+    }
+  },
+  "templates": {
+    "cleverLinks": true,
+    "monospaceLinks": false,
+    "default": {
+      "outputSourceFiles": true,
+      "staticFiles": {
+        "include": ["./jsdoc-custom"]
+      }
+    }
+  },
+  "markdown": {
+    "hardwrap": false,
+    "idInHeadings": true
   }
 }
