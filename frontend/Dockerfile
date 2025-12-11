@@ -33,22 +33,16 @@ COPY --from=builder /app/build /usr/share/nginx/html
 # Copiar configuración personalizada de Nginx
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Crear usuario nginx y ajustar permisos
-RUN chown -R nginx:nginx /usr/share/nginx/html && \
-    chown -R nginx:nginx /var/cache/nginx && \
-    chown -R nginx:nginx /var/log/nginx && \
-    chown -R nginx:nginx /etc/nginx/conf.d && \
-    touch /var/run/nginx.pid && \
-    chown -R nginx:nginx /var/run/nginx.pid
+# Copiar script de inicio
+COPY docker-entrypoint.sh /docker-entrypoint.sh
 
-# Cambiar a usuario no root
-USER nginx
+# Dar permisos de ejecución al script
+RUN chmod +x /docker-entrypoint.sh
 
 # Exponer puerto 80
 EXPOSE 80
 
-
-# Comando para iniciar Nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Usar el script de inicio personalizado
+ENTRYPOINT ["/docker-entrypoint.sh"]
 
 
