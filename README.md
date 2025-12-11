@@ -1,9 +1,15 @@
 # MindCare
 
+**Documentación para el módulo de Optativa:** [Ver documentación completa de cumplimiento de requisitos](docs/optativa/README.md)
+
 ## Índice
 
 - [Breve descripción](#breve-descripción)
 - [Aplicación desplegada](#aplicación-desplegada)
+  - [Despliegue Local con Docker](#despliegue-local-con-docker)
+  - [Imágenes Docker Disponibles](#imágenes-docker-disponibles)
+  - [URL de Producción](#url-de-producción)
+  - [CI/CD Automatizado](#cicd-automatizado)
 - [Stack tecnológico](#stack-tecnológico)
   - [Frontend](#frontend)
   - [Backend](#backend)
@@ -69,28 +75,38 @@ Las imágenes de Docker están publicadas en Docker Hub y actualizadas automáti
 
 #### Desplegar tu Propia Instancia
 
-El proyecto incluye tres guías completas de despliegue:
+**Documentación completa de despliegue:** [docs/despliegue.md](docs/despliegue.md)
 
-1. **[Guía de Despliegue con Docker](docs/docker-deployment-guide.md)** - Setup local y básico
-2. **[Guía de Despliegue en Render](docs/render-deployment-guide.md)** ⭐ - Despliegue en producción (recomendado)
-3. **[Flujo CI/CD Completo](docs/cicd-flow-diagram.md)** - Diagrama del proceso automatizado
+El documento de despliegue incluye:
+- Arquitectura de despliegue con diagramas
+- Configuración de Docker y Docker Compose
+- Pipeline CI/CD con GitHub Actions
+- Guía paso a paso para Render
+- Variables de entorno y configuraciones
+- Troubleshooting y resolución de problemas
+- Buenas prácticas implementadas
 
-**Despliegue en Render (45-60 minutos):**
+**Despliegue en Render (Recomendado):**
 - ✅ Tier gratuito con 750h/mes
 - ✅ HTTPS automático
 - ✅ Deploy automático desde Docker Hub
 - ✅ MongoDB Atlas incluido
 - ✅ URL pública accesible
 
-Ver guía paso a paso: [docs/render-deployment-guide.md](docs/render-deployment-guide.md)
+Ver guía paso a paso detallada: [docs/despliegue.md](docs/despliegue.md)
 
 ### CI/CD Automatizado
 
 El proyecto incluye GitHub Actions workflows que automatizan:
 
-✅ **Build y Push a Docker Hub** - Cada push a `main` construye y publica nuevas imágenes  
-✅ **Generación de Documentación** - PDFs de docs y code-docs automáticos  
-✅ **Deploy Automático** - (Opcional) Despliegue a servidor de producción  
+✅ **Build y Push a Docker Hub** - Cada push a `main` o `dev` construye y publica nuevas imágenes versionadas automáticamente  
+✅ **Generación de Documentación JSDoc** - Documentación del código generada automáticamente y desplegada en GitHub Pages  
+✅ **Generación de PDFs** - Documentación en formato PDF disponible en artifacts de GitHub Actions  
+✅ **Deploy a GitHub Pages** - Documentación técnica accesible públicamente en https://adriandiaz24.github.io/DAW2-Proyecto-Grupo-7/  
+
+**Workflows disponibles:**
+- `docker-build.yml` - Construcción y publicación de imágenes Docker
+- `docs-build.yml` - Generación y despliegue de documentación JSDoc
 
 Ver workflows en: [`.github/workflows/`](.github/workflows/)
 
@@ -247,6 +263,10 @@ Documentación relacionada con la planificación, análisis, viabilidad y recurs
 - **[Estructura organizativa](docs/estructura-organizativa.md)** - Definición de la estructura empresarial de MindTracker Solutions S.L. como startup HealthTech, incluyendo departamentos (C-Level, Tecnología, Marketing, Legal), funciones clave, comité ético-científico y escalabilidad mediante estructura funcional horizontal.
 - **[Financiación](docs/financiacion.md)** - Plan completo de financiación con análisis de costes iniciales de desarrollo (14,118€), infraestructura, marketing, capital de trabajo, fuentes de financiación analizadas, proyección de ingresos y plan de contingencia para la sostenibilidad del proyecto.
 - **[Presupuesto](docs/presupuesto.md)** - Presupuesto económico detallado del proyecto desarrollado en 6 sprints (7 nov - 10 dic 2025), utilizando metodología Planning Poker, comparación entre estimación y realidad con 432 horas de desarrollo registradas en Toggl Track, y análisis de desviaciones.
+- **[Planificación de Sprints](docs/planificacion-sprints.md)** - Documentación completa de los 6 sprints del proyecto con fechas, objetivos específicos, tareas planificadas, estimaciones de esfuerzo y tabla resumen de cada sprint con sus entregables esperados.
+- **[Entregables por Sprint](docs/entregables-sprints.md)** - Documentación detallada de los entregables reales de cada sprint, incluyendo funcionalidades implementadas, issues completados, evidencias de progreso y lecciones aprendidas en cada iteración.
+- **[Legislación](docs/legislacion.md)** - Marco legal aplicable al proyecto MindCare, incluyendo cumplimiento de RGPD, protección de datos de salud, consentimiento informado, términos de servicio, responsabilidad limitada y normativa de apps de salud digital en España y Europa.
+- **[Despliegue](docs/despliegue.md)** - Documentación técnica completa del despliegue de la aplicación, incluyendo arquitectura, configuración de Docker, pipeline CI/CD con GitHub Actions, guía de despliegue en Render, variables de entorno, buenas prácticas y troubleshooting.
 
 ## Wiki del proyecto
 
