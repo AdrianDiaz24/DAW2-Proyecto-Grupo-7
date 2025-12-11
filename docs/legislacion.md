@@ -769,12 +769,10 @@ auditLog(user.id, 'DELETE_ACCOUNT', { razon: 'Usuario solicitó eliminación' })
 ## Checklist de Cumplimiento
 
 Antes de publicar MindCare en producción:
-
-- [ ] Política de Privacidad publicada en `/legal/privacidad`
-- [ ] Política de Cookies publicada en `/legal/cookies`
-- [ ] Términos de Servicio publicados en `/legal/terminos`
-- [ ] Banner de cookies funcional en página principal
-- [ ] Checkbox de aceptación de privacidad en registro obligatorio
+- [ ] Páginas legales creadas:
+  - [ ] /legal/privacidad
+  - [ ] /legal/cookies
+  - [ ] /legal/terminos
 - [ ] Endpoints de gestión de datos implementados:
   - [ ] GET /api/usuarios/mis-datos
   - [ ] GET /api/usuarios/exportar-datos
