@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>frontend/src/service/medicalAPIs.js - MindCare API Documentation</title>
+    
+    <meta name="description" content="Documentación completa de la aplicación web para el seguimiento y gestión de la salud mental" />
+    
+        <meta name="keywords" content="mindcare, salud mental, documentación, api, react, node" />
+        <meta name="keyword" content="mindcare, salud mental, documentación, api, react, node" />
+    
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="custom.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/AdrianDiaz24/DAW2-Proyecto-Grupo-7" target="_blank" class="menu-item" id="repository" >GitHub</a></h2><h3>Classes</h3><ul><li><a href="ArticlesService.html">ArticlesService</a></li><li><a href="ErrorBoundary.html">ErrorBoundary</a></li><li></li></ul><h3>Events</h3><ul><li><a href="global.html#event:SIGINT">SIGINT</a></li><li><a href="global.html#event:unhandledRejection">unhandledRejection</a></li></ul><h3>Namespaces</h3><ul><li><a href="apiConfig.html">apiConfig</a></li><li><a href="contactoEmergenciaService.html">contactoEmergenciaService</a></li><li><a href="diarioService.html">diarioService</a></li></ul><h3>Global</h3><ul><li><a href="global.html#404_Error_Handler">404_Error_Handler</a></li><li><a href="global.html#ACTIVIDADES">ACTIVIDADES</a></li><li><a href="global.html#API_URL">API_URL</a></li><li><a href="global.html#ASPECTOS_COGNITIVOS">ASPECTOS_COGNITIVOS</a></li><li><a href="global.html#ActionCard">ActionCard</a></li><li><a href="global.html#ActivitySelector">ActivitySelector</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#Articulos">Articulos</a></li><li><a href="global.html#AuthButtons">AuthButtons</a></li><li><a href="global.html#AuthLayout">AuthLayout</a></li><li><a href="global.html#Button">Button</a></li><li><a href="global.html#CORS_Configuration">CORS_Configuration</a></li><li><a href="global.html#Card">Card</a></li><li><a href="global.html#Carousel">Carousel</a></li><li><a href="global.html#Checkbox">Checkbox</a></li><li><a href="global.html#CircularProgress">CircularProgress</a></li><li><a href="global.html#CognitionSelector">CognitionSelector</a></li><li><a href="global.html#Diario">Diario</a></li><li><a href="global.html#DiaryBanner">DiaryBanner</a></li><li><a href="global.html#DiaryEditor">DiaryEditor</a></li><li><a href="global.html#DiaryEntry">DiaryEntry</a></li><li><a href="global.html#EMOCIONES">EMOCIONES</a></li><li><a href="global.html#EmergencyButton">EmergencyButton</a></li><li><a href="global.html#EmergencyModal">EmergencyModal</a></li><li><a href="global.html#EmotionSelector">EmotionSelector</a></li><li><a href="global.html#EmotionStats">EmotionStats</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#GET_/">GET_/</a></li><li><a href="global.html#Generic_Error_Handler">Generic_Error_Handler</a></li><li><a href="global.html#Heading">Heading</a></li><li><a href="global.html#HeroSection">HeroSection</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#Input">Input</a></li><li><a href="global.html#Landing">Landing</a></li><li><a href="global.html#LandingHero">LandingHero</a></li><li><a href="global.html#Login">Login</a></li><li><a href="global.html#Logo">Logo</a></li><li><a href="global.html#MainLayout">MainLayout</a></li><li><a href="global.html#Navbar">Navbar</a></li><li><a href="global.html#ProtectedRoute">ProtectedRoute</a></li><li><a href="global.html#Register">Register</a></li><li><a href="global.html#Seguimiento">Seguimiento</a></li><li><a href="global.html#Slider">Slider</a></li><li><a href="global.html#Text">Text</a></li><li><a href="global.html#Textarea">Textarea</a></li><li><a href="global.html#accessWithPassword">accessWithPassword</a></li><li><a href="global.html#actualizarEntradaDiario">actualizarEntradaDiario</a></li><li><a href="global.html#api">api</a></li><li><a href="global.html#apiFetch">apiFetch</a></li><li><a href="global.html#authMiddleware">authMiddleware</a></li><li><a href="global.html#buscarArticulos">buscarArticulos</a></li><li><a href="global.html#cargarDatos">cargarDatos</a></li><li><a href="global.html#clasificarCategoria">clasificarCategoria</a></li><li><a href="global.html#closeShareModal">closeShareModal</a></li><li><a href="global.html#compararPassword">compararPassword</a></li><li><a href="global.html#componentDidCatch">componentDidCatch</a></li><li><a href="global.html#connectDBAndStartServer">connectDBAndStartServer</a></li><li><a href="global.html#copyShareLink">copyShareLink</a></li><li><a href="global.html#crearEntradaDiario">crearEntradaDiario</a></li><li><a href="global.html#create">create</a></li><li><a href="global.html#createContacto">createContacto</a></li><li><a href="global.html#createRegistro">createRegistro</a></li><li><a href="global.html#delete">delete</a></li><li><a href="global.html#deleteContacto">deleteContacto</a></li><li><a href="global.html#description">description</a></li><li><a href="global.html#dismiss">dismiss</a></li><li><a href="global.html#duracion">duracion</a></li><li><a href="global.html#eliminarEntradaDiario">eliminarEntradaDiario</a></li><li><a href="global.html#emotion">emotion</a></li><li><a href="global.html#error">error</a></li><li><a href="global.html#filtrarArticulos">filtrarArticulos</a></li><li><a href="global.html#formatDate">formatDate</a></li><li><a href="global.html#formatDateShort">formatDateShort</a></li><li><a href="global.html#getAll">getAll</a></li><li><a href="global.html#getById">getById</a></li><li><a href="global.html#getContactoById">getContactoById</a></li><li><a href="global.html#getContactos">getContactos</a></li><li><a href="global.html">getDerivedStateFromError</a></li><li><a href="global.html#getIntensidad">getIntensidad</a></li><li><a href="global.html#getPreviewText">getPreviewText</a></li><li><a href="global.html#getProfile">getProfile</a></li><li><a href="global.html#getRegistroByFecha">getRegistroByFecha</a></li><li><a href="global.html#getRegistroById">getRegistroById</a></li><li><a href="global.html#getRegistros">getRegistros</a></li><li><a href="global.html#getRegistrosByRango">getRegistrosByRango</a></li><li><a href="global.html#getStepLabel">getStepLabel</a></li><li><a href="global.html#goToNext">goToNext</a></li><li><a href="global.html#goToPrevious">goToPrevious</a></li><li><a href="global.html#handleAddActividad">handleAddActividad</a></li><li><a href="global.html#handleAddContact">handleAddContact</a></li><li><a href="global.html#handleCall">handleCall</a></li><li><a href="global.html#handleCancelAdd">handleCancelAdd</a></li><li><a href="global.html#handleCancelEditor">handleCancelEditor</a></li><li><a href="global.html#handleChange">handleChange</a></li><li><a href="global.html#handleCreateEntry">handleCreateEntry</a></li><li><a href="global.html#handleDeleteEntry">handleDeleteEntry</a></li><li><a href="global.html#handleEditEntry">handleEditEntry</a></li><li><a href="global.html#handleEmocionToggle">handleEmocionToggle</a></li><li><a href="global.html#handleImageError">handleImageError</a></li><li><a href="global.html#handleInputChange">handleInputChange</a></li><li><a href="global.html#handleIntensidadChange">handleIntensidadChange</a></li><li><a href="global.html#handleLogin">handleLogin</a></li><li><a href="global.html#handleLogout">handleLogout</a></li><li><a href="global.html#handleOverlayClick">handleOverlayClick</a></li><li><a href="global.html#handleRegister">handleRegister</a></li><li><a href="global.html#handleReload">handleReload</a></li><li><a href="global.html#handleRemoveActividad">handleRemoveActividad</a></li><li><a href="global.html#handleSendEmail">handleSendEmail</a></li><li><a href="global.html#handleSendSms">handleSendSms</a></li><li><a href="global.html#handleShareEntry">handleShareEntry</a></li><li><a href="global.html#handleSubmit">handleSubmit</a></li><li><a href="global.html#handleToggle">handleToggle</a></li><li><a href="global.html#handleToggleExpand">handleToggleExpand</a></li><li><a href="global.html#handleUpdateEntry">handleUpdateEntry</a></li><li><a href="global.html#healthCheckController">healthCheckController</a></li><li><a href="global.html#info">info</a></li><li><a href="global.html#intensidad">intensidad</a></li><li><a href="global.html#isMobileDevice">isMobileDevice</a></li><li><a href="global.html#isSelected">isSelected</a></li><li><a href="global.html#loadContacts">loadContacts</a></li><li><a href="global.html#loadEntries">loadEntries</a></li><li><a href="global.html#loading">loading</a></li><li><a href="global.html#loginUser">loginUser</a></li><li><a href="global.html#nextStep">nextStep</a></li><li><a href="global.html#nombre">nombre</a></li><li><a href="global.html#obtenerArticulos">obtenerArticulos</a></li><li><a href="global.html#obtenerArticulosDeMedicalAPIs">obtenerArticulosDeMedicalAPIs</a></li><li><a href="global.html#obtenerArticulosDeNewsAPI">obtenerArticulosDeNewsAPI</a></li><li><a href="global.html#obtenerArticulosDePubMed">obtenerArticulosDePubMed</a></li><li><a href="global.html#obtenerArticulosLocales">obtenerArticulosLocales</a></li><li><a href="global.html#obtenerArticulosPorCategoria">obtenerArticulosPorCategoria</a></li><li><a href="global.html#obtenerCategorias">obtenerCategorias</a></li><li><a href="global.html#obtenerEntradaDiarioPorId">obtenerEntradaDiarioPorId</a></li><li><a href="global.html#obtenerEntradasDiario">obtenerEntradasDiario</a></li><li><a href="global.html#optionalAuthMiddleware">optionalAuthMiddleware</a></li><li><a href="global.html#percentage">percentage</a></li><li><a href="global.html#port">port</a></li><li><a href="global.html#pre-save">pre-save</a></li><li><a href="global.html#prevStep">prevStep</a></li><li><a href="global.html#procesarArticulosDeNewsAPI">procesarArticulosDeNewsAPI</a></li><li><a href="global.html#procesarArticulosDePubMed">procesarArticulosDePubMed</a></li><li><a href="global.html#promise">promise</a></li><li><a href="global.html#registerUser">registerUser</a></li><li><a href="global.html#render">render</a></li><li><a href="global.html#request-interceptor">request-interceptor</a></li><li><a href="global.html#response-interceptor">response-interceptor</a></li><li><a href="global.html#sendEmergencyEmail">sendEmergencyEmail</a></li><li><a href="global.html#success">success</a></li><li><a href="global.html#timeAgo">timeAgo</a></li><li><a href="global.html#title">title</a></li><li><a href="global.html#togglePasswordField">togglePasswordField</a></li><li><a href="global.html#update">update</a></li><li><a href="global.html#updateContacto">updateContacto</a></li><li><a href="global.html#uri">uri</a></li><li><a href="global.html#useAuthStore">useAuthStore</a></li><li><a href="global.html#useToast">useToast</a></li><li><a href="global.html#validateRequiredEnvVars">validateRequiredEnvVars</a></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">frontend/src/service/medicalAPIs.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @file Servicio para obtener artículos de APIs médicas reales
+ * @description Integra con NewsAPI y otras fuentes para obtener artículos médicos reales
+ */
+
+/**
+ * @function obtenerArticulosDePubMed
+ * @description Obtiene artículos de PubMed (API pública)
+ * @async
+ * @param {string} query - Término de búsqueda
+ * @returns {Promise&lt;Array>} Artículos del servidor PubMed
+ */
+export async function obtenerArticulosDePubMed(query = 'mental health') {
+    try {
+        const response = await fetch(
+            `https://pubmed.ncbi.nlm.nih.gov/coreapi/v1/search/?query=${encodeURIComponent(query)}&amp;pageSize=20`,
+            { method: 'GET', mode: 'cors' }
+        );
+
+        if (!response.ok) throw new Error('Error en PubMed');
+
+        const data = await response.json();
+        return data.articles || [];
+    } catch (error) {
+        console.error('Error en PubMed API:', error);
+        return [];
+    }
+}
+
+/**
+ * @function obtenerArticulosDeNewsAPI
+ * @description Obtiene artículos de NewsAPI (requiere API key)
+ * @async
+ * @param {string} query - Término de búsqueda
+ * @returns {Promise&lt;Array>} Artículos de NewsAPI
+ */
+export async function obtenerArticulosDeNewsAPI(query = 'mental health medicine') {
+    try {
+        // NewsAPI requiere API key - usando endpoint público si está disponible
+        const apiKey = process.env.REACT_APP_NEWSAPI_KEY || '';
+
+        if (!apiKey) {
+            console.warn('NewsAPI key no configurada');
+            return [];
+        }
+
+        const response = await fetch(
+            `https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&amp;sortBy=publishedAt&amp;language=es&amp;pageSize=20&amp;apiKey=${apiKey}`
+        );
+
+        if (!response.ok) throw new Error('Error en NewsAPI');
+
+        const data = await response.json();
+        return data.articles || [];
+    } catch (error) {
+        console.error('Error en NewsAPI:', error);
+        return [];
+    }
+}
+
+/**
+ * @function obtenerArticulosDeMedicalAPIs
+ * @description Obtiene artículos de APIs médicas públicas
+ * @async
+ * @returns {Promise&lt;Array>} Artículos médicos
+ */
+export async function obtenerArticulosDeMedicalAPIs() {
+    try {
+        // Usando APIs públicas de salud
+        const endpoints = [
+            {
+                url: 'https://api.covid19api.com/',
+                mapper: null // Puede adaptarse según necesidad
+            }
+        ];
+
+        const articulos = [];
+
+        // Obtener de múltiples fuentes
+        for (const endpoint of endpoints) {
+            try {
+                const response = await fetch(endpoint.url);
+                if (response.ok) {
+                    // Procesar datos según la API
+                }
+            } catch (error) {
+                console.error('Error fetching from:', endpoint.url);
+            }
+        }
+
+        return articulos;
+    } catch (error) {
+        console.error('Error obteniendo artículos médicos:', error);
+        return [];
+    }
+}
+
+/**
+ * @function obtenerArticulosLocales
+ * @description Obtiene artículos de una base de datos local simulada
+ * @returns {Array} Artículos locales
+ */
+export function obtenerArticulosLocales() {
+    return [
+        {
+            id: 1,
+            titulo: "Nuevos tratamientos para la ansiedad generalizada",
+            descripcion: "Investigadores descubren enfoques innovadores para el tratamiento de trastornos de ansiedad",
+            contenido: "Un estudio reciente muestra que las terapias cognitivo-conductuales combinadas con tecnología pueden ser más efectivas.",
+            autor: "Journal of Clinical Psychology",
+            fuente: "Fuente Médica",
+            fecha: new Date(),
+            categoria: "Ansiedad",
+            imagen: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=500&amp;h=300&amp;fit=crop",
+            url: "https://ejemplo.com"
+        },
+        {
+            id: 2,
+            titulo: "Importancia de la higiene del sueño en pacientes depresivos",
+            descripcion: "Estudio clínico demuestra la relevancia de establecer rutinas de sueño adecuadas",
+            contenido: "Los pacientes que mantienen horarios regulares de sueño presentan una reducción del 40% en síntomas depresivos.",
+            autor: "Sleep Medicine Reviews",
+            fuente: "Fuente Médica",
+            fecha: new Date(Date.now() - 86400000),
+            categoria: "Sueño",
+            imagen: "https://images.unsplash.com/photo-1434086144198-c0ec304386f0?w=500&amp;h=300&amp;fit=crop",
+            url: "https://ejemplo.com"
+        },
+        {
+            id: 3,
+            titulo: "Mindfulness y meditación en el tratamiento del estrés",
+            descripcion: "Evidencia científica de los beneficios de técnicas de atención plena",
+            contenido: "Meta-análisis de 150 estudios confirman que el mindfulness reduce significativamente los niveles de cortisol.",
+            autor: "Mindfulness Journal",
+            fuente: "Fuente Médica",
+            fecha: new Date(Date.now() - 172800000),
+            categoria: "Mindfulness",
+            imagen: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=500&amp;h=300&amp;fit=crop",
+            url: "https://ejemplo.com"
+        },
+        {
+            id: 4,
+            titulo: "Ejercicio aeróbico mejora salud mental en adultos",
+            descripcion: "Nuevo estudio demuestra correlación entre actividad física y bienestar emocional",
+            contenido: "30 minutos de ejercicio diario pueden ser tan efectivos como algunos antidepresivos.",
+            autor: "Sports Medicine International",
+            fuente: "Fuente Médica",
+            fecha: new Date(Date.now() - 259200000),
+            categoria: "Ejercicio",
+            imagen: "https://images.unsplash.com/photo-1532521185607-c4b7b0b90d00?w=500&amp;h=300&amp;fit=crop",
+            url: "https://ejemplo.com"
+        },
+        {
+            id: 5,
+            titulo: "Eje intestino-cerebro: nueva perspectiva en psiquiatría",
+            descripcion: "La microbiota intestinal influye directamente en la salud mental",
+            contenido: "Nuevas investigaciones revelan que ciertos probióticos pueden mejorar síntomas de depresión.",
+            autor: "Gut Microbiota Journal",
+            fuente: "Fuente Médica",
+            fecha: new Date(Date.now() - 345600000),
+            categoria: "Nutrición",
+            imagen: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500&amp;h=300&amp;fit=crop",
+            url: "https://ejemplo.com"
+        },
+        {
+            id: 6,
+            titulo: "Gestión del estrés digital en la era moderna",
+            descripcion: "Estrategias para mantener la salud mental en un mundo hiperconectado",
+            contenido: "Expertos recomiendan establecer límites con la tecnología para prevenir el burnout digital.",
+            autor: "Digital Wellness Report",
+            fuente: "Fuente Médica",
+            fecha: new Date(Date.now() - 432000000),
+            categoria: "Estrés",
+            imagen: "https://images.unsplash.com/photo-1516534775068-bb8155a6b250?w=500&amp;h=300&amp;fit=crop",
+            url: "https://ejemplo.com"
+        },
+        {
+            id: 7,
+            titulo: "Signos de depresión: Guía de reconocimiento temprano",
+            descripcion: "Identificar síntomas de depresión a tiempo puede salvar vidas",
+            contenido: "Una intervención temprana puede prevenir complicaciones graves y mejorar el pronóstico.",
+            autor: "Psychiatry Today",
+            fuente: "Fuente Médica",
+            fecha: new Date(Date.now() - 518400000),
+            categoria: "Depresión",
+            imagen: "https://images.unsplash.com/photo-1489749798305-4fea3ba63d60?w=500&amp;h=300&amp;fit=crop",
+            url: "https://ejemplo.com"
+        },
+        {
+            id: 8,
+            titulo: "Terapia de pareja efectiva para problemas relacionales",
+            descripcion: "Las relaciones saludables son fundamentales para la salud mental",
+            contenido: "La terapia de pareja muestra una efectividad del 85% en mejorar la comunicación y el bienestar.",
+            autor: "Journal of Couples Therapy",
+            fuente: "Fuente Médica",
+            fecha: new Date(Date.now() - 604800000),
+            categoria: "Relaciones",
+            imagen: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=500&amp;h=300&amp;fit=crop",
+            url: "https://ejemplo.com"
+        }
+    ];
+}
+
+/**
+ * @function procesarArticulosDePubMed
+ * @description Formatea artículos de PubMed a nuestro esquema
+ * @param {Array} articulos - Artículos crudos
+ * @returns {Array} Artículos formateados
+ */
+export function procesarArticulosDePubMed(articulos) {
+    return articulos.map((art, idx) => ({
+        id: idx,
+        titulo: art.title || 'Sin título',
+        descripcion: art.snippet || 'Sin descripción',
+        contenido: art.snippet || 'Contenido no disponible',
+        autor: art.authors?.join(', ') || 'Autor desconocido',
+        fuente: 'PubMed',
+        fecha: new Date(art.pub_date || Date.now()),
+        categoria: clasificarCategoria(art.title),
+        imagen: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=500&amp;h=300&amp;fit=crop',
+        url: art.uid ? `https://pubmed.ncbi.nlm.nih.gov/${art.uid}/` : '#'
+    }));
+}
+
+/**
+ * @function procesarArticulosDeNewsAPI
+ * @description Formatea artículos de NewsAPI a nuestro esquema
+ * @param {Array} articulos - Artículos crudos
+ * @returns {Array} Artículos formateados
+ */
+export function procesarArticulosDeNewsAPI(articulos) {
+    return articulos.map((art, idx) => ({
+        id: idx,
+        titulo: art.title || 'Sin título',
+        descripcion: art.description || art.content || 'Sin descripción',
+        contenido: art.content || art.description || 'Contenido no disponible',
+        autor: art.author || art.source?.name || 'Autor desconocido',
+        fuente: art.source?.name || 'NewsAPI',
+        fecha: new Date(art.publishedAt),
+        categoria: clasificarCategoria(art.title + ' ' + (art.description || '')),
+        imagen: art.urlToImage || 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=500&amp;h=300&amp;fit=crop',
+        url: art.url || '#'
+    }));
+}
+
+/**
+ * @function clasificarCategoria
+ * @description Clasifica un artículo por su contenido
+ * @param {string} texto - Texto del artículo
+ * @returns {string} Categoría identificada
+ */
+function clasificarCategoria(texto) {
+    const texto_lower = texto.toLowerCase();
+    const categorias = {
+        'Ansiedad': ['ansiedad', 'anxiety', 'anxious', 'worry'],
+        'Depresión': ['depresión', 'depression', 'depressive', 'depressed'],
+        'Ejercicio': ['ejercicio', 'exercise', 'workout', 'physical', 'fitness'],
+        'Estrés': ['estrés', 'stress', 'stressed', 'burnout'],
+        'Mindfulness': ['mindfulness', 'meditación', 'meditation', 'mindful'],
+        'Nutrición': ['nutrición', 'nutrition', 'diet', 'food', 'eat'],
+        'Relaciones': ['relación', 'relationship', 'pareja', 'couple', 'family'],
+        'Sueño': ['sueño', 'sleep', 'insomnia', 'sleeping']
+    };
+
+    for (const [categoria, palabras] of Object.entries(categorias)) {
+        if (palabras.some(palabra => texto_lower.includes(palabra))) {
+            return categoria;
+        }
+    }
+
+    return 'Estrés';
+}
+
+const medicalAPIs = {
+    obtenerArticulosDePubMed,
+    obtenerArticulosDeNewsAPI,
+    obtenerArticulosDeMedicalAPIs,
+    obtenerArticulosLocales,
+    procesarArticulosDePubMed,
+    procesarArticulosDeNewsAPI
+};
+
+export default medicalAPIs;
+
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a> on Thu Dec 11 2025 14:35:16 GMT+0000 (Coordinated Universal Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+<script src="scripts/collapse.js" defer></script>
+
+
+</body>
+</html>
