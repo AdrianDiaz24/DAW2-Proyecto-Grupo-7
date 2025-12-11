@@ -1,13 +1,18 @@
 # Etapa 1: Build de la aplicación React
 FROM node:18-alpine AS builder
 
+# Información del mantenedor
+LABEL maintainer="MindCare Team"
+LABEL description="Frontend React de MindCare"
+LABEL version="1.0"
+
 WORKDIR /app
 
 # Copiar archivos de dependencias
 COPY package*.json ./
 
 # Instalar dependencias
-RUN npm ci
+RUN npm install
 
 # Copiar código fuente
 COPY . .
@@ -28,7 +33,7 @@ COPY --from=builder /app/build /usr/share/nginx/html
 # Copiar configuración personalizada de Nginx
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Crear usuario nginx si no existe y ajustar permisos
+# Crear usuario nginx y ajustar permisos
 RUN chown -R nginx:nginx /usr/share/nginx/html && \
     chown -R nginx:nginx /var/cache/nginx && \
     chown -R nginx:nginx /var/log/nginx && \
@@ -42,9 +47,6 @@ USER nginx
 # Exponer puerto 80
 EXPOSE 80
 
-# Healthcheck
-HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
-  CMD wget --quiet --tries=1 --spider http://localhost:80 || exit 1
 
 # Comando para iniciar Nginx
 CMD ["nginx", "-g", "daemon off;"]
