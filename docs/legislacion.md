@@ -150,9 +150,9 @@ router.delete('/api/usuarios/:id', authMiddleware, async (req, res) => {
     "email": "...",
     "fechaRegistro": "..."
   },
-  "diarios": [...],
-  "emociones": [...],
-  "registros": [...]
+  "diarios": ["..."],
+  "emociones": ["..."],
+  "registros": ["..."]
 }
 ```
 
@@ -409,7 +409,7 @@ En muchos países europeos, incluida España, los sitios web públicos y de empr
 
 // ❌ Incorrecto
 <img src="/emotion-happy.svg" alt="Icono" />
-<img src="/emotion-happy.svg" /> {/* Sin alt */}
+<img src="/emotion-happy.svg" /> /* Sin alt */
 ```
 
 ##### 3. **Formularios Accesibles**
