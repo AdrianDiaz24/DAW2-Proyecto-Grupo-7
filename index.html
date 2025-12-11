@@ -72,10 +72,18 @@
 
     <section class="readme usertext">
         <article><h1 style="font-family: 'Mouse Memoirs', cursive; color: #4A2CA5; font-size: 2.5rem;">🧠 MindCare API Documentation</h1>
+<p><strong>Documentación para el módulo de Optativa:</strong> <a href="docs/optativa/README.md">Ver documentación completa de cumplimiento de requisitos</a></p>
 <h2 id="%C3%ADndice">Índice</h2>
 <ul>
 <li><a href="#breve-descripci%C3%B3n">Breve descripción</a></li>
-<li><a href="#aplicaci%C3%B3n-desplegada">Aplicación desplegada</a></li>
+<li><a href="#aplicaci%C3%B3n-desplegada">Aplicación desplegada</a>
+<ul>
+<li><a href="#despliegue-local-con-docker">Despliegue Local con Docker</a></li>
+<li><a href="#im%C3%A1genes-docker-disponibles">Imágenes Docker Disponibles</a></li>
+<li><a href="#url-de-producci%C3%B3n">URL de Producción</a></li>
+<li><a href="#cicd-automatizado">CI/CD Automatizado</a></li>
+</ul>
+</li>
 <li><a href="#stack-tecnol%C3%B3gico">Stack tecnológico</a>
 <ul>
 <li><a href="#frontend">Frontend</a></li>
@@ -136,13 +144,18 @@ docker-compose up -d
 <p><strong>Nota:</strong> La aplicación está desplegada en Render.com usando las imágenes Docker generadas automáticamente por GitHub Actions.</p>
 </blockquote>
 <h4 id="desplegar-tu-propia-instancia">Desplegar tu Propia Instancia</h4>
-<p>El proyecto incluye tres guías completas de despliegue:</p>
-<ol>
-<li><strong><a href="docs/docker-deployment-guide.md">Guía de Despliegue con Docker</a></strong> - Setup local y básico</li>
-<li><strong><a href="docs/render-deployment-guide.md">Guía de Despliegue en Render</a></strong> ⭐ - Despliegue en producción (recomendado)</li>
-<li><strong><a href="docs/cicd-flow-diagram.md">Flujo CI/CD Completo</a></strong> - Diagrama del proceso automatizado</li>
-</ol>
-<p><strong>Despliegue en Render (45-60 minutos):</strong></p>
+<p><strong>Documentación completa de despliegue:</strong> <a href="docs/despliegue.md">docs/despliegue.md</a></p>
+<p>El documento de despliegue incluye:</p>
+<ul>
+<li>Arquitectura de despliegue con diagramas</li>
+<li>Configuración de Docker y Docker Compose</li>
+<li>Pipeline CI/CD con GitHub Actions</li>
+<li>Guía paso a paso para Render</li>
+<li>Variables de entorno y configuraciones</li>
+<li>Troubleshooting y resolución de problemas</li>
+<li>Buenas prácticas implementadas</li>
+</ul>
+<p><strong>Despliegue en Render (Recomendado):</strong></p>
 <ul>
 <li>✅ Tier gratuito con 750h/mes</li>
 <li>✅ HTTPS automático</li>
@@ -150,12 +163,18 @@ docker-compose up -d
 <li>✅ MongoDB Atlas incluido</li>
 <li>✅ URL pública accesible</li>
 </ul>
-<p>Ver guía paso a paso: <a href="docs/render-deployment-guide.md">docs/render-deployment-guide.md</a></p>
+<p>Ver guía paso a paso detallada: <a href="docs/despliegue.md">docs/despliegue.md</a></p>
 <h3 id="ci%2Fcd-automatizado">CI/CD Automatizado</h3>
 <p>El proyecto incluye GitHub Actions workflows que automatizan:</p>
-<p>✅ <strong>Build y Push a Docker Hub</strong> - Cada push a <code>main</code> construye y publica nuevas imágenes<br>
-✅ <strong>Generación de Documentación</strong> - PDFs de docs y code-docs automáticos<br>
-✅ <strong>Deploy Automático</strong> - (Opcional) Despliegue a servidor de producción</p>
+<p>✅ <strong>Build y Push a Docker Hub</strong> - Cada push a <code>main</code> o <code>dev</code> construye y publica nuevas imágenes versionadas automáticamente<br>
+✅ <strong>Generación de Documentación JSDoc</strong> - Documentación del código generada automáticamente y desplegada en GitHub Pages<br>
+✅ <strong>Generación de PDFs</strong> - Documentación en formato PDF disponible en artifacts de GitHub Actions<br>
+✅ <strong>Deploy a GitHub Pages</strong> - Documentación técnica accesible públicamente en https://adriandiaz24.github.io/DAW2-Proyecto-Grupo-7/</p>
+<p><strong>Workflows disponibles:</strong></p>
+<ul>
+<li><code>docker-build.yml</code> - Construcción y publicación de imágenes Docker</li>
+<li><code>docs-build.yml</code> - Generación y despliegue de documentación JSDoc</li>
+</ul>
 <p>Ver workflows en: <a href=".github/workflows/"><code>.github/workflows/</code></a></p>
 <h2 id="stack-tecnol%C3%B3gico">Stack tecnológico</h2>
 <p>MindCare ha sido desarrollada utilizando tecnologías modernas y robustas que garantizan escalabilidad, seguridad y una experiencia de usuario óptima. El proyecto está construido sobre una arquitectura de aplicación web full-stack que separa claramente las responsabilidades entre el frontend, backend y la capa de datos.</p>
@@ -282,6 +301,10 @@ npm install
 <li><strong><a href="docs/estructura-organizativa.md">Estructura organizativa</a></strong> - Definición de la estructura empresarial de MindTracker Solutions S.L. como startup HealthTech, incluyendo departamentos (C-Level, Tecnología, Marketing, Legal), funciones clave, comité ético-científico y escalabilidad mediante estructura funcional horizontal.</li>
 <li><strong><a href="docs/financiacion.md">Financiación</a></strong> - Plan completo de financiación con análisis de costes iniciales de desarrollo (14,118€), infraestructura, marketing, capital de trabajo, fuentes de financiación analizadas, proyección de ingresos y plan de contingencia para la sostenibilidad del proyecto.</li>
 <li><strong><a href="docs/presupuesto.md">Presupuesto</a></strong> - Presupuesto económico detallado del proyecto desarrollado en 6 sprints (7 nov - 10 dic 2025), utilizando metodología Planning Poker, comparación entre estimación y realidad con 432 horas de desarrollo registradas en Toggl Track, y análisis de desviaciones.</li>
+<li><strong><a href="docs/planificacion-sprints.md">Planificación de Sprints</a></strong> - Documentación completa de los 6 sprints del proyecto con fechas, objetivos específicos, tareas planificadas, estimaciones de esfuerzo y tabla resumen de cada sprint con sus entregables esperados.</li>
+<li><strong><a href="docs/entregables-sprints.md">Entregables por Sprint</a></strong> - Documentación detallada de los entregables reales de cada sprint, incluyendo funcionalidades implementadas, issues completados, evidencias de progreso y lecciones aprendidas en cada iteración.</li>
+<li><strong><a href="docs/legislacion.md">Legislación</a></strong> - Marco legal aplicable al proyecto MindCare, incluyendo cumplimiento de RGPD, protección de datos de salud, consentimiento informado, términos de servicio, responsabilidad limitada y normativa de apps de salud digital en España y Europa.</li>
+<li><strong><a href="docs/despliegue.md">Despliegue</a></strong> - Documentación técnica completa del despliegue de la aplicación, incluyendo arquitectura, configuración de Docker, pipeline CI/CD con GitHub Actions, guía de despliegue en Render, variables de entorno, buenas prácticas y troubleshooting.</li>
 </ul>
 <h2 id="wiki-del-proyecto">Wiki del proyecto</h2>
 <p>El proyecto MindCare cuenta con documentación completa en dos wikis complementarias:</p>
@@ -7402,7 +7425,7 @@ npm install
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a> on Thu Dec 11 2025 18:35:25 GMT+0000 (Coordinated Universal Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a> on Thu Dec 11 2025 19:21:20 GMT+0000 (Coordinated Universal Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
