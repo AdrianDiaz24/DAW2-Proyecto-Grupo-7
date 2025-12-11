@@ -226,7 +226,7 @@ Esta sección incluye la documentación relacionada con la implementación técn
   
 > **Descarga en PDF:** Los PDFs de la documentación JSDoc se generan automáticamente y están disponibles en la sección de [**Actions → Artifacts**](https://github.com/AdrianDiaz24/DAW2-Proyecto-Grupo-7/actions) del repositorio. Busca el workflow más reciente de "Generador de Documentación JSDoc" y descarga el artifact `jsdoc-pdfs`.
 
-- **[Documentación de la API](docs/api-documentation.md)** - Especificación completa de los endpoints de la API REST, incluyendo métodos HTTP, parámetros, respuestas y ejemplos de uso.
+- **[Documentación de la API](docs/optativa/api-documentation.md)** - Especificación completa de los endpoints de la API REST, incluyendo métodos HTTP, parámetros, respuestas y ejemplos de uso.
 - **[Configuración CORS](docs/cors-configuration.md)** - Guía detallada sobre la configuración de Cross-Origin Resource Sharing implementada en el backend, incluyendo setup, testing y troubleshooting.
 - **[Testing con Postman](docs/postman-guide.md)** - Guía completa para importar y utilizar la colección de Postman (ubicada en `backend/postman/`), incluyendo setup de entorno, estructura de endpoints, flujos de testing y validación de respuestas.
 - **[Arquitectura del Backend](backend/README.md#-arquitectura)** - Documentación técnica sobre la arquitectura del sistema de autenticación y guías de uso del middleware.

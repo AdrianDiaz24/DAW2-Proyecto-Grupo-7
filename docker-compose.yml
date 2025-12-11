@@ -25,6 +25,7 @@ services:
 
   # Backend (Node.js/Express)
   backend:
+    image: mindcare-backend:latest
     build:
       context: ./backend
       dockerfile: Dockerfile
@@ -52,6 +53,7 @@ services:
 
   # Frontend (React)
   frontend:
+    image: mindcare-frontend:latest
     build:
       context: ./frontend
       dockerfile: Dockerfile
