@@ -2,6 +2,8 @@ name: Build Docs (PDF & HTML + Code Docs)
 
 on:
   push:
+    branches:
+      - main
     paths:
       - 'docs/**'
       - 'backend/src/**'
@@ -10,6 +12,11 @@ on:
       - '.github/workflows/docs-build.yml'
   workflow_dispatch:
 
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   build-docs:
     runs-on: ubuntu-latest
@@ -17,6 +24,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       # Convertir documentación Markdown a PDF/HTML
       - name: Build docs root (Markdown files)
@@ -53,6 +62,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -61,7 +72,7 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --production=false
 
       - name: Generate code documentation (JSDoc)
         run: npm run docs:code
@@ -71,12 +82,14 @@ jobs:
         with:
           name: code-docs
           path: code-docs
+          retention-days: 90
 
       - name: Deploy code docs to GitHub Pages
-        if: github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./code-docs
           destination_dir: api-docs
+          enable_jekyll: false
+          force_orphan: true
 
