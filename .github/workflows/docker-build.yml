@@ -38,7 +38,7 @@ jobs:
           JWT_SECRET: ${{ secrets.JWT_SECRET || 'dummy-secret-key-for-build' }}
           JWT_EXPIRES_IN: 7d
           FRONTEND_URL: http://localhost:3000
-          REACT_APP_API_URL: http://localhost:4000
+          REACT_APP_API_URL: http://localhost:5000/api
           VERSION: ${{ steps.version.outputs.version }}
         run: |
           docker compose build
@@ -81,4 +81,3 @@ jobs:
           echo "🔹 Frontend: ${{ secrets.DOCKER_USERNAME }}/mindcare-frontend:${GITHUB_REF_NAME}"
           echo "🔹 Backend: ${{ secrets.DOCKER_USERNAME }}/mindcare-backend:latest"
           echo "🔹 Frontend: ${{ secrets.DOCKER_USERNAME }}/mindcare-frontend:latest"
-
