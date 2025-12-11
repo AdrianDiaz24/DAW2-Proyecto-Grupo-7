@@ -319,3 +319,4 @@ Git Push → GitHub Actions Tests → Code Review → Merge → Deploy
 ### Conclusión
 
 MindCare utiliza una **arquitectura moderna, escalable y rentable** basada en servicios gratuitos/low-cost durante MVP, con capacidad de escalar según demanda. El equipo tiene acceso a todas las herramientas necesarias y credenciales están correctamente gestionadas.  
+
