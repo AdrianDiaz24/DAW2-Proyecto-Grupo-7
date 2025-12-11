@@ -199,8 +199,10 @@ npm install
 Crear un archivo `.env` en la carpeta `frontend` con:
 
 ```env
-REACT_APP_API_URL=http://localhost:5000/api
+REACT_APP_API_URL=http://localhost:4000
 ```
+
+> **Nota importante:** La variable `REACT_APP_API_URL` debe apuntar a la URL base del backend **sin** incluir `/api`, ya que los endpoints en el código ya lo incluyen automáticamente.
 
 Iniciar el servidor de desarrollo:
 ```bash

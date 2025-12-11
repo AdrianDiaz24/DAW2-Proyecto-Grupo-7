@@ -25,6 +25,11 @@ jobs:
           VERSION=$(grep 'LABEL version=' backend/Dockerfile | cut -d'"' -f2)
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "📦 Versión detectada: $VERSION"
+          
+          # Sanitizar nombre de rama para Docker (reemplazar / con -)
+          BRANCH_NAME="${GITHUB_REF_NAME//\//-}"
+          echo "branch=$BRANCH_NAME" >> $GITHUB_OUTPUT
+          echo "🌿 Rama sanitizada: $BRANCH_NAME"
 
       - name: Login en DockerHub
         uses: docker/login-action@v3
@@ -38,47 +43,47 @@ jobs:
           JWT_SECRET: ${{ secrets.JWT_SECRET || 'dummy-secret-key-for-build' }}
           JWT_EXPIRES_IN: 7d
           FRONTEND_URL: http://localhost:3000
-          REACT_APP_API_URL: http://localhost:5000/api
+          REACT_APP_API_URL: http://localhost:4000
           VERSION: ${{ steps.version.outputs.version }}
+          BRANCH: ${{ steps.version.outputs.branch }}
         run: |
           docker compose build
           
           # Backend tags
           docker tag mindcare-backend:latest ${{ secrets.DOCKER_USERNAME }}/mindcare-backend:latest
           docker tag mindcare-backend:latest ${{ secrets.DOCKER_USERNAME }}/mindcare-backend:v${VERSION}
-          docker tag mindcare-backend:latest ${{ secrets.DOCKER_USERNAME }}/mindcare-backend:${GITHUB_REF_NAME}
+          docker tag mindcare-backend:latest ${{ secrets.DOCKER_USERNAME }}/mindcare-backend:${BRANCH}
           
           # Frontend tags
           docker tag mindcare-frontend:latest ${{ secrets.DOCKER_USERNAME }}/mindcare-frontend:latest
           docker tag mindcare-frontend:latest ${{ secrets.DOCKER_USERNAME }}/mindcare-frontend:v${VERSION}
-          docker tag mindcare-frontend:latest ${{ secrets.DOCKER_USERNAME }}/mindcare-frontend:${GITHUB_REF_NAME}
+          docker tag mindcare-frontend:latest ${{ secrets.DOCKER_USERNAME }}/mindcare-frontend:${BRANCH}
 
       - name: Subir imágenes a DockerHub
         if: github.event_name != 'pull_request'
         env:
           VERSION: ${{ steps.version.outputs.version }}
+          BRANCH: ${{ steps.version.outputs.branch }}
         run: |
           # Backend
           docker push ${{ secrets.DOCKER_USERNAME }}/mindcare-backend:latest
           docker push ${{ secrets.DOCKER_USERNAME }}/mindcare-backend:v${VERSION}
-          docker push ${{ secrets.DOCKER_USERNAME }}/mindcare-backend:${GITHUB_REF_NAME}
+          docker push ${{ secrets.DOCKER_USERNAME }}/mindcare-backend:${BRANCH}
           
           # Frontend
           docker push ${{ secrets.DOCKER_USERNAME }}/mindcare-frontend:latest
           docker push ${{ secrets.DOCKER_USERNAME }}/mindcare-frontend:v${VERSION}
-          docker push ${{ secrets.DOCKER_USERNAME }}/mindcare-frontend:${GITHUB_REF_NAME}
+          docker push ${{ secrets.DOCKER_USERNAME }}/mindcare-frontend:${BRANCH}
 
       - name: Resumen de imágenes
         env:
           VERSION: ${{ steps.version.outputs.version }}
+          BRANCH: ${{ steps.version.outputs.branch }}
         run: |
           echo "✅ Imágenes construidas exitosamente:"
           echo "🔹 Backend: ${{ secrets.DOCKER_USERNAME }}/mindcare-backend:latest"
           echo "🔹 Backend: ${{ secrets.DOCKER_USERNAME }}/mindcare-backend:v${VERSION}"
-          echo "🔹 Backend: ${{ secrets.DOCKER_USERNAME }}/mindcare-backend:${GITHUB_REF_NAME}"
+          echo "🔹 Backend: ${{ secrets.DOCKER_USERNAME }}/mindcare-backend:${BRANCH}"
           echo "🔹 Frontend: ${{ secrets.DOCKER_USERNAME }}/mindcare-frontend:latest"
           echo "🔹 Frontend: ${{ secrets.DOCKER_USERNAME }}/mindcare-frontend:v${VERSION}"
-          echo "🔹 Frontend: ${{ secrets.DOCKER_USERNAME }}/mindcare-frontend:${GITHUB_REF_NAME}"
-          echo "🔹 Backend: ${{ secrets.DOCKER_USERNAME }}/mindcare-backend:latest"
-          echo "🔹 Frontend: ${{ secrets.DOCKER_USERNAME }}/mindcare-frontend:latest"
-
+          echo "🔹 Frontend: ${{ secrets.DOCKER_USERNAME }}/mindcare-frontend:${BRANCH}"

@@ -30,11 +30,11 @@ RUN addgroup -g 1001 -S nodejs && \
 USER nodejs
 
 # Exponer puerto del backend
-EXPOSE 5000
+EXPOSE 4000
 
 # Variables de entorno por defecto
 ENV NODE_ENV=production \
-    PORT=5000
+    PORT=4000
 
 
 # Comando para iniciar la aplicación
