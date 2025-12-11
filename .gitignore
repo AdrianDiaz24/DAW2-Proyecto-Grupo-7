@@ -1,15 +1,25 @@
 # Dependencias
 node_modules/
 
-# Variables de entorno
+# Variables de entorno - ARCHIVOS SENSIBLES
 .env
 .env.local
 .env.*.local
+.env.docker
+*.env
 
 # Archivos de entorno específicos (redundante pero explícito)
 backend/.env
 backend/src/.env
 frontend/.env
+
+# Secretos y configuraciones sensibles
+*secret*
+*password*
+*credentials*
+*.pem
+*.key
+*.cert
 
 # Logs
 *.log
@@ -32,3 +42,16 @@ Thumbs.db
 dist/
 build/
 /frontend/.env
+# Documentación autogenerada (JSDoc)
+code-docs/
+!code-docs/README.md
+# Uploads de usuarios
+uploads/
+backend/uploads/
+frontend/uploads/
+# Logs (carpetas)
+logs/
+# Archivos temporales
+tmp/
+temp/
+*.tmp

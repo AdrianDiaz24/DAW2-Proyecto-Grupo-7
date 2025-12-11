@@ -1,9 +1,14 @@
 // Script de prueba para verificar que el backend CORS está funcionando correctamente
 // Ejecutar con: node scripts/test-cors.js
 
-const API_URL = process.env.API_URL || 'http://localhost:3000';
+require('dotenv').config({ path: require('path').join(__dirname, '../.env') });
+
+const API_URL = process.env.API_URL || `http://localhost:${process.env.PORT || 4000}`;
+const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:3000';
 
 console.log('🧪 Probando configuración de CORS del backend...\n');
+console.log(`📍 Backend URL: ${API_URL}`);
+console.log(`📍 Frontend URL: ${FRONTEND_URL}\n`);
 
 async function testLogin() {
     console.log('📝 Test 1: Login con credenciales válidas');
@@ -13,7 +18,7 @@ async function testLogin() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Origin': 'http://localhost:3001' // Simular petición desde frontend
+                'Origin': FRONTEND_URL // Simular petición desde frontend
             },
             body: JSON.stringify({
                 email: 'test@example.com',
@@ -53,7 +58,7 @@ async function testRegister() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Origin': 'http://localhost:3001'
+                'Origin': FRONTEND_URL
             },
             body: JSON.stringify({
                 email: randomEmail,
@@ -87,7 +92,7 @@ async function testCorsPreFlight() {
         const response = await fetch(`${API_URL}/api/auth/login`, {
             method: 'OPTIONS',
             headers: {
-                'Origin': 'http://localhost:3001',
+                'Origin': FRONTEND_URL,
                 'Access-Control-Request-Method': 'POST',
                 'Access-Control-Request-Headers': 'Content-Type'
             }
@@ -123,7 +128,7 @@ async function runTests() {
 
     console.log('✨ Pruebas completadas\n');
     console.log('📖 Notas:');
-    console.log('  - Si ves "Access-Control-Allow-Origin: http://localhost:3001" = CORS funciona ✅');
+    console.log(`  - Si ves "Access-Control-Allow-Origin: ${FRONTEND_URL}" = CORS funciona ✅`);
     console.log('  - Si ves "null" o no existe el header = CORS no está configurado ❌');
     console.log('  - Asegúrate de que FRONTEND_URL en backend/.env coincida con el origen');
 }

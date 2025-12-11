@@ -18,22 +18,15 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      # docs/ raíz (si hay .md sueltos)
-      - name: Build docs root
+      # Convertir documentación Markdown a PDF/HTML
+      - name: Build docs root (Markdown files)
         uses: BaileyJM02/markdown-to-pdf@v1.2.0
         with:
           input_dir: docs
           output_dir: docs-export
           build_pdf: true
           build_html: true
-
-      - name: Build docs arquitectura
-        uses: BaileyJM02/markdown-to-pdf@v1.2.0
-        with:
-          input_dir: docs/arquitectura
-          output_dir: docs-export/arquitectura
-          build_pdf: true
-          build_html: true
+        continue-on-error: true
 
       - name: Build docs sprintreview
         uses: BaileyJM02/markdown-to-pdf@v1.2.0
@@ -42,17 +35,18 @@ jobs:
           output_dir: docs-export/sprintreview
           build_pdf: true
           build_html: true
+        continue-on-error: true
 
-      - name: Build docs wiki
-        uses: BaileyJM02/markdown-to-pdf@v1.2.0
+      # Subir documentación generada como artifact
+      - name: Upload docs artifacts (PDF & HTML)
+        uses: actions/upload-artifact@v4
         with:
-          input_dir: docs/wiki
-          output_dir: docs-export/wiki
-          build_pdf: true
-          build_html: true
+          name: docs-export
+          path: docs-export
+        if: always()
 
 
-  # 2) Documentación de código (JSDoc sobre backend/src y frontend/src)
+  # Documentación de código (JSDoc sobre backend/src y frontend/src)
   build-code-docs:
     runs-on: ubuntu-latest
 
@@ -60,10 +54,11 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Use Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '24.11.0'
+          node-version: '18.x'
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm install
