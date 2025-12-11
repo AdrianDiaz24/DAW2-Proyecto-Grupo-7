@@ -25,6 +25,11 @@ jobs:
           VERSION=$(grep 'LABEL version=' backend/Dockerfile | cut -d'"' -f2)
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "📦 Versión detectada: $VERSION"
+          
+          # Sanitizar nombre de rama para Docker (reemplazar / con -)
+          BRANCH_NAME="${GITHUB_REF_NAME//\//-}"
+          echo "branch=$BRANCH_NAME" >> $GITHUB_OUTPUT
+          echo "🌿 Rama sanitizada: $BRANCH_NAME"
 
       - name: Login en DockerHub
         uses: docker/login-action@v3
