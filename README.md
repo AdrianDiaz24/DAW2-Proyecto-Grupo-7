@@ -63,9 +63,26 @@ Las imágenes de Docker están publicadas en Docker Hub y actualizadas automáti
 
 ### URL de Producción
 
-**URL de producción:** [https://mindcare-app.example.com](https://mindcare-app.example.com)
+**URL de producción:** [https://mindcare-frontend.onrender.com](https://mindcare-frontend.onrender.com)
 
-> **Nota:** Para desplegar tu propia instancia, consulta la [Guía de Despliegue con Docker](docs/docker-deployment-guide.md)
+> **Nota:** La aplicación está desplegada en Render.com usando las imágenes Docker generadas automáticamente por GitHub Actions.
+
+#### Desplegar tu Propia Instancia
+
+El proyecto incluye tres guías completas de despliegue:
+
+1. **[Guía de Despliegue con Docker](docs/docker-deployment-guide.md)** - Setup local y básico
+2. **[Guía de Despliegue en Render](docs/render-deployment-guide.md)** ⭐ - Despliegue en producción (recomendado)
+3. **[Flujo CI/CD Completo](docs/cicd-flow-diagram.md)** - Diagrama del proceso automatizado
+
+**Despliegue en Render (45-60 minutos):**
+- ✅ Tier gratuito con 750h/mes
+- ✅ HTTPS automático
+- ✅ Deploy automático desde Docker Hub
+- ✅ MongoDB Atlas incluido
+- ✅ URL pública accesible
+
+Ver guía paso a paso: [docs/render-deployment-guide.md](docs/render-deployment-guide.md)
 
 ### CI/CD Automatizado
 

@@ -6,8 +6,10 @@
 /**
  * @constant {string} API_URL
  * @description La URL base del backend, obtenida de las variables de entorno o un valor por defecto.
+ * Lee de la variable de entorno REACT_APP_API_URL.
+ * Fallback a http://localhost:4000 solo para desarrollo local.
+ * ⚠️ IMPORTANTE: En producción, REACT_APP_API_URL DEBE estar configurada en las variables de entorno.
  */
-// Obtener la URL del backend desde variables de entorno o usar valor por defecto
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:4000';
 
 /**
