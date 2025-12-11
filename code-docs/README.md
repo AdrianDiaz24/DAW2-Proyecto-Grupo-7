@@ -151,7 +151,7 @@ const Button = ({ children, onClick, variant = 'primary', disabled = false }) =>
 
 Esta documentación es complementaria a:
 
-- **[API Documentation](../docs/api-documentation.md)** - Documentación de endpoints REST
+- **[API Documentation](../docs/optativa/api-documentation.md)** - Documentación de endpoints REST
 - **[Arquitectura del Backend](../backend/docs/)** - Diagramas y guías técnicas
 - **[Guía de Postman](../docs/postman-guide.md)** - Testing de API
 - **[CORS Configuration](../docs/cors-configuration.md)** - Configuración de seguridad
