@@ -5,6 +5,13 @@
  */
 import axios from 'axios';
 
+/**
+ * @constant {string} API_URL
+ * @description URL base de la API del backend.
+ * Lee de la variable de entorno REACT_APP_API_URL.
+ * Fallback a http://localhost:4000 solo para desarrollo local.
+ * En producción, REACT_APP_API_URL DEBE estar configurada.
+ */
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:4000';
 
 /**

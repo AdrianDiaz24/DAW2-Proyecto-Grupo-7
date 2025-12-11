@@ -4,11 +4,13 @@
  * @file test-api.js
  * @description Script de prueba para verificar que los endpoints de la API funcionan correctamente
  * @requires axios
+ * @requires dotenv
  */
 
+require('dotenv').config({ path: require('path').join(__dirname, '../.env') });
 const axios = require('axios');
 
-const API_URL = 'http://localhost:4000';
+const API_URL = process.env.API_URL || `http://localhost:${process.env.PORT || 4000}`;
 
 // Colores para la consola
 const colors = {

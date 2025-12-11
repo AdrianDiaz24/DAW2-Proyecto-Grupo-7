@@ -60,8 +60,8 @@ const Debug = () => {
             <button
                 onClick={async () => {
                     try {
-                        const { apiFetch } = await import('../config/api');
-                        const response = await apiFetch('http://localhost:4000/api/registros');
+                        const { apiFetch, apiConfig } = await import('../config/api');
+                        const response = await apiFetch(`${apiConfig.endpoints.registros}`);
                         const data = await response.json();
                         console.log('Response:', data);
                         alert(`Status: ${response.status}\nResponse: ${JSON.stringify(data)}`);

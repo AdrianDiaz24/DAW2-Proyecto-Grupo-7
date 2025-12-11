@@ -15,6 +15,7 @@
   - [2. Configurar el Backend](#2-configurar-el-backend)
   - [3. Configurar el Frontend](#3-configurar-el-frontend)
   - [4. Acceder a la aplicación](#4-acceder-a-la-aplicación)
+- [🔒 Seguridad](#-seguridad)
 - [Documentación](#documentación)
   - [Documentación técnica](#documentación-técnica)
   - [Documentación de gestión del proyecto](#documentación-de-gestión-del-proyecto)
@@ -63,9 +64,26 @@ Las imágenes de Docker están publicadas en Docker Hub y actualizadas automáti
 
 ### URL de Producción
 
-**URL de producción:** [https://mindcare-app.example.com](https://mindcare-app.example.com)
+**URL de producción:** [https://mindcare-frontend.onrender.com](https://mindcare-frontend.onrender.com)
 
-> **Nota:** Para desplegar tu propia instancia, consulta la [Guía de Despliegue con Docker](docs/docker-deployment-guide.md)
+> **Nota:** La aplicación está desplegada en Render.com usando las imágenes Docker generadas automáticamente por GitHub Actions.
+
+#### Desplegar tu Propia Instancia
+
+El proyecto incluye tres guías completas de despliegue:
+
+1. **[Guía de Despliegue con Docker](docs/docker-deployment-guide.md)** - Setup local y básico
+2. **[Guía de Despliegue en Render](docs/render-deployment-guide.md)** ⭐ - Despliegue en producción (recomendado)
+3. **[Flujo CI/CD Completo](docs/cicd-flow-diagram.md)** - Diagrama del proceso automatizado
+
+**Despliegue en Render (45-60 minutos):**
+- ✅ Tier gratuito con 750h/mes
+- ✅ HTTPS automático
+- ✅ Deploy automático desde Docker Hub
+- ✅ MongoDB Atlas incluido
+- ✅ URL pública accesible
+
+Ver guía paso a paso: [docs/render-deployment-guide.md](docs/render-deployment-guide.md)
 
 ### CI/CD Automatizado
 
@@ -196,6 +214,94 @@ El frontend estará disponible en `http://localhost:3000`
 Una vez ambos servidores estén corriendo, abre tu navegador en:
 - **Frontend:** http://localhost:3000
 - **Backend API:** http://localhost:5000/api
+
+## 🔒 Seguridad
+
+MindCare implementa las mejores prácticas de seguridad para proteger la información sensible de los usuarios y del sistema.
+
+### ⚠️ Gestión de Secretos
+
+**IMPORTANTE:** Este proyecto maneja información sensible que **NUNCA** debe exponerse públicamente:
+
+- 🔐 Credenciales de MongoDB (usuario y contraseña)
+- 🔑 JWT_SECRET para autenticación
+- 📧 Credenciales de servicios externos (email, etc.)
+
+### 📋 Archivos Sensibles
+
+Los siguientes archivos están **protegidos por `.gitignore`** y **NO deben subirse a Git**:
+
+```bash
+.env                  # Variables de entorno raíz
+.env.docker          # Configuración para Docker Compose
+backend/.env         # Variables del backend
+frontend/.env        # Variables del frontend
+```
+
+### ✅ Uso Correcto de Variables de Entorno
+
+#### Para Desarrollo Local:
+
+1. **Copia los archivos de ejemplo:**
+   ```bash
+   cp .env.docker.example .env.docker
+   cp backend/.env.example backend/.env
+   ```
+
+2. **Genera secretos seguros:**
+   ```bash
+   # Contraseña MongoDB (32 caracteres)
+   openssl rand -base64 32
+   
+   # JWT Secret (64 caracteres)
+   openssl rand -base64 64
+   ```
+
+3. **Configura tus archivos `.env` con valores reales**
+
+#### Para Docker Compose:
+
+```bash
+# 1. Crear archivo .env.docker con credenciales seguras
+cp .env.docker.example .env.docker
+
+# 2. Editar y cambiar TODAS las contraseñas
+nano .env.docker
+
+# 3. Levantar servicios
+docker-compose --env-file .env.docker up -d
+```
+
+#### Para Producción:
+
+- **MongoDB Atlas:** Cambiar contraseña desde el panel de control
+- **Render/Heroku:** Configurar variables de entorno en el dashboard
+- **NUNCA** usar contraseñas por defecto como "admin123"
+
+### 🚨 Si Detectas una Fuga de Credenciales
+
+1. **Rotar inmediatamente todas las credenciales afectadas**
+2. **Revisar el historial de Git y eliminar los secretos**
+3. **Notificar al equipo**
+
+Ver guía completa: **[SECURITY.md](SECURITY.md)**
+
+### 🔍 Verificación de Seguridad
+
+```bash
+# Verificar que no hay archivos .env trackeados en Git
+git ls-files | grep -E "(\.env$|\.env\.)"
+
+# Resultado esperado: solo archivos .example
+# ✅ .env.docker.example
+# ✅ .env.example
+# ❌ .env (si aparece, hay un problema)
+```
+
+### 📚 Documentación Adicional
+
+- **[Guía Completa de Seguridad](SECURITY.md)** - Prácticas de seguridad detalladas
+- **[Guía de Despliegue Seguro](docs/render-deployment-guide.md)** - Configuración en producción
 
 ## Documentación
 
