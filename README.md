@@ -70,9 +70,9 @@ Las imágenes de Docker están publicadas en Docker Hub y actualizadas automáti
 
 ### URL de Producción
 
-**URL de producción:** [https://mindcare.com]([https://mindcare-frontend.onrender.com](https://daw-2-proyecto-grupo-7.vercel.app))
+**URL de producción:** [https://mindcare.com](https://daw-2-proyecto-grupo-7.vercel.app)
 
-> **Nota:** La aplicación está desplegada en Render.com usando las imágenes Docker generadas automáticamente por GitHub Actions.
+> **Nota:** La aplicación está desplegada tanto en [Render](https://render.com) como [Vercel](https://vercel.com) usando las imágenes Docker generadas automáticamente por GitHub Actions.
 
 #### Desplegar tu Propia Instancia
 
