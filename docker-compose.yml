@@ -23,7 +23,7 @@ services:
       MONGODB_URI: ${MONGODB_URI}
       JWT_SECRET: ${JWT_SECRET}
       JWT_EXPIRES_IN: ${JWT_EXPIRES_IN:-7d}
-      FRONTEND_URL: ${FRONTEND_URL:-http://localhost:3000}
+      FRONTEND_URL: ${FRONTEND_URL}
 
     # Mapeo de puertos (host:contenedor)
     ports:
@@ -56,7 +56,7 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
       args:
-        REACT_APP_API_URL: ${REACT_APP_API_URL:-http://localhost:4000}
+        REACT_APP_API_URL: ${REACT_APP_API_URL}
 
     # Nombre de la imagen
     image: mindcare-frontend:latest
