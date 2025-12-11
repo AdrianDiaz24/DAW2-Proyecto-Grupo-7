@@ -33,6 +33,7 @@ import Register from "./pages/Register";
 import Home from "./pages/Home";
 import Seguimiento from "./pages/Seguimiento";
 import Diario from "./pages/Diario";
+import Articulos from "./pages/Articulos";
 
 import { useAuthStore } from "./store/authStore";
 
@@ -136,6 +137,14 @@ function App() {
                     <MainLayout>
                         <ProtectedRoute>
                             <Diario />
+                        </ProtectedRoute>
+                    </MainLayout>
+                } />
+
+                <Route path="/articulos" element={
+                    <MainLayout>
+                        <ProtectedRoute>
+                            <Articulos />
                         </ProtectedRoute>
                     </MainLayout>
                 } />
