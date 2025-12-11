@@ -52,12 +52,14 @@ const registroRouter = require('./routes/registro.routes');
 const diarioRouter = require('./routes/diario.routes');
 const iaRoutes = require('./routes/ia.routes');
 const contactoEmergenciaRouter = require('./routes/contactoEmergencia.routes');
+const healthRouter = require('./routes/health.routes');
 
 app.use('/api/auth', authRouter);
 app.use('/api/formulario', formularioRouter);
 app.use('/api/registro', registroRouter);
 app.use('/api/registros', registroRouter); // Añadido para aceptar la forma plural
 app.use('/api/diario', diarioRouter);
+app.use('/api/health', healthRouter);
 app.use('/api', iaRoutes);
 app.use('/api/contactos-emergencia', contactoEmergenciaRouter);
 
