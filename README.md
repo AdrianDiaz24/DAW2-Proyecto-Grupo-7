@@ -70,7 +70,7 @@ Las imágenes de Docker están publicadas en Docker Hub y actualizadas automáti
 
 ### URL de Producción
 
-**URL de producción:** [https://mindcare-frontend.onrender.com](https://mindcare-frontend.onrender.com)
+**URL de producción:** [https://mindcare.com]([https://mindcare-frontend.onrender.com](https://daw-2-proyecto-grupo-7.vercel.app))
 
 > **Nota:** La aplicación está desplegada en Render.com usando las imágenes Docker generadas automáticamente por GitHub Actions.
 
@@ -231,7 +231,7 @@ El frontend estará disponible en `http://localhost:3000`
 
 Una vez ambos servidores estén corriendo, abre tu navegador en:
 - **Frontend:** http://localhost:3000
-- **Backend API:** http://localhost:5000/api
+- **Backend API:** http://localhost:4000/api
 
 ## Documentación
 
