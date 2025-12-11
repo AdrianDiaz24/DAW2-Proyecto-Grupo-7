@@ -1,4 +1,4 @@
-# MindCare - Proyecto Optativa DWEC/DWES
+# MindCare - Módulo de Optativa
 
 ## Equipo de Desarrollo
 
