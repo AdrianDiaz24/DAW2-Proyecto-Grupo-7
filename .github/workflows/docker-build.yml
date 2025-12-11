@@ -28,6 +28,12 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Construir imágenes con Docker Compose
+        env:
+          MONGODB_URI: ${{ secrets.MONGODB_URI || 'mongodb+srv://dummy:dummy@localhost/dummy' }}
+          JWT_SECRET: ${{ secrets.JWT_SECRET || 'dummy-secret-key-for-build' }}
+          JWT_EXPIRES_IN: 7d
+          FRONTEND_URL: http://localhost:3000
+          REACT_APP_API_URL: http://localhost:5000/api
         run: docker compose build
 
       - name: Etiquetar imágenes para DockerHub
