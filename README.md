@@ -1,5 +1,12 @@
 # MindCare
 
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg?style=flat-square)](package.json)
+[![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](LICENSE)
+[![Node.js](https://img.shields.io/badge/node.js-18+-brightgreen.svg?style=flat-square)](https://nodejs.org/)
+[![React](https://img.shields.io/badge/react-18+-blue.svg?style=flat-square)](https://reactjs.org/)
+[![Docker](https://img.shields.io/badge/docker-ready-2496ED.svg?style=flat-square)](docker-compose.yml)
+[![Status](https://img.shields.io/badge/status-stable-success.svg?style=flat-square)](#)
+
 **Documentación para el módulo de Optativa:** [Ver documentación completa de cumplimiento de requisitos](docs/optativa/README.md)
 
 ## Índice
@@ -292,6 +299,55 @@ Documentación oficial del proyecto con metodología SCRUM, planificación de sp
 Wiki complementaria con versión en inglés del proyecto para facilitar la colaboración internacional y mostrar el uso de herramientas de documentación avanzadas.
 
 **Acceso a DeepWiki:** [https://deepwiki.com/AdrianDiaz24/DAW2-Proyecto-Grupo-7](https://deepwiki.com/AdrianDiaz24/DAW2-Proyecto-Grupo-7)
+
+## Observabilidad y Monitoreo
+
+MindCare incluye infraestructura completa de observabilidad para monitoreo en producción:
+
+### 📊 Métricas con Prometheus
+- Duración de peticiones HTTP
+- Tasa de errores y éxito
+- Intentos de autenticación
+- Operaciones de base de datos MongoDB
+
+### 📝 Logging Estructurado
+- Morgan para logs HTTP
+- Winston con rotación diaria de logs
+- Logs separados para errores
+- Soporte para desarrollo y producción
+
+### 📈 Visualización con Grafana (Opcional)
+- Dashboards personalizados
+- Alertas configurables
+- Integración con Prometheus
+
+**Documentación completa:** [docs/observabilidad.md](docs/observabilidad.md)
+
+**Acceso a métricas:**
+```bash
+curl http://localhost:5000/api/metrics  # Formato Prometheus
+```
+
+## Versionado y Releases
+
+El proyecto sigue **Semantic Versioning 2.0.0** con proceso automatizado de releases.
+
+### Crear un Release
+```bash
+./scripts/release.sh minor    # Crea v1.1.0 → v1.2.0
+./scripts/release.sh patch    # Crea v1.0.0 → v1.0.1
+./scripts/release.sh major    # Crea v1.0.0 → v2.0.0
+```
+
+El script automáticamente:
+- ✅ Actualiza versión en package.json
+- ✅ Crea entrada en CHANGELOG.md
+- ✅ Realiza commit y Git tag
+- ✅ Requiere: `git push origin v1.0.0`
+
+**Documentación completa:** [docs/versionado-y-releases.md](docs/versionado-y-releases.md)
+
+**Ver historial de cambios:** [CHANGELOG.md](CHANGELOG.md)
 
 ## Equipo de desarrollo
 
