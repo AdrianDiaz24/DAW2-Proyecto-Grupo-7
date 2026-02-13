@@ -71,56 +71,83 @@
 
 
     <section class="readme usertext">
-        <article><h1 style="font-family: 'Mouse Memoirs', cursive; color: #4A2CA5; font-size: 2.5rem;">🧠 MindCare API Documentation</h1>
-<p><a href="package.json"><img src="https://img.shields.io/badge/version-1.0.0-blue.svg?style=flat-square" alt="Version"></a>
-<a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat-square" alt="License"></a>
-<a href="https://nodejs.org/"><img src="https://img.shields.io/badge/node.js-18+-brightgreen.svg?style=flat-square" alt="Node.js"></a>
-<a href="https://reactjs.org/"><img src="https://img.shields.io/badge/react-18+-blue.svg?style=flat-square" alt="React"></a>
-<a href="docker-compose.yml"><img src="https://img.shields.io/badge/docker-ready-2496ED.svg?style=flat-square" alt="Docker"></a>
-<a href="#"><img src="https://img.shields.io/badge/status-stable-success.svg?style=flat-square" alt="Status"></a></p>
-<p><strong>Documentación para el módulo de Optativa:</strong> <a href="docs/optativa/README.md">Ver documentación completa de cumplimiento de requisitos</a></p>
-<h2 id="%C3%ADndice">Índice</h2>
+        <article><div align="center">
+<h1 style="font-family: 'Mouse Memoirs', cursive; color: #4A2CA5; font-size: 2.5rem;">🧠 MindCare API Documentation</h1>
+<h3 id="plataforma-de-bienestar-emocional-con-inteligencia-artificial"><em>Plataforma de Bienestar Emocional con Inteligencia Artificial</em></h3>
+<p align="center">
+  <img src="https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge" alt="Build Status" />
+  <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="License" />
+  <img src="https://img.shields.io/badge/Node.js-18.x-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
+  <img src="https://img.shields.io/badge/React-18.2-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React" />
+  <img src="https://img.shields.io/badge/MongoDB-8.0-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
+  <img src="https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
+</p>
+<p align="center">
+  <img src="https://img.shields.io/badge/RGPD-Compliant-success?style=flat-square" alt="RGPD" />
+  <img src="https://img.shields.io/badge/Grok_AI-Integrated-FF6F00?style=flat-square" alt="Grok AI" />
+  <img src="https://img.shields.io/badge/CI/CD-GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white" alt="CI/CD" />
+  <img src="https://img.shields.io/badge/Security-Helmet_+_JWT-red?style=flat-square" alt="Security" />
+</p>
+<br/>
+<p><strong><a href="https://mindcare-frontend.onrender.com">🌐 Demo en Vivo</a></strong> · <strong><a href="https://adriandiaz24.github.io/DAW2-Proyecto-Grupo-7/">📖 Documentación API</a></strong> · <strong><a href="https://github.com/AdrianDiaz24/DAW2-Proyecto-Grupo-7/issues">🐛 Reportar Bug</a></strong> · <strong><a href="https://github.com/AdrianDiaz24/DAW2-Proyecto-Grupo-7/issues">💡 Solicitar Feature</a></strong></p>
+</div>
+<hr>
+<h2 id="%F0%9F%8E%AF-nuestra-misi%C3%B3n">🎯 Nuestra Misión</h2>
+<blockquote>
+<p><strong>Democratizar el acceso al seguimiento emocional con rigor clínico.</strong></p>
+</blockquote>
+<p>MindCare nace de una realidad preocupante: <strong>millones de personas enfrentan síntomas depresivos sin acceso a recursos profesionales</strong> debido a barreras económicas, geográficas o estigma social.</p>
+<p>Nuestra plataforma combina <strong>fundamentos clínicos basados en el DSM-5 y técnicas de Behavioral Activation</strong> con tecnología moderna y accesible, ofreciendo herramientas de autogestión emocional respaldadas por evidencia científica.</p>
+<p><strong>No reemplazamos la terapia profesional</strong> — somos el puente que acompaña a quienes necesitan apoyo mientras buscan ayuda especializada.</p>
+<hr>
+<h2 id="%F0%9F%93%91-%C3%ADndice">📑 Índice</h2>
 <ul>
-<li><a href="#breve-descripci%C3%B3n">Breve descripción</a></li>
-<li><a href="#aplicaci%C3%B3n-desplegada">Aplicación desplegada</a>
-<ul>
-<li><a href="#despliegue-local-con-docker">Despliegue Local con Docker</a></li>
-<li><a href="#im%C3%A1genes-docker-disponibles">Imágenes Docker Disponibles</a></li>
-<li><a href="#url-de-producci%C3%B3n">URL de Producción</a></li>
-<li><a href="#cicd-automatizado">CI/CD Automatizado</a></li>
-</ul>
-</li>
-<li><a href="#stack-tecnol%C3%B3gico">Stack tecnológico</a>
-<ul>
-<li><a href="#frontend">Frontend</a></li>
-<li><a href="#backend">Backend</a></li>
-<li><a href="#devops-y-herramientas">DevOps y Herramientas</a></li>
-</ul>
-</li>
-<li><a href="#capturas-de-pantalla">Capturas de pantalla</a></li>
-<li><a href="#instalaci%C3%B3n-para-desarrollo-local">Instalación para desarrollo local</a>
-<ul>
-<li><a href="#prerrequisitos">Prerrequisitos</a></li>
-<li><a href="#1-clonar-el-repositorio">1. Clonar el repositorio</a></li>
-<li><a href="#2-configurar-el-backend">2. Configurar el Backend</a></li>
-<li><a href="#3-configurar-el-frontend">3. Configurar el Frontend</a></li>
-<li><a href="#4-acceder-a-la-aplicaci%C3%B3n">4. Acceder a la aplicación</a></li>
-</ul>
-</li>
-<li><a href="#documentaci%C3%B3n">Documentación</a>
-<ul>
-<li><a href="#documentaci%C3%B3n-t%C3%A9cnica">Documentación técnica</a></li>
-<li><a href="#documentaci%C3%B3n-de-gesti%C3%B3n-del-proyecto">Documentación de gestión del proyecto</a></li>
-</ul>
-</li>
-<li><a href="#wiki-del-proyecto">Wiki del proyecto</a></li>
-<li><a href="#equipo-de-desarrollo">Equipo de desarrollo</a></li>
+<li><a href="#-caracter%C3%ADsticas-principales">Características Principales</a></li>
+<li><a href="#-stack-tecnol%C3%B3gico">Stack Tecnológico</a></li>
+<li><a href="#-instalaci%C3%B3n">Instalación</a></li>
+<li><a href="#-observabilidad-y-monitoreo">Observabilidad y Monitoreo</a></li>
+<li><a href="#-arquitectura">Arquitectura</a></li>
+<li><a href="#-documentaci%C3%B3n">Documentación</a></li>
+<li><a href="#-capturas-de-pantalla">Capturas de Pantalla</a></li>
+<li><a href="#-despliegue-en-producci%C3%B3n">Despliegue en Producción</a></li>
+<li><a href="#-cicd-pipeline">CI/CD Pipeline</a></li>
+<li><a href="#-cumplimiento-normativo">Cumplimiento Normativo</a></li>
+<li><a href="#-equipo-de-desarrollo">Equipo de Desarrollo</a></li>
 </ul>
 <hr>
-<h2 id="breve-descripci%C3%B3n">Breve descripción</h2>
-<p>MindCare es una aplicación web diseñada para apoyar a personas que padecen depresión o síntomas relacionados con su estado de ánimo. Su objetivo es proporcionar herramientas digitales que faciliten la autogestión emocional, fomenten el autocuidado y ofrezcan acompañamiento seguro y personalizado.</p>
-<p>La app permite registrar emociones y hábitos diarios, mantener un diario libre seguro y compartible, recibir notificaciones y consejos adaptados a los patrones emocionales del usuario, y acceder a artículos y recursos educativos confiables sobre salud mental. También incluye un botón de emergencia con acceso a líneas de ayuda oficiales.</p>
-<p>MindCare está orientada a jóvenes y adultos en situación de vulnerabilidad económica, geográfica o con acceso limitado a terapia profesional, ofreciendo una solución accesible, educativa y confiable para mejorar su bienestar emocional.</p>
+<h2 id="%E2%9C%A8-caracter%C3%ADsticas-principales">✨ Características Principales</h2>
+<table>
+<tr>
+<td width="50%">
+<h3 id="%F0%9F%A4%96-an%C3%A1lisis-con-grok-ai">🤖 Análisis con Grok AI</h3>
+<p>Integración con <strong>Grok AI (OpenRoute)</strong> para análisis inteligente de patrones emocionales, detección de tendencias y recomendaciones personalizadas basadas en el historial del usuario.</p>
+</td>
+<td width="50%">
+<h3 id="%F0%9F%93%94-diario-seguro-con-protecci%C3%B3n-criptogr%C3%A1fica">📔 Diario Seguro con Protección Criptográfica</h3>
+<p>Diario personal con <strong>sistema de contraseñas por entrada</strong> que permite compartir reflexiones de forma segura. Contraseñas hasheadas con bcrypt (10 salt rounds).</p>
+</td>
+</tr>
+<tr>
+<td width="50%">
+<h3 id="%F0%9F%93%8A-tracking-emocional-basado-en-evidencia">📊 Tracking Emocional Basado en Evidencia</h3>
+<p>Sistema de registros diarios diseñado según <strong>guías clínicas (DSM-5, NICE, APA)</strong>: estado de ánimo, calidad de sueño, niveles de ansiedad, actividades y cogniciones.</p>
+</td>
+<td width="50%">
+<h3 id="%F0%9F%86%98-sistema-de-emergencia-integrado">🆘 Sistema de Emergencia Integrado</h3>
+<p><strong>Botón de pánico</strong> con envío automático de emails a contactos de emergencia. Acceso directo a líneas de ayuda profesional cuando más se necesita.</p>
+</td>
+</tr>
+<tr>
+<td width="50%">
+<h3 id="%F0%9F%94%90-seguridad-enterprise-grade">🔐 Seguridad Enterprise-Grade</h3>
+<p>Autenticación JWT, headers seguros con Helmet, CORS configurado, encriptación bcrypt y validación exhaustiva de inputs en todos los endpoints.</p>
+</td>
+<td width="50%">
+<h3 id="%F0%9F%93%88-observabilidad-avanzada">📈 Observabilidad Avanzada</h3>
+<p><strong>Health checks automatizados</strong>, logging estructurado con Morgan/Winston y endpoints de monitoreo para garantizar disponibilidad 24/7.</p>
+</td>
+</tr>
+</table>
 <h2 id="aplicaci%C3%B3n-desplegada">Aplicación desplegada</h2>
 <p>MindCare está completamente dockerizada y lista para despliegue en producción con CI/CD automatizado.</p>
 <h3 id="despliegue-local-con-docker">Despliegue Local con Docker</h3>
@@ -182,215 +209,711 @@ docker-compose up -d
 <li><code>docs-build.yml</code> - Generación y despliegue de documentación JSDoc</li>
 </ul>
 <p>Ver workflows en: <a href=".github/workflows/"><code>.github/workflows/</code></a></p>
-<h2 id="stack-tecnol%C3%B3gico">Stack tecnológico</h2>
-<p>MindCare ha sido desarrollada utilizando tecnologías modernas y robustas que garantizan escalabilidad, seguridad y una experiencia de usuario óptima. El proyecto está construido sobre una arquitectura de aplicación web full-stack que separa claramente las responsabilidades entre el frontend, backend y la capa de datos.</p>
+<hr>
+<h2 id="%F0%9F%9B%A0%EF%B8%8F-stack-tecnol%C3%B3gico">🛠️ Stack Tecnológico</h2>
 <h3 id="frontend">Frontend</h3>
-<ul>
-<li><strong>React</strong> 18.2.0 - Librería para construir interfaces de usuario</li>
-<li><strong>React Router DOM</strong> 6.20.0 - Navegación y enrutamiento</li>
-<li><strong>Zustand</strong> 5.0.8 - Gestión de estado global</li>
-<li><strong>Axios</strong> 1.6.2 - Cliente HTTP para llamadas a la API</li>
-<li><strong>React Hot Toast</strong> 2.6.0 - Sistema de notificaciones</li>
-<li><strong>CSS3</strong> - Estilos personalizados</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Tecnología</th>
+<th>Versión</th>
+<th>Propósito</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>React</strong></td>
+<td>18.2.0</td>
+<td>UI Library con Hooks y Functional Components</td>
+</tr>
+<tr>
+<td><strong>React Router DOM</strong></td>
+<td>6.20.0</td>
+<td>Client-side Routing y navegación SPA</td>
+</tr>
+<tr>
+<td><strong>Zustand</strong></td>
+<td>5.0.8</td>
+<td>State Management minimalista</td>
+</tr>
+<tr>
+<td><strong>Axios</strong></td>
+<td>1.6.2</td>
+<td>HTTP Client con interceptors</td>
+</tr>
+<tr>
+<td><strong>React Hot Toast</strong></td>
+<td>2.6.0</td>
+<td>Sistema de notificaciones UX</td>
+</tr>
+</tbody>
+</table>
 <h3 id="backend">Backend</h3>
-<ul>
-<li><strong>Node.js</strong> con <strong>Express</strong> 4.16.1 - Framework web</li>
-<li><strong>MongoDB</strong> con <strong>Mongoose</strong> 8.0.3 - Base de datos NoSQL</li>
-<li><strong>JWT</strong> (jsonwebtoken) 9.0.2 - Autenticación y autorización</li>
-<li><strong>bcryptjs</strong> 2.4.3 - Encriptación de contraseñas</li>
-<li><strong>CORS</strong> 2.8.5 - Manejo de peticiones cross-origin</li>
-<li><strong>Helmet</strong> 7.1.0 - Seguridad HTTP</li>
-<li><strong>Nodemailer</strong> 7.0.11 - Envío de correos electrónicos</li>
-<li><strong>dotenv</strong> 17.2.3 - Gestión de variables de entorno</li>
-</ul>
-<h3 id="devops-y-herramientas">DevOps y Herramientas</h3>
-<ul>
-<li><strong>Git</strong> y <strong>GitHub</strong> - Control de versiones</li>
-<li><strong>Docker</strong> y <strong>Docker Compose</strong> - Containerización y orquestación</li>
-<li><strong>GitHub Actions</strong> - CI/CD automatizado</li>
-<li><strong>Docker Hub</strong> - Registro de imágenes Docker</li>
-<li><strong>Nginx</strong> - Servidor web para frontend en producción</li>
-<li><strong>Nodemon</strong> 3.0.2 - Desarrollo con hot-reload</li>
-<li><strong>JSDoc</strong> con <strong>Docdash</strong> - Documentación automática del código con tema personalizado</li>
-<li><strong>Postman</strong> - Testing de API</li>
-</ul>
-<h2 id="capturas-de-pantalla">Capturas de pantalla</h2>
-<p>A continuación se presentan algunas capturas representativas de las principales funcionalidades de MindCare, mostrando la interfaz de usuario y las diferentes secciones de la aplicación.</p>
-<h3 id="p%C3%A1gina-de-inicio">Página de inicio</h3>
-<p>[]</p>
-<h3 id="panel-de-registro-emocional">Panel de registro emocional</h3>
-<p>[]</p>
-<h3 id="diario-personal">Diario personal</h3>
-<p>[]</p>
-<h3 id="dashboard-de-estad%C3%ADsticas">Dashboard de estadísticas</h3>
-<p>[]</p>
-<h2 id="instalaci%C3%B3n-para-desarrollo-local">Instalación para desarrollo local</h2>
-<p>Esta guía detalla los pasos necesarios para configurar y ejecutar MindCare en un entorno de desarrollo local. El proceso incluye la configuración tanto del servidor backend como de la aplicación frontend, así como las variables de entorno requeridas.</p>
-<h3 id="prerrequisitos">Prerrequisitos</h3>
-<ul>
-<li>Node.js (v16 o superior)</li>
-<li>MongoDB (v5 o superior) o una cuenta en MongoDB Atlas</li>
-<li>npm o yarn</li>
-</ul>
-<h3 id="1.-clonar-el-repositorio">1. Clonar el repositorio</h3>
-<pre class="prettyprint source lang-bash"><code>git clone https://github.com/USUARIO/DAW2-Proyecto-Grupo-7.git
-cd DAW2-Proyecto-Grupo-7
+<table>
+<thead>
+<tr>
+<th>Tecnología</th>
+<th>Versión</th>
+<th>Propósito</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Node.js</strong></td>
+<td>18.x</td>
+<td>JavaScript Runtime</td>
+</tr>
+<tr>
+<td><strong>Express</strong></td>
+<td>4.16.1</td>
+<td>Web Framework minimalista</td>
+</tr>
+<tr>
+<td><strong>MongoDB</strong></td>
+<td>7.x+</td>
+<td>Base de datos NoSQL</td>
+</tr>
+<tr>
+<td><strong>Mongoose</strong></td>
+<td>8.0.3</td>
+<td>ODM con validación de esquemas</td>
+</tr>
+<tr>
+<td><strong>JWT</strong></td>
+<td>9.0.2</td>
+<td>Autenticación stateless</td>
+</tr>
+<tr>
+<td><strong>bcryptjs</strong></td>
+<td>2.4.3</td>
+<td>Hashing de contraseñas (10 rounds)</td>
+</tr>
+<tr>
+<td><strong>Helmet</strong></td>
+<td>7.1.0</td>
+<td>Security headers HTTP</td>
+</tr>
+<tr>
+<td><strong>Nodemailer</strong></td>
+<td>7.0.11</td>
+<td>Envío de emails SMTP</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ai-%26-analytics">AI &amp; Analytics</h3>
+<table>
+<thead>
+<tr>
+<th>Tecnología</th>
+<th>Propósito</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Grok AI</strong> (OpenRoute)</td>
+<td>Análisis de patrones emocionales</td>
+</tr>
+<tr>
+<td><strong>Morgan</strong></td>
+<td>HTTP Request logging</td>
+</tr>
+</tbody>
+</table>
+<h3 id="devops-%26-infrastructure">DevOps &amp; Infrastructure</h3>
+<table>
+<thead>
+<tr>
+<th>Tecnología</th>
+<th>Propósito</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Docker</strong> + <strong>Docker Compose</strong></td>
+<td>Containerización multi-servicio</td>
+</tr>
+<tr>
+<td><strong>GitHub Actions</strong></td>
+<td>CI/CD automatizado</td>
+</tr>
+<tr>
+<td><strong>Nginx</strong></td>
+<td>Reverse proxy y static serving</td>
+</tr>
+<tr>
+<td><strong>Render.com</strong></td>
+<td>Cloud hosting de producción</td>
+</tr>
+<tr>
+<td><strong>Docker Hub</strong></td>
+<td>Registry de imágenes</td>
+</tr>
+<tr>
+<td><strong>JSDoc</strong> + <strong>Docdash</strong></td>
+<td>Documentación automática</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="%F0%9F%93%8A-observabilidad-y-monitoreo">📊 Observabilidad y Monitoreo</h2>
+<p>MindCare implementa un sistema de observabilidad para garantizar la fiabilidad del servicio en producción.</p>
+<h3 id="health-check-endpoint">Health Check Endpoint</h3>
+<pre class="prettyprint source lang-bash"><code>GET /api/health
 </code></pre>
-<h3 id="2.-configurar-el-backend">2. Configurar el Backend</h3>
+<pre class="prettyprint source lang-json"><code>{
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;message&quot;: &quot;API is up and running&quot;,
+  &quot;timestamp&quot;: &quot;2026-02-13T10:00:00.000Z&quot;
+}
+</code></pre>
+<h3 id="logging-estructurado">Logging Estructurado</h3>
+<p>El sistema utiliza <strong>Morgan</strong> para logging de requests HTTP:</p>
+<pre class="prettyprint source"><code>GET /api/auth/profile 200 15.234 ms - 256
+POST /api/registro 201 45.123 ms - 512
+GET /api/diario 200 23.456 ms - 1024
+</code></pre>
+<h3 id="docker-health-checks">Docker Health Checks</h3>
+<p>Los contenedores incluyen verificación automática de estado:</p>
+<pre class="prettyprint source lang-yaml"><code>healthcheck:
+  test: [&quot;CMD&quot;, &quot;wget&quot;, &quot;--quiet&quot;, &quot;--tries=1&quot;, &quot;--spider&quot;, &quot;http://localhost:4000/api/health&quot;]
+  interval: 30s
+  timeout: 10s
+  retries: 3
+  start_period: 40s
+</code></pre>
+<h3 id="m%C3%A9tricas-recomendadas-para-producci%C3%B3n">Métricas Recomendadas para Producción</h3>
+<table>
+<thead>
+<tr>
+<th>Herramienta</th>
+<th>Propósito</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Prometheus</strong></td>
+<td>Recolección de métricas</td>
+</tr>
+<tr>
+<td><strong>Grafana</strong></td>
+<td>Dashboards de visualización</td>
+</tr>
+<tr>
+<td><strong>Winston</strong></td>
+<td>Logs estructurados a archivo/servicio</td>
+</tr>
+<tr>
+<td><strong>Sentry</strong></td>
+<td>Error tracking y alertas</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="%F0%9F%8F%97%EF%B8%8F-arquitectura">🏗️ Arquitectura</h2>
+<pre class="prettyprint source"><code>┌─────────────────────────────────────────────────────────────────┐
+│                         CLIENTE                                  │
+│                    (React + Zustand)                            │
+└─────────────────────────────┬───────────────────────────────────┘
+                              │ HTTPS
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                    NGINX (Reverse Proxy)                         │
+│               SSL Termination + Static Files                     │
+└─────────────────────────────┬───────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                      EXPRESS SERVER                              │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │                   MIDDLEWARE STACK                       │   │
+│  │  Helmet → CORS → Morgan → JSON Parser → Cookie Parser   │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                              │                                   │
+│  ┌───────────────────────────┼───────────────────────────────┐ │
+│  │                      ROUTES                               │ │
+│  │  /auth  /diario  /registro  /formulario  /contactos  /ai │ │
+│  └───────────────────────────┼───────────────────────────────┘ │
+│                              │                                   │
+│  ┌───────────────────────────┼───────────────────────────────┐ │
+│  │              AUTH MIDDLEWARE (JWT)                        │ │
+│  └───────────────────────────┼───────────────────────────────┘ │
+│                              │                                   │
+│  ┌───────────────────────────┼───────────────────────────────┐ │
+│  │                   CONTROLLERS                             │ │
+│  └───────────────────────────┼───────────────────────────────┘ │
+└──────────────────────────────┼──────────────────────────────────┘
+                               │
+              ┌────────────────┼────────────────┐
+              ▼                ▼                ▼
+┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐
+│    MONGODB      │  │    GROK AI      │  │     SMTP        │
+│   (Mongoose)    │  │  (OpenRoute)    │  │  (Nodemailer)   │
+└─────────────────┘  └─────────────────┘  └─────────────────┘
+</code></pre>
+<h3 id="modelos-de-datos">Modelos de Datos</h3>
+<table>
+<thead>
+<tr>
+<th>Modelo</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>User</code></td>
+<td>Usuarios con autenticación y preferencias</td>
+</tr>
+<tr>
+<td><code>Diario</code></td>
+<td>Entradas del diario con protección opcional</td>
+</tr>
+<tr>
+<td><code>Registro</code></td>
+<td>Registros emocionales diarios estructurados</td>
+</tr>
+<tr>
+<td><code>FormularioInicial</code></td>
+<td>Configuración personalizada del usuario</td>
+</tr>
+<tr>
+<td><code>ContactoEmergencia</code></td>
+<td>Contactos para el sistema de emergencia</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="%F0%9F%93%B8-capturas-de-pantalla">📸 Capturas de Pantalla</h2>
+<h3 id="%F0%9F%8F%A0-landing-page">🏠 Landing Page</h3>
+<blockquote>
+<p><em>Hero section con propuesta de valor, call-to-action hacia registro. Diseño responsive con paleta calmante (azules/verdes) que transmite serenidad y confianza.</em></p>
+</blockquote>
+<p><code>[Captura pendiente]</code></p>
+<h3 id="%F0%9F%93%8A-dashboard-de-emociones">📊 Dashboard de Emociones</h3>
+<blockquote>
+<p><em>Vista principal mostrando estado emocional actual, gráfico de tendencias de 7 días, acceso rápido al diario y botón de emergencia siempre visible.</em></p>
+</blockquote>
+<p><code>[Captura pendiente]</code></p>
+<h3 id="%F0%9F%93%9D-registro-emocional-diario">📝 Registro Emocional Diario</h3>
+<blockquote>
+<p><em>Formulario interactivo con sliders para estado de ánimo (1-10), calidad de sueño, niveles de ansiedad, selector de actividades y campo de cogniciones.</em></p>
+</blockquote>
+<p><code>[Captura pendiente]</code></p>
+<h3 id="%F0%9F%93%94-diario-personal-seguro">📔 Diario Personal Seguro</h3>
+<blockquote>
+<p><em>Editor de entradas con opción de protección por contraseña. Listado de entradas con indicador visual de protegidas vs públicas.</em></p>
+</blockquote>
+<p><code>[Captura pendiente]</code></p>
+<h3 id="%F0%9F%86%98-sistema-de-emergencia">🆘 Sistema de Emergencia</h3>
+<blockquote>
+<p><em>Panel de gestión de contactos con campos para nombre, teléfono, email y relación. Botón de alerta con confirmación y acceso a líneas de ayuda.</em></p>
+</blockquote>
+<p><code>[Captura pendiente]</code></p>
+<h3 id="%F0%9F%93%88-an%C3%A1lisis-con-ia">📈 Análisis con IA</h3>
+<blockquote>
+<p><em>Visualización de insights de Grok AI: patrones detectados, correlaciones sueño/ánimo, recomendaciones personalizadas basadas en historial.</em></p>
+</blockquote>
+<p><code>[Captura pendiente]</code></p>
+<hr>
+<h2 id="%F0%9F%9A%80-instalaci%C3%B3n">🚀 Instalación</h2>
+<h3 id="%F0%9F%90%B3-the-fast-way-(docker-compose)">🐳 The Fast Way (Docker Compose)</h3>
+<blockquote>
+<p><strong>Ideal para:</strong> Demos, testing de integración, evaluación rápida</p>
+</blockquote>
+<pre class="prettyprint source lang-bash"><code># 1. Clonar el repositorio
+git clone https://github.com/AdrianDiaz24/DAW2-Proyecto-Grupo-7.git
+cd DAW2-Proyecto-Grupo-7
+
+# 2. Configurar variables de entorno
+cp .env.docker.example .env
+# Editar .env con tus credenciales de MongoDB Atlas
+
+# 3. Levantar toda la infraestructura
+docker-compose up -d
+
+# 4. Verificar servicios
+docker-compose ps
+
+# 5. ¡Listo!
+# Frontend: http://localhost:3000
+# Backend:  http://localhost:4000/api
+# Health:   http://localhost:4000/api/health
+</code></pre>
+<pre class="prettyprint source lang-bash"><code># Detener servicios
+docker-compose down
+</code></pre>
+<hr>
+<h3 id="%F0%9F%9B%A0%EF%B8%8F-the-developer-way-(setup-manual)">🛠️ The Developer Way (Setup Manual)</h3>
+<blockquote>
+<p><strong>Ideal para:</strong> Desarrollo activo, debugging, contribuciones al código</p>
+</blockquote>
+<h4 id="prerrequisitos">Prerrequisitos</h4>
+<ul>
+<li><strong>Node.js</strong> 18.x+ (<a href="https://nodejs.org/">Descargar</a>)</li>
+<li><strong>MongoDB</strong> 7.x local o <a href="https://www.mongodb.com/atlas">MongoDB Atlas</a></li>
+<li><strong>npm</strong> o <strong>yarn</strong></li>
+</ul>
+<h4 id="backend-setup">Backend Setup</h4>
 <pre class="prettyprint source lang-bash"><code>cd backend
 npm install
 </code></pre>
-<p>Crear un archivo <code>.env</code> en la carpeta <code>backend</code> con las siguientes variables:</p>
-<pre class="prettyprint source lang-env"><code>PORT=5000
-MONGODB_URI=mongodb://localhost:27017/mindcare
-JWT_SECRET=tu_clave_secreta_muy_segura
-JWT_EXPIRES_IN=7d
+<p>Crear archivo <code>.env</code>:</p>
+<pre class="prettyprint source lang-env"><code># Server
+PORT=4000
 NODE_ENV=development
+
+# Database
+MONGODB_URI=mongodb://localhost:27017/mindcare
+
+# Auth
+JWT_SECRET=tu_clave_secreta_muy_segura_de_32_caracteres
+JWT_EXPIRES_IN=1h
+
+# CORS
 FRONTEND_URL=http://localhost:3000
-EMAIL_HOST=smtp.example.com
-EMAIL_PORT=587
-EMAIL_USER=tu_email@example.com
-EMAIL_PASS=tu_password
+
+# Email (Sistema de Emergencia)
+EMAIL_USER=tu_email@gmail.com
+EMAIL_PASS=tu_app_password
+
+# AI (Opcional)
+OPENROUTE_API_KEY=tu_api_key
 </code></pre>
-<p>Iniciar el servidor backend:</p>
 <pre class="prettyprint source lang-bash"><code>npm run dev
+# ✅ Backend corriendo en http://localhost:4000
 </code></pre>
-<p>El backend estará disponible en <code>http://localhost:5000</code></p>
-<h3 id="3.-configurar-el-frontend">3. Configurar el Frontend</h3>
-<p>Abrir una nueva terminal:</p>
+<h4 id="frontend-setup">Frontend Setup</h4>
 <pre class="prettyprint source lang-bash"><code>cd frontend
 npm install
 </code></pre>
-<p>Crear un archivo <code>.env</code> en la carpeta <code>frontend</code> con:</p>
+<p>Crear archivo <code>.env</code>:</p>
 <pre class="prettyprint source lang-env"><code>REACT_APP_API_URL=http://localhost:4000
 </code></pre>
 <blockquote>
-<p><strong>Nota importante:</strong> La variable <code>REACT_APP_API_URL</code> debe apuntar a la URL base del backend <strong>sin</strong> incluir <code>/api</code>, ya que los endpoints en el código ya lo incluyen automáticamente.</p>
+<p>⚠️ <strong>Importante:</strong> <code>REACT_APP_API_URL</code> debe apuntar a la URL base <strong>sin</strong> <code>/api</code></p>
 </blockquote>
-<p>Iniciar el servidor de desarrollo:</p>
 <pre class="prettyprint source lang-bash"><code>npm start
+# ✅ Frontend corriendo en http://localhost:3000
 </code></pre>
-<p>El frontend estará disponible en <code>http://localhost:3000</code></p>
-<h3 id="4.-acceder-a-la-aplicaci%C3%B3n">4. Acceder a la aplicación</h3>
-<p>Una vez ambos servidores estén corriendo, abre tu navegador en:</p>
+<h4 id="verificar-instalaci%C3%B3n">Verificar Instalación</h4>
+<pre class="prettyprint source lang-bash"><code># Health check del backend
+curl http://localhost:4000/api/health
+# Respuesta: {&quot;status&quot;:&quot;ok&quot;,&quot;message&quot;:&quot;API is up and running&quot;,...}
+</code></pre>
+<hr>
+<h2 id="%F0%9F%93%9A-documentaci%C3%B3n">📚 Documentación</h2>
+<h3 id="%F0%9F%93%8A-documentation-roadmap">📊 Documentation Roadmap</h3>
+<h4 id="%F0%9F%93%8B-business-%26-planning">📋 Business &amp; Planning</h4>
+<table>
+<thead>
+<tr>
+<th>Fase</th>
+<th>Documento</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="docs/problema.md">Definición del Problema</a></td>
+<td>User personas, evidencia de investigación, propuesta de valor</td>
+</tr>
+<tr>
+<td>1</td>
+<td><a href="docs/analisis-competencias.md">Análisis de Competencias</a></td>
+<td>Estudio de 5 competidores, USP diferenciador</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="docs/viabilidad-tecnica.md">Viabilidad Técnica</a></td>
+<td>Stack justificado, riesgos técnicos, arquitectura</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="docs/objetivos-alcance.md">Objetivos y Alcance</a></td>
+<td>MVP, objetivos SMART, criterios de éxito</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="docs/recursos.md">Recursos Necesarios</a></td>
+<td>Roles, herramientas, servicios externos</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="docs/estructura-organizativa.md">Estructura Organizativa</a></td>
+<td>Organigrama MindTracker Solutions S.L.</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="docs/financiacion.md">Financiación</a></td>
+<td>Plan financiero, proyección de ingresos</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="docs/presupuesto.md">Presupuesto</a></td>
+<td>Costes detallados, Planning Poker, 432h desarrollo</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="docs/legislacion.md">Legislación</a></td>
+<td>RGPD, LOPD, cookies, accesibilidad</td>
+</tr>
+</tbody>
+</table>
+<h4 id="%F0%9F%94%A7-technical-deep-dive">🔧 Technical Deep-Dive</h4>
+<table>
+<thead>
+<tr>
+<th>Categoría</th>
+<th>Documento</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Arquitectura</strong></td>
+<td><a href="backend/README.md">Backend README</a></td>
+<td>Single Source of Truth del backend</td>
+</tr>
+<tr>
+<td><strong>API</strong></td>
+<td><a href="backend/docs/API_REFERENCE.md">API Reference</a></td>
+<td>Especificación completa de endpoints</td>
+</tr>
+<tr>
+<td><strong>Seguridad</strong></td>
+<td><a href="backend/docs/arquitectura-auth.md">Arquitectura Auth</a></td>
+<td>Flujos JWT, mejores prácticas</td>
+</tr>
+<tr>
+<td><strong>Desarrollo</strong></td>
+<td><a href="backend/docs/auth-middleware-guide.md">Middleware Guide</a></td>
+<td>Guía técnica authMiddleware</td>
+</tr>
+<tr>
+<td><strong>Networking</strong></td>
+<td><a href="docs/cors-configuration.md">Configuración CORS</a></td>
+<td>Setup, testing, troubleshooting</td>
+</tr>
+<tr>
+<td><strong>Testing</strong></td>
+<td><a href="docs/postman-guide.md">Guía de Postman</a></td>
+<td>Colección y flujos de prueba</td>
+</tr>
+<tr>
+<td><strong>DevOps</strong></td>
+<td><a href="docs/despliegue.md">Despliegue</a></td>
+<td>Docker, CI/CD, Render</td>
+</tr>
+</tbody>
+</table>
+<h4 id="%F0%9F%93%85-sprint-documentation">📅 Sprint Documentation</h4>
+<table>
+<thead>
+<tr>
+<th>Documento</th>
+<th>Contenido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="docs/planificacion-sprints.md">Planificación de Sprints</a></td>
+<td>6 sprints con fechas y objetivos</td>
+</tr>
+<tr>
+<td><a href="docs/entregables-sprints.md">Entregables por Sprint</a></td>
+<td>Funcionalidades por iteración</td>
+</tr>
+<tr>
+<td><a href="docs/investigaci%C3%B3n-tracker.md">Investigación Tracker</a></td>
+<td>Sistema de seguimiento emocional (DSM-5)</td>
+</tr>
+<tr>
+<td><a href="docs/formulario-inicial.md">Formulario Inicial</a></td>
+<td>Diseño basado en Behavioral Activation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="%F0%9F%94%97-recursos-externos">🔗 Recursos Externos</h3>
+<table>
+<thead>
+<tr>
+<th>Recurso</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><a href="https://adriandiaz24.github.io/DAW2-Proyecto-Grupo-7/">📖 GitHub Pages</a></strong></td>
+<td>Documentación JSDoc autogenerada</td>
+</tr>
+<tr>
+<td><strong><a href="https://github.com/AdrianDiaz24/DAW2-Proyecto-Grupo-7/wiki">📋 Wiki del Proyecto</a></strong></td>
+<td>SCRUM, actas, guías</td>
+</tr>
+<tr>
+<td><strong><a href="https://deepwiki.com/AdrianDiaz24/DAW2-Proyecto-Grupo-7">🌍 DeepWiki</a></strong></td>
+<td>Versión multiidioma</td>
+</tr>
+<tr>
+<td><strong><a href="docs/optativa/README.md">📦 Módulo Optativa</a></strong></td>
+<td>Cumplimiento de requisitos</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>📥 PDFs:</strong> Disponibles en <a href="https://github.com/AdrianDiaz24/DAW2-Proyecto-Grupo-7/actions">Actions → Artifacts</a> del repositorio.</p>
+</blockquote>
+<hr>
+<h2 id="%F0%9F%9A%A2-despliegue-en-producci%C3%B3n">🚢 Despliegue en Producción</h2>
+<h3 id="url-de-producci%C3%B3n-1">URL de Producción</h3>
+<p>🌐 <strong><a href="https://mindcare-frontend.onrender.com">https://mindcare-frontend.onrender.com</a></strong></p>
+<h3 id="im%C3%A1genes-docker">Imágenes Docker</h3>
+<p>Las imágenes se publican automáticamente con cada push a <code>main</code>:</p>
+<pre class="prettyprint source lang-bash"><code># Backend
+docker pull [dockerhub-username]/mindcare-backend:latest
+
+# Frontend  
+docker pull [dockerhub-username]/mindcare-frontend:latest
+</code></pre>
+<h3 id="desplegar-tu-propia-instancia-1">Desplegar tu Propia Instancia</h3>
+<p><strong>Opción recomendada: Render.com</strong></p>
 <ul>
-<li><strong>Frontend:</strong> http://localhost:3000</li>
-<li><strong>Backend API:</strong> http://localhost:4000/api</li>
-</ul>
-<h2 id="documentaci%C3%B3n">Documentación</h2>
-<p>El proyecto MindCare cuenta con documentación completa y detallada que abarca desde aspectos técnicos de implementación hasta la planificación y gestión del proyecto. Esta documentación está organizada en dos categorías principales para facilitar su consulta.</p>
-<h3 id="documentaci%C3%B3n-t%C3%A9cnica">Documentación técnica</h3>
-<p>Esta sección incluye la documentación relacionada con la implementación técnica, APIs, configuraciones y recursos para desarrolladores.</p>
-<ul>
-<li><strong><a href="https://adriandiaz24.github.io/DAW2-Proyecto-Grupo-7/">GitHub Pages</a></strong> - Documentación técnica completa generada automáticamente con JSDoc. Incluye especificación detallada de todas las funciones, clases, componentes y módulos del código fuente (backend y frontend). La documentación se actualiza automáticamente con cada push a <code>main</code> mediante GitHub Actions y está disponible en formato HTML navegable con búsqueda integrada.</li>
+<li>✅ Tier gratuito (750h/mes)</li>
+<li>✅ HTTPS automático</li>
+<li>✅ Deploy desde Docker Hub</li>
+<li>✅ Variables de entorno seguras</li>
 </ul>
 <blockquote>
-<p><strong>Descarga en PDF:</strong> Los PDFs de la documentación JSDoc se generan automáticamente y están disponibles en la sección de <a href="https://github.com/AdrianDiaz24/DAW2-Proyecto-Grupo-7/actions"><strong>Actions → Artifacts</strong></a> del repositorio. Busca el workflow más reciente de &quot;Generador de Documentación JSDoc&quot; y descarga el artifact <code>jsdoc-pdfs</code>.</p>
+<p>📖 <strong>Guía completa:</strong> <a href="docs/despliegue.md">docs/despliegue.md</a></p>
 </blockquote>
-<ul>
-<li><strong><a href="docs/optativa/api-documentation.md">Documentación de la API</a></strong> - Especificación completa de los endpoints de la API REST, incluyendo métodos HTTP, parámetros, respuestas y ejemplos de uso.</li>
-<li><strong><a href="docs/cors-configuration.md">Configuración CORS</a></strong> - Guía detallada sobre la configuración de Cross-Origin Resource Sharing implementada en el backend, incluyendo setup, testing y troubleshooting.</li>
-<li><strong><a href="docs/postman-guide.md">Testing con Postman</a></strong> - Guía completa para importar y utilizar la colección de Postman (ubicada en <code>backend/postman/</code>), incluyendo setup de entorno, estructura de endpoints, flujos de testing y validación de respuestas.</li>
-<li><strong><a href="backend/README.md#-arquitectura">Arquitectura del Backend</a></strong> - Documentación técnica sobre la arquitectura del sistema de autenticación y guías de uso del middleware.</li>
-</ul>
-<h3 id="documentaci%C3%B3n-de-gesti%C3%B3n-del-proyecto">Documentación de gestión del proyecto</h3>
-<p>Documentación relacionada con la planificación, análisis, viabilidad y recursos del proyecto MindCare, organizada por fases de desarrollo.</p>
-<ul>
-<li><strong><a href="docs/problema.md">Definición del problema</a></strong> - Fase 1 del proyecto que incluye la descripción detallada del problema identificado, evidencias de investigación, definición de user personas, análisis de competencia y propuesta de valor fundamentada en necesidades reales de salud mental.</li>
-<li><strong><a href="docs/investigaci%C3%B3n-tracker.md">Investigación y tracker</a></strong> - Especificación técnica del sistema de seguimiento diario que monitoriza estado de ánimo, sueño, actividades, cogniciones y otros aspectos clave basados en guías clínicas (DSM-5, NICE, APA) para el acompañamiento en procesos de recuperación de la depresión.</li>
-<li><strong><a href="docs/formulario-inicial.md">Formulario inicial</a></strong> - Diseño de los formularios de registro inicial que identifican factores detonantes de episodios depresivos y actividades placenteras del usuario, permitiendo personalizar el seguimiento y las recomendaciones basadas en Behavioral Activation.</li>
-<li><strong><a href="docs/viabilidad-tecnica.md">Viabilidad técnica</a></strong> - Fase 2 del proyecto con requisitos funcionales priorizados, justificación del stack MERN, esquema de base de datos, arquitectura de la aplicación, evaluación de capacidades del equipo y análisis de riesgos técnicos con estrategias de mitigación.</li>
-<li><strong><a href="docs/objetivos-alcance.md">Objetivos y alcance</a></strong> - Fase 3 que define objetivos SMART del proyecto, delimita el MVP (Minimum Viable Product), establece qué se incluye y excluye del alcance, y detalla los criterios de éxito medibles y alcanzables.</li>
-<li><strong><a href="docs/recursos.md">Recursos necesarios</a></strong> - Fase 4 de planificación que detalla la distribución de roles y responsabilidades del equipo, el stack tecnológico completo, servicios externos y APIs a utilizar, y herramientas de desarrollo y gestión del proyecto.</li>
-<li><strong><a href="docs/analisis-competencias.md">Análisis de competencias</a></strong> - Estudio comparativo detallado de 5 competidores principales (Moodfit, Daylio, Woebot, Headspace, Yana) identificando sus fortalezas, debilidades y oportunidades de diferenciación, destacando el diario compartido seguro y sistema de emergencia como USP.</li>
-<li><strong><a href="docs/estructura-organizativa.md">Estructura organizativa</a></strong> - Definición de la estructura empresarial de MindTracker Solutions S.L. como startup HealthTech, incluyendo departamentos (C-Level, Tecnología, Marketing, Legal), funciones clave, comité ético-científico y escalabilidad mediante estructura funcional horizontal.</li>
-<li><strong><a href="docs/financiacion.md">Financiación</a></strong> - Plan completo de financiación con análisis de costes iniciales de desarrollo (14,118€), infraestructura, marketing, capital de trabajo, fuentes de financiación analizadas, proyección de ingresos y plan de contingencia para la sostenibilidad del proyecto.</li>
-<li><strong><a href="docs/presupuesto.md">Presupuesto</a></strong> - Presupuesto económico detallado del proyecto desarrollado en 6 sprints (7 nov - 10 dic 2025), utilizando metodología Planning Poker, comparación entre estimación y realidad con 432 horas de desarrollo registradas en Toggl Track, y análisis de desviaciones.</li>
-<li><strong><a href="docs/planificacion-sprints.md">Planificación de Sprints</a></strong> - Documentación completa de los 6 sprints del proyecto con fechas, objetivos específicos, tareas planificadas, estimaciones de esfuerzo y tabla resumen de cada sprint con sus entregables esperados.</li>
-<li><strong><a href="docs/entregables-sprints.md">Entregables por Sprint</a></strong> - Documentación detallada de los entregables reales de cada sprint, incluyendo funcionalidades implementadas, issues completados, evidencias de progreso y lecciones aprendidas en cada iteración.</li>
-<li><strong><a href="docs/legislacion.md">Legislación</a></strong> - Marco legal aplicable al proyecto MindCare, incluyendo cumplimiento de RGPD, protección de datos de salud, consentimiento informado, términos de servicio, responsabilidad limitada y normativa de apps de salud digital en España y Europa.</li>
-<li><strong><a href="docs/despliegue.md">Despliegue</a></strong> - Documentación técnica completa del despliegue de la aplicación, incluyendo arquitectura, configuración de Docker, pipeline CI/CD con GitHub Actions, guía de despliegue en Render, variables de entorno, buenas prácticas y troubleshooting.</li>
-</ul>
-<h2 id="wiki-del-proyecto">Wiki del proyecto</h2>
-<p>El proyecto MindCare cuenta con documentación completa en dos wikis complementarias:</p>
-<h3 id="wiki-de-github-(principal)">Wiki de GitHub (Principal)</h3>
-<p>Documentación oficial del proyecto con metodología SCRUM, planificación de sprints, actas de reuniones y guías técnicas completas.</p>
-<p><strong>Acceso a la wiki:</strong> <a href="https://github.com/AdrianDiaz24/DAW2-Proyecto-Grupo-7/wiki">https://github.com/AdrianDiaz24/DAW2-Proyecto-Grupo-7/wiki</a></p>
-<p><strong>Contenido incluido:</strong></p>
-<ul>
-<li><strong>Metodología SCRUM:</strong> Implementación de SCRUM en el proyecto con roles rotativos por sprint</li>
-<li><strong>Planificación de Sprints:</strong> Tabla completa de los 6 sprints con fechas, objetivos y entregables</li>
-<li><strong>Actas de Reuniones:</strong> Daily Scrums, Sprint Reviews y Sprint Retrospectives documentadas</li>
-<li><strong>Gestión de Recursos:</strong> Asignación de tareas y gestión de tiempos del equipo</li>
-<li><strong>Guías Técnicas:</strong> Arquitectura, API Reference, instalación, testing y contribución</li>
-<li><strong>Documentación de Usuario:</strong> Manual de usuario y guía de instalación</li>
-</ul>
-<h3 id="deepwiki-(versi%C3%B3n-multiidioma)">DeepWiki (Versión Multiidioma)</h3>
-<p>Wiki complementaria con versión en inglés del proyecto para facilitar la colaboración internacional y mostrar el uso de herramientas de documentación avanzadas.</p>
-<p><strong>Acceso a DeepWiki:</strong> <a href="https://deepwiki.com/AdrianDiaz24/DAW2-Proyecto-Grupo-7">https://deepwiki.com/AdrianDiaz24/DAW2-Proyecto-Grupo-7</a></p>
-<h2 id="observabilidad-y-monitoreo">Observabilidad y Monitoreo</h2>
-<p>MindCare incluye infraestructura completa de observabilidad para monitoreo en producción:</p>
-<h3 id="%F0%9F%93%8A-m%C3%A9tricas-con-prometheus">📊 Métricas con Prometheus</h3>
-<ul>
-<li>Duración de peticiones HTTP</li>
-<li>Tasa de errores y éxito</li>
-<li>Intentos de autenticación</li>
-<li>Operaciones de base de datos MongoDB</li>
-</ul>
-<h3 id="%F0%9F%93%9D-logging-estructurado">📝 Logging Estructurado</h3>
-<ul>
-<li>Morgan para logs HTTP</li>
-<li>Winston con rotación diaria de logs</li>
-<li>Logs separados para errores</li>
-<li>Soporte para desarrollo y producción</li>
-</ul>
-<h3 id="%F0%9F%93%88-visualizaci%C3%B3n-con-grafana-(opcional)">📈 Visualización con Grafana (Opcional)</h3>
-<ul>
-<li>Dashboards personalizados</li>
-<li>Alertas configurables</li>
-<li>Integración con Prometheus</li>
-</ul>
-<p><strong>Documentación completa:</strong> <a href="docs/observabilidad.md">docs/observabilidad.md</a></p>
-<p><strong>Acceso a métricas:</strong></p>
-<pre class="prettyprint source lang-bash"><code>curl http://localhost:5000/api/metrics  # Formato Prometheus
+<hr>
+<h2 id="%F0%9F%94%84-ci%2Fcd-pipeline">🔄 CI/CD Pipeline</h2>
+<pre class="prettyprint source"><code>┌─────────────┐     ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+│   Commit    │────▶│   GitHub    │────▶│   Docker    │────▶│   Render    │
+│   to main   │     │   Actions   │     │    Hub      │     │   Deploy    │
+└─────────────┘     └─────────────┘     └─────────────┘     └─────────────┘
+                           │
+                           ├──▶ Build & Test
+                           ├──▶ Docker Build & Push
+                           ├──▶ JSDoc Generation
+                           └──▶ GitHub Pages Deploy
 </code></pre>
-<h2 id="versionado-y-releases">Versionado y Releases</h2>
-<p>El proyecto sigue <strong>Semantic Versioning 2.0.0</strong> con proceso automatizado de releases.</p>
-<h3 id="crear-un-release">Crear un Release</h3>
-<pre class="prettyprint source lang-bash"><code>./scripts/release.sh minor    # Crea v1.1.0 → v1.2.0
-./scripts/release.sh patch    # Crea v1.0.0 → v1.0.1
-./scripts/release.sh major    # Crea v1.0.0 → v2.0.0
-</code></pre>
-<p>El script automáticamente:</p>
+<h3 id="workflows-activos">Workflows Activos</h3>
+<table>
+<thead>
+<tr>
+<th>Workflow</th>
+<th>Trigger</th>
+<th>Acción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>docker-build.yml</code></td>
+<td>Push a <code>main</code>/<code>dev</code></td>
+<td>Build + Push a Docker Hub</td>
+</tr>
+<tr>
+<td><code>docs-build.yml</code></td>
+<td>Push a <code>main</code></td>
+<td>JSDoc + Deploy a GitHub Pages</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>📁 Ver configuración: <a href=".github/workflows/"><code>.github/workflows/</code></a></p>
+</blockquote>
+<hr>
+<h2 id="%E2%9A%96%EF%B8%8F-cumplimiento-normativo">⚖️ Cumplimiento Normativo</h2>
+<p>MindCare está diseñado para cumplir con las normativas de protección de datos aplicables en España y la Unión Europea.</p>
+<table>
+<thead>
+<tr>
+<th>Normativa</th>
+<th>Estado</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RGPD</strong></td>
+<td>✅ Implementado</td>
+<td>Consentimiento explícito, derechos ARCO+PO</td>
+</tr>
+<tr>
+<td><strong>LOPD-GDD</strong></td>
+<td>✅ Implementado</td>
+<td>Ley Orgánica 3/2018 de protección de datos</td>
+</tr>
+<tr>
+<td><strong>Cookies</strong></td>
+<td>✅ Implementado</td>
+<td>Banner de consentimiento informado</td>
+</tr>
+<tr>
+<td><strong>WCAG 2.1</strong></td>
+<td>🔄 En progreso</td>
+<td>Accesibilidad web</td>
+</tr>
+</tbody>
+</table>
+<h3 id="medidas-t%C3%A9cnicas-implementadas">Medidas Técnicas Implementadas</h3>
 <ul>
-<li>✅ Actualiza versión en package.json</li>
-<li>✅ Crea entrada en CHANGELOG.md</li>
-<li>✅ Realiza commit y Git tag</li>
-<li>✅ Requiere: <code>git push origin v1.0.0</code></li>
+<li>✅ <strong>Consentimiento explícito</strong> en registro (checkbox obligatorio)</li>
+<li>✅ <strong>Derecho al olvido</strong> - Eliminación completa de datos de usuario</li>
+<li>✅ <strong>Portabilidad</strong> - Exportación de datos en formato legible</li>
+<li>✅ <strong>Encriptación</strong> - Contraseñas con bcrypt, conexiones HTTPS</li>
+<li>✅ <strong>Minimización de datos</strong> - Solo se recopilan datos necesarios</li>
 </ul>
-<p><strong>Documentación completa:</strong> <a href="docs/versionado-y-releases.md">docs/versionado-y-releases.md</a></p>
-<p><strong>Ver historial de cambios:</strong> <a href="CHANGELOG.md">CHANGELOG.md</a></p>
-<h2 id="equipo-de-desarrollo">Equipo de desarrollo</h2>
-<p>MindCare ha sido desarrollado por un equipo multidisciplinar de profesionales especializados en diferentes áreas del desarrollo web. Cada miembro del equipo aporta su experiencia y conocimientos en su área de especialización para garantizar un producto de calidad.</p>
-<h3 id="adri%C3%A1n-d%C3%ADaz-angulo">Adrián Díaz Angulo</h3>
-<ul>
-<li><strong>GitHub:</strong> <a href="https://github.com/AdrianDiaz24">@AdrianDiaz24</a></li>
-<li><strong>Rol:</strong> Backend Lead</li>
-<li><strong>Responsabilidades:</strong> Diseño e implementación del servidor, API REST, autenticación y seguridad, integración de funcionalidades del MVP</li>
-</ul>
-<h3 id="roc%C3%ADo-luque-montes">Rocío Luque Montes</h3>
-<ul>
-<li><strong>GitHub:</strong> <a href="https://github.com/Lmrocio">@Lmrocio</a></li>
-<li><strong>Rol:</strong> Frontend Lead</li>
-<li><strong>Responsabilidades:</strong> Diseño e implementación de la interfaz y experiencia de usuario, desarrollo de vistas principales en React, integración con la API, accesibilidad y coherencia visual</li>
-</ul>
-<h3 id="jos%C3%A9-antonio-d%C3%ADaz-busati">José Antonio Díaz Busati</h3>
-<ul>
-<li><strong>GitHub:</strong> <a href="https://github.com/JoseAntonioDiazBusati">@JoseAntonioDiazBusati</a></li>
-<li><strong>Rol:</strong> Database Manager</li>
-<li><strong>Responsabilidades:</strong> Diseño del modelo de datos en MongoDB, gestión de la persistencia de información, soporte en integración con el backend</li>
-</ul></article>
+<blockquote>
+<p>📖 <strong>Documentación completa:</strong> <a href="docs/legislacion.md">docs/legislacion.md</a></p>
+</blockquote>
+<hr>
+<h2 id="%F0%9F%91%A5-equipo-de-desarrollo">👥 Equipo de Desarrollo</h2>
+<p>MindCare ha sido desarrollado por un equipo de estudiantes de <strong>DAW2</strong> comprometidos con crear tecnología de impacto social positivo.</p>
+<table>
+<tr>
+<td align="center" width="33%">
+<a href="https://github.com/AdrianDiaz24">
+<strong>Adrián Díaz Angulo</strong>
+</a>
+<br/>
+<sub>🔧 Backend Lead</sub>
+<br/>
+<sub>API REST · Auth · DevOps</sub>
+</td>
+<td align="center" width="33%">
+<a href="https://github.com/Lmrocio">
+<strong>Rocío Luque Montes</strong>
+</a>
+<br/>
+<sub>🎨 Frontend Lead</sub>
+<br/>
+<sub>UI/UX · React · Accesibilidad</sub>
+</td>
+<td align="center" width="33%">
+<a href="https://github.com/JoseAntonioDiazBusati">
+<strong>José Antonio Díaz Busati</strong>
+</a>
+<br/>
+<sub>🗄️ Database Manager</sub>
+<br/>
+<sub>MongoDB · Persistencia</sub>
+</td>
+</tr>
+</table>
+<hr>
+<h2 id="%F0%9F%93%84-licencia">📄 Licencia</h2>
+<p>Este proyecto está licenciado bajo la <strong>MIT License</strong> - ver el archivo <a href="LICENSE">LICENSE</a> para más detalles.</p>
+<hr>
+<div align="center">
+<h3 id="%F0%9F%92%99-mindcare">💙 MindCare</h3>
+<p><strong>Tecnología al servicio del bienestar emocional</strong></p>
+<p><em>Porque cuidar la mente también es cuidar la vida.</em></p>
+<br/>
+<p><a href="https://github.com/AdrianDiaz24/DAW2-Proyecto-Grupo-7"><img src="https://img.shields.io/github/stars/AdrianDiaz24/DAW2-Proyecto-Grupo-7?style=social" alt="GitHub Stars"></a>
+<a href="https://github.com/AdrianDiaz24/DAW2-Proyecto-Grupo-7/fork"><img src="https://img.shields.io/github/forks/AdrianDiaz24/DAW2-Proyecto-Grupo-7?style=social" alt="GitHub Forks"></a></p>
+</div></article>
     </section>
 
 
@@ -7589,7 +8112,7 @@ npm install
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a> on Fri Feb 13 2026 08:34:16 GMT+0000 (Coordinated Universal Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a> on Fri Feb 13 2026 08:42:37 GMT+0000 (Coordinated Universal Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
