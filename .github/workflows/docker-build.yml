@@ -87,3 +87,11 @@ jobs:
           echo "🔹 Frontend: ${{ secrets.DOCKER_USERNAME }}/mindcare-frontend:latest"
           echo "🔹 Frontend: ${{ secrets.DOCKER_USERNAME }}/mindcare-frontend:v${VERSION}"
           echo "🔹 Frontend: ${{ secrets.DOCKER_USERNAME }}/mindcare-frontend:${BRANCH}"
+
+      # --- NUEVO PASO AÑADIDO ---
+      - name: Avisar a Render para desplegar
+        if: github.event_name != 'pull_request' && success()
+        run: |
+          echo "🚀 Enviando señal de despliegue a Render..."
+          curl "${{ secrets.RENDER_DEPLOY_HOOK }}"
+          echo "✅ Señal enviada."

@@ -8,6 +8,7 @@
  * @requires morgan
  * @requires cors
  * @requires helmet
+ * @requires observability.service - Servicio de monitoreo y logging
  */
 
 var createError = require('http-errors');
@@ -17,6 +18,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
 var helmet = require('helmet');
+const { metricsMiddleware, getMetrics } = require('./services/observability.service');
 
 var app = express();
 
@@ -26,6 +28,7 @@ app.set('view engine', 'pug');
 
 app.use(logger('dev'));
 app.use(helmet());
+app.use(metricsMiddleware);
 
 /**
  * @name CORS_Configuration
@@ -62,6 +65,17 @@ app.use('/api/diario', diarioRouter);
 app.use('/api/health', healthRouter);
 app.use('/api', iaRoutes);
 app.use('/api/contactos-emergencia', contactoEmergenciaRouter);
+
+/**
+ * @name GET_/api/metrics
+ * @description Endpoint para obtener métricas en formato Prometheus
+ * @param {object} req - Objeto de petición de Express.
+ * @param {object} res - Objeto de respuesta de Express.
+ */
+app.get('/api/metrics', async (req, res) => {
+  res.set('Content-Type', 'text/plain; charset=utf-8');
+  res.send(await getMetrics());
+});
 
 //app.use('/', indexRouter);
 //app.use('/users', usersRouter);
