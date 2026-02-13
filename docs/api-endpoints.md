@@ -1,33 +1,33 @@
-# API Endpoints - Referencia Rápida MindCare
+# API Endpoints - MindCare Quick Reference
 
-**Base URL:** `http://localhost:4000/api` (desarrollo)  
-**Base URL Producción:** `https://mindcare-backend.onrender.com/api`
+**Base URL:** `http://localhost:4000/api` (development)  
+**Production Base URL:** `https://mindcare-backend.onrender.com/api`
 
 ---
 
-## 📑 Índice de Endpoints
+## 📑 Endpoints Index
 
-- [Autenticación](#autenticación) - 3 endpoints
-- [Formulario Inicial](#formulario-inicial) - 2 endpoints
-- [Registros Diarios](#registros-diarios) - 5 endpoints
-- [Diario Personal](#diario-personal) - 6 endpoints
-- [Contactos de Emergencia](#contactos-de-emergencia) - 6 endpoints
-- [Análisis con IA](#análisis-con-ia) - 1 endpoint
+- [Authentication](#authentication) - 3 endpoints
+- [Initial Form](#initial-form) - 2 endpoints
+- [Daily Records](#daily-records) - 5 endpoints
+- [Personal Diary](#personal-diary) - 6 endpoints
+- [Emergency Contacts](#emergency-contacts) - 6 endpoints
+- [AI Analysis](#ai-analysis) - 1 endpoint
 - [Health Check](#health-check) - 1 endpoint
 
 **Total: 24 endpoints**
 
 ---
 
-## Autenticación
+## Authentication
 
-| Método | Endpoint | Autenticación | Descripción |
+| Method | Endpoint | Authentication | Description |
 |--------|----------|---------------|-------------|
-| `POST` | `/api/auth/register` | ❌ Público | Registra un nuevo usuario |
-| `POST` | `/api/auth/login` | ❌ Público | Inicia sesión y devuelve JWT |
-| `GET` | `/api/auth/profile` | 🔒 Requerida | Obtiene perfil del usuario autenticado |
+| `POST` | `/api/auth/register` | ❌ Public | Registers a new user |
+| `POST` | `/api/auth/login` | ❌ Public | Logs in and returns JWT |
+| `GET` | `/api/auth/profile` | 🔒 Required | Gets authenticated user profile |
 
-### Detalle de Endpoints
+### Endpoint Details
 
 #### `POST /api/auth/register`
 
@@ -35,9 +35,9 @@
 ```json
 {
   "nombre": "María García",
-  "email": "maria@ejemplo.com",
-  "password": "MiPassword123!",
-  "alias": "Mari" (opcional)
+  "email": "maria@example.com",
+  "password": "MyPassword123!",
+  "alias": "Mari" (optional)
 }
 ```
 
@@ -48,7 +48,7 @@
   "user": {
     "_id": "507f1f77bcf86cd799439011",
     "nombre": "María García",
-    "email": "maria@ejemplo.com",
+    "email": "maria@example.com",
     "alias": "Mari",
     "formularioCompletado": false,
     "contactoEmergenciaAnadido": false
@@ -56,9 +56,9 @@
 }
 ```
 
-**Errores posibles:**
-- `400` - Email ya registrado
-- `400` - Datos de validación incorrectos (nombre < 2 caracteres, password < 8 caracteres, email inválido)
+**Possible Errors:**
+- `400` - Email already registered
+- `400` - Incorrect validation data (name < 2 characters, password < 8 characters, invalid email)
 
 ---
 
@@ -67,8 +67,8 @@
 **Request Body:**
 ```json
 {
-  "email": "maria@ejemplo.com",
-  "password": "MiPassword123!"
+  "email": "maria@example.com",
+  "password": "MyPassword123!"
 }
 ```
 
@@ -79,15 +79,15 @@
   "user": {
     "_id": "507f1f77bcf86cd799439011",
     "nombre": "María García",
-    "email": "maria@ejemplo.com",
+    "email": "maria@example.com",
     "alias": "Mari"
   }
 }
 ```
 
-**Errores posibles:**
-- `400` - Credenciales inválidas
-- `404` - Usuario no encontrado
+**Possible Errors:**
+- `400` - Invalid credentials
+- `404` - User not found
 
 ---
 
@@ -103,7 +103,7 @@ Authorization: Bearer <token>
 {
   "_id": "507f1f77bcf86cd799439011",
   "nombre": "María García",
-  "email": "maria@ejemplo.com",
+  "email": "maria@example.com",
   "alias": "Mari",
   "formularioCompletado": true,
   "contactoEmergenciaAnadido": true,
@@ -111,20 +111,20 @@ Authorization: Bearer <token>
 }
 ```
 
-**Errores posibles:**
-- `401` - Token inválido o expirado
-- `404` - Usuario no encontrado
+**Possible Errors:**
+- `401` - Invalid or expired token
+- `404` - User not found
 
 ---
 
-## Formulario Inicial
+## Initial Form
 
-| Método | Endpoint | Autenticación | Descripción |
+| Method | Endpoint | Authentication | Description |
 |--------|----------|---------------|-------------|
-| `POST` | `/api/formulario` | 🔒 Requerida | Crea o actualiza formulario inicial |
-| `GET` | `/api/formulario` | 🔒 Requerida | Obtiene formulario del usuario |
+| `POST` | `/api/formulario` | 🔒 Required | Creates or updates initial form |
+| `GET` | `/api/formulario` | 🔒 Required | Gets user's form |
 
-### Detalle de Endpoints
+### Endpoint Details
 
 #### `POST /api/formulario`
 
@@ -160,32 +160,32 @@ Content-Type: application/json
       { "opcion": "Música", "preferencia": 4 }
     ]
   },
-  "comentariosDetonantes": "Me siento ansioso en situaciones sociales",
-  "comentariosActividades": "Disfruto actividades relajantes al aire libre"
+  "comentariosDetonantes": "I feel anxious in social situations",
+  "comentariosActividades": "I enjoy relaxing outdoor activities"
 }
 ```
 
-**Opciones disponibles para factoresDetonantes:**
+**Available Options for factoresDetonantes:**
 
-| Categoría | Opciones |
+| Category | Options |
 |-----------|----------|
-| `relaciones` | Conflicto con familiares, Conflicto con amigos, Conflicto con pareja, Aislamiento social, Críticas/juicios |
-| `trabajoEstudio` | Sobrecarga laboral, Exámenes, Falta de reconocimiento, Cambios en responsabilidades |
-| `rutinaHabitos` | Sueño irregular, Alimentación irregular, Falta de ejercicio, Desorganización |
-| `emociones` | Ansiedad, Estrés, Irritabilidad, Baja autoestima, Culpa |
-| `estimulosExternos` | Noticias negativas, Redes sociales, Ruido / ambiente caótico |
-| `saludFisica` | Enfermedad, Dolor, Fatiga |
+| `relaciones` | Conflict with family, Conflict with friends, Conflict with partner, Social isolation, Criticism/judgments |
+| `trabajoEstudio` | Work overload, Exams, Lack of recognition, Changes in responsibilities |
+| `rutinaHabitos` | Irregular sleep, Irregular eating, Lack of exercise, Disorganization |
+| `emociones` | Anxiety, Stress, Irritability, Low self-esteem, Guilt |
+| `estimulosExternos` | Negative news, Social media, Noise / chaotic environment |
+| `saludFisica` | Illness, Pain, Fatigue |
 
-**Opciones disponibles para actividadesPlacenteras:**
+**Available Options for actividadesPlacenteras:**
 
-| Categoría | Opciones |
+| Category | Options |
 |-----------|----------|
-| `actividadFisica` | Caminar, Correr, Yoga, Natación, Pilates, Ciclismo, Entrenamiento de fuerza |
-| `social` | Pasar tiempo con amigos, Llamadas familiares, Actividades en grupo, Voluntariado |
-| `creatividadHobbies` | Pintar, Dibujar, Escribir, Música, Fotografía, Manualidades |
-| `cuidadoPersonal` | Meditación, Baño relajante, Dormir, Alimentación saludable |
-| `entretenimiento` | Leer, Ver series/películas, Juegos de mesa, Videojuegos |
-| `logroAprendizaje` | Aprender algo nuevo, Estudiar, Proyectos personales, Cursos online |
+| `actividadFisica` | Walking, Running, Yoga, Swimming, Pilates, Cycling, Strength training |
+| `social` | Spending time with friends, Family calls, Group activities, Volunteering |
+| `creatividadHobbies` | Painting, Drawing, Writing, Music, Photography, Crafts |
+| `cuidadoPersonal` | Meditation, Relaxing bath, Sleep, Healthy eating |
+| `entretenimiento` | Reading, Watching series/movies, Board games, Video games |
+| `logroAprendizaje` | Learning something new, Studying, Personal projects, Online courses |
 
 **Response 201:**
 ```json
@@ -224,22 +224,22 @@ Authorization: Bearer <token>
 }
 ```
 
-**Errores posibles:**
-- `404` - Formulario no encontrado (usuario no lo ha completado)
+**Possible Errors:**
+- `404` - Form not found (user hasn't completed it)
 
 ---
 
-## Registros Diarios
+## Daily Records
 
-| Método | Endpoint | Autenticación | Descripción |
+| Method | Endpoint | Authentication | Description |
 |--------|----------|---------------|-------------|
-| `POST` | `/api/registro` | 🔒 Requerida | Crea un nuevo registro diario |
-| `GET` | `/api/registro` | 🔒 Requerida | Obtiene todos los registros del usuario |
-| `GET` | `/api/registro/rango` | 🔒 Requerida | Obtiene registros en un rango de fechas |
-| `GET` | `/api/registro/fecha/:fecha` | 🔒 Requerida | Obtiene registro de una fecha específica |
-| `GET` | `/api/registro/:id` | 🔒 Requerida | Obtiene un registro por ID |
+| `POST` | `/api/registro` | 🔒 Required | Creates a new daily record |
+| `GET` | `/api/registro` | 🔒 Required | Gets all user records |
+| `GET` | `/api/registro/rango` | 🔒 Required | Gets records in a date range |
+| `GET` | `/api/registro/fecha/:fecha` | 🔒 Required | Gets record for a specific date |
+| `GET` | `/api/registro/:id` | 🔒 Required | Gets a record by ID |
 
-### Detalle de Endpoints
+### Endpoint Details
 
 #### `POST /api/registro`
 
@@ -249,7 +249,7 @@ Authorization: Bearer <token>
 Content-Type: application/json
 ```
 
-**Request Body (ejemplo completo):**
+**Request Body (complete example):**
 ```json
 {
   "estadoAnimo": {
@@ -257,7 +257,7 @@ Content-Type: application/json
       { "nombre": "Bien", "intensidad": 4 },
       { "nombre": "Ansiedad", "intensidad": 2 }
     ],
-    "comentario": "Día productivo pero con algo de nerviosismo antes de la reunión"
+    "comentario": "Productive day but with some nervousness before the meeting"
   },
   "sueno": {
     "horaInicioSueno": "23:00",
@@ -267,7 +267,7 @@ Content-Type: application/json
     "cansancioDespertar": false,
     "suenoNoReparador": false,
     "suenosVividos": false,
-    "notasSueno": "Dormí bien, 8 horas completas"
+    "notasSueno": "Slept well, 8 full hours"
   },
   "actividadFisica": [
     { "nombre": "Yoga", "duracion": 30, "intensidad": "baja" },
@@ -287,49 +287,49 @@ Content-Type: application/json
   "interaccionesSociales": {
     "cantidad": "sociable",
     "calidad": "apoyo",
-    "notasSociales": "Almorcé con amigos, me sentí apoyado"
+    "notasSociales": "Had lunch with friends, felt supported"
   },
   "cognicion": [
     { "nombre": "Concentración", "intensidad": 4 },
     { "nombre": "Motivación", "intensidad": 5 }
   ],
-  "sintomas": "Ninguno",
-  "notasAdicionales": "Día tranquilo y productivo en general"
+  "sintomas": "None",
+  "notasAdicionales": "Quiet and productive day overall"
 }
 ```
 
-**Emociones disponibles:**
+**Available Emotions:**
 ```
-Cambios de ánimo, Sin control, Bien, Feliz, Triste, Sensible, 
-Rabia, Seguridad, Entusiasmo, Irritabilidad, Ansiedad, 
-Inseguridad, Gratitud, Indiferencia
-```
-
-**Cogniciones disponibles:**
-```
-Poca memoria, Niebla mental, Tranquilidad, Estrés, Concentración,
-Distracción, Motivación, Sin motivación, Creatividad, 
-Alto rendimiento, Bajo rendimiento
+Mood swings, Out of control, Good, Happy, Sad, Sensitive, 
+Anger, Security, Enthusiasm, Irritability, Anxiety, 
+Insecurity, Gratitude, Indifference
 ```
 
-**Intensidades de actividad física:**
+**Available Cognitions:**
 ```
-baja, moderada, alta
-```
-
-**Apetito:**
-```
-disminuido, normal, aumentado
+Poor memory, Brain fog, Tranquility, Stress, Concentration,
+Distraction, Motivation, Lack of motivation, Creativity, 
+High performance, Low performance
 ```
 
-**Cantidad de interacciones sociales:**
+**Physical Activity Intensities:**
 ```
-sociable, introvertido
+baja (low), moderada (moderate), alta (high)
 ```
 
-**Calidad de interacciones sociales:**
+**Appetite:**
 ```
-apoyo, conflicto
+disminuido (decreased), normal, aumentado (increased)
+```
+
+**Social Interactions Quantity:**
+```
+sociable, introvertido (introverted)
+```
+
+**Social Interactions Quality:**
+```
+apoyo (support), conflicto (conflict)
 ```
 
 **Response 201:**
@@ -357,12 +357,12 @@ apoyo, conflicto
 Authorization: Bearer <token>
 ```
 
-**Query Parameters (opcionales):**
-- `limit`: Número máximo de registros (default: 50)
-- `skip`: Número de registros a saltar para paginación (default: 0)
-- `page`: Página actual (alternativa a skip)
+**Query Parameters (optional):**
+- `limit`: Maximum number of records (default: 50)
+- `skip`: Number of records to skip for pagination (default: 0)
+- `page`: Current page (alternative to skip)
 
-**Ejemplo:**
+**Example:**
 ```
 GET /api/registro?limit=20&page=2
 ```
@@ -378,11 +378,10 @@ GET /api/registro?limit=20&page=2
         "emociones": [
           { "nombre": "Bien", "intensidad": 4 }
         ],
-        "comentario": "Día productivo"
+        "comentario": "Productive day"
       },
       "sueno": { /* ... */ }
-    },
-    // ... más registros
+    }
   ],
   "total": 125,
   "page": 2,
@@ -400,11 +399,11 @@ GET /api/registro?limit=20&page=2
 Authorization: Bearer <token>
 ```
 
-**Query Parameters (requeridos):**
-- `fechaInicio`: Fecha de inicio (formato: YYYY-MM-DD o ISO 8601)
-- `fechaFin`: Fecha de fin (formato: YYYY-MM-DD o ISO 8601)
+**Query Parameters (required):**
+- `fechaInicio`: Start date (format: YYYY-MM-DD or ISO 8601)
+- `fechaFin`: End date (format: YYYY-MM-DD or ISO 8601)
 
-**Ejemplo:**
+**Example:**
 ```
 GET /api/registro/rango?fechaInicio=2026-02-01&fechaFin=2026-02-13
 ```
@@ -413,8 +412,8 @@ GET /api/registro/rango?fechaInicio=2026-02-01&fechaFin=2026-02-13
 ```json
 {
   "registros": [
-    { /* registro 1 */ },
-    { /* registro 2 */ }
+    { /* record 1 */ },
+    { /* record 2 */ }
   ],
   "total": 12,
   "fechaInicio": "2026-02-01T00:00:00.000Z",
@@ -422,7 +421,7 @@ GET /api/registro/rango?fechaInicio=2026-02-01&fechaFin=2026-02-13
 }
 ```
 
-**Uso típico:** Gráficos semanales, mensuales, comparaciones de períodos.
+**Typical Use:** Weekly, monthly charts, period comparisons.
 
 ---
 
@@ -433,10 +432,10 @@ GET /api/registro/rango?fechaInicio=2026-02-01&fechaFin=2026-02-13
 Authorization: Bearer <token>
 ```
 
-**Parámetros URL:**
-- `fecha`: Fecha en formato YYYY-MM-DD
+**URL Parameters:**
+- `fecha`: Date in YYYY-MM-DD format
 
-**Ejemplo:**
+**Example:**
 ```
 GET /api/registro/fecha/2026-02-13
 ```
@@ -452,10 +451,10 @@ GET /api/registro/fecha/2026-02-13
 }
 ```
 
-**Errores posibles:**
-- `404` - No hay registro para esa fecha
+**Possible Errors:**
+- `404` - No record for that date
 
-**Uso típico:** Verificar si el usuario ya registró emociones hoy, cargar registro del día.
+**Typical Use:** Check if user already recorded emotions today, load today's record.
 
 ---
 
@@ -466,8 +465,8 @@ GET /api/registro/fecha/2026-02-13
 Authorization: Bearer <token>
 ```
 
-**Parámetros URL:**
-- `id`: ID del registro (ObjectId de MongoDB)
+**URL Parameters:**
+- `id`: Record ID (MongoDB ObjectId)
 
 **Response 200:**
 ```json
@@ -479,24 +478,24 @@ Authorization: Bearer <token>
 }
 ```
 
-**Errores posibles:**
-- `404` - Registro no encontrado
-- `403` - Registro no pertenece al usuario autenticado
+**Possible Errors:**
+- `404` - Record not found
+- `403` - Record doesn't belong to authenticated user
 
 ---
 
-## Diario Personal
+## Personal Diary
 
-| Método | Endpoint | Autenticación | Descripción |
+| Method | Endpoint | Authentication | Description |
 |--------|----------|---------------|-------------|
-| `POST` | `/api/diario` | 🔒 Requerida | Crea una nueva entrada de diario |
-| `GET` | `/api/diario` | 🔒 Requerida | Obtiene todas las entradas del usuario |
-| `GET` | `/api/diario/:id` | ⚠️ Opcional | Obtiene una entrada específica |
-| `POST` | `/api/diario/:id/acceso` | ❌ Público | Accede a entrada protegida con contraseña |
-| `PUT` | `/api/diario/:id` | 🔒 Requerida | Actualiza una entrada |
-| `DELETE` | `/api/diario/:id` | 🔒 Requerida | Elimina una entrada |
+| `POST` | `/api/diario` | 🔒 Required | Creates a new diary entry |
+| `GET` | `/api/diario` | 🔒 Required | Gets all user entries |
+| `GET` | `/api/diario/:id` | ⚠️ Optional | Gets a specific entry |
+| `POST` | `/api/diario/:id/acceso` | ❌ Public | Accesses password-protected entry |
+| `PUT` | `/api/diario/:id` | 🔒 Required | Updates an entry |
+| `DELETE` | `/api/diario/:id` | 🔒 Required | Deletes an entry |
 
-### Detalle de Endpoints
+### Endpoint Details
 
 #### `POST /api/diario`
 
@@ -509,9 +508,9 @@ Content-Type: application/json
 **Request Body:**
 ```json
 {
-  "titulo": "Un día especial",
-  "cuerpo": "Hoy fue un día increíble. Sentí que finalmente estoy progresando en mi terapia. Tuve una conversación profunda con mi terapeuta sobre mis miedos y logré identificar patrones...",
-  "password": "miPassword123" // OPCIONAL - para compartir con protección
+  "titulo": "A special day",
+  "cuerpo": "Today was an amazing day. I felt that I'm finally making progress in my therapy. I had a deep conversation with my therapist about my fears and managed to identify patterns...",
+  "password": "myPassword123" // OPTIONAL - for protected sharing
 }
 ```
 
@@ -522,8 +521,8 @@ Content-Type: application/json
   "entrada": {
     "_id": "65ab1234...",
     "usuarioId": "507f1f77...",
-    "titulo": "Un día especial",
-    "cuerpo": "Hoy fue un día increíble...",
+    "titulo": "A special day",
+    "cuerpo": "Today was an amazing day...",
     "hasPassword": true,
     "createdAt": "2026-02-13T15:00:00.000Z",
     "compartible": true,
@@ -532,7 +531,7 @@ Content-Type: application/json
 }
 ```
 
-**Nota:** Si se proporciona `password`, la entrada puede compartirse vía URL pública pero requerirá contraseña para acceder.
+**Note:** If `password` is provided, the entry can be shared via public URL but will require password to access.
 
 ---
 
@@ -549,15 +548,15 @@ Authorization: Bearer <token>
   "entradas": [
     {
       "_id": "65ab1234...",
-      "titulo": "Un día especial",
-      "cuerpo": "Contenido completo...",
+      "titulo": "A special day",
+      "cuerpo": "Full content...",
       "hasPassword": true,
       "createdAt": "2026-02-13T15:00:00.000Z",
       "updatedAt": "2026-02-13T15:00:00.000Z"
     },
     {
       "_id": "65ab5678...",
-      "titulo": "Reflexiones nocturnas",
+      "titulo": "Night reflections",
       "cuerpo": "...",
       "hasPassword": false,
       "createdAt": "2026-02-12T22:00:00.000Z"
@@ -571,35 +570,35 @@ Authorization: Bearer <token>
 
 #### `GET /api/diario/:id`
 
-**Headers (opcional):**
+**Headers (optional):**
 ```
 Authorization: Bearer <token>
 ```
 
-**Comportamiento:**
-1. **Si el usuario está autenticado Y es el dueño:** Devuelve entrada completa
-2. **Si NO está autenticado O no es el dueño:**
-   - Sin password: Devuelve entrada completa (pública)
-   - Con password: Devuelve solo título y indica que requiere contraseña
+**Behavior:**
+1. **If user is authenticated AND is the owner:** Returns complete entry
+2. **If NOT authenticated OR not the owner:**
+   - Without password: Returns complete entry (public)
+   - With password: Returns only title and indicates password required
 
-**Response 200 (sin password protegido):**
+**Response 200 (without password protection):**
 ```json
 {
   "_id": "65ab1234...",
-  "titulo": "Un día especial",
-  "cuerpo": "Contenido completo...",
+  "titulo": "A special day",
+  "cuerpo": "Full content...",
   "createdAt": "2026-02-13T15:00:00.000Z",
   "updatedAt": "2026-02-13T15:00:00.000Z"
 }
 ```
 
-**Response 200 (con password, usuario no autorizado):**
+**Response 200 (with password, unauthorized user):**
 ```json
 {
   "_id": "65ab1234...",
-  "titulo": "Un día especial",
+  "titulo": "A special day",
   "requiresPassword": true,
-  "message": "Esta entrada está protegida con contraseña",
+  "message": "This entry is password protected",
   "createdAt": "2026-02-13T15:00:00.000Z"
 }
 ```
@@ -616,26 +615,26 @@ Content-Type: application/json
 **Request Body:**
 ```json
 {
-  "password": "miPassword123"
+  "password": "myPassword123"
 }
 ```
 
-**Response 200 (contraseña correcta):**
+**Response 200 (correct password):**
 ```json
 {
   "_id": "65ab1234...",
-  "titulo": "Un día especial",
-  "cuerpo": "Contenido completo desbloqueado...",
+  "titulo": "A special day",
+  "cuerpo": "Full unlocked content...",
   "createdAt": "2026-02-13T15:00:00.000Z"
 }
 ```
 
-**Errores posibles:**
-- `401` - Contraseña incorrecta
-- `404` - Entrada no encontrada
-- `400` - Entrada no tiene contraseña (es pública)
+**Possible Errors:**
+- `401` - Incorrect password
+- `404` - Entry not found
+- `400` - Entry has no password (is public)
 
-**Uso típico:** Usuario comparte URL `/diario/65ab1234...` con terapeuta y password por separado.
+**Typical Use:** User shares URL `/diario/65ab1234...` with therapist and password separately.
 
 ---
 
@@ -647,12 +646,12 @@ Authorization: Bearer <token>
 Content-Type: application/json
 ```
 
-**Request Body (campos opcionales):**
+**Request Body (optional fields):**
 ```json
 {
-  "titulo": "Título actualizado",
-  "cuerpo": "Contenido actualizado...",
-  "password": "nuevaPassword" // Cambiar o añadir password
+  "titulo": "Updated title",
+  "cuerpo": "Updated content...",
+  "password": "newPassword" // Change or add password
 }
 ```
 
@@ -662,16 +661,16 @@ Content-Type: application/json
   "message": "Entrada actualizada exitosamente",
   "entrada": {
     "_id": "65ab1234...",
-    "titulo": "Título actualizado",
-    "cuerpo": "Contenido actualizado...",
+    "titulo": "Updated title",
+    "cuerpo": "Updated content...",
     "updatedAt": "2026-02-13T16:00:00.000Z"
   }
 }
 ```
 
-**Errores posibles:**
-- `403` - No autorizado (no es el dueño de la entrada)
-- `404` - Entrada no encontrada
+**Possible Errors:**
+- `403` - Unauthorized (not the entry owner)
+- `404` - Entry not found
 
 ---
 
@@ -690,24 +689,24 @@ Authorization: Bearer <token>
 }
 ```
 
-**Errores posibles:**
-- `403` - No autorizado (no es el dueño)
-- `404` - Entrada no encontrada
+**Possible Errors:**
+- `403` - Unauthorized (not the owner)
+- `404` - Entry not found
 
 ---
 
-## Contactos de Emergencia
+## Emergency Contacts
 
-| Método | Endpoint | Autenticación | Descripción |
+| Method | Endpoint | Authentication | Description |
 |--------|----------|---------------|-------------|
-| `POST` | `/api/contactos-emergencia` | 🔒 Requerida | Crea un contacto de emergencia |
-| `GET` | `/api/contactos-emergencia` | 🔒 Requerida | Obtiene todos los contactos del usuario |
-| `GET` | `/api/contactos-emergencia/:id` | 🔒 Requerida | Obtiene un contacto específico |
-| `PUT` | `/api/contactos-emergencia/:id` | 🔒 Requerida | Actualiza un contacto |
-| `DELETE` | `/api/contactos-emergencia/:id` | 🔒 Requerida | Elimina un contacto |
-| `POST` | `/api/contactos-emergencia/:contactoId/send-email` | 🔒 Requerida | Envía email de emergencia |
+| `POST` | `/api/contactos-emergencia` | 🔒 Required | Creates an emergency contact |
+| `GET` | `/api/contactos-emergencia` | 🔒 Required | Gets all user contacts |
+| `GET` | `/api/contactos-emergencia/:id` | 🔒 Required | Gets a specific contact |
+| `PUT` | `/api/contactos-emergencia/:id` | 🔒 Required | Updates a contact |
+| `DELETE` | `/api/contactos-emergencia/:id` | 🔒 Required | Deletes a contact |
+| `POST` | `/api/contactos-emergencia/:contactoId/send-email` | 🔒 Required | Sends emergency email |
 
-### Detalle de Endpoints
+### Endpoint Details
 
 #### `POST /api/contactos-emergencia`
 
@@ -721,19 +720,19 @@ Content-Type: application/json
 ```json
 {
   "nombre": "Dr. Juan Pérez",
-  "relacion": "Terapeuta",
+  "relacion": "Therapist",
   "telefono": "+34 123 456 789",
-  "email": "juan.perez@terapia.com",
+  "email": "juan.perez@therapy.com",
   "notificarEmergencia": true
 }
 ```
 
-**Campos:**
-- `nombre` (requerido): Nombre completo del contacto
-- `relacion` (opcional): Relación con el usuario (Terapeuta, Familiar, Amigo, etc.)
-- `telefono` (requerido): Número de teléfono
-- `email` (opcional): Email para notificaciones
-- `notificarEmergencia` (opcional, default: true): Si se envían emails automáticos
+**Fields:**
+- `nombre` (required): Contact's full name
+- `relacion` (optional): Relationship with user (Therapist, Family, Friend, etc.)
+- `telefono` (required): Phone number
+- `email` (optional): Email for notifications
+- `notificarEmergencia` (optional, default: true): If automatic emails are sent
 
 **Response 201:**
 ```json
@@ -743,9 +742,9 @@ Content-Type: application/json
     "_id": "65ac5678...",
     "usuarioId": "507f1f77...",
     "nombre": "Dr. Juan Pérez",
-    "relacion": "Terapeuta",
+    "relacion": "Therapist",
     "telefono": "+34 123 456 789",
-    "email": "juan.perez@terapia.com",
+    "email": "juan.perez@therapy.com",
     "notificarEmergencia": true,
     "createdAt": "2026-02-13T16:30:00.000Z"
   }
@@ -768,16 +767,16 @@ Authorization: Bearer <token>
     {
       "_id": "65ac5678...",
       "nombre": "Dr. Juan Pérez",
-      "relacion": "Terapeuta",
+      "relacion": "Therapist",
       "telefono": "+34 123 456 789",
-      "email": "juan.perez@terapia.com",
+      "email": "juan.perez@therapy.com",
       "notificarEmergencia": true,
       "createdAt": "2026-02-13T16:30:00.000Z"
     },
     {
       "_id": "65ac9abc...",
       "nombre": "Ana García",
-      "relacion": "Familiar",
+      "relacion": "Family",
       "telefono": "+34 987 654 321",
       "createdAt": "2026-02-10T10:00:00.000Z"
     }
@@ -801,9 +800,9 @@ Authorization: Bearer <token>
   "_id": "65ac5678...",
   "usuarioId": "507f1f77...",
   "nombre": "Dr. Juan Pérez",
-  "relacion": "Terapeuta",
+  "relacion": "Therapist",
   "telefono": "+34 123 456 789",
-  "email": "juan.perez@terapia.com",
+  "email": "juan.perez@therapy.com",
   "notificarEmergencia": true,
   "createdAt": "2026-02-13T16:30:00.000Z",
   "updatedAt": "2026-02-13T16:30:00.000Z"
@@ -820,12 +819,12 @@ Authorization: Bearer <token>
 Content-Type: application/json
 ```
 
-**Request Body (campos opcionales):**
+**Request Body (optional fields):**
 ```json
 {
   "nombre": "Dr. Juan Pérez Gómez",
   "telefono": "+34 999 888 777",
-  "email": "juan.nuevo@terapia.com"
+  "email": "juan.new@therapy.com"
 }
 ```
 
@@ -837,7 +836,7 @@ Content-Type: application/json
     "_id": "65ac5678...",
     "nombre": "Dr. Juan Pérez Gómez",
     "telefono": "+34 999 888 777",
-    "email": "juan.nuevo@terapia.com",
+    "email": "juan.new@therapy.com",
     "updatedAt": "2026-02-13T17:00:00.000Z"
   }
 }
@@ -873,7 +872,7 @@ Content-Type: application/json
 **Request Body:**
 ```json
 {
-  "mensaje": "Necesito ayuda urgente. Por favor, contáctame lo antes posible. He estado sintiéndome muy mal y necesito hablar con alguien."
+  "mensaje": "I need urgent help. Please contact me as soon as possible. I've been feeling very bad and need to talk to someone."
 }
 ```
 
@@ -883,55 +882,55 @@ Content-Type: application/json
   "message": "Email enviado exitosamente",
   "destinatario": {
     "nombre": "Dr. Juan Pérez",
-    "email": "juan.perez@terapia.com"
+    "email": "juan.perez@therapy.com"
   },
   "enviadoEn": "2026-02-13T18:00:00.000Z"
 }
 ```
 
-**Errores posibles:**
-- `400` - Contacto no tiene email configurado
-- `404` - Contacto no encontrado
-- `500` - Error al enviar email (problema con servidor SMTP)
+**Possible Errors:**
+- `400` - Contact has no configured email
+- `404` - Contact not found
+- `500` - Error sending email (SMTP server problem)
 
-**Contenido del email enviado:**
+**Sent Email Content:**
 ```
-De: noreply@mindcare.com
-Para: juan.perez@terapia.com
-Asunto: Alerta de Emergencia - MindCare
+From: noreply@mindcare.com
+To: juan.perez@therapy.com
+Subject: Emergency Alert - MindCare
 
-Hola Dr. Juan Pérez,
+Hello Dr. Juan Pérez,
 
-El usuario María García (maria@ejemplo.com) ha marcado esto como una emergencia 
-y necesita contacto urgente.
+User María García (maria@example.com) has marked this as an emergency 
+and needs urgent contact.
 
-Mensaje del usuario:
-"Necesito ayuda urgente. Por favor, contáctame lo antes posible..."
+User's message:
+"I need urgent help. Please contact me as soon as possible..."
 
-Por favor, contácta al usuario lo antes posible.
+Please contact the user as soon as possible.
 
-Teléfono del usuario: [si está configurado]
+User's phone: [if configured]
 
 ---
-Este mensaje fue enviado automáticamente desde MindCare.
+This message was sent automatically from MindCare.
 ```
 
 ---
 
-## Análisis con IA
+## AI Analysis
 
-| Método | Endpoint | Autenticación | Descripción |
+| Method | Endpoint | Authentication | Description |
 |--------|----------|---------------|-------------|
-| `POST` | `/api/ai/analyze` | ⚠️ Opcional | Analiza datos del usuario con IA (Grok) |
+| `POST` | `/api/ai/analyze` | ⚠️ Optional | Analyzes user data with AI (Grok) |
 
-### Detalle de Endpoints
+### Endpoint Details
 
 #### `POST /api/ai/analyze`
 
 **Headers:**
 ```
 Content-Type: application/json
-Authorization: Bearer <token> (opcional)
+Authorization: Bearer <token> (optional)
 ```
 
 **Request Body:**
@@ -963,7 +962,7 @@ Authorization: Bearer <token> (opcional)
         "horaDespertar": "09:00"
       }
     }
-    // ... más registros (mínimo 3-5 para análisis significativo)
+    // ... more records (minimum 3-5 for meaningful analysis)
   ],
   "formulario": {
     "factoresDetonantes": {
@@ -985,22 +984,22 @@ Authorization: Bearer <token> (opcional)
 ```json
 {
   "analisis": {
-    "resumen": "Basado en tus registros de los últimos días, detectamos un patrón de sueño irregular que puede estar afectando tu estado de ánimo. Las emociones predominantes son tristeza y ansiedad, con intensidades consistentemente altas.",
+    "resumen": "Based on your recent records, we detect an irregular sleep pattern that may be affecting your mood. The predominant emotions are sadness and anxiety, with consistently high intensities.",
     
     "patrones": [
       {
         "tipo": "sueño",
-        "descripcion": "Sueño irregular: acostándote después de la 1:00 AM en las últimas 7 noches",
+        "descripcion": "Irregular sleep: going to bed after 1:00 AM for the last 7 nights",
         "severidad": "alta"
       },
       {
         "tipo": "emociones",
-        "descripcion": "Emociones predominantes: Tristeza (promedio 4.5/5), Ansiedad (promedio 4.8/5)",
+        "descripcion": "Predominant emotions: Sadness (average 4.5/5), Anxiety (average 4.8/5)",
         "severidad": "alta"
       },
       {
         "tipo": "actividad",
-        "descripcion": "Baja actividad física: solo 2 sesiones en la última semana",
+        "descripcion": "Low physical activity: only 2 sessions in the last week",
         "severidad": "media"
       }
     ],
@@ -1008,26 +1007,26 @@ Authorization: Bearer <token> (opcional)
     "recomendaciones": [
       {
         "categoria": "sueño",
-        "titulo": "Establece una rutina de sueño constante",
-        "descripcion": "Intenta acostarte y despertarte a la misma hora todos los días, idealmente antes de las 23:00",
+        "titulo": "Establish a consistent sleep routine",
+        "descripcion": "Try to go to bed and wake up at the same time every day, ideally before 11:00 PM",
         "prioridad": "alta"
       },
       {
         "categoria": "actividad",
-        "titulo": "Practica Yoga regularmente",
-        "descripcion": "Indicaste que el Yoga te resulta placentero. Intenta practicarlo 3-4 veces por semana, preferiblemente por la mañana",
+        "titulo": "Practice Yoga regularly",
+        "descripcion": "You indicated that Yoga is pleasant for you. Try practicing it 3-4 times a week, preferably in the morning",
         "prioridad": "alta"
       },
       {
         "categoria": "habitos",
-        "titulo": "Reduce consumo de cafeína después de las 16:00",
-        "descripcion": "La cafeína puede afectar la calidad del sueño. Evita café, té y bebidas energéticas por la tarde",
+        "titulo": "Reduce caffeine consumption after 4:00 PM",
+        "descripcion": "Caffeine can affect sleep quality. Avoid coffee, tea and energy drinks in the afternoon",
         "prioridad": "media"
       },
       {
         "categoria": "profesional",
-        "titulo": "Considera buscar apoyo profesional",
-        "descripcion": "Los niveles altos y persistentes de tristeza y ansiedad pueden beneficiarse de terapia profesional",
+        "titulo": "Consider seeking professional support",
+        "descripcion": "High and persistent levels of sadness and anxiety can benefit from professional therapy",
         "prioridad": "alta"
       }
     ],
@@ -1035,11 +1034,11 @@ Authorization: Bearer <token> (opcional)
     "alertas": [
       {
         "tipo": "warning",
-        "mensaje": "Patrón de sueño preocupante detectado: menos de 6 horas en 3 de los últimos 7 días"
+        "mensaje": "Worrying sleep pattern detected: less than 6 hours on 3 of the last 7 days"
       },
       {
         "tipo": "warning",
-        "mensaje": "Emociones negativas sostenidas por más de 5 días consecutivos"
+        "mensaje": "Sustained negative emotions for more than 5 consecutive days"
       }
     ],
     
@@ -1059,27 +1058,27 @@ Authorization: Bearer <token> (opcional)
 }
 ```
 
-**Errores posibles:**
-- `400` - Datos insuficientes para análisis (menos de 3 registros)
-- `400` - Formato de datos inválido
-- `503` - Servicio de IA no disponible temporalmente
-- `500` - Error interno del servidor de IA
+**Possible Errors:**
+- `400` - Insufficient data for analysis (less than 3 records)
+- `400` - Invalid data format
+- `503` - AI service temporarily unavailable
+- `500` - Internal AI server error
 
-**Notas importantes:**
-- Se recomienda al menos 5-7 registros para análisis significativo
-- La IA es una herramienta complementaria, NO sustituye atención profesional
-- Los datos se envían encriptados al servicio de Grok (xAI)
-- No se almacenan datos en servidores externos más allá de la sesión de análisis
+**Important Notes:**
+- At least 5-7 records recommended for meaningful analysis
+- AI is a complementary tool, does NOT replace professional care
+- Data is sent encrypted to Grok service (xAI)
+- No data stored on external servers beyond the analysis session
 
 ---
 
 ## Health Check
 
-| Método | Endpoint | Autenticación | Descripción |
+| Method | Endpoint | Authentication | Description |
 |--------|----------|---------------|-------------|
-| `GET` | `/api/health` | ❌ Público | Verifica estado del servicio API |
+| `GET` | `/api/health` | ❌ Public | Checks API service status |
 
-### Detalle de Endpoints
+### Endpoint Details
 
 #### `GET /api/health`
 
@@ -1113,53 +1112,53 @@ Authorization: Bearer <token> (opcional)
 }
 ```
 
-**Uso típico:**
-- Monitoring de servicios (UptimeRobot, Pingdom)
+**Typical Use:**
+- Service monitoring (UptimeRobot, Pingdom)
 - Docker healthchecks
 - Load balancer health checks
 - Status page
 
 ---
 
-## Códigos de Estado HTTP
+## HTTP Status Codes
 
-| Código | Significado | Cuándo se usa |
+| Code | Meaning | When Used |
 |--------|-------------|---------------|
-| `200` | OK | Request exitoso (GET, PUT, DELETE) |
-| `201` | Created | Recurso creado exitosamente (POST) |
-| `400` | Bad Request | Datos de entrada inválidos o faltantes |
-| `401` | Unauthorized | Token inválido, expirado o faltante |
-| `403` | Forbidden | Usuario autenticado pero sin permisos |
-| `404` | Not Found | Recurso no encontrado |
-| `500` | Internal Server Error | Error interno del servidor |
-| `503` | Service Unavailable | Servicio temporalmente no disponible |
+| `200` | OK | Successful request (GET, PUT, DELETE) |
+| `201` | Created | Resource created successfully (POST) |
+| `400` | Bad Request | Invalid or missing input data |
+| `401` | Unauthorized | Invalid, expired or missing token |
+| `403` | Forbidden | Authenticated user but without permissions |
+| `404` | Not Found | Resource not found |
+| `500` | Internal Server Error | Internal server error |
+| `503` | Service Unavailable | Service temporarily unavailable |
 
 ---
 
-## Autenticación JWT
+## JWT Authentication
 
-### Obtener Token
+### Getting Token
 
-1. **Registrar usuario:**
+1. **Register user:**
    ```
    POST /api/auth/register
    ```
 
-2. **Iniciar sesión:**
+2. **Login:**
    ```
    POST /api/auth/login
-   → Devuelve token
+   → Returns token
    ```
 
-### Usar Token
+### Using Token
 
-Incluir en header `Authorization` de todas las requests protegidas:
+Include in `Authorization` header of all protected requests:
 
 ```
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 ```
 
-### Formato del Token
+### Token Format
 
 ```json
 {
@@ -1169,7 +1168,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
   },
   "payload": {
     "id": "507f1f77bcf86cd799439011",
-    "email": "maria@ejemplo.com",
+    "email": "maria@example.com",
     "nombre": "María García",
     "iat": 1707822300,
     "exp": 1708427100
@@ -1178,38 +1177,38 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 }
 ```
 
-### Expiración
+### Expiration
 
-- **Duración por defecto:** 7 días
-- **Configurable vía:** Variable de entorno `JWT_EXPIRES_IN`
-- **Comportamiento al expirar:** Error 401, usuario debe hacer login nuevamente
+- **Default duration:** 7 days
+- **Configurable via:** Environment variable `JWT_EXPIRES_IN`
+- **Behavior on expiration:** Error 401, user must login again
 
 ---
 
-## Rate Limiting (Futuro)
+## Rate Limiting (Future)
 
-**Planeado para v1.1:**
+**Planned for v1.1:**
 
-| Endpoint | Límite | Ventana |
+| Endpoint | Limit | Window |
 |----------|--------|---------|
-| `POST /api/auth/login` | 5 intentos | 15 minutos |
-| `POST /api/auth/register` | 3 registros | 1 hora |
-| API general | 100 requests | 15 minutos |
-| `POST /api/ai/analyze` | 10 análisis | 1 hora |
+| `POST /api/auth/login` | 5 attempts | 15 minutes |
+| `POST /api/auth/register` | 3 registrations | 1 hour |
+| General API | 100 requests | 15 minutes |
+| `POST /api/ai/analyze` | 10 analyses | 1 hour |
 
 ---
 
-## Ejemplos de Uso con cURL
+## cURL Examples
 
-### Registrar usuario
+### Register User
 
 ```bash
 curl -X POST http://localhost:4000/api/auth/register \
   -H "Content-Type: application/json" \
   -d '{
     "nombre": "María García",
-    "email": "maria@ejemplo.com",
-    "password": "MiPassword123!"
+    "email": "maria@example.com",
+    "password": "MyPassword123!"
   }'
 ```
 
@@ -1219,12 +1218,12 @@ curl -X POST http://localhost:4000/api/auth/register \
 curl -X POST http://localhost:4000/api/auth/login \
   -H "Content-Type: application/json" \
   -d '{
-    "email": "maria@ejemplo.com",
-    "password": "MiPassword123!"
+    "email": "maria@example.com",
+    "password": "MyPassword123!"
   }'
 ```
 
-### Crear registro (requiere token)
+### Create Record (requires token)
 
 ```bash
 curl -X POST http://localhost:4000/api/registro \
@@ -1241,7 +1240,7 @@ curl -X POST http://localhost:4000/api/registro \
   }'
 ```
 
-### Obtener registros
+### Get Records
 
 ```bash
 curl -X GET http://localhost:4000/api/registro \
@@ -1250,29 +1249,29 @@ curl -X GET http://localhost:4000/api/registro \
 
 ---
 
-## Colección de Postman
+## Postman Collection
 
-**Archivo disponible:** `backend/postman/mindcare-api.postman_collection.json`
+**Available File:** `backend/postman/mindcare-api.postman_collection.json`
 
-**Importar en Postman:**
-1. Abrir Postman
+**Import into Postman:**
+1. Open Postman
 2. File → Import
-3. Seleccionar el archivo JSON
-4. Configurar variables de entorno:
+3. Select the JSON file
+4. Configure environment variables:
    - `base_url`: `http://localhost:4000/api`
-   - `token`: (se llenará automáticamente después de login)
+   - `token`: (will be filled automatically after login)
 
-**Carpetas incluidas:**
-- 📁 Autenticación
-- 📁 Formulario Inicial
-- 📁 Registros Diarios
-- 📁 Diario Personal
-- 📁 Contactos de Emergencia
-- 📁 IA
+**Included Folders:**
+- 📁 Authentication
+- 📁 Initial Form
+- 📁 Daily Records
+- 📁 Personal Diary
+- 📁 Emergency Contacts
+- 📁 AI
 - 📁 Health Check
 
 ---
 
-**Última actualización:** 13 de febrero de 2026  
-**Versión API:** 1.0  
-**Documentación completa:** [backend/docs/API_REFERENCE.md](../backend/docs/API_REFERENCE.md)
+**Last updated:** February 13, 2026  
+**API Version:** 1.0  
+**Complete documentation:** [backend/docs/API_REFERENCE.md](../backend/docs/API_REFERENCE.md)
