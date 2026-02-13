@@ -257,6 +257,186 @@ SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c     ← Signature
 
 ---
 
+## 🔒 Mejores Prácticas de Seguridad Implementadas
+
+### 1. Helmet.js - Hardening de Headers HTTP
+
+Helmet configura automáticamente múltiples headers de seguridad:
+
+```javascript
+app.use(helmet());
+```
+
+**Headers configurados:**
+| Header | Propósito |
+|--------|-----------|
+| `Content-Security-Policy` | Previene ataques XSS e inyección de datos |
+| `X-DNS-Prefetch-Control` | Controla el prefetching DNS |
+| `X-Frame-Options` | Previene clickjacking |
+| `X-Content-Type-Options` | Previene MIME sniffing |
+| `Strict-Transport-Security` | Fuerza conexiones HTTPS |
+| `X-XSS-Protection` | Filtro XSS del navegador |
+
+### 2. Bcrypt - Hashing de Contraseñas
+
+**Configuración de salt rounds:**
+```javascript
+const SALT_ROUNDS = 10;
+const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS);
+```
+
+**¿Por qué 10 rounds?**
+- Proporciona ~100ms de tiempo de hash por contraseña
+- Balance óptimo entre seguridad y rendimiento
+- Dificulta ataques de fuerza bruta (10 rounds = 2^10 = 1024 iteraciones)
+
+**Comparación segura:**
+```javascript
+// Usa comparación timing-safe para evitar timing attacks
+const isValid = await bcrypt.compare(plainPassword, hashedPassword);
+```
+
+### 3. JWT - Gestión Segura de Tokens
+
+**Configuración recomendada:**
+```javascript
+const token = jwt.sign(
+  { user: { id, email, name } },
+  process.env.JWT_SECRET,
+  { 
+    expiresIn: '1h',           // Expiración corta
+    algorithm: 'HS256'          // Algoritmo seguro
+  }
+);
+```
+
+**Mejores prácticas implementadas:**
+- ✅ Expiración corta (1 hora) para minimizar ventana de ataque
+- ✅ Payload mínimo (solo datos esenciales, sin información sensible)
+- ✅ Secret almacenado en variables de entorno
+- ✅ Algoritmo HS256 (HMAC con SHA-256)
+
+**Recomendaciones adicionales para producción:**
+```javascript
+// Para entornos de alta seguridad, considera:
+JWT_SECRET=clave_de_al_menos_256_bits_generada_aleatoriamente
+JWT_EXPIRES_IN=15m  // Reducir a 15 minutos + refresh tokens
+```
+
+### 4. CORS - Control de Acceso Cross-Origin
+
+**Configuración restrictiva:**
+```javascript
+const corsOptions = {
+  origin: process.env.FRONTEND_URL,  // Solo origen específico
+  credentials: true,                  // Permite cookies/auth headers
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Métodos permitidos
+  optionsSuccessStatus: 200
+};
+app.use(cors(corsOptions));
+```
+
+**Configuración para producción:**
+```javascript
+// Evitar origin: '*' en producción
+// Usar lista blanca de orígenes si hay múltiples frontends
+const allowedOrigins = [
+  'https://mindcare.com',
+  'https://app.mindcare.com'
+];
+
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
+};
+```
+
+### 5. Validación de Inputs
+
+**Patrón de validación en controladores:**
+```javascript
+// Validación temprana y explícita
+exports.registerUser = async (req, res) => {
+  const { email, password, nombre } = req.body;
+  
+  // Validar campos requeridos
+  if (!email || !password || !nombre) {
+    return res.status(400).json({ message: 'Todos los campos son requeridos' });
+  }
+  
+  // Validar formato de email
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    return res.status(400).json({ message: 'Email inválido' });
+  }
+  
+  // Validar longitud de contraseña
+  if (password.length < 6) {
+    return res.status(400).json({ message: 'La contraseña debe tener al menos 6 caracteres' });
+  }
+  
+  // Continuar con la lógica...
+};
+```
+
+### 6. Gestión de Variables de Entorno
+
+**Archivo `.env` (nunca commitear):**
+```env
+# Usar secrets fuertes y únicos
+JWT_SECRET=generado_con_openssl_rand_base64_32
+MONGODB_URI=mongodb+srv://...
+EMAIL_PASS=app_specific_password
+```
+
+**Validación al iniciar la aplicación:**
+```javascript
+// Verificar variables críticas
+const requiredEnvVars = ['JWT_SECRET', 'MONGODB_URI'];
+requiredEnvVars.forEach(varName => {
+  if (!process.env[varName]) {
+    console.error(`❌ Variable de entorno ${varName} no configurada`);
+    process.exit(1);
+  }
+});
+```
+
+### 7. Protección contra Ataques Comunes
+
+| Ataque | Mitigación Implementada |
+|--------|-------------------------|
+| **SQL/NoSQL Injection** | Mongoose sanitiza queries automáticamente |
+| **XSS** | Helmet CSP + React escapa automáticamente |
+| **CSRF** | SameSite cookies + token validation |
+| **Brute Force** | Se recomienda implementar rate limiting |
+| **Man-in-the-Middle** | HTTPS obligatorio en producción |
+
+### 8. Recomendaciones para Hardening Adicional
+
+```javascript
+// Rate Limiting (implementar en producción)
+const rateLimit = require('express-rate-limit');
+const authLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,  // 15 minutos
+  max: 5,                     // 5 intentos
+  message: 'Demasiados intentos de login'
+});
+app.use('/api/auth/login', authLimiter);
+
+// Logging de seguridad
+const logSecurityEvent = (event, userId, ip) => {
+  console.log(`[SECURITY] ${event} - User: ${userId} - IP: ${ip}`);
+};
+```
+
+---
+
 ## 📦 Dependencias y su Propósito
 
 | Dependencia | Versión | Propósito |
