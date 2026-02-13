@@ -326,40 +326,6 @@ healthcheck:
 
 ---
 
-## 📸 Capturas de Pantalla
-
-### 🏠 Landing Page
-> *Hero section con propuesta de valor, call-to-action hacia registro. Diseño responsive con paleta calmante (azules/verdes) que transmite serenidad y confianza.*
-
-`[Captura pendiente]`
-
-### 📊 Dashboard de Emociones
-> *Vista principal mostrando estado emocional actual, gráfico de tendencias de 7 días, acceso rápido al diario y botón de emergencia siempre visible.*
-
-`[Captura pendiente]`
-
-### 📝 Registro Emocional Diario
-> *Formulario interactivo con sliders para estado de ánimo (1-10), calidad de sueño, niveles de ansiedad, selector de actividades y campo de cogniciones.*
-
-`[Captura pendiente]`
-
-### 📔 Diario Personal Seguro
-> *Editor de entradas con opción de protección por contraseña. Listado de entradas con indicador visual de protegidas vs públicas.*
-
-`[Captura pendiente]`
-
-### 🆘 Sistema de Emergencia
-> *Panel de gestión de contactos con campos para nombre, teléfono, email y relación. Botón de alerta con confirmación y acceso a líneas de ayuda.*
-
-`[Captura pendiente]`
-
-### 📈 Análisis con IA
-> *Visualización de insights de Grok AI: patrones detectados, correlaciones sueño/ánimo, recomendaciones personalizadas basadas en historial.*
-
-`[Captura pendiente]`
-
----
-
 ## 🚀 Instalación
 
 ### 🐳 The Fast Way (Docker Compose)
