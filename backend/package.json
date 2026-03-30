@@ -15,7 +15,7 @@
     "cors": "^2.8.5",
     "debug": "~2.6.9",
     "dotenv": "^17.2.3",
-    "express": "~4.16.1",
+    "express": "~4.22.1",
     "helmet": "^7.1.0",
     "http-errors": "~1.6.3",
     "jsonwebtoken": "^9.0.2",
